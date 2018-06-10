@@ -39,8 +39,8 @@ namespace Dominio.DominioLega
         public int NumeroCen { get => _numeroCen; set => _numeroCen = value; }
         public int NumeroAtt { get => _numeroAtt; set => _numeroAtt = value; }
         public List<Giocatore> Giocatori { get => _giocatori; }
-        public Lega Lega { get => _lega;  }
-        public Utente Utente { get => _utente;  }
+        public Lega Lega { get => _lega; }
+        public Utente Utente { get => _utente; }
 
 
         //AGGIUNGERE EVENTUALMENTE EXCEPTIONS IN BASE AGLI ERRORI
@@ -52,7 +52,7 @@ namespace Dominio.DominioLega
             if (_giocatori.Contains(toAdd))
                 return false;
 
-           _giocatori.Add(toAdd);
+            _giocatori.Add(toAdd);
             return true;
         }
 
@@ -75,7 +75,7 @@ namespace Dominio.DominioLega
 
         public Giocatore RicercaGiocatore(String nome)
         {
-            foreach ( Giocatore g in _giocatori.ToArray())
+            foreach (Giocatore g in _giocatori.ToArray())
             {
                 if (g.Nome.Equals(nome))
                     return g;
@@ -111,10 +111,11 @@ namespace Dominio.DominioLega
 
         public Boolean VerificaCompletezza()
         {
-            if (_numeroPor==Lega.NumeroPor && _numeroDif==Lega.NumeroDif && _numeroCen==Lega.NumeroCen && _numeroAtt==Lega.NumeroAtt)
+            if (_numeroPor == Lega.NumeroPor && _numeroDif == Lega.NumeroDif && _numeroCen == Lega.NumeroCen && _numeroAtt == Lega.NumeroAtt)
                 return true;
 
             return false;
+        }
     }
 }
 
