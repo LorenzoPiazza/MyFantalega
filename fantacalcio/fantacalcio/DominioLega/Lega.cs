@@ -11,7 +11,7 @@ namespace fantacalcio.DominioLega
         private String _nomeLega;
         private String _squadraAdmin;
         private int _numeroSquadreTotali;
-        private int _creditiPerSquadra;
+        private int _creditiInizialiSquadra;
         private int _numeroPor;
         private int _numeroDif;
         private int _numeroCen;
@@ -23,8 +23,23 @@ namespace fantacalcio.DominioLega
 
         public Lega(string nomeLega, int numeroSquadreTotali, Squadra squadra)
         {
+            if(nomeLega==null || nomeLega.Length == 0)
+            {
+                throw new ArgumentNullException("nomeLega nullo");
+            }
+
+            if (numeroSquadreTotali<4 || numeroSquadreTotali>12)
+            {
+                throw new ArgumenException("numero partecipanti <4 o >12");
+            }
+
+            if (squadra == null || squadra.Length == 0)
+            {
+                throw new ArgumentNullException("nome squadra Admin nullo");
+            }
+
             //Parameri di default modificabili tramite set
-            _creditiPerSquadra = 500;
+            _creditiInizialiSquadra = 500;
             _numeroPor = 3;
             _numeroDif = 8;
             _numeroCen = 8;
@@ -35,6 +50,7 @@ namespace fantacalcio.DominioLega
             _nomeLega = nomeLega;
             _squadraAdmin = squadra.Nome;
             NumeroSquadreTotali = numeroSquadreTotali;
+
             MercatoAttivo = null;
             ListaSvincolati = null;
 
@@ -43,7 +59,7 @@ namespace fantacalcio.DominioLega
         public string NomeLega { get => _nomeLega; }
         public string SquadraAdmin { get => _squadraAdmin; }
         public int NumeroSquadreTotali { get => NumeroSquadreTotali; set => NumeroSquadreTotali = value; }
-        public int CreditiPerSquadra { get => _creditiPerSquadra; set => _creditiPerSquadra = value; }   
+        public int CreditiInizialiSquadra { get => _creditiInizialiSquadra; set => _creditiInizialiSquadra = value; }   
         public int NumeroPor { get => _numeroPor; set => _numeroPor = value; }
         public int NumeroDif { get => _numeroDif; set => _numeroDif = value; }
         public int NumeroCen { get => _numeroCen; set => _numeroCen = value; }

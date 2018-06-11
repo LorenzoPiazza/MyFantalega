@@ -21,7 +21,7 @@ namespace fantacalcio.DominioLega
         public Squadra(string nome, Lega lega, Utente utente)
         {
             //valori di default
-            _creditResidui = lega.CreditiPerSquadra;
+            _creditResidui = lega.CreditiInizialiSquadra;
             _numeroPor = 0;
             _numeroDif = 0;
             _numeroCen = 0;
