@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using fantacalcio.DominioLega;
 
-namespace Dominio.DominioLega
+
+namespace fantacalcio.DominioLega
 {
     public class Squadra
     {
@@ -19,17 +21,17 @@ namespace Dominio.DominioLega
         public Squadra(string nome, Lega lega, Utente utente)
         {
             //valori di default
-            CreditResidui = lega.CreditiPerSquadra;
-            NumeroPor = 0;
-            NumeroDif = 0;
-            NumeroCen = 0;
-            NumeroAtt = 0;
+            _creditResidui = lega.CreditiPerSquadra;
+            _numeroPor = 0;
+            _numeroDif = 0;
+            _numeroCen = 0;
+            _numeroAtt = 0;
 
-            Giocatori = new List<Giocatore>();
+            _giocatori = new List<Giocatore>();
 
             _nome = nome;
-            Lega = lega;
-            Utente = utente;
+            _lega = lega;
+            _utente = utente;
         }
 
         public string Nome { get => _nome; }

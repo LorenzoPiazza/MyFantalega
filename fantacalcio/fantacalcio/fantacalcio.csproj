@@ -99,13 +99,16 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Lega.cs" />
+    <Compile Include="DominioLega\Lega.cs" />
+    <Compile Include="DominioLega\ListaSvincolati.cs" />
+    <Compile Include="DominioLega\Mercato.cs" />
+    <Compile Include="DominioLega\Utente.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Squadra.cs" />
-    <Compile Include="TestLega.cs" />
+    <Compile Include="DominioLega\Squadra.cs" />
+    <Compile Include="DominioLega\test\TestLega.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
