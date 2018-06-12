@@ -1,3 +1,9 @@
 {
+  "ExpandedNodes": [
+    "\\fantacalcio",
+    "\\fantacalcio\\fantacalcio",
+    "\\fantacalcio\\fantacalcio\\DominioLega",
+    "\\fantacalcio\\fantacalcio\\DominioLega\\test"
+  ],
   "PreviewInSolutionExplorer": false
 }
