@@ -113,7 +113,7 @@ namespace fantacalcio.DominioLega
 
         public Boolean VerificaCompletezza()
         {
-            if (_numeroPor == Lega.NumeroPor && _numeroDif == Lega.NumeroDif && _numeroCen == Lega.NumeroCen && _numeroAtt == Lega.NumeroAtt)
+            if (_numeroPor == _lega.NumeroPor && _numeroDif == _lega.NumeroDif && _numeroCen == _lega.NumeroCen && _numeroAtt == _lega.NumeroAtt)
                 return true;
 
             return false;
