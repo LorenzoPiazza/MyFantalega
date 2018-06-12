@@ -12,10 +12,15 @@ namespace TestDominio
     public class TestLega
     {
         private Lega _lega;
+        private Squadra _squadraAdmin;
+        private Utente _utente;
         [SetUp]
         public void LegaSetUp()
         {
-            _lega = new Lega("FantacalcioClub", 10, "SquareFC");
+            _utente = new Utente("mailtestLega.com");
+            _utente.IsAdmin = true;
+            _squadraAdmin = new Squadra("SquareFC", "FantacalcioClub", _utente);
+            _lega = new Lega("FantacalcioClub", 10, _squadraAdmin) ;
         }
 
         [Test]

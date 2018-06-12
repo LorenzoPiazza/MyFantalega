@@ -1,9 +1,10 @@
 {
   "ExpandedNodes": [
+    "",
     "\\fantacalcio",
     "\\fantacalcio\\fantacalcio",
-    "\\fantacalcio\\fantacalcio\\DominioLega",
-    "\\fantacalcio\\fantacalcio\\DominioLega\\test"
+    "\\fantacalcio\\fantacalcio\\DominioLega"
   ],
+  "SelectedNode": "\\fantacalcio\\fantacalcio\\DominioLega\\Squadra.cs",
   "PreviewInSolutionExplorer": false
 }
