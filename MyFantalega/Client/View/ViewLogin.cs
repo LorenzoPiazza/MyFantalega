@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net;
-
+using fantacalcio.DominioLega;
 
 namespace Client
 {
@@ -49,6 +49,23 @@ namespace Client
 
         private void label2_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            //richiesta di registrazione al ServerLogin mediante il proxy Client
+            Client.ServerLogin1.RegistrazioneControllerSoapClient myRegistrazioneController = new ServerLogin1.RegistrazioneControllerSoapClient();
+            String emailEsito = myRegistrazioneController.registraUtente(textBoxUsername.Text, textBoxPassword.Text, "email@prova", "DOmanda", "Risposta");
+            if (emailEsito == null)
+            {
+                MessageBox.Show("Utente già registrato");
+            }
+            else
+            {
+                MessageBox.Show("Registrazione avvenuta con successo. Utente con mail" + emailEsito);
+                Utente utenteNav = new Utente(emailEsito);
+            }
 
         }
     }

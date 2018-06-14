@@ -53,6 +53,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Connected Services\ServerLogin1\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\ServerLogin\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -97,6 +102,10 @@
     <EmbeddedResource Include="View\ViewWelcomeHome.resx">
       <DependentUpon>ViewWelcomeHome.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Connected Services\ServerLogin1\Client.ServerLogin1.registraUtenteResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServerLogin1\RegistrazioneController.wsdl" />
     <None Include="Connected Services\ServerLogin\Client.ServerLogin.VerificaCredenzialiResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -119,6 +128,7 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\ServerLogin1\" />
     <WCFMetadataStorage Include="Connected Services\ServerLogin\" />
   </ItemGroup>
   <ItemGroup>
@@ -132,6 +142,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\ServerLogin\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServerLogin1\RegistrazioneController.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServerLogin1\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServerLogin1\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServerLogin1\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

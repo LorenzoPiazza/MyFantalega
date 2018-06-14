@@ -69,14 +69,20 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Controller\LoginController.asmx" />
+    <Content Include="Controller\RegistrazioneController.asmx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\RegistrazioneController.asmx.cs">
+      <DependentUpon>RegistrazioneController.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="InterfacceController\ILoginController.cs" />
     <Compile Include="Controller\LoginController.asmx.cs">
       <DependentUpon>LoginController.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="InterfacceController\IRegistrazioneController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
