@@ -183,7 +183,7 @@
     <EmbeddedResource Include="View\WelcomeHome.resx">
       <DependentUpon>WelcomeHome.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="Connected Services\ServerLogin1\Client.ServerLogin1.registraUtenteResponse.datasource">
+    <None Include="Connected Services\ServerLogin1\Client.ServerLogin1.RegistraUtenteResponse1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ServerLogin1\RegistrazioneController.wsdl" />

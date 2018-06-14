@@ -16,26 +16,26 @@ namespace Client.ServerLogin1 {
     public interface RegistrazioneControllerSoap {
         
         // CODEGEN: Generazione di un contratto di messaggio perché il nome di elemento username dallo spazio dei nomi http://tempuri.org/ non è contrassegnato come nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/registraUtente", ReplyAction="*")]
-        Client.ServerLogin1.registraUtenteResponse registraUtente(Client.ServerLogin1.registraUtenteRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/RegistraUtente", ReplyAction="*")]
+        Client.ServerLogin1.RegistraUtenteResponse RegistraUtente(Client.ServerLogin1.RegistraUtenteRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/registraUtente", ReplyAction="*")]
-        System.Threading.Tasks.Task<Client.ServerLogin1.registraUtenteResponse> registraUtenteAsync(Client.ServerLogin1.registraUtenteRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/RegistraUtente", ReplyAction="*")]
+        System.Threading.Tasks.Task<Client.ServerLogin1.RegistraUtenteResponse> RegistraUtenteAsync(Client.ServerLogin1.RegistraUtenteRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class registraUtenteRequest {
+    public partial class RegistraUtenteRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="registraUtente", Namespace="http://tempuri.org/", Order=0)]
-        public Client.ServerLogin1.registraUtenteRequestBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="RegistraUtente", Namespace="http://tempuri.org/", Order=0)]
+        public Client.ServerLogin1.RegistraUtenteRequestBody Body;
         
-        public registraUtenteRequest() {
+        public RegistraUtenteRequest() {
         }
         
-        public registraUtenteRequest(Client.ServerLogin1.registraUtenteRequestBody Body) {
+        public RegistraUtenteRequest(Client.ServerLogin1.RegistraUtenteRequestBody Body) {
             this.Body = Body;
         }
     }
@@ -44,7 +44,7 @@ namespace Client.ServerLogin1 {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class registraUtenteRequestBody {
+    public partial class RegistraUtenteRequestBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
         public string username;
@@ -61,10 +61,10 @@ namespace Client.ServerLogin1 {
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=4)]
         public string risposta;
         
-        public registraUtenteRequestBody() {
+        public RegistraUtenteRequestBody() {
         }
         
-        public registraUtenteRequestBody(string username, string password, string email, string domanda, string risposta) {
+        public RegistraUtenteRequestBody(string username, string password, string email, string domanda, string risposta) {
             this.username = username;
             this.password = password;
             this.email = email;
@@ -77,15 +77,15 @@ namespace Client.ServerLogin1 {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class registraUtenteResponse {
+    public partial class RegistraUtenteResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="registraUtenteResponse", Namespace="http://tempuri.org/", Order=0)]
-        public Client.ServerLogin1.registraUtenteResponseBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="RegistraUtenteResponse", Namespace="http://tempuri.org/", Order=0)]
+        public Client.ServerLogin1.RegistraUtenteResponseBody Body;
         
-        public registraUtenteResponse() {
+        public RegistraUtenteResponse() {
         }
         
-        public registraUtenteResponse(Client.ServerLogin1.registraUtenteResponseBody Body) {
+        public RegistraUtenteResponse(Client.ServerLogin1.RegistraUtenteResponseBody Body) {
             this.Body = Body;
         }
     }
@@ -94,16 +94,16 @@ namespace Client.ServerLogin1 {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class registraUtenteResponseBody {
+    public partial class RegistraUtenteResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string registraUtenteResult;
+        public string RegistraUtenteResult;
         
-        public registraUtenteResponseBody() {
+        public RegistraUtenteResponseBody() {
         }
         
-        public registraUtenteResponseBody(string registraUtenteResult) {
-            this.registraUtenteResult = registraUtenteResult;
+        public RegistraUtenteResponseBody(string RegistraUtenteResult) {
+            this.RegistraUtenteResult = RegistraUtenteResult;
         }
     }
     
@@ -135,36 +135,36 @@ namespace Client.ServerLogin1 {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Client.ServerLogin1.registraUtenteResponse Client.ServerLogin1.RegistrazioneControllerSoap.registraUtente(Client.ServerLogin1.registraUtenteRequest request) {
-            return base.Channel.registraUtente(request);
+        Client.ServerLogin1.RegistraUtenteResponse Client.ServerLogin1.RegistrazioneControllerSoap.RegistraUtente(Client.ServerLogin1.RegistraUtenteRequest request) {
+            return base.Channel.RegistraUtente(request);
         }
         
-        public string registraUtente(string username, string password, string email, string domanda, string risposta) {
-            Client.ServerLogin1.registraUtenteRequest inValue = new Client.ServerLogin1.registraUtenteRequest();
-            inValue.Body = new Client.ServerLogin1.registraUtenteRequestBody();
+        public string RegistraUtente(string username, string password, string email, string domanda, string risposta) {
+            Client.ServerLogin1.RegistraUtenteRequest inValue = new Client.ServerLogin1.RegistraUtenteRequest();
+            inValue.Body = new Client.ServerLogin1.RegistraUtenteRequestBody();
             inValue.Body.username = username;
             inValue.Body.password = password;
             inValue.Body.email = email;
             inValue.Body.domanda = domanda;
             inValue.Body.risposta = risposta;
-            Client.ServerLogin1.registraUtenteResponse retVal = ((Client.ServerLogin1.RegistrazioneControllerSoap)(this)).registraUtente(inValue);
-            return retVal.Body.registraUtenteResult;
+            Client.ServerLogin1.RegistraUtenteResponse retVal = ((Client.ServerLogin1.RegistrazioneControllerSoap)(this)).RegistraUtente(inValue);
+            return retVal.Body.RegistraUtenteResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Client.ServerLogin1.registraUtenteResponse> Client.ServerLogin1.RegistrazioneControllerSoap.registraUtenteAsync(Client.ServerLogin1.registraUtenteRequest request) {
-            return base.Channel.registraUtenteAsync(request);
+        System.Threading.Tasks.Task<Client.ServerLogin1.RegistraUtenteResponse> Client.ServerLogin1.RegistrazioneControllerSoap.RegistraUtenteAsync(Client.ServerLogin1.RegistraUtenteRequest request) {
+            return base.Channel.RegistraUtenteAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Client.ServerLogin1.registraUtenteResponse> registraUtenteAsync(string username, string password, string email, string domanda, string risposta) {
-            Client.ServerLogin1.registraUtenteRequest inValue = new Client.ServerLogin1.registraUtenteRequest();
-            inValue.Body = new Client.ServerLogin1.registraUtenteRequestBody();
+        public System.Threading.Tasks.Task<Client.ServerLogin1.RegistraUtenteResponse> RegistraUtenteAsync(string username, string password, string email, string domanda, string risposta) {
+            Client.ServerLogin1.RegistraUtenteRequest inValue = new Client.ServerLogin1.RegistraUtenteRequest();
+            inValue.Body = new Client.ServerLogin1.RegistraUtenteRequestBody();
             inValue.Body.username = username;
             inValue.Body.password = password;
             inValue.Body.email = email;
             inValue.Body.domanda = domanda;
             inValue.Body.risposta = risposta;
-            return ((Client.ServerLogin1.RegistrazioneControllerSoap)(this)).registraUtenteAsync(inValue);
+            return ((Client.ServerLogin1.RegistrazioneControllerSoap)(this)).RegistraUtenteAsync(inValue);
         }
     }
 }

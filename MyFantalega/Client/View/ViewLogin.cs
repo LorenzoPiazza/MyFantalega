@@ -17,21 +17,23 @@ namespace Client.View
         public ViewLogin()
         {
             InitializeComponent();
+            buttonLogin.Enabled = false;
+            passwordAlert.Visible = false;
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private Boolean ValidaPassword()
         {
-
+            if (textBoxPassword.Text.Length >= 8)
+                return true;
+            return false;
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void AbilitaButtonLogin()
         {
-
-        }
-
-        private void label1_Click_1(object sender, EventArgs e)
-        {
-
+            if (textBoxUsername.Text.Length != 0 && ValidaPassword() )
+                buttonLogin.Enabled = true;
+            else
+                buttonLogin.Enabled = false;
         }
 
         private void ButtonLogin_Click(object sender, EventArgs e)
@@ -47,14 +49,41 @@ namespace Client.View
             }
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void ButtonRegistrazione_Click(object sender, EventArgs e)
         {
-            new Client.View.Registrazione();
+            new Registrazione().ShowDialog();
+        }
+
+        private void textBoxPassword_TextChanged(object sender, EventArgs e)
+        {
+            if (textBoxPassword.Text.Length == 0)
+            {
+                passwordAlert.Visible = false;
+                buttonLogin.Enabled = false;
+            }
+
+            //Per evitare che ad ogni cambiamento di ogni singolo carattere vengano invocati i controlli su tutte le altre textBox chiamo prima
+            //solo il controllo di questa textBox e poi se questo va a buon fine chiamo la funzione che fa tutti gli altri controlli
+            if (ValidaPassword())
+            {
+                passwordAlert.Visible = false;
+                AbilitaButtonLogin();
+            }
+            else
+            {
+                buttonLogin.Enabled = false;
+                passwordAlert.Visible = true;
+            }
+        }
+
+        private void textBoxUsername_TextChanged(object sender, EventArgs e)
+        {
+            //Per evitare che ad ogni cambiamento di ogni singolo carattere vengano invocati i controlli su tutte le altre textBox chiamo prima
+            //solo il controllo di questa textBox e poi se questo va a buon fine chiamo la funzione che fa tutti gli altri controlli
+            if (textBoxUsername.Text.Length != 0)
+                AbilitaButtonLogin();
+            else
+                buttonLogin.Enabled = false;
         }
     }
 }

@@ -16,36 +16,41 @@ namespace Client.View
         public Registrazione()
         {
             InitializeComponent();
-        }
+            buttonRegistrati.Enabled = false;
+            passwordAlert.Visible = false;
+            emailAlert.Visible = false;
 
-        private void label2_Click(object sender, EventArgs e)
+        }
+    
+       private Boolean ValidaPassword()
         {
-
+            if (textBoxPassword.Text.Length >= 8)
+                return true;
+            return false;
         }
 
-        private void label6_Click(object sender, EventArgs e)
+        private Boolean ValidaEmail()
         {
-
+            if (textBoxEmail.Text.Contains("@") && (textBoxEmail.Text.EndsWith(".com") || textBoxEmail.Text.EndsWith(".it")) )
+                return true;
+            return false;
         }
-
-        private void label4_Click(object sender, EventArgs e)
+        private void AbilitaButtonRegistrazione()
         {
-
+            if (textBoxUsername.Text.Length != 0 && ValidaPassword() && ValidaEmail() && textBoxDomanda.Text.Length != 0 && textBoxRisposta.Text.Length != 0)
+                buttonRegistrati.Enabled = true;
+            else
+                buttonRegistrati.Enabled = false;
         }
 
-        private void Registrazione_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonRegistrati_Click(object sender, EventArgs e)
         {
             //richiesta di registrazione al ServerLogin mediante il proxy Client
             Client.ServerLogin1.RegistrazioneControllerSoapClient myRegistrazioneController = new Client.ServerLogin1.RegistrazioneControllerSoapClient();
-            String emailEsito = myRegistrazioneController.registraUtente(textBoxUsername.Text, textBoxPassword.Text, textBoxEmail.Text, textBoxDomanda.Text, textBoxPassword.Text);
+            String emailEsito = myRegistrazioneController.RegistraUtente(textBoxUsername.Text, textBoxPassword.Text, textBoxEmail.Text.ToLower().Trim(), textBoxDomanda.Text, textBoxPassword.Text);
             if (emailEsito == null)
             {
-                MessageBox.Show("Username già occupato.");
+                MessageBox.Show("Username già occupato. Prova con un altro");
             }
             else
             {
@@ -56,6 +61,95 @@ namespace Client.View
                 welcomeHome.BringToFront();
                 welcomeHome.Show();
             }
+        }
+
+        private void textBoxUsername_TextChanged(object sender, EventArgs e)
+        {
+            //Per evitare che ad ogni cambiamento di ogni singolo carattere vengano invocati i controlli su tutte le altre textBox chiamo prima
+            //solo il controllo di questa textBox e poi se questo va a buon fine chiamo la funzione che fa tutti gli altri controlli
+            if (textBoxUsername.Text.Length != 0)
+                AbilitaButtonRegistrazione();
+            else
+                buttonRegistrati.Enabled = false;
+        }
+
+        private void textBoxEmail_TextChanged(object sender, EventArgs e)
+        {
+            if (textBoxEmail.Text.Length == 0)
+            {
+                emailAlert.Visible = false;
+                buttonRegistrati.Enabled = false;
+            }
+            
+                
+            //Per evitare che ad ogni cambiamento di ogni singolo carattere vengano invocati i controlli su tutte le altre textBox chiamo prima
+            //solo il controllo di questa textBox e poi se questo va a buon fine chiamo la funzione che fa tutti gli altri controlli
+            if (ValidaEmail())
+            {
+                emailAlert.Visible = false;
+                AbilitaButtonRegistrazione();
+            }
+            else
+            {
+                buttonRegistrati.Enabled = false;
+                emailAlert.Visible = true;
+            }
+        }
+
+        private void textBoxPassword_TextChanged(object sender, EventArgs e)
+        {
+            if (textBoxPassword.Text.Length == 0)
+            {
+                passwordAlert.Visible = false;
+                buttonRegistrati.Enabled = false;
+            }
+                
+            
+            //Per evitare che ad ogni cambiamento di ogni singolo carattere vengano invocati i controlli su tutte le altre textBox chiamo prima
+            //solo il controllo di questa textBox e poi se questo va a buon fine chiamo la funzione che fa tutti gli altri controlli
+            if (ValidaPassword())
+            {
+                passwordAlert.Visible = false;
+                AbilitaButtonRegistrazione();
+            }
+
+            else
+            {
+                buttonRegistrati.Enabled = false;
+                passwordAlert.Visible = true;
+            }
+                
+
+        }
+
+        private void textBoxDomanda_TextChanged(object sender, EventArgs e)
+        {
+            //Per evitare che ad ogni cambiamento di ogni singolo carattere vengano invocati i controlli su tutte le altre textBox chiamo prima
+            //solo il controllo di questa textBox e poi se questo va a buon fine chiamo la funzione che fa tutti gli altri controlli
+            if (textBoxDomanda.Text.Length != 0)
+                AbilitaButtonRegistrazione();
+            else
+                buttonRegistrati.Enabled = false;
+        }
+
+        private void textBoxRisposta_TextChanged(object sender, EventArgs e)
+        {
+            //Per evitare che ad ogni cambiamento di ogni singolo carattere vengano invocati i controlli su tutte le altre textBox chiamo prima
+            //solo il controllo di questa textBox e poi se questo va a buon fine chiamo la funzione che fa tutti gli altri controlli
+            if (textBoxRisposta.Text.Length != 0)
+                AbilitaButtonRegistrazione();
+            else
+                buttonRegistrati.Enabled = false;
+        }
+
+        private void buttonIndietro_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void textBoxRisposta_Leave(object sender, EventArgs e)
+        {
+
         }
     }
 }
