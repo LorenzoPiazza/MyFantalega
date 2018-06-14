@@ -1,6 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\MyFantalega",
+    "\\MyFantalega\\Client",
+    "\\MyFantalega\\Client\\View"
   ],
+  "SelectedNode": "\\MyFantalega\\Client\\View",
   "PreviewInSolutionExplorer": false
 }
