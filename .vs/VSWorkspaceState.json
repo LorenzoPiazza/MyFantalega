@@ -3,10 +3,8 @@
     "",
     "\\MyFantalega",
     "\\MyFantalega\\Client",
-    "\\MyFantalega\\Client\\View",
-    "\\MyFantalega\\ServerLogin",
-    "\\MyFantalega\\ServerLogin\\Controller"
+    "\\MyFantalega\\Client\\View"
   ],
-  "SelectedNode": "\\MyFantalega\\Client\\View",
+  "SelectedNode": "\\MyFantalega\\Client\\View\\HomeLegaUtente.cs",
   "PreviewInSolutionExplorer": false
 }
