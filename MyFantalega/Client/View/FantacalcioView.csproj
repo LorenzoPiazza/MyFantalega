@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{72BB4FD6-7702-4ED2-A5EE-CD279A6D7E4E}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>WindowsFormsApp1</RootNamespace>
+    <AssemblyName>WindowsFormsApp1</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CreaAsta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreaAsta.Designer.cs">
+      <DependentUpon>CreaAsta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CreazioneLega.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreazioneLega.Designer.cs">
+      <DependentUpon>CreazioneLega.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestioneLega.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestioneLega.Designer.cs">
+      <DependentUpon>GestioneLega.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HomeLegaAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HomeLegaAdmin.Designer.cs">
+      <DependentUpon>HomeLegaAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HomeLegaUtente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HomeLegaUtente.Designer.cs">
+      <DependentUpon>HomeLegaUtente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HomeMercato.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HomeMercato.Designer.cs">
+      <DependentUpon>HomeMercato.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PartecipaAsta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PartecipaAsta.Designer.cs">
+      <DependentUpon>PartecipaAsta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SvincolaGiocatore.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SvincolaGiocatore.Designer.cs">
+      <DependentUpon>SvincolaGiocatore.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WelcomeHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WelcomeHome.Designer.cs">
+      <DependentUpon>WelcomeHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Registrazione.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registrazione.Designer.cs">
+      <DependentUpon>Registrazione.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CreaAsta.resx">
+      <DependentUpon>CreaAsta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreazioneLega.resx">
+      <DependentUpon>CreazioneLega.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestioneLega.resx">
+      <DependentUpon>GestioneLega.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HomeLegaAdmin.resx">
+      <DependentUpon>HomeLegaAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HomeLegaUtente.resx">
+      <DependentUpon>HomeLegaUtente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HomeMercato.resx">
+      <DependentUpon>HomeMercato.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PartecipaAsta.resx">
+      <DependentUpon>PartecipaAsta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Registrazione.resx">
+      <DependentUpon>Registrazione.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SvincolaGiocatore.resx">
+      <DependentUpon>SvincolaGiocatore.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WelcomeHome.resx">
+      <DependentUpon>WelcomeHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
