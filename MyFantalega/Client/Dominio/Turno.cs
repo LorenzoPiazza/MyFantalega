@@ -2,7 +2,7 @@ using System;
 using System.Text;
 using fantacalcio.DominioLega;
 
-namespace fantacalcio.DominioLega
+namespace Client.Dominio
 {
     public class Turno
     {

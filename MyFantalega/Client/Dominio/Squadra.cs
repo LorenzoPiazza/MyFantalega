@@ -4,7 +4,7 @@ using System.Text;
 using fantacalcio.DominioLega;
 
 
-namespace fantacalcio.DominioLega
+namespace Client.Dominio
 {
     public class Squadra
     {
