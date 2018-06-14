@@ -9,12 +9,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net;
 using fantacalcio.DominioLega;
+using WindowsFormsApp1;
 
 namespace Client
 {
-    public partial class Form1 : Form
+    public partial class ViewLogin : Form
     {
-        public Form1()
+        public ViewLogin()
         {
             InitializeComponent();
         }
@@ -34,12 +35,12 @@ namespace Client
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonLogin_Click(object sender, EventArgs e)
         {
             //richiesta al ServerLogin mediante il proxy Client
             Client.ServerLogin.LoginControllerSoapClient myLoginController = new Client.ServerLogin.LoginControllerSoapClient();
             if (myLoginController.VerificaCredenziali(this.textBoxUsername.Text, this.textBoxPassword.Text)){
-                new Client.View.ViewWelcomeHome().ShowDialog(); 
+                new WindowsFormsApp1.WelcomeHome().ShowDialog(); 
             }
             else
             {
@@ -52,21 +53,9 @@ namespace Client
 
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void buttonRegistrazione_Click(object sender, EventArgs e)
         {
-            //richiesta di registrazione al ServerLogin mediante il proxy Client
-            Client.ServerLogin1.RegistrazioneControllerSoapClient myRegistrazioneController = new ServerLogin1.RegistrazioneControllerSoapClient();
-            String emailEsito = myRegistrazioneController.registraUtente(textBoxUsername.Text, textBoxPassword.Text, "email@prova", "DOmanda", "Risposta");
-            if (emailEsito == null)
-            {
-                MessageBox.Show("Utente già registrato");
-            }
-            else
-            {
-                MessageBox.Show("Registrazione avvenuta con successo. Utente con mail" + emailEsito);
-                Utente utenteNav = new Utente(emailEsito);
-            }
-
+            new WindowsFormsApp1.Registrazione().Show();
         }
     }
 }

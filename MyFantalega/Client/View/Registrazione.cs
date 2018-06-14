@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using fantacalcio.DominioLega;
 
 namespace WindowsFormsApp1
 {
@@ -35,6 +36,26 @@ namespace WindowsFormsApp1
         private void Registrazione_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //richiesta di registrazione al ServerLogin mediante il proxy Client
+            Client.ServerLogin1.RegistrazioneControllerSoapClient myRegistrazioneController = new Client.ServerLogin1.RegistrazioneControllerSoapClient();
+            String emailEsito = myRegistrazioneController.registraUtente(textBoxUsername.Text, textBoxPassword.Text, textBoxEmail.Text, textBoxDomanda.Text, textBoxPassword.Text);
+            if (emailEsito == null)
+            {
+                MessageBox.Show("Utente già registrato");
+            }
+            else
+            {
+                MessageBox.Show("Registrazione avvenuta con successo. Utente con email: " + emailEsito);
+                Utente utenteNav = new Utente(emailEsito);
+                this.Close();
+                WelcomeHome welcomeHome = new WelcomeHome();
+                welcomeHome.BringToFront();
+                welcomeHome.Show();
+            }
         }
     }
 }

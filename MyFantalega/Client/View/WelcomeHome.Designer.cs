@@ -46,7 +46,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(346, 283);
+            this.button1.Location = new System.Drawing.Point(346, 243);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(129, 29);
             this.button1.TabIndex = 14;
@@ -56,9 +56,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(112, 125);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(109, 125);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(91, 17);
+            this.label1.Size = new System.Drawing.Size(170, 31);
             this.label1.TabIndex = 10;
             this.label1.Text = "Le tue leghe:";
             // 
@@ -73,11 +74,13 @@
             this.label2.TabIndex = 9;
             this.label2.Text = "WelcomeHome";
             this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // checkedListBox1
             // 
             this.checkedListBox1.BackColor = System.Drawing.SystemColors.MenuBar;
             this.checkedListBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.checkedListBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkedListBox1.FormattingEnabled = true;
             this.checkedListBox1.Items.AddRange(new object[] {
             "LegaA",
@@ -85,7 +88,7 @@
             "LegaC"});
             this.checkedListBox1.Location = new System.Drawing.Point(346, 125);
             this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(85, 68);
+            this.checkedListBox1.Size = new System.Drawing.Size(109, 66);
             this.checkedListBox1.TabIndex = 16;
             this.checkedListBox1.SelectedIndexChanged += new System.EventHandler(this.checkedListBox1_SelectedIndexChanged);
             // 
