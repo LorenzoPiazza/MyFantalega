@@ -72,6 +72,42 @@
     <Compile Include="Dominio\Stato.cs" />
     <Compile Include="Dominio\Turno.cs" />
     <Compile Include="Dominio\Utente.cs" />
+    <Compile Include="View\CreaAsta.cs" />
+    <Compile Include="View\CreaAsta.Designer.cs">
+      <DependentUpon>CreaAsta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\CreazioneLega.cs" />
+    <Compile Include="View\CreazioneLega.Designer.cs">
+      <DependentUpon>CreazioneLega.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\GestioneLega.cs" />
+    <Compile Include="View\GestioneLega.Designer.cs">
+      <DependentUpon>GestioneLega.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\HomeLegaAdmin.cs" />
+    <Compile Include="View\HomeLegaAdmin.Designer.cs">
+      <DependentUpon>HomeLegaAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\HomeLegaUtente.cs" />
+    <Compile Include="View\HomeLegaUtente.Designer.cs">
+      <DependentUpon>HomeLegaUtente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\HomeMercato.cs" />
+    <Compile Include="View\HomeMercato.Designer.cs">
+      <DependentUpon>HomeMercato.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\PartecipaAsta.cs" />
+    <Compile Include="View\PartecipaAsta.Designer.cs">
+      <DependentUpon>PartecipaAsta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Registrazione.cs" />
+    <Compile Include="View\Registrazione.Designer.cs">
+      <DependentUpon>Registrazione.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\SvincolaGiocatore.cs" />
+    <Compile Include="View\SvincolaGiocatore.Designer.cs">
+      <DependentUpon>SvincolaGiocatore.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\ViewLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,6 +123,10 @@
     <Compile Include="View\ViewWelcomeHome.Designer.cs">
       <DependentUpon>ViewWelcomeHome.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\WelcomeHome.cs" />
+    <Compile Include="View\WelcomeHome.Designer.cs">
+      <DependentUpon>WelcomeHome.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -96,11 +136,41 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\CreaAsta.resx">
+      <DependentUpon>CreaAsta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\CreazioneLega.resx">
+      <DependentUpon>CreazioneLega.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\GestioneLega.resx">
+      <DependentUpon>GestioneLega.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\HomeLegaAdmin.resx">
+      <DependentUpon>HomeLegaAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\HomeLegaUtente.resx">
+      <DependentUpon>HomeLegaUtente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\HomeMercato.resx">
+      <DependentUpon>HomeMercato.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\PartecipaAsta.resx">
+      <DependentUpon>PartecipaAsta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Registrazione.resx">
+      <DependentUpon>Registrazione.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\SvincolaGiocatore.resx">
+      <DependentUpon>SvincolaGiocatore.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\ViewLogin.resx">
       <DependentUpon>ViewLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\ViewWelcomeHome.resx">
       <DependentUpon>ViewWelcomeHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\WelcomeHome.resx">
+      <DependentUpon>WelcomeHome.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Connected Services\ServerLogin1\Client.ServerLogin1.registraUtenteResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
