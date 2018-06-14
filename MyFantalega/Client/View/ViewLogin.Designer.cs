@@ -65,18 +65,18 @@
             this.tableLayoutPanel3.Controls.Add(this.button3, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.button4, 1, 1);
             this.tableLayoutPanel3.Controls.Add(this.label3, 0, 1);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(77, 314);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(63, 314);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 2;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(460, 100);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(474, 100);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
             // button3
             // 
             this.button3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button3.Location = new System.Drawing.Point(279, 9);
+            this.button3.Location = new System.Drawing.Point(290, 9);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(108, 31);
             this.button3.TabIndex = 0;
@@ -87,21 +87,22 @@
             // button4
             // 
             this.button4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button4.Location = new System.Drawing.Point(279, 58);
+            this.button4.Location = new System.Drawing.Point(290, 58);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(108, 33);
             this.button4.TabIndex = 1;
             this.button4.Text = "Registrati";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // label3
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(42, 55);
+            this.label3.Location = new System.Drawing.Point(3, 65);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(122, 40);
+            this.label3.Size = new System.Drawing.Size(207, 20);
             this.label3.TabIndex = 4;
             this.label3.Text = "Non sei ancora registrato?";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
