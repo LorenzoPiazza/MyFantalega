@@ -8,10 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net;
-using fantacalcio.DominioLega;
-using WindowsFormsApp1;
+using Client.Dominio;
 
-namespace Client
+namespace Client.View
 {
     public partial class ViewLogin : Form
     {
@@ -35,12 +34,12 @@ namespace Client
 
         }
 
-        private void buttonLogin_Click(object sender, EventArgs e)
+        private void ButtonLogin_Click(object sender, EventArgs e)
         {
             //richiesta al ServerLogin mediante il proxy Client
             Client.ServerLogin.LoginControllerSoapClient myLoginController = new Client.ServerLogin.LoginControllerSoapClient();
             if (myLoginController.VerificaCredenziali(this.textBoxUsername.Text, this.textBoxPassword.Text)){
-                new WindowsFormsApp1.WelcomeHome().ShowDialog(); 
+                new WelcomeHome().ShowDialog(); 
             }
             else
             {
@@ -53,9 +52,9 @@ namespace Client
 
         }
 
-        private void buttonRegistrazione_Click(object sender, EventArgs e)
+        private void ButtonRegistrazione_Click(object sender, EventArgs e)
         {
-            new WindowsFormsApp1.Registrazione().Show();
+            new Client.View.Registrazione();
         }
     }
 }

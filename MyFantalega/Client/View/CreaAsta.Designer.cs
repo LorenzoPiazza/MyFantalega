@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApp1
+﻿namespace Client.View
 {
     partial class CreaAsta
     {
@@ -97,10 +97,13 @@
             // 
             // textBox3
             // 
+            this.textBox3.Enabled = false;
             this.textBox3.Location = new System.Drawing.Point(542, 182);
             this.textBox3.Name = "textBox3";
+            this.textBox3.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBox3.Size = new System.Drawing.Size(245, 22);
             this.textBox3.TabIndex = 29;
+            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // label9
             // 
@@ -110,6 +113,7 @@
             this.label9.Size = new System.Drawing.Size(150, 17);
             this.label9.TabIndex = 28;
             this.label9.Text = "Giocatore selezionato:";
+            this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // button1
             // 

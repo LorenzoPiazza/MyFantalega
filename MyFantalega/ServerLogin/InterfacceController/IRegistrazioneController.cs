@@ -9,6 +9,6 @@ namespace ServerLogin.InterfacceController
 {
     interface IRegistrazioneController
     {
-       String registraUtente(String username, String password, String email, String domanda, String risposta);
+       String RegistraUtente(String username, String password, String email, String domanda, String risposta);
     }
 }

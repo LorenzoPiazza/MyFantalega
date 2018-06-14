@@ -114,7 +114,6 @@
     <Compile Include="View\PartecipaAsta.Designer.cs">
       <DependentUpon>PartecipaAsta.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Program.cs" />
     <Compile Include="View\Registrazione.cs">
       <SubType>Form</SubType>
     </Compile>

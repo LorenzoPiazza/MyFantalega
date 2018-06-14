@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using fantacalcio.DominioLega;
+using Client.Dominio;
 
-namespace WindowsFormsApp1
+namespace Client.View
 {
     public partial class Registrazione : Form
     {
@@ -45,7 +45,7 @@ namespace WindowsFormsApp1
             String emailEsito = myRegistrazioneController.registraUtente(textBoxUsername.Text, textBoxPassword.Text, textBoxEmail.Text, textBoxDomanda.Text, textBoxPassword.Text);
             if (emailEsito == null)
             {
-                MessageBox.Show("Utente già registrato");
+                MessageBox.Show("Username già occupato.");
             }
             else
             {

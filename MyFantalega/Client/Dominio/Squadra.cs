@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using fantacalcio.DominioLega;
+using Client.Dominio;
 
 
 namespace Client.Dominio

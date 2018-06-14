@@ -19,7 +19,7 @@ namespace ServerLogin.Controller
     {
 
         [WebMethod]
-        public String registraUtente(string username, string password, string email, string domanda, string risposta)
+        public String RegistraUtente(string username, string password, string email, string domanda, string risposta)
         {
             try
             {

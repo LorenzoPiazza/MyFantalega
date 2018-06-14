@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApp1
+﻿namespace Client.View
 {
     partial class HomeLegaUtente
     {
@@ -85,6 +85,7 @@
             this.label2.TabIndex = 19;
             this.label2.Text = "HomeLegaUtente";
             this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // textBox1
             // 

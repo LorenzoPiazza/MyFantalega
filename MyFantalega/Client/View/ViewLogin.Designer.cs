@@ -1,4 +1,4 @@
-﻿namespace Client
+﻿namespace Client.View
 {
     partial class ViewLogin
     {
@@ -82,7 +82,7 @@
             this.buttonLogin.TabIndex = 0;
             this.buttonLogin.Text = "Login";
             this.buttonLogin.UseVisualStyleBackColor = true;
-            this.buttonLogin.Click += new System.EventHandler(this.buttonLogin_Click);
+            this.buttonLogin.Click += new System.EventHandler(this.ButtonLogin_Click);
             // 
             // buttonRegistrazione
             // 
@@ -93,7 +93,7 @@
             this.buttonRegistrazione.TabIndex = 1;
             this.buttonRegistrazione.Text = "Registrati";
             this.buttonRegistrazione.UseVisualStyleBackColor = true;
-            this.buttonRegistrazione.Click += new System.EventHandler(this.buttonRegistrazione_Click);
+            this.buttonRegistrazione.Click += new System.EventHandler(this.ButtonRegistrazione_Click);
             // 
             // label3
             // 
