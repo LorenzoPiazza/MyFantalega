@@ -72,13 +72,41 @@
     <Content Include="App_Data\DBMyFantalega_log.ldf">
       <DependentUpon>DBMyFantalega.mdf</DependentUpon>
     </Content>
+    <Content Include="Controller\CaricaListaFileController.asmx" />
+    <Content Include="Controller\GestioneLegaController.asmx" />
+    <Content Include="Controller\GestioneMercatoController.asmx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\CaricaListaFileController.asmx.cs">
+      <DependentUpon>CaricaListaFileController.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controller\GestioneLegaController.asmx.cs">
+      <DependentUpon>GestioneLegaController.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controller\GestioneMercatoController.asmx.cs">
+      <DependentUpon>GestioneMercatoController.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Dominio\Asta.cs" />
+    <Compile Include="Dominio\Giocatore.cs" />
+    <Compile Include="Dominio\Lega.cs" />
+    <Compile Include="Dominio\ListaSvincolati.cs" />
+    <Compile Include="Dominio\Mercato.cs" />
+    <Compile Include="Dominio\Squadra.cs" />
+    <Compile Include="Dominio\Stato.cs" />
+    <Compile Include="Dominio\Turno.cs" />
+    <Compile Include="Dominio\Utente.cs" />
+    <Compile Include="InterfacceController\ICaricaListaController.cs" />
+    <Compile Include="InterfacceController\IGestioneLegaController.cs" />
+    <Compile Include="InterfacceController\IGestioneMercatoController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <Content Include="Quotazioni.xlsx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -86,6 +114,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
