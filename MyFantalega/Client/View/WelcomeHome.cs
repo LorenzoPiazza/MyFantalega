@@ -7,29 +7,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Client.Dominio;
 
 namespace Client.View
 {
     public partial class WelcomeHome : Form
     {
-        public WelcomeHome()
+        private Utente _utenteNav;
+        public WelcomeHome(Utente utente)
         {
             InitializeComponent();
+            _utenteNav = utente;
         }
 
-        private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void WelcomeHome_Load(object sender, EventArgs e)
         {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
+            textBoxBenvenuto.Text = "Benvenuto " + _utenteNav.Email;
         }
     }
 }

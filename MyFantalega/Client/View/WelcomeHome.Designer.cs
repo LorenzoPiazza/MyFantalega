@@ -34,6 +34,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
             this.button3 = new System.Windows.Forms.Button();
+            this.textBoxBenvenuto = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // button2
@@ -75,7 +76,6 @@
             this.label2.TabIndex = 9;
             this.label2.Text = "WelcomeHome";
             this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // checkedListBox1
             // 
@@ -91,7 +91,6 @@
             this.checkedListBox1.Name = "checkedListBox1";
             this.checkedListBox1.Size = new System.Drawing.Size(109, 66);
             this.checkedListBox1.TabIndex = 16;
-            this.checkedListBox1.SelectedIndexChanged += new System.EventHandler(this.checkedListBox1_SelectedIndexChanged);
             // 
             // button3
             // 
@@ -102,11 +101,19 @@
             this.button3.Text = "Indietro";
             this.button3.UseVisualStyleBackColor = true;
             // 
+            // textBoxBenvenuto
+            // 
+            this.textBoxBenvenuto.Location = new System.Drawing.Point(575, 22);
+            this.textBoxBenvenuto.Name = "textBoxBenvenuto";
+            this.textBoxBenvenuto.Size = new System.Drawing.Size(198, 22);
+            this.textBoxBenvenuto.TabIndex = 35;
+            // 
             // WelcomeHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.textBoxBenvenuto);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.checkedListBox1);
             this.Controls.Add(this.button2);
@@ -129,5 +136,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.CheckedListBox checkedListBox1;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.TextBox textBoxBenvenuto;
     }
 }

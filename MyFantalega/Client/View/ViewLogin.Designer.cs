@@ -38,7 +38,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.passwordAlert = new System.Windows.Forms.Label();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.SuspendLayout();
@@ -169,35 +168,24 @@
             this.label5.Text = "Password";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // passwordAlert
-            // 
-            this.passwordAlert.AutoSize = true;
-            this.passwordAlert.ForeColor = System.Drawing.Color.DarkRed;
-            this.passwordAlert.Location = new System.Drawing.Point(627, 260);
-            this.passwordAlert.Name = "passwordAlert";
-            this.passwordAlert.Size = new System.Drawing.Size(153, 34);
-            this.passwordAlert.TabIndex = 36;
-            this.passwordAlert.Text = "Password troppo corta!\r\n(almeno 8 caratteri)";
-            this.passwordAlert.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // ViewLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.passwordAlert);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.tableLayoutPanel3);
             this.Controls.Add(this.tableLayoutPanel4);
             this.Name = "ViewLogin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MyFantalega";
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -212,7 +200,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBoxPassword;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label passwordAlert;
     }
 }
 

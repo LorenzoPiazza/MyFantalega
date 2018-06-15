@@ -24,7 +24,7 @@ namespace ServerLogin.Controller
             try
             {
                 String [] lines = File.ReadAllLines(@"C:\Users\Lorenzo\Source\Repos\progettoIngegneriaDelSoftware\MyFantalega\ServerLogin\registrazioni.txt");
-                char[] seps = { ' ', '\t' };
+                char[] seps = { ':' };
                 foreach (String l in lines)
                 {
                     String [] values = l.Split(seps);
@@ -34,7 +34,7 @@ namespace ServerLogin.Controller
                         return null;
                     }
                 }
-            }catch (IOException e)
+            }catch (Exception e)
             {
                 Console.WriteLine(e.Message);
                 return null;
@@ -44,13 +44,13 @@ namespace ServerLogin.Controller
             //Ora registro l'utente
             try
             {
-                String line = username + "\t\t\t\t\t\t" + password + "\t\t\t\t\t\t" + email + "\t\t\t\t\t\t" + domanda + "\t\t\t\t\t\t" + risposta;
+                String line = username + ":" + password + ":" + email + ":" + domanda + ":" + risposta;
                 using (StreamWriter sw = new StreamWriter(@"C:\Users\Lorenzo\Source\Repos\progettoIngegneriaDelSoftware\MyFantalega\ServerLogin\registrazioni.txt", true))
                 {
                     sw.WriteLine(line);
                 }
                 
-            }catch (IOException e)
+            }catch (Exception e)
             {
                 Console.WriteLine(e.Message);
                 return null;

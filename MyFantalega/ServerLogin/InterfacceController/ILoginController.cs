@@ -8,6 +8,6 @@ namespace ServerLogin.InterfacceController
 {
     interface ILoginController
     {
-        Boolean VerificaCredenziali(String username, String password);
+        String VerificaCredenziali(String username, String password);
     }
 }

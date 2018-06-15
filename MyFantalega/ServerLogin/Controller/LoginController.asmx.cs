@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Services;
@@ -18,15 +19,40 @@ namespace ServerLogin
     {
 
         [WebMethod]
-        public Boolean VerificaCredenziali(String username, String password)
+        public String VerificaCredenziali(String username, String password)
         {
-            //prima rudimentale implementazione
-            if (username.Equals("lollo") && password.Equals("ciao"))
+            String usernameInFile;
+            String passwordInFile;
+            String emailInFile;
+
+            try
             {
-                return true;
+                String[] lines = File.ReadAllLines(@"C:\Users\Lorenzo\Source\Repos\progettoIngegneriaDelSoftware\MyFantalega\ServerLogin\registrazioni.txt");
+                char[] seps = {':'};
+                foreach (String l in lines)
+                {
+                    String[] values = l.Split(seps); 
+                    usernameInFile = values[0];
+                    passwordInFile = values[1];
+                    emailInFile = values[2];
+                    if (usernameInFile.Equals(username) && passwordInFile.Equals(password))
+                    {
+                        //Se le credenziali sono verificate viene restituita al client la mail che servirà a identificare l'utente che sta navigando nell'applicazione
+                        return emailInFile;
+                    }
+
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return null;
             }
 
-            return false;
+            //A questo punto della funzione ci si arriva solo se non è stato trovato l'username nel file.
+            //Le credenziali passate quindi erano errate e non hanno trovato corrispondenza.
+            //prima rudimentale implementazione
+            return null;
         }
     }
 }

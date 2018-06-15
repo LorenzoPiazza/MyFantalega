@@ -3,8 +3,9 @@
     "",
     "\\MyFantalega",
     "\\MyFantalega\\Client",
+    "\\MyFantalega\\Client\\TestDominio",
     "\\MyFantalega\\Client\\View"
   ],
-  "SelectedNode": "\\MyFantalega\\Client\\View",
+  "SelectedNode": "\\MyFantalega\\Client\\TestDominio\\TestLega.cs",
   "PreviewInSolutionExplorer": false
 }

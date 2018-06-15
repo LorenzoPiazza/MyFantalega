@@ -13,7 +13,7 @@
       <s:element name="VerificaCredenzialiResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="VerificaCredenzialiResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="VerificaCredenzialiResult" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>

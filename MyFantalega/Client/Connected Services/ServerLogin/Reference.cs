@@ -84,13 +84,13 @@ namespace Client.ServerLogin {
     [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
     public partial class VerificaCredenzialiResponseBody {
         
-        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
-        public bool VerificaCredenzialiResult;
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string VerificaCredenzialiResult;
         
         public VerificaCredenzialiResponseBody() {
         }
         
-        public VerificaCredenzialiResponseBody(bool VerificaCredenzialiResult) {
+        public VerificaCredenzialiResponseBody(string VerificaCredenzialiResult) {
             this.VerificaCredenzialiResult = VerificaCredenzialiResult;
         }
     }
@@ -127,7 +127,7 @@ namespace Client.ServerLogin {
             return base.Channel.VerificaCredenziali(request);
         }
         
-        public bool VerificaCredenziali(string username, string password) {
+        public string VerificaCredenziali(string username, string password) {
             Client.ServerLogin.VerificaCredenzialiRequest inValue = new Client.ServerLogin.VerificaCredenzialiRequest();
             inValue.Body = new Client.ServerLogin.VerificaCredenzialiRequestBody();
             inValue.Body.username = username;

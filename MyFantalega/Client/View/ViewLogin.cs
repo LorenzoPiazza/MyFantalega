@@ -14,11 +14,12 @@ namespace Client.View
 {
     public partial class ViewLogin : Form
     {
+        String emailUtenteNav;
+        Utente utenteNav;
         public ViewLogin()
         {
             InitializeComponent();
             buttonLogin.Enabled = false;
-            passwordAlert.Visible = false;
         }
 
         private Boolean ValidaPassword()
@@ -40,8 +41,10 @@ namespace Client.View
         {
             //richiesta al ServerLogin mediante il proxy Client
             Client.ServerLogin.LoginControllerSoapClient myLoginController = new Client.ServerLogin.LoginControllerSoapClient();
-            if (myLoginController.VerificaCredenziali(this.textBoxUsername.Text, this.textBoxPassword.Text)){
-                new WelcomeHome().ShowDialog(); 
+            emailUtenteNav = myLoginController.VerificaCredenziali(textBoxUsername.Text, textBoxPassword.Text);
+            if (emailUtenteNav != null){
+                utenteNav = new Utente(emailUtenteNav);
+                new WelcomeHome(utenteNav).ShowDialog(); 
             }
             else
             {
@@ -58,7 +61,6 @@ namespace Client.View
         {
             if (textBoxPassword.Text.Length == 0)
             {
-                passwordAlert.Visible = false;
                 buttonLogin.Enabled = false;
             }
 
@@ -66,13 +68,11 @@ namespace Client.View
             //solo il controllo di questa textBox e poi se questo va a buon fine chiamo la funzione che fa tutti gli altri controlli
             if (ValidaPassword())
             {
-                passwordAlert.Visible = false;
                 AbilitaButtonLogin();
             }
             else
             {
                 buttonLogin.Enabled = false;
-                passwordAlert.Visible = true;
             }
         }
 
