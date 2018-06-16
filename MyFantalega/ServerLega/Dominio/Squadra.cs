@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Client.Dominio;
+using ServerLega.Dominio;
 
 
 namespace ServerLega.Dominio

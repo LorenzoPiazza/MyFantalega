@@ -1,6 +1,6 @@
 using System;
 using System.Text;
-using Client.Dominio;
+using ServerLega.Dominio;
 
 namespace ServerLega.Dominio
 {

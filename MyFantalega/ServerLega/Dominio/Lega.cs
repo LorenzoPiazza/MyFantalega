@@ -49,7 +49,7 @@ namespace ServerLega.Dominio
 
             _nomeLega = nomeLega;
             _squadraAdmin = squadra.Nome;
-            NumeroSquadreTotali = numeroSquadreTotali;
+            _numeroSquadreTotali = numeroSquadreTotali;
 
             MercatoAttivo = null;
             ListaSvincolati = null;
@@ -58,7 +58,7 @@ namespace ServerLega.Dominio
 
         public string NomeLega { get => _nomeLega; }
         public string SquadraAdmin { get => _squadraAdmin; }
-        public int NumeroSquadreTotali { get => NumeroSquadreTotali; set => NumeroSquadreTotali = value; }
+        public int NumeroSquadreTotali { get => _numeroSquadreTotali; set => _numeroSquadreTotali = value; }
         public int CreditiInizialiSquadra { get => _creditiInizialiSquadra; set => _creditiInizialiSquadra = value; }   
         public int NumeroPor { get => _numeroPor; set => _numeroPor = value; }
         public int NumeroDif { get => _numeroDif; set => _numeroDif = value; }
