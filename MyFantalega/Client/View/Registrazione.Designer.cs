@@ -51,11 +51,11 @@
             this.label2.BackColor = System.Drawing.SystemColors.Window;
             this.label2.Font = new System.Drawing.Font("Lucida Bright", 19.8F);
             this.label2.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label2.Location = new System.Drawing.Point(398, 24);
+            this.label2.Location = new System.Drawing.Point(406, 24);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(238, 74);
+            this.label2.Size = new System.Drawing.Size(238, 37);
             this.label2.TabIndex = 2;
-            this.label2.Text = "MyFantalega\r\nRegistrazione";
+            this.label2.Text = "Registrazione";
             this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // textBoxUsername
@@ -227,7 +227,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "Registrazione";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Registrazione";
+            this.Text = "MyFantalega";
             this.ResumeLayout(false);
             this.PerformLayout();
 

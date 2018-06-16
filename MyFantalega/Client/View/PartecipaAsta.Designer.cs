@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label2 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.textBox5 = new System.Windows.Forms.TextBox();
@@ -40,20 +39,8 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Red;
-            this.label2.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.label2.Location = new System.Drawing.Point(289, 36);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(200, 32);
-            this.label2.TabIndex = 23;
-            this.label2.Text = "Partecipa Asta";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // textBox3
             // 
@@ -147,11 +134,26 @@
             this.button4.Text = "Indietro";
             this.button4.UseVisualStyleBackColor = true;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Lucida Bright", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.label2.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label2.Location = new System.Drawing.Point(297, 21);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(251, 39);
+            this.label2.TabIndex = 35;
+            this.label2.Text = "Partecipa Asta";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // PartecipaAsta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -163,9 +165,8 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.label2);
             this.Name = "PartecipaAsta";
-            this.Text = "PartecipaAsta";
+            this.Text = "MyFantalega";
             this.Load += new System.EventHandler(this.PartecipaAsta_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -173,8 +174,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox textBox5;
@@ -186,5 +185,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Label label2;
     }
 }

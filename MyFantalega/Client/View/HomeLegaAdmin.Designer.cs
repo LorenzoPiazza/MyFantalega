@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label2 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -36,23 +35,12 @@
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Red;
-            this.label2.Location = new System.Drawing.Point(268, 34);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(235, 32);
-            this.label2.TabIndex = 20;
-            this.label2.Text = "HomeLegaAdmin";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(465, 367);
+            this.button4.Location = new System.Drawing.Point(476, 346);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(125, 57);
             this.button4.TabIndex = 24;
@@ -61,7 +49,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(190, 367);
+            this.button3.Location = new System.Drawing.Point(212, 346);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(125, 57);
             this.button3.TabIndex = 23;
@@ -70,7 +58,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(465, 252);
+            this.button2.Location = new System.Drawing.Point(476, 230);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(125, 57);
             this.button2.TabIndex = 22;
@@ -79,7 +67,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(190, 252);
+            this.button1.Location = new System.Drawing.Point(212, 230);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(125, 57);
             this.button1.TabIndex = 21;
@@ -88,7 +76,7 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(172, 110);
+            this.button5.Location = new System.Drawing.Point(194, 110);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(143, 74);
             this.button5.TabIndex = 25;
@@ -97,7 +85,7 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(465, 110);
+            this.button6.Location = new System.Drawing.Point(476, 110);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(143, 74);
             this.button6.TabIndex = 26;
@@ -113,11 +101,26 @@
             this.button7.Text = "Indietro";
             this.button7.UseVisualStyleBackColor = true;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Lucida Bright", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.label1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label1.Location = new System.Drawing.Point(253, 21);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(313, 37);
+            this.label1.TabIndex = 36;
+            this.label1.Text = "Home Lega Admin";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // HomeLegaAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
@@ -125,9 +128,8 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.label2);
             this.Name = "HomeLegaAdmin";
-            this.Text = "HomeLegaAdmin";
+            this.Text = "MyFantalega";
             this.Load += new System.EventHandler(this.HomeLegaAdmin_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -135,8 +137,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
@@ -144,5 +144,6 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Label label1;
     }
 }

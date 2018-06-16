@@ -40,12 +40,12 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Red;
+            this.label2.Font = new System.Drawing.Font("Lucida Bright", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.Highlight;
             this.label2.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.label2.Location = new System.Drawing.Point(278, 26);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(246, 32);
+            this.label2.Size = new System.Drawing.Size(312, 39);
             this.label2.TabIndex = 21;
             this.label2.Text = "Svincola Giocatori";
             this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -117,6 +117,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(827, 465);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -126,7 +127,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
             this.Name = "SvincolaGiocatore";
-            this.Text = "SvincolaGiocatore";
+            this.Text = "MyFantalega";
             this.ResumeLayout(false);
             this.PerformLayout();
 
