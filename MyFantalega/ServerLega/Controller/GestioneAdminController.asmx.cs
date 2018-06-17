@@ -21,6 +21,7 @@ namespace ServerLega.Controller
         [WebMethod]
         public Mercato creaMercato(Lega lega)
         {
+            //id del mercato generato random, non esistono conflitti con altri mercati!?
             Random random = new Random();
             int id = random.Next(0, 100);
             return new Mercato(id, lega);
