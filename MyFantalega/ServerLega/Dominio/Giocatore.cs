@@ -44,6 +44,11 @@ namespace ServerLega.Dominio
             StateChanged();
         }
 
+        public Giocatore()
+        {
+
+        }
+
         public String Nome { get => _nome; }
         public int QuotazioneIniziale { get => _quotazioneIniziale; }
         public String Ruolo { get => _ruolo; }

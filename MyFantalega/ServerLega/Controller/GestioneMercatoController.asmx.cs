@@ -21,7 +21,20 @@ namespace ServerLega.Controller
         [WebMethod]
         public Boolean ChiudiMercato(Mercato mercato)
         {
+            Boolean benFormate = true;
             if (mercato == null)
+            {
+                return false;
+            }
+
+            for(int i = 0; i < mercato.Squadre.Count; i++)
+            {
+                if (!mercato.Squadre[i].VerificaCompletezza())
+                {
+                    benFormate = false;
+                }
+            }
+            if (!benFormate)
             {
                 return false;
             }

@@ -25,6 +25,10 @@ namespace ServerLega.Dominio
             _squadre = new List<Squadra>();
         }
 
+        public Asta()
+        {
+        }
+
         public int IdAsta { get => _idAsta; }
         public int UltimaOfferta { get => _ultimaOfferta; set => _ultimaOfferta = value; }
         public Squadra UltimoOfferente { get => _ultimoOfferente; set => _ultimoOfferente = value; }

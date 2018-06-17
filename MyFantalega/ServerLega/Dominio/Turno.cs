@@ -15,6 +15,11 @@ namespace ServerLega.Dominio
             this._astaAttiva = astaAttiva;
         }
 
+        public Turno()
+        {
+
+        }
+
         public bool Tipo { get => _tipo; }
         public Asta AstaAttiva { get => _astaAttiva; }
     }

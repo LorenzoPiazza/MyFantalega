@@ -17,6 +17,11 @@ namespace ServerLega.Dominio
             _isAdmin = false;
         }
 
+        public Utente()
+        {
+
+        }
+
         public string Email
         {
             get

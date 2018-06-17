@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Client.View
 {
-    public partial class HomeMercato : Form
+    public partial class HomeMercatoUtente : Form
     {
-        public HomeMercato()
+        public HomeMercatoUtente()
         {
             InitializeComponent();
         }

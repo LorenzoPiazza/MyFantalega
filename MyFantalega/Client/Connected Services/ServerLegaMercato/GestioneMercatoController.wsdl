@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="ChiudiMercato">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="mercato" type="tns:Mercato" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Mercato">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Aste" type="tns:ArrayOfAsta" />
+          <s:element minOccurs="0" maxOccurs="1" name="Squadre" type="tns:ArrayOfSquadra" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfAsta">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Asta" nillable="true" type="tns:Asta" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Asta">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="UltimaOfferta" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="UltimoOfferente" type="tns:Squadra" />
+          <s:element minOccurs="0" maxOccurs="1" name="Squadre" type="tns:ArrayOfSquadra" />
+          <s:element minOccurs="0" maxOccurs="1" name="Giocatore" type="tns:Giocatore" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Squadra">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Nome" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreditResidui" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="NumeroPor" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="NumeroDif" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="NumeroCen" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="NumeroAtt" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Giocatori" type="tns:ArrayOfGiocatore" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfGiocatore">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Giocatore" nillable="true" type="tns:Giocatore" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Giocatore">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="NomeSquadra" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PrezzoAcquisto" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfSquadra">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Squadra" nillable="true" type="tns:Squadra" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ChiudiMercatoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ChiudiMercatoResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ChiudiMercatoSoapIn">
+    <wsdl:part name="parameters" element="tns:ChiudiMercato" />
+  </wsdl:message>
+  <wsdl:message name="ChiudiMercatoSoapOut">
+    <wsdl:part name="parameters" element="tns:ChiudiMercatoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="GestioneMercatoControllerSoap">
+    <wsdl:operation name="ChiudiMercato">
+      <wsdl:input message="tns:ChiudiMercatoSoapIn" />
+      <wsdl:output message="tns:ChiudiMercatoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="GestioneMercatoControllerSoap" type="tns:GestioneMercatoControllerSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ChiudiMercato">
+      <soap:operation soapAction="http://tempuri.org/ChiudiMercato" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="GestioneMercatoControllerSoap12" type="tns:GestioneMercatoControllerSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ChiudiMercato">
+      <soap12:operation soapAction="http://tempuri.org/ChiudiMercato" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="GestioneMercatoController">
+    <wsdl:port name="GestioneMercatoControllerSoap" binding="tns:GestioneMercatoControllerSoap">
+      <soap:address location="http://localhost:54424/Controller/GestioneMercatoController.asmx" />
+    </wsdl:port>
+    <wsdl:port name="GestioneMercatoControllerSoap12" binding="tns:GestioneMercatoControllerSoap12">
+      <soap12:address location="http://localhost:54424/Controller/GestioneMercatoController.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

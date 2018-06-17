@@ -56,6 +56,11 @@ namespace Client.Dominio
 
         }
 
+        public Lega()
+        {
+
+        }
+
         public string NomeLega { get => _nomeLega; }
         public string SquadraAdmin { get => _squadraAdmin; }
         public int NumeroSquadreTotali { get => _numeroSquadreTotali; set => _numeroSquadreTotali = value; }
