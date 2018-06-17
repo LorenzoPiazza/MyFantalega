@@ -34,7 +34,11 @@ namespace ServerLega.Dominio
             _utente = utente;
         }
 
-        public string Nome { get => _nome; }
+        public Squadra()
+        {
+
+        }
+        public string Nome { get => _nome; set => _nome = value; }
         public int CreditResidui { get => _creditResidui; set => _creditResidui = value; }
         public int NumeroPor { get => _numeroPor; set => _numeroPor = value; }
         public int NumeroDif { get => _numeroDif; set => _numeroDif = value; }

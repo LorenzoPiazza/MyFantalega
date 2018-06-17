@@ -11,12 +11,18 @@ namespace ServerLega.Dominio
         private int _idMercato;
         private Lega _lega;
         private List<Asta> _aste;
+        private List<Squadra> _squadre;
 
         public Mercato(int _idMercato, Lega _lega)
         {
             _aste = new List<Asta>();
+            _squadre = new List<Squadra>();
             this._idMercato = _idMercato;
             this._lega = _lega;
+        }
+
+        public Mercato()
+        {
         }
 
         public int IdMercato
@@ -45,6 +51,16 @@ namespace ServerLega.Dominio
             set
             {
                 _aste = value;
+            }
+        }
+
+        public List<Squadra> Squadre { get => _squadre; set => _squadre = value; }
+
+        public void addSquadra(Squadra squadra)
+        {
+            if (squadra != null)
+            {
+                _squadre.Add(squadra);
             }
         }
 

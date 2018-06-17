@@ -7,19 +7,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Client.ServerLegaMercato;
 
 namespace Client.View
 {
-    public partial class HomeLegaAdmin : Form
+    public partial class HomeMercatoAdmin : Form
     {
-        public HomeLegaAdmin()
+        Mercato mercato;
+        public HomeMercatoAdmin(Mercato mercatoPass)
         {
+            mercato = mercatoPass;
             InitializeComponent();
         }
 
-        private void HomeLegaAdmin_Load(object sender, EventArgs e)
+        private void button4_Click(object sender, EventArgs e)
         {
-
+            new GestioneMercato(mercato).Show();
         }
     }
 }

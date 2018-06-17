@@ -19,6 +19,11 @@ namespace ServerLega.Dominio
             this._giocatori = _giocatori;
         }
 
+        public ListaSvincolati()
+        {
+
+        }
+
         public DateTime DataCaricamento
         {
             get

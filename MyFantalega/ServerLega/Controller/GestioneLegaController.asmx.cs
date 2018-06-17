@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Services;
-using ServerLega.Dominio;
 using System.Data.SqlClient;
 using ServerLega.InterfacceController;
+using ServerLega.Dominio;
 
 namespace ServerLega.Controller
 {
@@ -62,7 +62,10 @@ namespace ServerLega.Controller
             {
                 return false;
             }
-            result = listaController.CaricaLista(source, lega);
+            if (source.Equals("file"))
+            {
+                result = listaController.CaricaLista(source, lega);
+            }
             return result;
         }
     }

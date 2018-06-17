@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="SetImpostazioni">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="sqTot" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="creIni" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="numPor" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="numDif" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="numCen" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="numAtt" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="lega" type="tns:Lega" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Lega">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="NumeroSquadreTotali" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreditiInizialiSquadra" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="NumeroPor" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="NumeroDif" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="NumeroCen" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="NumeroAtt" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="MercatoAttivo" type="tns:Mercato" />
+          <s:element minOccurs="0" maxOccurs="1" name="ListaSvincolati" type="tns:ListaSvincolati" />
+          <s:element minOccurs="0" maxOccurs="1" name="Squadre" type="tns:ArrayOfSquadra" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Mercato">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Aste" type="tns:ArrayOfAsta" />
+          <s:element minOccurs="0" maxOccurs="1" name="Squadre" type="tns:ArrayOfSquadra" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfAsta">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Asta" nillable="true" type="tns:Asta" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Asta">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="UltimaOfferta" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="UltimoOfferente" type="tns:Squadra" />
+          <s:element minOccurs="0" maxOccurs="1" name="Squadre" type="tns:ArrayOfSquadra" />
+          <s:element minOccurs="0" maxOccurs="1" name="Giocatore" type="tns:Giocatore" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Squadra">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Nome" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreditResidui" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="NumeroPor" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="NumeroDif" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="NumeroCen" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="NumeroAtt" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Giocatori" type="tns:ArrayOfGiocatore" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfGiocatore">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Giocatore" nillable="true" type="tns:Giocatore" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Giocatore">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="NomeSquadra" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PrezzoAcquisto" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfSquadra">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Squadra" nillable="true" type="tns:Squadra" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ListaSvincolati">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="DataCaricamento" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Giocatori" type="tns:ArrayOfGiocatore" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SetImpostazioniResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SetImpostazioniResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CaricaLista">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="source" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lega" type="tns:Lega" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CaricaListaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CaricaListaResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="SetImpostazioniSoapIn">
+    <wsdl:part name="parameters" element="tns:SetImpostazioni" />
+  </wsdl:message>
+  <wsdl:message name="SetImpostazioniSoapOut">
+    <wsdl:part name="parameters" element="tns:SetImpostazioniResponse" />
+  </wsdl:message>
+  <wsdl:message name="CaricaListaSoapIn">
+    <wsdl:part name="parameters" element="tns:CaricaLista" />
+  </wsdl:message>
+  <wsdl:message name="CaricaListaSoapOut">
+    <wsdl:part name="parameters" element="tns:CaricaListaResponse" />
+  </wsdl:message>
+  <wsdl:portType name="GestioneLegaControllerSoap">
+    <wsdl:operation name="SetImpostazioni">
+      <wsdl:input message="tns:SetImpostazioniSoapIn" />
+      <wsdl:output message="tns:SetImpostazioniSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CaricaLista">
+      <wsdl:input message="tns:CaricaListaSoapIn" />
+      <wsdl:output message="tns:CaricaListaSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="GestioneLegaControllerSoap" type="tns:GestioneLegaControllerSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SetImpostazioni">
+      <soap:operation soapAction="http://tempuri.org/SetImpostazioni" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CaricaLista">
+      <soap:operation soapAction="http://tempuri.org/CaricaLista" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="GestioneLegaControllerSoap12" type="tns:GestioneLegaControllerSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SetImpostazioni">
+      <soap12:operation soapAction="http://tempuri.org/SetImpostazioni" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CaricaLista">
+      <soap12:operation soapAction="http://tempuri.org/CaricaLista" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="GestioneLegaController">
+    <wsdl:port name="GestioneLegaControllerSoap" binding="tns:GestioneLegaControllerSoap">
+      <soap:address location="http://localhost:54424/Controller/GestioneLegaController.asmx" />
+    </wsdl:port>
+    <wsdl:port name="GestioneLegaControllerSoap12" binding="tns:GestioneLegaControllerSoap12">
+      <soap12:address location="http://localhost:54424/Controller/GestioneLegaController.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -18,6 +18,11 @@ namespace ServerLega.Dominio
                 return new Libero();
         }
 
+        public Stato()
+        {
+
+        }
+
         private class Acquistato : Stato
         {
             public override string Nome

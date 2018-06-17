@@ -53,6 +53,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Connected Services\ServerLegaLega\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\ServerLegaMercato\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\ServerLogin1\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -84,6 +94,12 @@
     <Compile Include="View\CreazioneLega.Designer.cs">
       <DependentUpon>CreazioneLega.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\GestioneMercato.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\GestioneMercato.Designer.cs">
+      <DependentUpon>GestioneMercato.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\GestioneLega.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,11 +118,17 @@
     <Compile Include="View\HomeLegaUtente.Designer.cs">
       <DependentUpon>HomeLegaUtente.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\HomeMercato.cs">
+    <Compile Include="View\HomeMercatoAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\HomeMercato.Designer.cs">
-      <DependentUpon>HomeMercato.cs</DependentUpon>
+    <Compile Include="View\HomeMercatoAdmin.Designer.cs">
+      <DependentUpon>HomeMercatoAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\HomeMercatoUtente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\HomeMercatoUtente.Designer.cs">
+      <DependentUpon>HomeMercatoUtente.cs</DependentUpon>
     </Compile>
     <Compile Include="View\PartecipaAsta.cs">
       <SubType>Form</SubType>
@@ -156,6 +178,9 @@
     <EmbeddedResource Include="View\CreazioneLega.resx">
       <DependentUpon>CreazioneLega.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\GestioneMercato.resx">
+      <DependentUpon>GestioneMercato.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\GestioneLega.resx">
       <DependentUpon>GestioneLega.cs</DependentUpon>
     </EmbeddedResource>
@@ -165,8 +190,11 @@
     <EmbeddedResource Include="View\HomeLegaUtente.resx">
       <DependentUpon>HomeLegaUtente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\HomeMercato.resx">
-      <DependentUpon>HomeMercato.cs</DependentUpon>
+    <EmbeddedResource Include="View\HomeMercatoAdmin.resx">
+      <DependentUpon>HomeMercatoAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\HomeMercatoUtente.resx">
+      <DependentUpon>HomeMercatoUtente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\PartecipaAsta.resx">
       <DependentUpon>PartecipaAsta.cs</DependentUpon>
@@ -183,6 +211,17 @@
     <EmbeddedResource Include="View\WelcomeHome.resx">
       <DependentUpon>WelcomeHome.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Connected Services\ServerLegaLega\Client.ServerLegaLega.CaricaListaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServerLegaLega\Client.ServerLegaLega.SetImpostazioniResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServerLegaLega\GestioneLegaController.wsdl" />
+    <None Include="Connected Services\ServerLegaMercato\Client.ServerLegaMercato.ChiudiMercatoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServerLegaMercato\GestioneMercatoController.wsdl" />
     <None Include="Connected Services\ServerLogin1\Client.ServerLogin1.RegistraUtenteResponse1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -209,6 +248,8 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\ServerLegaLega\" />
+    <WCFMetadataStorage Include="Connected Services\ServerLegaMercato\" />
     <WCFMetadataStorage Include="Connected Services\ServerLogin1\" />
     <WCFMetadataStorage Include="Connected Services\ServerLogin\" />
   </ItemGroup>
@@ -238,6 +279,36 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\ServerLogin1\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServerLegaMercato\GestioneMercatoController.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServerLegaMercato\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServerLegaMercato\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServerLegaMercato\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServerLegaLega\GestioneLegaController.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServerLegaLega\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServerLegaLega\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServerLegaLega\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
