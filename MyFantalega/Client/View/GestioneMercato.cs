@@ -54,7 +54,7 @@ namespace Client.View
             if (result == true)
             {
                 MessageBox.Show("Mercato Chiuso");
-                new HomeMercatoAdmin().Show();
+                new HomeLegaAdmin().Show();
             }
             else
             {
