@@ -17,5 +17,9 @@ namespace Client.View
             InitializeComponent();
         }
 
+        private void GestioneLega_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

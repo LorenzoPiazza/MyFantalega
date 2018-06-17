@@ -245,7 +245,7 @@
             this.label2.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.label2.Location = new System.Drawing.Point(285, 21);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(242, 37);
+            this.label2.Size = new System.Drawing.Size(238, 38);
             this.label2.TabIndex = 36;
             this.label2.Text = "Gestione Lega";
             this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -266,6 +266,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "GestioneLega";
             this.Text = "MyFantalega";
+            this.Load += new System.EventHandler(this.GestioneLega_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();

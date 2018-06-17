@@ -25,5 +25,10 @@ namespace Client.View
         {
             textBoxBenvenuto.Text = "Benvenuto " + _utenteNav.Email;
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

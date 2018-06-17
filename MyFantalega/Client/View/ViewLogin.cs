@@ -85,5 +85,10 @@ namespace Client.View
             else
                 buttonLogin.Enabled = false;
         }
+
+        private void ViewLogin_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
