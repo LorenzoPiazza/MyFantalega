@@ -1,4 +1,5 @@
 ﻿using ServerLega.Dominio;
+using ServerLega.InterfacceController;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -102,6 +103,26 @@ namespace ServerLega.Controller
         Boolean uniscitiAMercato()
         {
             //mercato dovrà avere una lista di squadre (quelle che sono unite)
+        }
+
+        public Lega CreaLega(string nome, int numeroPartecipanti)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool cambiaPassword(string vecchiaPass, string nuovaPass, string domanda, string risposta)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Lega[] getLeghe()
+        {
+            throw new NotImplementedException();
+        }
+
+        bool IGestioneUtenteController.uniscitiAMercato()
+        {
+            throw new NotImplementedException();
         }
     }
 }

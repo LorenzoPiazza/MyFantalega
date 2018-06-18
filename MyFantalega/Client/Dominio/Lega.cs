@@ -21,7 +21,7 @@ namespace Client.Dominio
         private ListaSvincolati _listaSvincolati;
         //private Log log;
 
-        public Lega(string nomeLega, int numeroSquadreTotali, Squadra squadra)
+        public Lega(string nomeLega, int numeroSquadreTotali)
         {
             if(nomeLega==null || nomeLega.Length == 0)
             {
@@ -33,22 +33,16 @@ namespace Client.Dominio
                 throw new ArgumentException("numero partecipanti <4 o >12");
             }
 
-            if (squadra == null)
-            {
-                throw new ArgumentNullException("nome squadra Admin nullo");
-            }
-
             //Parameri di default modificabili tramite set
             _creditiInizialiSquadra = 500;
             _numeroPor = 3;
             _numeroDif = 8;
             _numeroCen = 8;
             _numeroAtt = 6;
+
             _squadre = new List<Squadra>();
-            _squadre.Add(squadra);
 
             _nomeLega = nomeLega;
-            _squadraAdmin = squadra.Nome;
             _numeroSquadreTotali = numeroSquadreTotali;
 
             MercatoAttivo = null;
@@ -62,7 +56,7 @@ namespace Client.Dominio
         }
 
         public string NomeLega { get => _nomeLega; }
-        public string SquadraAdmin { get => _squadraAdmin; }
+        public String SquadraAdmin { get => _squadraAdmin; set => _squadraAdmin = value; }
         public int NumeroSquadreTotali { get => _numeroSquadreTotali; set => _numeroSquadreTotali = value; }
         public int CreditiInizialiSquadra { get => _creditiInizialiSquadra; set => _creditiInizialiSquadra = value; }   
         public int NumeroPor { get => _numeroPor; set => _numeroPor = value; }
@@ -73,6 +67,9 @@ namespace Client.Dominio
         public ListaSvincolati ListaSvincolati { get => _listaSvincolati; set => _listaSvincolati = value; }
         public List<Squadra> Squadre { get => _squadre; }
 
+
+
+        //Metodi di utilità  ---AGGIUNGERE EVENTUALMENTE EXCEPTIONS IN BASE AGLI ERRORI---
         public Boolean IsAdmin (String nomeSquadra)
         {
             if (nomeSquadra.Equals(_squadraAdmin))
@@ -80,7 +77,8 @@ namespace Client.Dominio
 
             return false;
         }
-        //AGGIUNGERE EVENTUALMENTE EXCEPTIONS IN BASE AGLI ERRORI
+
+      
         public Boolean AggiungiSquadra(Squadra toAdd)
         {
             if (toAdd == null)

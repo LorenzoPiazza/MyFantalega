@@ -19,19 +19,20 @@ namespace TestDominio
         {
             _utente = new Utente("mailtestLega.com");
             _utente.IsAdmin = true;
+            _lega = new Lega("FantacalcioClub", 10);
             _squadraAdmin = new Squadra("SquareFC", _lega, _utente);
-            _lega = new Lega("FantacalcioClub", 10, _squadraAdmin);
-            
-           
+            _lega.AggiungiSquadra(_squadraAdmin);
+            _lega.SquadraAdmin = _squadraAdmin.Nome;
+
         }
 
         [TestCase]
         public void TestConstructor()
         {
             //Verifica dei parametri passati al costruttore
-            StringAssert.Equals(_lega.NomeLega, "FantacalcioClub");
-            Assert.AreEqual(_lega.NumeroSquadreTotali, 10);
-            Assert.AreEqual(_lega.SquadraAdmin, "SquareFC");
+            Assert.AreEqual("FantacalcioClub", _lega.NomeLega);
+            Assert.AreEqual(10, _lega.NumeroSquadreTotali);
+            Assert.AreEqual("SquareFC", _lega.SquadraAdmin);
 
             //Verifica dei parametri settati di default
             Assert.AreEqual(_lega.NumeroPor, 3);
@@ -39,7 +40,7 @@ namespace TestDominio
             Assert.AreEqual(_lega.NumeroCen, 8);
             Assert.AreEqual(_lega.NumeroAtt, 6);
             Assert.AreEqual(_lega.CreditiInizialiSquadra, 500);
-            CollectionAssert.Contains(_lega.Squadre, _lega.SquadraAdmin);
+            CollectionAssert.IsNotEmpty(_lega.Squadre);
             Assert.Null(_lega.MercatoAttivo);
             Assert.Null(_lega.ListaSvincolati);
 

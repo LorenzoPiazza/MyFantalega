@@ -93,7 +93,7 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(55, 21);
+            this.button5.Location = new System.Drawing.Point(33, 21);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(75, 23);
             this.button5.TabIndex = 34;
@@ -108,7 +108,7 @@
             this.label3.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.label3.Location = new System.Drawing.Point(265, 21);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(320, 39);
+            this.label3.Size = new System.Drawing.Size(312, 37);
             this.label3.TabIndex = 36;
             this.label3.Text = "Home Lega Utente";
             this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;

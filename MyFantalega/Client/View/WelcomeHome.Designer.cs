@@ -31,15 +31,15 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
             this.buttonIndietro = new System.Windows.Forms.Button();
             this.textBoxBenvenuto = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(115, 359);
+            this.button2.Location = new System.Drawing.Point(55, 393);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(169, 31);
             this.button2.TabIndex = 15;
@@ -48,7 +48,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(346, 243);
+            this.button1.Location = new System.Drawing.Point(363, 272);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(129, 29);
             this.button1.TabIndex = 14;
@@ -59,23 +59,11 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(109, 125);
+            this.label1.Location = new System.Drawing.Point(128, 154);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(170, 31);
             this.label1.TabIndex = 10;
             this.label1.Text = "Le tue leghe:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Red;
-            this.label2.Location = new System.Drawing.Point(296, 35);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(208, 32);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "WelcomeHome";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // checkedListBox1
             // 
@@ -87,7 +75,7 @@
             "LegaA",
             "LegaB",
             "LegaC"});
-            this.checkedListBox1.Location = new System.Drawing.Point(346, 125);
+            this.checkedListBox1.Location = new System.Drawing.Point(383, 154);
             this.checkedListBox1.Name = "checkedListBox1";
             this.checkedListBox1.Size = new System.Drawing.Size(109, 66);
             this.checkedListBox1.TabIndex = 16;
@@ -104,23 +92,37 @@
             // 
             // textBoxBenvenuto
             // 
-            this.textBoxBenvenuto.Location = new System.Drawing.Point(575, 22);
+            this.textBoxBenvenuto.Location = new System.Drawing.Point(580, 22);
             this.textBoxBenvenuto.Name = "textBoxBenvenuto";
-            this.textBoxBenvenuto.Size = new System.Drawing.Size(198, 22);
+            this.textBoxBenvenuto.Size = new System.Drawing.Size(183, 22);
             this.textBoxBenvenuto.TabIndex = 35;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.SystemColors.Window;
+            this.label2.Font = new System.Drawing.Font("Lucida Bright", 19.8F);
+            this.label2.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.label2.Location = new System.Drawing.Point(250, 22);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(268, 37);
+            this.label2.TabIndex = 36;
+            this.label2.Text = "Welcome Home";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // WelcomeHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.textBoxBenvenuto);
             this.Controls.Add(this.buttonIndietro);
             this.Controls.Add(this.checkedListBox1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.label2);
             this.Name = "WelcomeHome";
             this.Text = "WelcomeHome";
             this.Load += new System.EventHandler(this.WelcomeHome_Load);
@@ -134,9 +136,9 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.CheckedListBox checkedListBox1;
         private System.Windows.Forms.Button buttonIndietro;
         private System.Windows.Forms.TextBox textBoxBenvenuto;
+        private System.Windows.Forms.Label label2;
     }
 }

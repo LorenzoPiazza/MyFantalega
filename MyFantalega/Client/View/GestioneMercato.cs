@@ -16,7 +16,7 @@ namespace Client.View
         Mercato mercato;
         public GestioneMercato(Mercato mercatoPass)
         {
-            mercato=mercatoPass;
+            mercato = mercatoPass;
             button4.Enabled = false;
             button1.Enabled = false;
             textBox1.Enabled = false;
@@ -30,8 +30,9 @@ namespace Client.View
             InitializeComponent();
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        private void buttonIndietro_Click(object sender, EventArgs e)
         {
+            this.Close();
             new HomeLegaAdmin().Show();
         }
 
@@ -46,7 +47,7 @@ namespace Client.View
             textBox7.Text = Convert.ToString(squadra.CreditResidui);
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void buttonChiudiMercato_Click(object sender, EventArgs e)
         {
             ServerLegaMercato.GestioneMercatoControllerSoapClient myMercatoControler = new ServerLegaMercato.GestioneMercatoControllerSoapClient();
             Boolean result;
