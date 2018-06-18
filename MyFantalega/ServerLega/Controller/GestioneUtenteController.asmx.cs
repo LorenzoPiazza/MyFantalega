@@ -23,17 +23,14 @@ namespace ServerLega.Controller
         [WebMethod]
         public Lega CreaLega(String nome, int numeroPartecipanti, Utente utente)
         {
-            if (nome.Equals(null) || numeroPartecipanti < 4 || numeroPartecipanti > 12)
-            {
-                return null;
-            }
-            //la squadra ancora non esiste, come faccio a creare la lega?
-        }
-
-        public Boolean selezionaLega(Lega nomeLega)
-        {
-           //non credo abbia senso di esistere questo metodo, noi visualizziamo nella WELCOMEHOME solo leghe a cui un utente fa parte per cui la view farà show della home passando la lega e basta
-           
+            SqlConnection conn = null;
+            Lega lega = null;
+            lega = new Lega(nome, numeroPartecipanti);
+            conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Jacopo\Source\Repos\progettoIngegneriaDelSoftware\MyFantalega\ServerLega\App_Data\DBMyFantalega.mdf;Integrated Security=True");
+            conn.Open();
+            SqlCommand insert = new SqlCommand("????", conn); //inserisci query che inserisce la lega
+            insert.ExecuteNonQuery();
+            return lega;
         }
 
         public Boolean cambiaPassword(String vecchiaPass, String nuovaPass, String domanda, String risposta, Utente utente)
@@ -82,10 +79,9 @@ namespace ServerLega.Controller
             SqlConnection conn = null;
             try
             {
-                //ho messo il mio DbFileName anche se non vedo il Db, forse devo mettere quello di alan
                 conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Jacopo\Source\Repos\progettoIngegneriaDelSoftware\MyFantalega\ServerLega\App_Data\DBMyFantalega.mdf;Integrated Security=True");
                 conn.Open();
-                SqlCommand select = new SqlCommand("????", conn); //inserisci query
+                SqlCommand select = new SqlCommand("????", conn); //inserisci query che restituisce le leghe
                 leghe = select.ExecuteNonQuery();
                 return leghe;
             }
@@ -100,9 +96,10 @@ namespace ServerLega.Controller
             }
         }
 
-        Boolean uniscitiAMercato()
+        void uniscitiAMercato(Mercato mercato, Squadra squadra)
         {
-            //mercato dovrà avere una lista di squadre (quelle che sono unite)
+            mercato.Squadre.Add(squadra);
+
         }
 
         public Lega CreaLega(string nome, int numeroPartecipanti)

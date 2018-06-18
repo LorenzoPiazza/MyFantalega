@@ -28,32 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.cambioPassButton = new System.Windows.Forms.Button();
+            this.accediButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
-            this.buttonIndietro = new System.Windows.Forms.Button();
+            this.legheListBox = new System.Windows.Forms.CheckedListBox();
+            this.indietroButton = new System.Windows.Forms.Button();
             this.textBoxBenvenuto = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // button2
+            // cambioPassButton
             // 
-            this.button2.Location = new System.Drawing.Point(55, 393);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(169, 31);
-            this.button2.TabIndex = 15;
-            this.button2.Text = "Cambia la tua password";
-            this.button2.UseVisualStyleBackColor = true;
+            this.cambioPassButton.Location = new System.Drawing.Point(55, 393);
+            this.cambioPassButton.Name = "cambioPassButton";
+            this.cambioPassButton.Size = new System.Drawing.Size(169, 31);
+            this.cambioPassButton.TabIndex = 15;
+            this.cambioPassButton.Text = "Cambia la tua password";
+            this.cambioPassButton.UseVisualStyleBackColor = true;
+            this.cambioPassButton.Click += new System.EventHandler(this.cambioPassButton_Click);
             // 
-            // button1
+            // accediButton
             // 
-            this.button1.Location = new System.Drawing.Point(363, 272);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(129, 29);
-            this.button1.TabIndex = 14;
-            this.button1.Text = "Accedi alla lega";
-            this.button1.UseVisualStyleBackColor = true;
+            this.accediButton.Location = new System.Drawing.Point(363, 272);
+            this.accediButton.Name = "accediButton";
+            this.accediButton.Size = new System.Drawing.Size(129, 29);
+            this.accediButton.TabIndex = 14;
+            this.accediButton.Text = "Accedi alla lega";
+            this.accediButton.UseVisualStyleBackColor = true;
+            this.accediButton.Click += new System.EventHandler(this.accediButton_Click);
             // 
             // label1
             // 
@@ -65,30 +67,31 @@
             this.label1.TabIndex = 10;
             this.label1.Text = "Le tue leghe:";
             // 
-            // checkedListBox1
+            // legheListBox
             // 
-            this.checkedListBox1.BackColor = System.Drawing.SystemColors.MenuBar;
-            this.checkedListBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.checkedListBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Items.AddRange(new object[] {
+            this.legheListBox.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.legheListBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.legheListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.legheListBox.FormattingEnabled = true;
+            this.legheListBox.Items.AddRange(new object[] {
             "LegaA",
             "LegaB",
             "LegaC"});
-            this.checkedListBox1.Location = new System.Drawing.Point(383, 154);
-            this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(109, 66);
-            this.checkedListBox1.TabIndex = 16;
+            this.legheListBox.Location = new System.Drawing.Point(383, 154);
+            this.legheListBox.Name = "legheListBox";
+            this.legheListBox.Size = new System.Drawing.Size(109, 66);
+            this.legheListBox.TabIndex = 16;
+            this.legheListBox.SelectedIndexChanged += new System.EventHandler(this.legheListBox_SelectedIndexChanged);
             // 
-            // buttonIndietro
+            // indietroButton
             // 
-            this.buttonIndietro.Location = new System.Drawing.Point(55, 21);
-            this.buttonIndietro.Name = "buttonIndietro";
-            this.buttonIndietro.Size = new System.Drawing.Size(75, 23);
-            this.buttonIndietro.TabIndex = 34;
-            this.buttonIndietro.Text = "Indietro";
-            this.buttonIndietro.UseVisualStyleBackColor = true;
-            this.buttonIndietro.Click += new System.EventHandler(this.button3_Click);
+            this.indietroButton.Location = new System.Drawing.Point(55, 21);
+            this.indietroButton.Name = "indietroButton";
+            this.indietroButton.Size = new System.Drawing.Size(75, 23);
+            this.indietroButton.TabIndex = 34;
+            this.indietroButton.Text = "Indietro";
+            this.indietroButton.UseVisualStyleBackColor = true;
+            this.indietroButton.Click += new System.EventHandler(this.accediButton_Click);
             // 
             // textBoxBenvenuto
             // 
@@ -105,7 +108,7 @@
             this.label2.ForeColor = System.Drawing.SystemColors.Highlight;
             this.label2.Location = new System.Drawing.Point(250, 22);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(268, 37);
+            this.label2.Size = new System.Drawing.Size(263, 38);
             this.label2.TabIndex = 36;
             this.label2.Text = "Welcome Home";
             this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -118,10 +121,10 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBoxBenvenuto);
-            this.Controls.Add(this.buttonIndietro);
-            this.Controls.Add(this.checkedListBox1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.indietroButton);
+            this.Controls.Add(this.legheListBox);
+            this.Controls.Add(this.cambioPassButton);
+            this.Controls.Add(this.accediButton);
             this.Controls.Add(this.label1);
             this.Name = "WelcomeHome";
             this.Text = "WelcomeHome";
@@ -133,11 +136,11 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button cambioPassButton;
+        private System.Windows.Forms.Button accediButton;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.CheckedListBox checkedListBox1;
-        private System.Windows.Forms.Button buttonIndietro;
+        private System.Windows.Forms.CheckedListBox legheListBox;
+        private System.Windows.Forms.Button indietroButton;
         private System.Windows.Forms.TextBox textBoxBenvenuto;
         private System.Windows.Forms.Label label2;
     }

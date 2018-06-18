@@ -26,9 +26,20 @@ namespace Client.View
             textBoxBenvenuto.Text = "Benvenuto " + _utenteNav.Email;
         }
 
-        private void button3_Click(object sender, EventArgs e)
+       
+        private void accediButton_Click(object sender, EventArgs e)
         {
-            this.Close();
+
+        }
+
+        private void cambioPassButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void legheListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

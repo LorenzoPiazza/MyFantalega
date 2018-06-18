@@ -31,10 +31,10 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.unioneMercatoButton = new System.Windows.Forms.Button();
+            this.squadraTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.button5 = new System.Windows.Forms.Button();
+            this.indietroButton = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -46,7 +46,6 @@
             this.button1.TabIndex = 15;
             this.button1.Text = "Proponi uno Scambio";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -66,21 +65,23 @@
             this.button3.Text = "Svincola un Giocatore";
             this.button3.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // unioneMercatoButton
             // 
-            this.button4.Location = new System.Drawing.Point(460, 304);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(125, 57);
-            this.button4.TabIndex = 18;
-            this.button4.Text = "Unisciti a un Mercato";
-            this.button4.UseVisualStyleBackColor = true;
+            this.unioneMercatoButton.Location = new System.Drawing.Point(460, 304);
+            this.unioneMercatoButton.Name = "unioneMercatoButton";
+            this.unioneMercatoButton.Size = new System.Drawing.Size(125, 57);
+            this.unioneMercatoButton.TabIndex = 18;
+            this.unioneMercatoButton.Text = "Unisciti a un Mercato";
+            this.unioneMercatoButton.UseVisualStyleBackColor = true;
+            this.unioneMercatoButton.Click += new System.EventHandler(this.unioneMercatoButton_Click);
             // 
-            // textBox1
+            // squadraTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(382, 120);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(203, 22);
-            this.textBox1.TabIndex = 20;
+            this.squadraTextBox.Location = new System.Drawing.Point(382, 120);
+            this.squadraTextBox.Name = "squadraTextBox";
+            this.squadraTextBox.Size = new System.Drawing.Size(203, 22);
+            this.squadraTextBox.TabIndex = 20;
+            this.squadraTextBox.TextChanged += new System.EventHandler(this.squadraTextBox_TextChanged);
             // 
             // label1
             // 
@@ -91,14 +92,15 @@
             this.label1.TabIndex = 21;
             this.label1.Text = "Inserisci nome squadra:";
             // 
-            // button5
+            // indietroButton
             // 
-            this.button5.Location = new System.Drawing.Point(33, 21);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 34;
-            this.button5.Text = "Indietro";
-            this.button5.UseVisualStyleBackColor = true;
+            this.indietroButton.Location = new System.Drawing.Point(33, 21);
+            this.indietroButton.Name = "indietroButton";
+            this.indietroButton.Size = new System.Drawing.Size(75, 23);
+            this.indietroButton.TabIndex = 34;
+            this.indietroButton.Text = "Indietro";
+            this.indietroButton.UseVisualStyleBackColor = true;
+            this.indietroButton.Click += new System.EventHandler(this.indietroButton_Click);
             // 
             // label3
             // 
@@ -108,7 +110,7 @@
             this.label3.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.label3.Location = new System.Drawing.Point(265, 21);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(312, 37);
+            this.label3.Size = new System.Drawing.Size(307, 38);
             this.label3.TabIndex = 36;
             this.label3.Text = "Home Lega Utente";
             this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -120,10 +122,10 @@
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.button5);
+            this.Controls.Add(this.indietroButton);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.squadraTextBox);
+            this.Controls.Add(this.unioneMercatoButton);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -140,10 +142,10 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button unioneMercatoButton;
+        private System.Windows.Forms.TextBox squadraTextBox;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button indietroButton;
         private System.Windows.Forms.Label label3;
     }
 }

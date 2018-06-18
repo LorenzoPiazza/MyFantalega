@@ -16,18 +16,23 @@ namespace Client.View
         {
             InitializeComponent();
         }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        
         private void HomeLegaUtente_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void unioneMercatoButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void squadraTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void indietroButton_Click(object sender, EventArgs e)
         {
 
         }
