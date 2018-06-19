@@ -28,23 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.NomeDellaLegatextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.trackBar1 = new System.Windows.Forms.TrackBar();
-            this.button2 = new System.Windows.Forms.Button();
+            this.NPartTrackBar = new System.Windows.Forms.TrackBar();
+            this.indietroButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
+            this.CreaButton = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.NPartTrackBar)).BeginInit();
             this.SuspendLayout();
             // 
-            // textBox1
+            // NomeDellaLegatextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(271, 137);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(449, 22);
-            this.textBox1.TabIndex = 5;
+            this.NomeDellaLegatextBox.Location = new System.Drawing.Point(271, 137);
+            this.NomeDellaLegatextBox.Name = "NomeDellaLegatextBox";
+            this.NomeDellaLegatextBox.Size = new System.Drawing.Size(449, 22);
+            this.NomeDellaLegatextBox.TabIndex = 5;
+            this.NomeDellaLegatextBox.TextChanged += new System.EventHandler(this.NomeDellaLegatextBox_TextChanged);
             // 
             // label1
             // 
@@ -67,42 +67,26 @@
             this.label3.TabIndex = 7;
             this.label3.Text = "Numero di partecipanti:";
             // 
-            // textBox2
+            // NPartTrackBar
             // 
-            this.textBox2.Location = new System.Drawing.Point(271, 294);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(449, 22);
-            this.textBox2.TabIndex = 9;
+            this.NPartTrackBar.Location = new System.Drawing.Point(271, 199);
+            this.NPartTrackBar.Maximum = 12;
+            this.NPartTrackBar.Minimum = 4;
+            this.NPartTrackBar.Name = "NPartTrackBar";
+            this.NPartTrackBar.Size = new System.Drawing.Size(449, 56);
+            this.NPartTrackBar.TabIndex = 10;
+            this.NPartTrackBar.Value = 4;
+            this.NPartTrackBar.Scroll += new System.EventHandler(this.NPartTrackBar_Scroll);
             // 
-            // label4
+            // indietroButton
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(26, 294);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(191, 20);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Nome della tua squadra:";
-            // 
-            // trackBar1
-            // 
-            this.trackBar1.Location = new System.Drawing.Point(271, 199);
-            this.trackBar1.Maximum = 12;
-            this.trackBar1.Minimum = 4;
-            this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Size = new System.Drawing.Size(449, 56);
-            this.trackBar1.TabIndex = 10;
-            this.trackBar1.Value = 4;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(38, 21);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 34;
-            this.button2.Text = "Indietro";
-            this.button2.UseVisualStyleBackColor = true;
+            this.indietroButton.Location = new System.Drawing.Point(38, 21);
+            this.indietroButton.Name = "indietroButton";
+            this.indietroButton.Size = new System.Drawing.Size(75, 23);
+            this.indietroButton.TabIndex = 34;
+            this.indietroButton.Text = "Indietro";
+            this.indietroButton.UseVisualStyleBackColor = true;
+            this.indietroButton.Click += new System.EventHandler(this.indietroButton_Click);
             // 
             // label2
             // 
@@ -112,10 +96,20 @@
             this.label2.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.label2.Location = new System.Drawing.Point(280, 21);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(270, 39);
+            this.label2.Size = new System.Drawing.Size(260, 38);
             this.label2.TabIndex = 36;
             this.label2.Text = "Creazione Lega";
             this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // CreaButton
+            // 
+            this.CreaButton.Location = new System.Drawing.Point(287, 330);
+            this.CreaButton.Name = "CreaButton";
+            this.CreaButton.Size = new System.Drawing.Size(75, 23);
+            this.CreaButton.TabIndex = 37;
+            this.CreaButton.Text = "Crea";
+            this.CreaButton.UseVisualStyleBackColor = true;
+            this.CreaButton.Click += new System.EventHandler(this.CreaButton_Click);
             // 
             // CreazioneLega
             // 
@@ -123,18 +117,17 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.CreaButton);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.trackBar1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.indietroButton);
+            this.Controls.Add(this.NPartTrackBar);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.NomeDellaLegatextBox);
             this.Controls.Add(this.label1);
             this.Name = "CreazioneLega";
             this.Text = "MyFantalega";
             this.Load += new System.EventHandler(this.CreazioneLega_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NPartTrackBar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -142,13 +135,12 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox NomeDellaLegatextBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TrackBar trackBar1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TrackBar NPartTrackBar;
+        private System.Windows.Forms.Button indietroButton;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button CreaButton;
     }
 }

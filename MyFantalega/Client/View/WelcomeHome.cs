@@ -27,9 +27,9 @@ namespace Client.View
         }
 
        
-        private void accediButton_Click(object sender, EventArgs e)
+        private void creazioneLegaButton_Click(object sender, EventArgs e)
         {
-
+            new CreazioneLega(_utenteNav).Show();
         }
 
         private void cambioPassButton_Click(object sender, EventArgs e)
@@ -38,6 +38,11 @@ namespace Client.View
         }
 
         private void legheListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxBenvenuto_TextChanged(object sender, EventArgs e)
         {
 
         }

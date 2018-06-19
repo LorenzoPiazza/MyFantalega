@@ -36,6 +36,8 @@
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.squadraTextBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // button4
@@ -116,10 +118,26 @@
             this.label1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.label1.Location = new System.Drawing.Point(253, 21);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(313, 37);
+            this.label1.Size = new System.Drawing.Size(310, 38);
             this.label1.TabIndex = 36;
             this.label1.Text = "Home Lega Admin";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(209, 72);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(158, 17);
+            this.label2.TabIndex = 38;
+            this.label2.Text = "Inserisci nome squadra:";
+            // 
+            // squadraTextBox
+            // 
+            this.squadraTextBox.Location = new System.Drawing.Point(409, 72);
+            this.squadraTextBox.Name = "squadraTextBox";
+            this.squadraTextBox.Size = new System.Drawing.Size(203, 22);
+            this.squadraTextBox.TabIndex = 37;
             // 
             // HomeLegaAdmin
             // 
@@ -127,6 +145,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.squadraTextBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.button6);
@@ -153,5 +173,7 @@
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox squadraTextBox;
     }
 }

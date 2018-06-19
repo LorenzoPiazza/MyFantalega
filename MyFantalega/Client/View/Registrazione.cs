@@ -156,5 +156,10 @@ namespace Client.View
         {
 
         }
+
+        private void Registrazione_Load_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.cambioPassButton = new System.Windows.Forms.Button();
-            this.accediButton = new System.Windows.Forms.Button();
+            this.creazioneLegaButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.legheListBox = new System.Windows.Forms.CheckedListBox();
             this.indietroButton = new System.Windows.Forms.Button();
@@ -47,15 +47,15 @@
             this.cambioPassButton.UseVisualStyleBackColor = true;
             this.cambioPassButton.Click += new System.EventHandler(this.cambioPassButton_Click);
             // 
-            // accediButton
+            // creazioneLegaButton
             // 
-            this.accediButton.Location = new System.Drawing.Point(363, 272);
-            this.accediButton.Name = "accediButton";
-            this.accediButton.Size = new System.Drawing.Size(129, 29);
-            this.accediButton.TabIndex = 14;
-            this.accediButton.Text = "Accedi alla lega";
-            this.accediButton.UseVisualStyleBackColor = true;
-            this.accediButton.Click += new System.EventHandler(this.accediButton_Click);
+            this.creazioneLegaButton.Location = new System.Drawing.Point(363, 272);
+            this.creazioneLegaButton.Name = "creazioneLegaButton";
+            this.creazioneLegaButton.Size = new System.Drawing.Size(163, 29);
+            this.creazioneLegaButton.TabIndex = 14;
+            this.creazioneLegaButton.Text = "Crea una nuova Lega";
+            this.creazioneLegaButton.UseVisualStyleBackColor = true;
+            this.creazioneLegaButton.Click += new System.EventHandler(this.creazioneLegaButton_Click);
             // 
             // label1
             // 
@@ -91,7 +91,7 @@
             this.indietroButton.TabIndex = 34;
             this.indietroButton.Text = "Indietro";
             this.indietroButton.UseVisualStyleBackColor = true;
-            this.indietroButton.Click += new System.EventHandler(this.accediButton_Click);
+            this.indietroButton.Click += new System.EventHandler(this.creazioneLegaButton_Click);
             // 
             // textBoxBenvenuto
             // 
@@ -99,6 +99,7 @@
             this.textBoxBenvenuto.Name = "textBoxBenvenuto";
             this.textBoxBenvenuto.Size = new System.Drawing.Size(183, 22);
             this.textBoxBenvenuto.TabIndex = 35;
+            this.textBoxBenvenuto.TextChanged += new System.EventHandler(this.textBoxBenvenuto_TextChanged);
             // 
             // label2
             // 
@@ -124,7 +125,7 @@
             this.Controls.Add(this.indietroButton);
             this.Controls.Add(this.legheListBox);
             this.Controls.Add(this.cambioPassButton);
-            this.Controls.Add(this.accediButton);
+            this.Controls.Add(this.creazioneLegaButton);
             this.Controls.Add(this.label1);
             this.Name = "WelcomeHome";
             this.Text = "WelcomeHome";
@@ -137,7 +138,7 @@
         #endregion
 
         private System.Windows.Forms.Button cambioPassButton;
-        private System.Windows.Forms.Button accediButton;
+        private System.Windows.Forms.Button creazioneLegaButton;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckedListBox legheListBox;
         private System.Windows.Forms.Button indietroButton;
