@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Client.Dominio;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,11 @@ namespace Client.View
 {
     public partial class HomeLegaAdmin : Form
     {
-        public HomeLegaAdmin()
+        private Squadra _squadra;
+        public HomeLegaAdmin(Squadra squadra)
         {
             InitializeComponent();
+            this._squadra = squadra;
         }
 
         private void HomeLegaAdmin_Load(object sender, EventArgs e)

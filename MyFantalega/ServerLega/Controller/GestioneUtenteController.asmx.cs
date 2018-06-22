@@ -20,6 +20,8 @@ namespace ServerLega.Controller
     // [System.Web.Script.Services.ScriptService]
     public class GestioneUtenteController : System.Web.Services.WebService, ServerLega.InterfacceController.IGestioneUtenteController
     {
+        public GestioneUtenteController() { }
+
         [WebMethod]
         public Lega CreaLega(String nome, int numeroPartecipanti, Utente utente)
         {

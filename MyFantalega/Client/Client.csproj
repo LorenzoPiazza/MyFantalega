@@ -82,6 +82,12 @@
     <Compile Include="Dominio\Stato.cs" />
     <Compile Include="Dominio\Turno.cs" />
     <Compile Include="Dominio\Utente.cs" />
+    <Compile Include="View\CambioPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\CambioPassword.Designer.cs">
+      <DependentUpon>CambioPassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\CreaAsta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -172,6 +178,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\CambioPassword.resx">
+      <DependentUpon>CambioPassword.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\CreaAsta.resx">
       <DependentUpon>CreaAsta.cs</DependentUpon>
     </EmbeddedResource>

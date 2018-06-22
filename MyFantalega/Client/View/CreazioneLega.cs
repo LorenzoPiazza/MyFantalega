@@ -14,6 +14,7 @@ namespace Client.View
 {
     public partial class CreazioneLega : Form
     {
+        //DA AGGIUNGERE I MESSAGGI DI ERRORE (LABEL) NEL VIEW
         private Utente _utenteNav;
         public CreazioneLega(Utente utente)
         {
@@ -51,9 +52,12 @@ namespace Client.View
             //sul numero di partecipanti non viene fatto nessun controllo perche la track bar lascia inserire solo valori dal 4 al 12
             int part = NPartTrackBar.Value;
             String lega = NomeDellaLegatextBox.Text;
-            Client.ServerLegaLega.GestioneUtenteControllerSoapClient myGestioneUtenteController = new Client.ServerLogin1.RegistrazioneControllerSoapClient();
-            String emailEsito = myRegistrazioneController.RegistraUtente(textBoxUsername.Text, textBoxPassword.Text,
-                viewGestionePartecipanti
+            //Client.ServerLegaLega.GestioneUtenteControllerSoapClient myGestioneUtenteController = new Client.ServerLogin1.RegistrazioneControllerSoapClient();
+            //String emailEsito = myRegistrazioneController.RegistraUtente(textBoxUsername.Text, textBoxPassword.Text,viewGestionePartecipanti)
+            this.Close();
+            WelcomeHome welcomeHome = new WelcomeHome(_utenteNav);
+            welcomeHome.BringToFront();
+            welcomeHome.Show();
         }
 
         private void indietroButton_Click(object sender, EventArgs e)

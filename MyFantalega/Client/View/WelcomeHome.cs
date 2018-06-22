@@ -29,16 +29,30 @@ namespace Client.View
        
         private void creazioneLegaButton_Click(object sender, EventArgs e)
         {
-            new CreazioneLega(_utenteNav).Show();
+            this.Close();
+            CreazioneLega creazioneLega = new CreazioneLega(_utenteNav);
+            creazioneLega.BringToFront();
+            creazioneLega.Show();
         }
 
         private void cambioPassButton_Click(object sender, EventArgs e)
         {
-
+            this.Close();
+            CambioPassword cambioPass = new CambioPassword(_utenteNav);
+            cambioPass.BringToFront();
+            cambioPass.Show();
         }
 
         private void legheListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            Lega lega = (Lega) legheListBox.SelectedItem;
+            if (lega.SquadraAdmin.Utente.Email.Equals(_utenteNav.Email))
+            {
+                this.Close();
+                HomeLegaAdmin homeLegaAdmin = new HomeLegaAdmin();
+                homeLegaAdmin.BringToFront();
+                homeLegaAdmin.Show();
+            }
 
         }
 
