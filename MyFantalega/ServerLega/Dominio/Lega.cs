@@ -72,7 +72,7 @@ namespace ServerLega.Dominio
         //Metodi di utilità  ---AGGIUNGERE EVENTUALMENTE EXCEPTIONS IN BASE AGLI ERRORI---
         public Boolean IsAdmin(String nomeSquadra)
         {
-            if (nomeSquadra.Equals(_squadraAdmin))
+            if (nomeSquadra.Equals(_squadraAdmin.Nome))
                 return true;
 
             return false;

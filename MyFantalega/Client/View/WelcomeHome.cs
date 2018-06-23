@@ -7,14 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Client.Dominio;
+using ServerLogin;
 
 namespace Client.View
 {
     public partial class WelcomeHome : Form
     {
-        private Utente _utenteNav;
-        public WelcomeHome(Utente utente)
+        private ServerLogin.Utente _utenteNav;
+        public WelcomeHome(ServerLogin.Utente utente)
         {
             InitializeComponent();
             _utenteNav = utente;
@@ -27,32 +27,32 @@ namespace Client.View
         }
 
        
-        private void creazioneLegaButton_Click(object sender, EventArgs e)
+       private void creazioneLegaButton_Click(object sender, EventArgs e)
         {
-            this.Close();
+           /* this.Close();
             CreazioneLega creazioneLega = new CreazioneLega(_utenteNav);
             creazioneLega.BringToFront();
-            creazioneLega.Show();
+            creazioneLega.Show();*/
         }
 
         private void cambioPassButton_Click(object sender, EventArgs e)
         {
-            this.Close();
+           /* this.Close();
             CambioPassword cambioPass = new CambioPassword(_utenteNav);
             cambioPass.BringToFront();
-            cambioPass.Show();
+            cambioPass.Show();*/
         }
 
-        private void legheListBox_SelectedIndexChanged(object sender, EventArgs e)
+       private void legheListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Lega lega = (Lega) legheListBox.SelectedItem;
+            /*Lega lega = (Lega) legheListBox.SelectedItem;
             if (lega.SquadraAdmin.Utente.Email.Equals(_utenteNav.Email))
             {
                 this.Close();
                 HomeLegaAdmin homeLegaAdmin = new HomeLegaAdmin();
                 homeLegaAdmin.BringToFront();
                 homeLegaAdmin.Show();
-            }
+            }*/
 
         }
 

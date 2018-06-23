@@ -44,7 +44,7 @@ namespace Client.View
         }
 
         private void buttonRegistrati_Click(object sender, EventArgs e)
-        {
+        {/*
             //richiesta di registrazione al ServerLogin mediante il proxy Client
             Client.ServerLogin1.RegistrazioneControllerSoapClient myRegistrazioneController = new Client.ServerLogin1.RegistrazioneControllerSoapClient();
             String emailEsito = myRegistrazioneController.RegistraUtente(textBoxUsername.Text, textBoxPassword.Text, textBoxEmail.Text.ToLower().Trim(), textBoxDomanda.Text, textBoxRisposta.Text);
@@ -60,7 +60,7 @@ namespace Client.View
                 WelcomeHome welcomeHome = new WelcomeHome(utenteNav);
                 welcomeHome.BringToFront();
                 welcomeHome.Show();
-            }
+            }*/
         }
 
         private void textBoxUsername_TextChanged(object sender, EventArgs e)

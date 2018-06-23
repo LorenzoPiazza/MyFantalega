@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Client.Dominio;
+using ServerLega.Dominio;
 
 namespace TestDominio
 {
@@ -32,7 +32,7 @@ namespace TestDominio
             //Verifica dei parametri passati al costruttore
             Assert.AreEqual("FantacalcioClub", _lega.NomeLega);
             Assert.AreEqual(10, _lega.NumeroSquadreTotali);
-            Assert.AreEqual("SquareFC", _lega.SquadraAdmin);
+            Assert.AreEqual("SquareFC", _lega.SquadraAdmin.Nome);
 
             //Verifica dei parametri settati di default
             Assert.AreEqual(_lega.NumeroPor, 3);

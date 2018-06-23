@@ -72,9 +72,9 @@ namespace Client.View
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+       private void button2_Click(object sender, EventArgs e)
         {
-            this.Close();
+           /* this.Close();
             if (admin == null)
             {
                 new HomeLegaAdmin(squadra.Lega).Show();
@@ -82,7 +82,7 @@ namespace Client.View
             else
             {
                 new HomeLegaUtente(squadra.Lega).Show();
-            }
+            }*/
         }
     }
 }

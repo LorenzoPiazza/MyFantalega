@@ -7,120 +7,176 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Client.ServerLegaLega;
+using ServerLega.Dominio;
 
 namespace Client.View
 {
     public partial class GestioneLega : Form
     {
-        Lega lega;
+        Lega lega; 
         public GestioneLega(Lega legaPass)
         {
             lega = legaPass;
-            button1.Enabled = false;
-            button2.Enabled = false;
-            button4.Enabled = false;
-            button5.Enabled = false;
-            button7.Enabled = false;
+            buttonGestioneGiocatori.Enabled = false;
+            buttonGestionePartecipanti.Enabled = false;
+            buttonVisualizzaLog.Enabled = false;
+            buttonEliminaLega.Enabled = false;
+            buttonConferma.Enabled = false;
             InitializeComponent();
         }
 
+
         private void trackBar1_Scroll(object sender, EventArgs e)
         {
-            trackBar1.SetRange(4, 12);
+            trackBarNumPartecipanti.SetRange(4, 12);
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            if (int.Parse(textBox1.Text)<0 || int.Parse(textBox1.Text) > 1000000)
-            {
-                MessageBox.Show("numero crediti iniziali sbagliato (range 0-1000000)");
-                button7.Enabled = false;
-            }
-            button7.Enabled = true;
-        }
-
-        private void button7_Click(object sender, EventArgs e)
-        {
+       private void buttonConferma_Click(object sender, EventArgs e)
+        {/*
             //richiesta al ServerLega mediante il proxy Client
             ServerLegaLega.GestioneLegaControllerSoapClient myLegaController = new ServerLegaLega.GestioneLegaControllerSoapClient();
             Boolean result;
-            result = myLegaController.SetImpostazioni(trackBar1.Value, int.Parse(textBox1.Text), int.Parse(textBox3.Text), int.Parse(textBox5.Text), int.Parse(textBox4.Text), int.Parse(textBox2.Text),lega);
+            result = myLegaController.SetImpostazioni(trackBarNumPartecipanti.Value, int.Parse(textBoxCreditiIniz.Text), int.Parse(textBoxPor.Text), int.Parse(textBoxCen.Text), int.Parse(textBoxDif.Text), int.Parse(textBoxAtt.Text), lega);
             if (result == true)
             {
-                lega.CreditiInizialiSquadra = int.Parse(textBox1.Text);
-                lega.NumeroAtt = int.Parse(textBox2.Text);
-                lega.NumeroCen = int.Parse(textBox4.Text);
-                lega.NumeroDif = int.Parse(textBox5.Text);
-                lega.NumeroPor = int.Parse(textBox3.Text);
-                lega.NumeroSquadreTotali = trackBar1.Value;
+                lega.CreditiInizialiSquadra = int.Parse(textBoxCreditiIniz.Text);
+                lega.NumeroAtt = int.Parse(textBoxAtt.Text);
+                lega.NumeroCen = int.Parse(textBoxCen.Text);
+                lega.NumeroDif = int.Parse(textBoxCen.Text);
+                lega.NumeroPor = int.Parse(textBoxPor.Text);
+                lega.NumeroSquadreTotali = trackBarNumPartecipanti.Value;
                 MessageBox.Show("Impostazioni Modificate");
             }
             else
             {
                 MessageBox.Show("Impostazioni errate");
-            }
+            }*/
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
+        private void textBoxPor_TextChanged(object sender, EventArgs e)
         {
-            if (int.Parse(textBox2.Text) < 3 || int.Parse(textBox2.Text) > 6)
-            {
-                MessageBox.Show("numero attaccanti sbagliato (range 3-6)");
-                button7.Enabled = false;
-            }
-            button7.Enabled = true;
+            //Se il numero di portieri è valido passo controllare tutti gli altri campi
+            if (ValidaPor())
+                AbilitaButtonConferma();
         }
 
-        private void textBox4_TextChanged(object sender, EventArgs e)
+
+        private void textBoxDif_TextChanged(object sender, EventArgs e)
         {
-            if (int.Parse(textBox4.Text) < 5 || int.Parse(textBox4.Text) > 10)
-            {
-                MessageBox.Show("numero centrocampisti sbagliato (range 5-10)");
-                button7.Enabled = false;
-            }
-            button7.Enabled = true;
+            //Se il numero di difensori è valido passo controllare tutti gli altri campi
+            if (ValidaDif())
+                AbilitaButtonConferma();
         }
 
-        private void textBox5_TextChanged(object sender, EventArgs e)
+        private void textBoxCen_TextChanged(object sender, EventArgs e)
         {
-            if (int.Parse(textBox5.Text) < 5 || int.Parse(textBox5.Text) > 10)
-            {
-                MessageBox.Show("numero difensori sbagliato (range 5-10)");
-                button7.Enabled = false;
-            }
-            button7.Enabled = true;
+            //Se il numero di centrocampisti è valido passo controllare tutti gli altri campi
+            if (ValidaCen())
+                AbilitaButtonConferma();
         }
 
-        private void textBox3_TextChanged(object sender, EventArgs e)
+        private void textBoxAtt_TextChanged(object sender, EventArgs e)
         {
-            if (int.Parse(textBox3.Text) < 1 || int.Parse(textBox3.Text) > 3)
-            {
-                MessageBox.Show("numero centrocampisti sbagliato (range 1-3)");
-                button7.Enabled = false;
-            }
-            button7.Enabled = true;
+            //Se il numero di attaccanti è valido passo controllare tutti gli altri campi
+            if (ValidaAtt())
+                AbilitaButtonConferma();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void textBoxCreditiIniz_TextChanged(object sender, EventArgs e)
         {
-            ServerLegaLega.GestioneLegaControllerSoapClient myLegaController = new ServerLegaLega.GestioneLegaControllerSoapClient();
+            //Se il numero di crediti iniziali è valido passo controllare tutti gli altri campi
+            if (ValidaCrediti())
+                AbilitaButtonConferma();
+        }
+
+
+
+        private void buttonCaricaLista_Click(object sender, EventArgs e)
+        {
+           /* ServerLegaLega.GestioneLegaControllerSoapClient myLegaController = new ServerLegaLega.GestioneLegaControllerSoapClient();
             Boolean result;
             result = myLegaController.CaricaLista("file", lega);
             if (result == true)
             {
-               //NON MI TORNA NESSUNA LISTA
+                //NON MI TORNA NESSUNA LISTA
                 MessageBox.Show("Lista aggiornata");
             }
             else
             {
                 MessageBox.Show("Errore nel caricamento lista");
-            }
+            }*/
+        }
+        
+
+        private void buttonIndietro_Click(object sender, EventArgs e)
+        {
+            //new HomeLegaAdmin(lega.SquadraAdmin).Show();
         }
 
-        private void button6_Click(object sender, EventArgs e)
+
+
+        //Validazione degli Input
+        private void AbilitaButtonConferma()
         {
-            new HomeLegaAdmin(lega.SquadraAdmin).Show();
+            if (ValidaPor() && ValidaDif() && ValidaCen() && ValidaAtt() && ValidaCrediti())
+                buttonConferma.Enabled = true;
+            else
+                buttonConferma.Enabled = false;
         }
+
+        private Boolean ValidaPor()
+        {
+            if (textBoxPor.Text == null || int.Parse(textBoxPor.Text) < 1 || int.Parse(textBoxPor.Text) > 3)
+            {
+                MessageBox.Show("numero portieri non consentito (range 1-3)");
+                return false;
+            }
+            return true;
+
+        }
+
+        private Boolean ValidaDif()
+        {
+            if (textBoxDif.Text == null || int.Parse(textBoxDif.Text) < 5 || int.Parse(textBoxDif.Text) > 10)
+            {
+                MessageBox.Show("numero difensori non consentito (range 5-10)");
+                return false;
+            }
+            return true;
+        }
+
+
+        private Boolean ValidaCen()
+        {
+            if (textBoxCen.Text == null || int.Parse(textBoxCen.Text) < 5 || int.Parse(textBoxCen.Text) > 10)
+            {
+                MessageBox.Show("numero centrocampisti non consentito (range 5-10)");
+                return false;
+            }
+            return true;
+        }
+
+
+        private Boolean ValidaAtt()
+        {
+            if (textBoxAtt.Text == null || int.Parse(textBoxAtt.Text) < 5 || int.Parse(textBoxAtt.Text) > 10)
+            {
+                MessageBox.Show("numero attaccanti non consentito (range 5-10)");
+                return false;
+            }
+            return true;
+        }
+
+        private Boolean ValidaCrediti()
+        {
+            if (textBoxCreditiIniz.Text==null || int.Parse(textBoxCreditiIniz.Text) < 0 || int.Parse(textBoxCreditiIniz.Text) > 1000000)
+            {
+                MessageBox.Show("numero crediti iniziali non consentito (range 0-1000000)");
+                return false;
+            }
+           return true;
+        }
+
+
     }
 }

@@ -868,7 +868,7 @@ namespace Client.ServerLegaLega {
             return base.Channel.SetImpostazioni(request);
         }
         
-        public bool SetImpostazioni(int sqTot, int creIni, int numPor, int numDif, int numCen, int numAtt, Client.ServerLegaLega.Lega lega) {
+        public bool SetImpostazioni(int sqTot, int creIni, int numPor, int numDif, int numCen, int numAtt, Lega lega) {
             Client.ServerLegaLega.SetImpostazioniRequest inValue = new Client.ServerLegaLega.SetImpostazioniRequest();
             inValue.Body = new Client.ServerLegaLega.SetImpostazioniRequestBody();
             inValue.Body.sqTot = sqTot;
