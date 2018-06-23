@@ -35,12 +35,12 @@ namespace ServerLega.Controller
                 conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Lorenzo\Source\Repos\progettoIngegneriaDelSoftware\MyFantalega\ServerLega\App_Data\DBMyFantalegaLori.mdf;Integrated Security=True");
                 conn.Open();
                 //QUERY DI INSERIMENTO
-                SqlCommand insert = new SqlCommand("INSERT INTO Lega (nome, numSquadreTot, creditiIniziali, numPor, numDif, numCen, numAtt, squadraAdmin, lista, legaAdmin ) VALUES ( '" +lega.NomeLega + "', " + lega.NumeroSquadreTotali + ", " + lega.CreditiInizialiSquadra + ", " + lega.NumeroPor + ", " + lega.NumeroDif + ", " + lega.NumeroCen + ", " + lega.NumeroAtt + ", NULL" + ", NULL" +", '"+ lega.NomeLega + "' )", conn);
-             
+                SqlCommand insert = new SqlCommand("INSERT INTO Lega (nome, numSquadreTot, creditiIniziali, numPor, numDif, numCen, numAtt, squadraAdmin, lista, legaAdmin ) VALUES ( '" + lega.NomeLega + "', " + lega.NumeroSquadreTotali + ", " + lega.CreditiInizialiSquadra + ", " + lega.NumeroPor + ", " + lega.NumeroDif + ", " + lega.NumeroCen + ", " + lega.NumeroAtt + ", NULL" + ", NULL" + ", '" + lega.NomeLega + "' )", conn);
+
                 insert.ExecuteNonQuery();
                 return lega;
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Console.WriteLine(e.Message);
                 return null;
@@ -59,11 +59,11 @@ namespace ServerLega.Controller
             String domandaInFile;
             String rispostaInFile;
             String line;
-            
+
             try
             {
-                    StreamWriter writer = new StreamWriter(@"C: \Users\Jacopo\Source\Repos\progettoIngegneriaDelSoftware\MyFantalega\ServerLogin\registrazioni.txt");
-                    StreamReader reader = new StreamReader(@"C: \Users\Jacopo\Source\Repos\progettoIngegneriaDelSoftware\MyFantalega\ServerLogin\registrazioni.txt");
+                StreamWriter writer = new StreamWriter(@"C: \Users\Jacopo\Source\Repos\progettoIngegneriaDelSoftware\MyFantalega\ServerLogin\registrazioni.txt");
+                StreamReader reader = new StreamReader(@"C: \Users\Jacopo\Source\Repos\progettoIngegneriaDelSoftware\MyFantalega\ServerLogin\registrazioni.txt");
                 while ((line = reader.ReadLine()) != null)
                 {
                     char[] seps = { ':' };
@@ -77,7 +77,7 @@ namespace ServerLega.Controller
                     {
                         String lineToWrite = usernameInFile + ":" + nuovaPass + ":" + emailInFile + ":" + domandaInFile + ":" + rispostaInFile;
                         writer.WriteLine(lineToWrite);
-                            return true;
+                        return true;
                     }
 
                 }
@@ -92,10 +92,10 @@ namespace ServerLega.Controller
         }
 
 
-       [WebMethod]
-       public List <Lega> getLeghe(Utente utente)
+        [WebMethod]
+        public List<Lega> getLeghe(Utente utente)
         {
-            List<Lega> leghe = new List <Lega> ();
+            List<Lega> leghe = new List<Lega>();
             SqlConnection conn = null;
             try
             {   //CAMBIARE IL PATH A SECONDA DEL DB USATO!!
@@ -103,9 +103,9 @@ namespace ServerLega.Controller
                 conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Lorenzo\Source\Repos\progettoIngegneriaDelSoftware\MyFantalega\ServerLega\App_Data\DBMyFantalegaLori.mdf;Integrated Security=True");
                 conn.Open();
                 //QUERY CHE RESTITUISCE LE LEGHE
-                SqlCommand select = new SqlCommand("SELECT * FROM Lega WHERE nome IN (SELECT S.lega FROM Squadra S JOIN Utente U ON U.username = S.utente WHERE U.[e-mail]='"+utente.Email+"')", conn);
+                SqlCommand select = new SqlCommand("SELECT * FROM Lega WHERE nome IN (SELECT S.lega FROM Squadra S JOIN Utente U ON U.username = S.utente WHERE U.[e-mail]='" + utente.Email + "')", conn);
                 SqlDataReader reader = select.ExecuteReader();
-                
+
                 if (reader.HasRows)
                 {
                     while (reader.Read())
@@ -124,7 +124,7 @@ namespace ServerLega.Controller
                         squadraAdmin.Utente = utente;
 
                         leghe.Add(lega);
-                        
+
                     }
                 }
 
