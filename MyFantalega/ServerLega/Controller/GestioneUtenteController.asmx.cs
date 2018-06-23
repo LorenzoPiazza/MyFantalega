@@ -113,9 +113,9 @@ namespace ServerLega.Controller
             }
         }*/
 
-        void uniscitiAMercato(Mercato mercato, Squadra squadra)
+        void uniscitiAMercato(Squadra squadra)
         {
-            mercato.Squadre.Add(squadra);
+            squadra.Lega.MercatoAttivo.Squadre.Add(squadra);
 
         }
 

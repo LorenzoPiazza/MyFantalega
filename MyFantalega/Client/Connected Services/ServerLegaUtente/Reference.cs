@@ -11,8 +11,8 @@
 namespace Client.ServerLegaUtente {
     using System.Runtime.Serialization;
     using System;
-    
-    
+    using Client.Dominio;
+
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Utente", Namespace="http://tempuri.org/")]
@@ -839,6 +839,21 @@ namespace Client.ServerLegaUtente {
             inValue.Body.numeroPartecipanti = numeroPartecipanti;
             inValue.Body.utente = utente;
             return ((Client.ServerLegaUtente.GestioneUtenteControllerSoap)(this)).CreaLegaAsync(inValue);
+        }
+
+        internal Dominio.Lega CreaLega(string text, int value, Dominio.Utente utenteNav)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal bool CambiaPassword(string text1, string text2, string text3, string text4, Dominio.Utente utenteNav)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void UniscitiAMercato(Dominio.Squadra squadra)
+        {
+            throw new NotImplementedException();
         }
     }
 }

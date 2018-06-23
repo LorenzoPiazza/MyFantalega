@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Client.Dominio;
 using ServerLogin;
 
 namespace Client.View
@@ -14,12 +15,18 @@ namespace Client.View
     public partial class WelcomeHome : Form
     {
         private ServerLogin.Utente _utenteNav;
+        private Dominio.Utente _utenteNav1;
+
         public WelcomeHome(ServerLogin.Utente utente)
         {
             InitializeComponent();
             _utenteNav = utente;
         }
 
+        public WelcomeHome(Dominio.Utente utenteNav1)
+        {
+            _utenteNav1 = utenteNav1;
+        }
 
         private void WelcomeHome_Load(object sender, EventArgs e)
         {
