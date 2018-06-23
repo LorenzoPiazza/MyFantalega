@@ -9,7 +9,69 @@
 //------------------------------------------------------------------------------
 
 namespace Client.ServerLogin {
+    using System.Runtime.Serialization;
+    using System;
     
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Utente", Namespace="http://tempuri.org/")]
+    [System.SerializableAttribute()]
+    public partial class Utente : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EmailField;
+        
+        private bool IsAdminField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string Email {
+            get {
+                return this.EmailField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EmailField, value) != true)) {
+                    this.EmailField = value;
+                    this.RaisePropertyChanged("Email");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public bool IsAdmin {
+            get {
+                return this.IsAdminField;
+            }
+            set {
+                if ((this.IsAdminField.Equals(value) != true)) {
+                    this.IsAdminField = value;
+                    this.RaisePropertyChanged("IsAdmin");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServerLogin.LoginControllerSoap")]
@@ -21,6 +83,13 @@ namespace Client.ServerLogin {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/VerificaCredenziali", ReplyAction="*")]
         System.Threading.Tasks.Task<Client.ServerLogin.VerificaCredenzialiResponse> VerificaCredenzialiAsync(Client.ServerLogin.VerificaCredenzialiRequest request);
+        
+        // CODEGEN: Generazione di un contratto di messaggio perché il nome di elemento username dallo spazio dei nomi http://tempuri.org/ non è contrassegnato come nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/VerificaCredenzialiProva", ReplyAction="*")]
+        Client.ServerLogin.VerificaCredenzialiProvaResponse VerificaCredenzialiProva(Client.ServerLogin.VerificaCredenzialiProvaRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/VerificaCredenzialiProva", ReplyAction="*")]
+        System.Threading.Tasks.Task<Client.ServerLogin.VerificaCredenzialiProvaResponse> VerificaCredenzialiProvaAsync(Client.ServerLogin.VerificaCredenzialiProvaRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -95,6 +164,78 @@ namespace Client.ServerLogin {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class VerificaCredenzialiProvaRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="VerificaCredenzialiProva", Namespace="http://tempuri.org/", Order=0)]
+        public Client.ServerLogin.VerificaCredenzialiProvaRequestBody Body;
+        
+        public VerificaCredenzialiProvaRequest() {
+        }
+        
+        public VerificaCredenzialiProvaRequest(Client.ServerLogin.VerificaCredenzialiProvaRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class VerificaCredenzialiProvaRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string username;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
+        public string password;
+        
+        public VerificaCredenzialiProvaRequestBody() {
+        }
+        
+        public VerificaCredenzialiProvaRequestBody(string username, string password) {
+            this.username = username;
+            this.password = password;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class VerificaCredenzialiProvaResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="VerificaCredenzialiProvaResponse", Namespace="http://tempuri.org/", Order=0)]
+        public Client.ServerLogin.VerificaCredenzialiProvaResponseBody Body;
+        
+        public VerificaCredenzialiProvaResponse() {
+        }
+        
+        public VerificaCredenzialiProvaResponse(Client.ServerLogin.VerificaCredenzialiProvaResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class VerificaCredenzialiProvaResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public Client.ServerLogin.Utente VerificaCredenzialiProvaResult;
+        
+        public VerificaCredenzialiProvaResponseBody() {
+        }
+        
+        public VerificaCredenzialiProvaResponseBody(Client.ServerLogin.Utente VerificaCredenzialiProvaResult) {
+            this.VerificaCredenzialiProvaResult = VerificaCredenzialiProvaResult;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface LoginControllerSoapChannel : Client.ServerLogin.LoginControllerSoap, System.ServiceModel.IClientChannel {
     }
@@ -147,6 +288,33 @@ namespace Client.ServerLogin {
             inValue.Body.username = username;
             inValue.Body.password = password;
             return ((Client.ServerLogin.LoginControllerSoap)(this)).VerificaCredenzialiAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Client.ServerLogin.VerificaCredenzialiProvaResponse Client.ServerLogin.LoginControllerSoap.VerificaCredenzialiProva(Client.ServerLogin.VerificaCredenzialiProvaRequest request) {
+            return base.Channel.VerificaCredenzialiProva(request);
+        }
+        
+        public Client.ServerLogin.Utente VerificaCredenzialiProva(string username, string password) {
+            Client.ServerLogin.VerificaCredenzialiProvaRequest inValue = new Client.ServerLogin.VerificaCredenzialiProvaRequest();
+            inValue.Body = new Client.ServerLogin.VerificaCredenzialiProvaRequestBody();
+            inValue.Body.username = username;
+            inValue.Body.password = password;
+            Client.ServerLogin.VerificaCredenzialiProvaResponse retVal = ((Client.ServerLogin.LoginControllerSoap)(this)).VerificaCredenzialiProva(inValue);
+            return retVal.Body.VerificaCredenzialiProvaResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<Client.ServerLogin.VerificaCredenzialiProvaResponse> Client.ServerLogin.LoginControllerSoap.VerificaCredenzialiProvaAsync(Client.ServerLogin.VerificaCredenzialiProvaRequest request) {
+            return base.Channel.VerificaCredenzialiProvaAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<Client.ServerLogin.VerificaCredenzialiProvaResponse> VerificaCredenzialiProvaAsync(string username, string password) {
+            Client.ServerLogin.VerificaCredenzialiProvaRequest inValue = new Client.ServerLogin.VerificaCredenzialiProvaRequest();
+            inValue.Body = new Client.ServerLogin.VerificaCredenzialiProvaRequestBody();
+            inValue.Body.username = username;
+            inValue.Body.password = password;
+            return ((Client.ServerLogin.LoginControllerSoap)(this)).VerificaCredenzialiProvaAsync(inValue);
         }
     }
 }

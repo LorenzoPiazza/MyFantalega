@@ -46,8 +46,8 @@ namespace Client.View
 
         private void cambiaPassButton_Click(object sender, EventArgs e)
         {
-            //Client.ServerLogin1.RegistrazioneControllerSoapClient myRegistrazioneController = new Client.ServerLogin1.RegistrazioneControllerSoapClient();
-            //Boolean cambio = myRegistrazioneController.RegistraUtente(textBoxUsername.Text, textBoxPassword.Text);
+            /*Client.ServerLogin1.RegistrazioneControllerSoapClient myRegistrazioneController = new Client.ServerLogin1.RegistrazioneControllerSoapClient();
+            Boolean cambio = myRegistrazioneController.RegistraUtente(textBoxUsername.Text, textBoxPassword.Text);
                 
             if (cambio)
             {
@@ -60,7 +60,7 @@ namespace Client.View
             else
             {
                 MessageBox.Show("Errore");
-            }
+            }*/
         }
 
         private void vecchiaPassTextBox_TextChanged(object sender, EventArgs e)
@@ -103,12 +103,12 @@ namespace Client.View
                 cambiaPassButton.Enabled = false;
         }
 
-        private void buttonIndietro_Click(object sender, EventArgs e)
+       private void buttonIndietro_Click(object sender, EventArgs e)
         {
-            this.Close();
+            /*this.Close();
             WelcomeHome welcomeHome = new WelcomeHome(_utenteNav);
             welcomeHome.BringToFront();
-            welcomeHome.Show();
+            welcomeHome.Show();*/
         }
 
         private void CambioPassword_Load(object sender, EventArgs e)

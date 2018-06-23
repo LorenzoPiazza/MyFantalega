@@ -48,7 +48,7 @@ namespace Client.View
         }
 
         private void CreaButton_Click(object sender, EventArgs e)
-        {
+        {/*
             //sul numero di partecipanti non viene fatto nessun controllo perche la track bar lascia inserire solo valori dal 4 al 12
             int part = NPartTrackBar.Value;
             String lega = NomeDellaLegatextBox.Text;
@@ -58,14 +58,16 @@ namespace Client.View
             WelcomeHome welcomeHome = new WelcomeHome(_utenteNav);
             welcomeHome.BringToFront();
             welcomeHome.Show();
+            */
         }
 
         private void indietroButton_Click(object sender, EventArgs e)
-        {
+        {/*
             this.Close();
             WelcomeHome welcomeHome = new WelcomeHome(_utenteNav);
             welcomeHome.BringToFront();
             welcomeHome.Show();
+            */
         }
     }
 }

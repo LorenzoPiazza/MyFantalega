@@ -75,7 +75,7 @@ namespace ServerLega.Controller
             return false;
         }
 
-        Lega[] getLeghe(Utente utente)
+        /*Lega[] getLeghe(Utente utente)
         {
             Lega[] leghe;
             SqlConnection conn = null;
@@ -96,7 +96,7 @@ namespace ServerLega.Controller
             {
                 conn.Close();
             }
-        }
+        }*/
 
         void uniscitiAMercato(Mercato mercato, Squadra squadra)
         {

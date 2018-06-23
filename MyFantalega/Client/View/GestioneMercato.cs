@@ -7,13 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Client.ServerLegaMercato;
+using ServerLega.Dominio;
 
 namespace Client.View
 {
     public partial class GestioneMercato : Form
     {
-        Mercato mercato;
+       Mercato mercato;
         public GestioneMercato(Mercato mercatoPass)
         {
             mercato = mercatoPass;
@@ -30,10 +30,10 @@ namespace Client.View
             InitializeComponent();
         }
 
-        private void buttonIndietro_Click(object sender, EventArgs e)
+       private void buttonIndietro_Click(object sender, EventArgs e)
         {
-            this.Close();
-            new HomeLegaAdmin(mercato.Lega.SquadraAdmin).Show();
+           /* this.Close();
+            new HomeLegaAdmin(mercato.Lega.SquadraAdmin).Show();*/
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -52,9 +52,10 @@ namespace Client.View
             Boolean benFormate = true;
             for (int i = 0; i < mercato.Squadre.Count(); i++)
             {
-                if (!mercato.Squadre.ElementAt(i).verificaCompletezza())
+                if (!mercato.Squadre.ElementAt(i).VerificaCompletezza())
                 {
                     benFormate = false;
+                    break;
                 }
             }
             if (!benFormate)
@@ -81,7 +82,7 @@ namespace Client.View
             }
             else
             {
-                ServerLegaMercato.GestioneMercatoControllerSoapClient myMercatoController = new ServerLegaMercato.GestioneMercatoControllerSoapClient();
+                Client.ServerLegaMercato.GestioneMercatoControllerSoapClient myMercatoController = new Client.ServerLegaMercato.GestioneMercatoControllerSoapClient();
                 Boolean result;
                 result = myMercatoController.ChiudiMercato(mercato);
                 if (result == true)

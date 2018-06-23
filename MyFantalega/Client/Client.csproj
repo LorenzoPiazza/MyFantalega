@@ -88,15 +88,15 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Dominio\Asta.cs" />
-    <Compile Include="Dominio\Giocatore.cs" />
-    <Compile Include="Dominio\Lega.cs" />
-    <Compile Include="Dominio\ListaSvincolati.cs" />
-    <Compile Include="Dominio\Mercato.cs" />
-    <Compile Include="Dominio\Squadra.cs" />
-    <Compile Include="Dominio\Stato.cs" />
-    <Compile Include="Dominio\Turno.cs" />
-    <Compile Include="Dominio\Utente.cs" />
+    <Compile Include="Dominio%28Obsoleto%29\Asta.cs" />
+    <Compile Include="Dominio%28Obsoleto%29\Giocatore.cs" />
+    <Compile Include="Dominio%28Obsoleto%29\Lega.cs" />
+    <Compile Include="Dominio%28Obsoleto%29\ListaSvincolati.cs" />
+    <Compile Include="Dominio%28Obsoleto%29\Mercato.cs" />
+    <Compile Include="Dominio%28Obsoleto%29\Squadra.cs" />
+    <Compile Include="Dominio%28Obsoleto%29\Stato.cs" />
+    <Compile Include="Dominio%28Obsoleto%29\Turno.cs" />
+    <Compile Include="Dominio%28Obsoleto%29\Utente.cs" />
     <Compile Include="View\CambioPassword.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -267,6 +267,12 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ServerLogin1\RegistrazioneController.wsdl" />
+    <None Include="Connected Services\ServerLogin\Client.ServerLogin.Utente.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServerLogin\Client.ServerLogin.VerificaCredenzialiProvaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\ServerLogin\Client.ServerLogin.VerificaCredenzialiResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -402,6 +408,17 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ServerLega\ServerLega.csproj">
+      <Project>{de83f4aa-3cf3-4c7f-9d09-8d954de33da9}</Project>
+      <Name>ServerLega</Name>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </ProjectReference>
+    <ProjectReference Include="..\ServerLogin\ServerLogin.csproj">
+      <Project>{068c7161-e29c-4c10-b628-a440c9e697bf}</Project>
+      <Name>ServerLogin</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
