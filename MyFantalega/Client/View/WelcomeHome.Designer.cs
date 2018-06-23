@@ -75,14 +75,12 @@ namespace Client.View
             this.legheListBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.legheListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.legheListBox.FormattingEnabled = true;
-            Client.ServerLogin1.RegistrazioneControllerSoapClient myRegistrazioneController = new Client.ServerLogin1.RegistrazioneControllerSoapClient();
-            
-            //PERCHE' SI PRENDE LE LEGHE DAL REGISTRA CONTROLLER?
-            /*Lega[] leghe = myRegistrazioneController.RegistraUtente(textBoxUsername.Text, textBoxPassword.Text);
+            Client.ServerLegaUtente.GestioneUtenteControllerSoapClient myGestioneUtenteController = new Client.ServerLegaUtente.GestioneUtenteControllerSoapClient();
+            Lega[] leghe = myGestioneUtenteController.getLeghe(_utenteNav);
             for (int i = 0; i < leghe.Length; i++)
             {
                 this.legheListBox.Items.Add(leghe.GetValue(i));           
-            }*/
+            }
             this.legheListBox.Location = new System.Drawing.Point(383, 154);
             this.legheListBox.Name = "legheListBox";
             this.legheListBox.Size = new System.Drawing.Size(109, 66);
