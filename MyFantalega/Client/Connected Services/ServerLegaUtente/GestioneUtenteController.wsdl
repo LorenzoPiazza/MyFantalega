@@ -13,6 +13,7 @@
       </s:element>
       <s:complexType name="Utente">
         <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
           <s:element minOccurs="1" maxOccurs="1" name="IsAdmin" type="s:boolean" />
         </s:sequence>
       </s:complexType>
@@ -25,6 +26,7 @@
       </s:element>
       <s:complexType name="Lega">
         <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="NomeLega" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="SquadraAdmin" type="tns:Squadra" />
           <s:element minOccurs="1" maxOccurs="1" name="NumeroSquadreTotali" type="s:int" />
           <s:element minOccurs="1" maxOccurs="1" name="CreditiInizialiSquadra" type="s:int" />
@@ -47,6 +49,7 @@
           <s:element minOccurs="1" maxOccurs="1" name="NumeroAtt" type="s:int" />
           <s:element minOccurs="0" maxOccurs="1" name="Giocatori" type="tns:ArrayOfGiocatore" />
           <s:element minOccurs="0" maxOccurs="1" name="Lega" type="tns:Lega" />
+          <s:element minOccurs="0" maxOccurs="1" name="Utente" type="tns:Utente" />
         </s:sequence>
       </s:complexType>
       <s:complexType name="ArrayOfGiocatore">
@@ -89,9 +92,44 @@
       <s:complexType name="ListaSvincolati">
         <s:sequence>
           <s:element minOccurs="1" maxOccurs="1" name="DataCaricamento" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdLista" type="s:int" />
           <s:element minOccurs="0" maxOccurs="1" name="Giocatori" type="tns:ArrayOfGiocatore" />
         </s:sequence>
       </s:complexType>
+      <s:element name="getLeghe">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="utente" type="tns:Utente" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getLegheResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getLegheResult" type="tns:ArrayOfLega" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfLega">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Lega" nillable="true" type="tns:Lega" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="uniscitiAMercato">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="mercato" type="tns:Mercato" />
+            <s:element minOccurs="0" maxOccurs="1" name="squadra" type="tns:Squadra" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="uniscitiAMercatoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="uniscitiAMercatoResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="CreaLegaSoapIn">
@@ -100,10 +138,30 @@
   <wsdl:message name="CreaLegaSoapOut">
     <wsdl:part name="parameters" element="tns:CreaLegaResponse" />
   </wsdl:message>
+  <wsdl:message name="getLegheSoapIn">
+    <wsdl:part name="parameters" element="tns:getLeghe" />
+  </wsdl:message>
+  <wsdl:message name="getLegheSoapOut">
+    <wsdl:part name="parameters" element="tns:getLegheResponse" />
+  </wsdl:message>
+  <wsdl:message name="uniscitiAMercatoSoapIn">
+    <wsdl:part name="parameters" element="tns:uniscitiAMercato" />
+  </wsdl:message>
+  <wsdl:message name="uniscitiAMercatoSoapOut">
+    <wsdl:part name="parameters" element="tns:uniscitiAMercatoResponse" />
+  </wsdl:message>
   <wsdl:portType name="GestioneUtenteControllerSoap">
     <wsdl:operation name="CreaLega">
       <wsdl:input message="tns:CreaLegaSoapIn" />
       <wsdl:output message="tns:CreaLegaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getLeghe">
+      <wsdl:input message="tns:getLegheSoapIn" />
+      <wsdl:output message="tns:getLegheSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="uniscitiAMercato">
+      <wsdl:input message="tns:uniscitiAMercatoSoapIn" />
+      <wsdl:output message="tns:uniscitiAMercatoSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="GestioneUtenteControllerSoap" type="tns:GestioneUtenteControllerSoap">
@@ -117,11 +175,47 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="getLeghe">
+      <soap:operation soapAction="http://tempuri.org/getLeghe" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="uniscitiAMercato">
+      <soap:operation soapAction="http://tempuri.org/uniscitiAMercato" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="GestioneUtenteControllerSoap12" type="tns:GestioneUtenteControllerSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="CreaLega">
       <soap12:operation soapAction="http://tempuri.org/CreaLega" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLeghe">
+      <soap12:operation soapAction="http://tempuri.org/getLeghe" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="uniscitiAMercato">
+      <soap12:operation soapAction="http://tempuri.org/uniscitiAMercato" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

@@ -228,6 +228,7 @@
             this.Name = "Registrazione";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MyFantalega";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Registrazione_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

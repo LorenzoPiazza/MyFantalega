@@ -1,4 +1,4 @@
-﻿using Client.Dominio;
+﻿using ServerLega.Dominio;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,14 +13,21 @@ namespace Client.View
 {
     public partial class HomeLegaAdmin : Form
     {
-        private Squadra _squadra;
-        public HomeLegaAdmin(Squadra squadra)
+        //private Squadra _squadra;
+        private ServerLegaUtente.Lega lega;
+
+        public HomeLegaAdmin(ServerLegaUtente.Lega lega)
         {
             InitializeComponent();
-            this._squadra = squadra;
+            this.lega = lega;
         }
 
         private void HomeLegaAdmin_Load(object sender, EventArgs e)
+        {
+            squadraTextBox.Text = "CIAO " + lega.NomeLega;
+        }
+
+        private void squadraTextBox_TextChanged(object sender, EventArgs e)
         {
 
         }

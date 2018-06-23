@@ -49,7 +49,7 @@ namespace Client.View
 
         private void buttonChiudiMercato_Click(object sender, EventArgs e)
         {
-            Boolean benFormate = true;
+         /*   Boolean benFormate = true;
             for (int i = 0; i < mercato.Squadre.Count(); i++)
             {
                 if (!mercato.Squadre.ElementAt(i).VerificaCompletezza())
@@ -94,7 +94,7 @@ namespace Client.View
                 {
                     MessageBox.Show("Errore nella chiusura del mercato");
                 }
-            }
+            }*/
         }
     }
 }

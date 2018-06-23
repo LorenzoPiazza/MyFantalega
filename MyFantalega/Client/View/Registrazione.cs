@@ -144,7 +144,9 @@ namespace Client.View
 
         private void buttonIndietro_Click(object sender, EventArgs e)
         {
-            this.Close();
+            new ViewLogin().Show();
+            this.Hide();
+            
         }
 
         private void textBoxRisposta_Leave(object sender, EventArgs e)
@@ -160,6 +162,11 @@ namespace Client.View
         private void Registrazione_Load_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void Registrazione_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

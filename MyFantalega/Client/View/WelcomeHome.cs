@@ -7,37 +7,61 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ServerLogin;
+using ServerLega.Dominio;
+
 
 namespace Client.View
 {
     public partial class WelcomeHome : Form
     {
-        private ServerLogin.Utente _utenteNav;
-        public WelcomeHome(ServerLogin.Utente utente)
+        private Client.ServerLegaUtente.Utente _utenteNav;
+
+        public WelcomeHome(Client.ServerLegaUtente.Utente utente)
         {
             InitializeComponent();
             _utenteNav = utente;
+            buttonAccedi.Enabled = false;
         }
 
 
         private void WelcomeHome_Load(object sender, EventArgs e)
         {
-            textBoxBenvenuto.Text = "Benvenuto " + _utenteNav.Email;
+            //textBoxBenvenuto.Text = "Benvenuto " + _utenteNav.Email;
+            Client.ServerLegaUtente.GestioneUtenteControllerSoapClient myGestioneUtenteController = new Client.ServerLegaUtente.GestioneUtenteControllerSoapClient();
+
+            List<Client.ServerLegaUtente.Lega> mieLeghe = myGestioneUtenteController.getLeghe(_utenteNav);
+
+            if (mieLeghe == null)
+            {
+                groupBoxLeghe.Text = "Non partecipi ancora a nessuna lega, creane una nuova!";
+            }
+            
+
+            else
+            {
+
+                foreach (Client.ServerLegaUtente.Lega l in mieLeghe)
+                {
+                    Console.WriteLine("trovata Lega {0}", l.NomeLega);
+                    listBoxLeghe.Items.Add(l);
+                    comboBoxLeghe.Items.Add(l);
+                    textBoxBenvenuto.Text = "Benvenuto" + l.NomeLega;
+                }
+            }
         }
 
        
        private void creazioneLegaButton_Click(object sender, EventArgs e)
         {
-           /* this.Close();
+            this.Hide();
             CreazioneLega creazioneLega = new CreazioneLega(_utenteNav);
             creazioneLega.BringToFront();
-            creazioneLega.Show();*/
+            creazioneLega.Show();
         }
 
         private void cambioPassButton_Click(object sender, EventArgs e)
         {
-           /* this.Close();
+            /*this.Hide();
             CambioPassword cambioPass = new CambioPassword(_utenteNav);
             cambioPass.BringToFront();
             cambioPass.Show();*/
@@ -56,9 +80,34 @@ namespace Client.View
 
         }
 
-        private void textBoxBenvenuto_TextChanged(object sender, EventArgs e)
+        private void groupBoxLeghe_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listBoxLeghe_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBoxLeghe_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void WelcomeHome_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

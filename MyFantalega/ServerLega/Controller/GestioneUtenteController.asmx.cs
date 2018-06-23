@@ -1,5 +1,4 @@
-﻿using ServerLega.Dominio;
-using ServerLega.InterfacceController;
+﻿using ServerLega.InterfacceController;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -7,6 +6,8 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Services;
+using ServerLega.Dominio;
+
 
 namespace ServerLega.Controller
 {
@@ -28,12 +29,14 @@ namespace ServerLega.Controller
             SqlConnection conn = null;
             try
             {
-                Lega lega = null;
-                lega = new Lega(nome, numeroPartecipanti);
-                conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Jacopo\Source\Repos\progettoIngegneriaDelSoftware\MyFantalega\ServerLega\App_Data\DBMyFantalega.mdf;Integrated Security=True");
+                Lega lega = new Lega(nome, numeroPartecipanti);
+                //CAMBIARE IL PATH A SECONDA DEL DB USATO!!
+                //conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Jacopo\Source\Repos\progettoIngegneriaDelSoftware\MyFantalega\ServerLega\App_Data\DBMyFantalega.mdf;Integrated Security=True");
+                conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Lorenzo\Source\Repos\progettoIngegneriaDelSoftware\MyFantalega\ServerLega\App_Data\DBMyFantalegaLori.mdf;Integrated Security=True");
                 conn.Open();
-                //FAI QUERY
-                SqlCommand insert = new SqlCommand("insert into Lega values ( nomeLega=" + lega.NomeLega + ", numSquadreTot=" + lega.NumeroSquadreTotali + ", creditiIniziali=" + lega.CreditiInizialiSquadra + ", numPor=" + lega.NumeroPor + ", numDif=" + lega.NumeroDif + ", numCen=" + lega.NumeroCen + ", numAtt=" + lega.NumeroAtt + ", lista=" + lega.ListaSvincolati + ", )", conn);
+                //QUERY DI INSERIMENTO
+                SqlCommand insert = new SqlCommand("INSERT INTO Lega (nome, numSquadreTot, creditiIniziali, numPor, numDif, numCen, numAtt, squadraAdmin, lista, legaAdmin ) VALUES ( '" +lega.NomeLega + "', " + lega.NumeroSquadreTotali + ", " + lega.CreditiInizialiSquadra + ", " + lega.NumeroPor + ", " + lega.NumeroDif + ", " + lega.NumeroCen + ", " + lega.NumeroAtt + ", NULL" + ", NULL" +", '"+ lega.NomeLega + "' )", conn);
+             
                 insert.ExecuteNonQuery();
                 return lega;
             }
@@ -88,18 +91,43 @@ namespace ServerLega.Controller
             return false;
         }
 
-        /*Lega[] getLeghe(Utente utente)
+
+       [WebMethod]
+       public List <Lega> getLeghe(Utente utente)
         {
-            Lega[] leghe;
+            List<Lega> leghe = new List <Lega> ();
             SqlConnection conn = null;
             try
-            {
-                conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Jacopo\Source\Repos\progettoIngegneriaDelSoftware\MyFantalega\ServerLega\App_Data\DBMyFantalega.mdf;Integrated Security=True");
+            {   //CAMBIARE IL PATH A SECONDA DEL DB USATO!!
+                //conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Jacopo\Source\Repos\progettoIngegneriaDelSoftware\MyFantalega\ServerLega\App_Data\DBMyFantalega.mdf;Integrated Security=True");
+                conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Lorenzo\Source\Repos\progettoIngegneriaDelSoftware\MyFantalega\ServerLega\App_Data\DBMyFantalegaLori.mdf;Integrated Security=True");
                 conn.Open();
-                //INSERISCI QUERY CHE RESTITUISCE LE LEGHE
-                SqlCommand select = new SqlCommand("????", conn);
-                TextReader reader;
-                reader select.ExecuteReader();
+                //QUERY CHE RESTITUISCE LE LEGHE
+                SqlCommand select = new SqlCommand("SELECT * FROM Lega WHERE nome IN (SELECT S.lega FROM Squadra S JOIN Utente U ON U.username = S.utente WHERE U.[e-mail]='"+utente.Email+"')", conn);
+                SqlDataReader reader = select.ExecuteReader();
+                
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        Lega lega = new Lega(reader.GetString(0), reader.GetInt32(1));
+                        lega.CreditiInizialiSquadra = reader.GetInt32(2);
+                        lega.NumeroPor = reader.GetInt32(3);
+                        lega.NumeroDif = reader.GetInt32(4);
+                        lega.NumeroCen = reader.GetInt32(5);
+                        lega.NumeroAtt = reader.GetInt32(6);
+                        Squadra squadraAdmin = new Squadra();
+                        squadraAdmin.Nome = reader.GetString(7);
+                        ListaSvincolati lista = new ListaSvincolati();
+                        lista.IdLista = reader.GetInt32(8);
+                        squadraAdmin.Lega = lega;
+                        squadraAdmin.Utente = utente;
+
+                        leghe.Add(lega);
+                        
+                    }
+                }
+
                 return leghe;
             }
             catch (Exception e)
@@ -111,32 +139,18 @@ namespace ServerLega.Controller
             {
                 conn.Close();
             }
-        }*/
+        }
 
-        void uniscitiAMercato(Mercato mercato, Squadra squadra)
+        [WebMethod]
+        public Boolean uniscitiAMercato(Mercato mercato, Squadra squadra)
         {
+            if (mercato.Squadre.Contains(squadra))
+                return false;
+
             mercato.Squadre.Add(squadra);
+            return true;
 
         }
 
-        public Lega CreaLega(string nome, int numeroPartecipanti)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool cambiaPassword(string vecchiaPass, string nuovaPass, string domanda, string risposta)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Lega[] getLeghe()
-        {
-            throw new NotImplementedException();
-        }
-
-        bool IGestioneUtenteController.uniscitiAMercato()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

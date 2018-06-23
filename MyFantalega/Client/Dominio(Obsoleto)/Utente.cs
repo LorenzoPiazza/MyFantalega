@@ -23,6 +23,11 @@ namespace Client.Dominio
             {
                 return _email;
             }
+
+            set
+            {
+                _email = value;
+            }
         }
 
         public bool IsAdmin

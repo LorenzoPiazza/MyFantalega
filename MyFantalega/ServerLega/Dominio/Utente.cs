@@ -28,7 +28,14 @@ namespace ServerLega.Dominio
             {
                 return _email;
             }
+
+
+            set
+            {
+                _email = value;
+            }
         }
+
 
         public bool IsAdmin
         {
@@ -43,4 +50,6 @@ namespace ServerLega.Dominio
             }
         }
     }
-}
+
+
+ }

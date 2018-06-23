@@ -22,7 +22,7 @@ namespace Client.View
 
         private void button4_Click(object sender, EventArgs e)
         {
-            new GestioneMercato(mercato).Show();
+         //   new GestioneMercato(mercato).Show();
         }
     }
 }

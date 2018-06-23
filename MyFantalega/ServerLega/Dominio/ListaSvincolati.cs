@@ -43,6 +43,11 @@ namespace ServerLega.Dominio
             {
                 return idLista;
             }
+
+            set
+            {
+                idLista = value;
+            }
         }
 
         public List<Giocatore> Giocatori

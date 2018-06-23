@@ -260,7 +260,13 @@
     <None Include="Connected Services\ServerLegaUtente\Client.ServerLegaUtente.CreaLegaResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\ServerLegaUtente\Client.ServerLegaUtente.getLegheResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\ServerLegaUtente\Client.ServerLegaUtente.Lega.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServerLegaUtente\Client.ServerLegaUtente.uniscitiAMercatoResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ServerLogin1\Client.ServerLogin1.RegistraUtenteResponse1.datasource">

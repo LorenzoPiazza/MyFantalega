@@ -47,7 +47,7 @@ namespace ServerLega.Dominio
         public int NumeroAtt { get => _numeroAtt; set => _numeroAtt = value; }
         public List<Giocatore> Giocatori { get => _giocatori; }
         public Lega Lega { get => _lega; set => _lega = value; }
-        public Utente Utente { get => _utente; }
+        public Utente Utente { get => _utente; set => _utente = value; }
 
 
         //AGGIUNGERE EVENTUALMENTE EXCEPTIONS IN BASE AGLI ERRORI

@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Client.ServerLegaLega;
-using Client.Dominio;
+using Client.ServerLegaUtente;
 
 namespace Client.View
 {
@@ -25,9 +25,10 @@ namespace Client.View
 
         private Boolean ValidaNomeLega()
         {
-            if (NomeDellaLegatextBox.Text.Length <= 20 && NomeDellaLegatextBox.Text.Length != 0)
-                return true;
-            return false;
+            //Il controllo sulla lunghezza di max 20 caratteri viene fatto dalle proprietà della text box
+            if (NomeDellaLegatextBox.Text.Equals(""))
+                return false;
+            return true;
         }
 
         private void CreazioneLega_Load(object sender, EventArgs e)
@@ -39,7 +40,8 @@ namespace Client.View
         {
             if (ValidaNomeLega())
                 CreaButton.Enabled = true;
-            CreaButton.Enabled = false;
+            else
+                CreaButton.Enabled = false;
         }
 
         private void NPartTrackBar_Scroll(object sender, EventArgs e)
@@ -48,17 +50,20 @@ namespace Client.View
         }
 
         private void CreaButton_Click(object sender, EventArgs e)
-        {/*
+        {
             //sul numero di partecipanti non viene fatto nessun controllo perche la track bar lascia inserire solo valori dal 4 al 12
-            int part = NPartTrackBar.Value;
-            String lega = NomeDellaLegatextBox.Text;
-            //Client.ServerLegaLega.GestioneUtenteControllerSoapClient myGestioneUtenteController = new Client.ServerLogin1.RegistrazioneControllerSoapClient();
-            //String emailEsito = myRegistrazioneController.RegistraUtente(textBoxUsername.Text, textBoxPassword.Text,viewGestionePartecipanti)
+            Client.ServerLegaUtente.GestioneUtenteControllerSoapClient myGestioneUtenteController = new ServerLegaUtente.GestioneUtenteControllerSoapClient();
+            Client.ServerLegaUtente.Lega lega = myGestioneUtenteController.CreaLega(NomeDellaLegatextBox.Text, NPartTrackBar.Value, _utenteNav);
             this.Close();
-            WelcomeHome welcomeHome = new WelcomeHome(_utenteNav);
+            /*WelcomeHome welcomeHome = new WelcomeHome(_utenteNav);
             welcomeHome.BringToFront();
-            welcomeHome.Show();
-            */
+            welcomeHome.Show();*/
+
+
+            HomeLegaAdmin homeLegaAdmin = new HomeLegaAdmin(lega);
+            homeLegaAdmin.Show();
+            
+            
         }
 
         private void indietroButton_Click(object sender, EventArgs e)

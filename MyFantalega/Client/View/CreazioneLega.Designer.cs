@@ -41,9 +41,10 @@
             // NomeDellaLegatextBox
             // 
             this.NomeDellaLegatextBox.Location = new System.Drawing.Point(271, 137);
+            this.NomeDellaLegatextBox.MaxLength = 20;
             this.NomeDellaLegatextBox.Name = "NomeDellaLegatextBox";
             this.NomeDellaLegatextBox.Size = new System.Drawing.Size(449, 22);
-            this.NomeDellaLegatextBox.TabIndex = 5;
+            this.NomeDellaLegatextBox.TabIndex = 1;
             this.NomeDellaLegatextBox.TextChanged += new System.EventHandler(this.NomeDellaLegatextBox_TextChanged);
             // 
             // label1
@@ -69,12 +70,13 @@
             // 
             // NPartTrackBar
             // 
+            this.NPartTrackBar.LargeChange = 1;
             this.NPartTrackBar.Location = new System.Drawing.Point(271, 199);
             this.NPartTrackBar.Maximum = 12;
             this.NPartTrackBar.Minimum = 4;
             this.NPartTrackBar.Name = "NPartTrackBar";
             this.NPartTrackBar.Size = new System.Drawing.Size(449, 56);
-            this.NPartTrackBar.TabIndex = 10;
+            this.NPartTrackBar.TabIndex = 2;
             this.NPartTrackBar.Value = 4;
             this.NPartTrackBar.Scroll += new System.EventHandler(this.NPartTrackBar_Scroll);
             // 
@@ -96,17 +98,17 @@
             this.label2.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.label2.Location = new System.Drawing.Point(280, 21);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(260, 38);
+            this.label2.Size = new System.Drawing.Size(263, 37);
             this.label2.TabIndex = 36;
             this.label2.Text = "Creazione Lega";
             this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // CreaButton
             // 
-            this.CreaButton.Location = new System.Drawing.Point(287, 330);
+            this.CreaButton.Location = new System.Drawing.Point(271, 289);
             this.CreaButton.Name = "CreaButton";
-            this.CreaButton.Size = new System.Drawing.Size(75, 23);
-            this.CreaButton.TabIndex = 37;
+            this.CreaButton.Size = new System.Drawing.Size(104, 47);
+            this.CreaButton.TabIndex = 3;
             this.CreaButton.Text = "Crea";
             this.CreaButton.UseVisualStyleBackColor = true;
             this.CreaButton.Click += new System.EventHandler(this.CreaButton_Click);

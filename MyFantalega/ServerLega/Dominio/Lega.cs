@@ -55,7 +55,7 @@ namespace ServerLega.Dominio
 
         }
 
-        public string NomeLega { get => _nomeLega; }
+        public string NomeLega { get => _nomeLega; set => _nomeLega = value; }
         public Squadra SquadraAdmin { get => _squadraAdmin; set => _squadraAdmin = value; }
         public int NumeroSquadreTotali { get => _numeroSquadreTotali; set => _numeroSquadreTotali = value; }
         public int CreditiInizialiSquadra { get => _creditiInizialiSquadra; set => _creditiInizialiSquadra = value; }

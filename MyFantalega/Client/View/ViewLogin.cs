@@ -1,18 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Net;
-using ServerLogin;
-
-
-/*VERSIONE PROVA!!!!!!!!!!!!*/
-namespace Client.View
+﻿/*VERSIONE PROVA!!!!!!!!!!!!*/
+/*namespace Client.View
 {
     public partial class ViewLogin : Form
     {
@@ -97,7 +84,7 @@ namespace Client.View
 
         }
     }
-}
+}*/
 
 
 
@@ -112,7 +99,7 @@ namespace Client.View
 
 
 
-/*using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -122,14 +109,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net;
-using Client.Dominio;
+using ServerLega.Dominio;
 
 namespace Client.View
 {
     public partial class ViewLogin : Form
     {
         String emailUtenteNav;
-        Utente utenteNav;
+        Client.ServerLegaUtente.Utente utenteNav;
         public ViewLogin()
         {
             InitializeComponent();
@@ -157,8 +144,11 @@ namespace Client.View
             Client.ServerLogin.LoginControllerSoapClient myLoginController = new Client.ServerLogin.LoginControllerSoapClient();
             emailUtenteNav = myLoginController.VerificaCredenziali(textBoxUsername.Text, textBoxPassword.Text);
             if (emailUtenteNav != null){
-                utenteNav = new Utente(emailUtenteNav);
-                new WelcomeHome(utenteNav).ShowDialog(); 
+                utenteNav = new Client.ServerLegaUtente.Utente();
+                utenteNav.Email = emailUtenteNav;
+                this.Hide();
+                new WelcomeHome(utenteNav).ShowDialog();
+                
             }
             else
             {
@@ -168,7 +158,9 @@ namespace Client.View
 
         private void ButtonRegistrazione_Click(object sender, EventArgs e)
         {
+            this.Hide();
             new Registrazione().ShowDialog();
+            
         }
 
         private void textBoxPassword_TextChanged(object sender, EventArgs e)
@@ -210,4 +202,4 @@ namespace Client.View
 
         }
     }
-}*/
+}

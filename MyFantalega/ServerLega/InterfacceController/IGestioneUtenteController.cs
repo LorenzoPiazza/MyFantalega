@@ -9,9 +9,9 @@ namespace ServerLega.InterfacceController
 {
     interface IGestioneUtenteController
     {
-        Lega CreaLega(String nome, int numeroPartecipanti);
-        Boolean cambiaPassword(String vecchiaPass, String nuovaPass, String domanda, String risposta);
-        Lega[] getLeghe();
-        Boolean uniscitiAMercato();
+        Lega CreaLega(String nome, int numeroPartecipanti, Utente utente);
+        Boolean cambiaPassword(String vecchiaPass, String nuovaPass, String domanda, String risposta, Utente utente);
+        List<Lega> getLeghe(Utente utente);
+        Boolean uniscitiAMercato(Mercato mercato, Squadra squadra);
     }
 }
