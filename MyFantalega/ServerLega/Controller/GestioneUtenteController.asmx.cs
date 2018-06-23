@@ -26,13 +26,26 @@ namespace ServerLega.Controller
         public Lega CreaLega(String nome, int numeroPartecipanti, Utente utente)
         {
             SqlConnection conn = null;
-            Lega lega = null;
-            lega = new Lega(nome, numeroPartecipanti);
-            conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Jacopo\Source\Repos\progettoIngegneriaDelSoftware\MyFantalega\ServerLega\App_Data\DBMyFantalega.mdf;Integrated Security=True");
-            conn.Open();
-            SqlCommand insert = new SqlCommand("????", conn); //inserisci query che inserisce la lega
-            insert.ExecuteNonQuery();
-            return lega;
+            try
+            {
+                Lega lega = null;
+                lega = new Lega(nome, numeroPartecipanti);
+                conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Jacopo\Source\Repos\progettoIngegneriaDelSoftware\MyFantalega\ServerLega\App_Data\DBMyFantalega.mdf;Integrated Security=True");
+                conn.Open();
+                //FAI QUERY
+                SqlCommand insert = new SqlCommand("insert into Lega values ( nomeLega=" + lega.NomeLega + ", numSquadreTot=" + lega.NumeroSquadreTotali + ", creditiIniziali=" + lega.CreditiInizialiSquadra + ", numPor=" + lega.NumeroPor + ", numDif=" + lega.NumeroDif + ", numCen=" + lega.NumeroCen + ", numAtt=" + lega.NumeroAtt + ", lista=" + lega.ListaSvincolati + ", )", conn);
+                insert.ExecuteNonQuery();
+                return lega;
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return null;
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
 
         public Boolean cambiaPassword(String vecchiaPass, String nuovaPass, String domanda, String risposta, Utente utente)
@@ -83,8 +96,10 @@ namespace ServerLega.Controller
             {
                 conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Jacopo\Source\Repos\progettoIngegneriaDelSoftware\MyFantalega\ServerLega\App_Data\DBMyFantalega.mdf;Integrated Security=True");
                 conn.Open();
-                SqlCommand select = new SqlCommand("????", conn); //inserisci query che restituisce le leghe
-                leghe = select.ExecuteNonQuery();
+                //INSERISCI QUERY CHE RESTITUISCE LE LEGHE
+                SqlCommand select = new SqlCommand("????", conn);
+                TextReader reader;
+                reader select.ExecuteReader();
                 return leghe;
             }
             catch (Exception e)
