@@ -1,0 +1,1 @@
+﻿SELECT S.lega FROM dbo.Squadra S JOIN dbo.Utente U ON U.username = S.utente WHERE U.[e-mail]='lollo96.piazza@gmail.com';
