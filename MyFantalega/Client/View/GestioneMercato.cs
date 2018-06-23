@@ -33,7 +33,7 @@ namespace Client.View
         private void buttonIndietro_Click(object sender, EventArgs e)
         {
             this.Close();
-            new HomeLegaAdmin().Show();
+            new HomeLegaAdmin(mercato.Lega.SquadraAdmin).Show();
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -49,17 +49,50 @@ namespace Client.View
 
         private void buttonChiudiMercato_Click(object sender, EventArgs e)
         {
-            ServerLegaMercato.GestioneMercatoControllerSoapClient myMercatoControler = new ServerLegaMercato.GestioneMercatoControllerSoapClient();
-            Boolean result;
-            result = myMercatoControler.ChiudiMercato(mercato);
-            if (result == true)
+            Boolean benFormate = true;
+            for (int i = 0; i < mercato.Squadre.Count(); i++)
             {
-                MessageBox.Show("Mercato Chiuso");
-                new HomeLegaAdmin().Show();
+                if (!mercato.Squadre.ElementAt(i).verificaCompletezza())
+                {
+                    benFormate = false;
+                }
+            }
+            if (!benFormate)
+            {
+                if (MessageBox.Show("Sei sicuro di chiudere un mercato non concluso?", "Mercato", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    ServerLegaMercato.GestioneMercatoControllerSoapClient myMercatoController = new ServerLegaMercato.GestioneMercatoControllerSoapClient();
+                    Boolean result;
+                    result = myMercatoController.ChiudiMercato(mercato);
+                    if (result == true)
+                    {
+                        MessageBox.Show("Mercato chiuso anche se non completo");
+                        new HomeLegaAdmin(mercato.Lega).Show();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Errore nella chiusura del mercato");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Mercato ancora attivo");
+                }
             }
             else
             {
-                MessageBox.Show("Errore nella chiusura del mercato");
+                ServerLegaMercato.GestioneMercatoControllerSoapClient myMercatoController = new ServerLegaMercato.GestioneMercatoControllerSoapClient();
+                Boolean result;
+                result = myMercatoController.ChiudiMercato(mercato);
+                if (result == true)
+                {
+                    MessageBox.Show("Mercato chiuso correttamente");
+                    new HomeLegaAdmin(mercato.Lega).Show();
+                }
+                else
+                {
+                    MessageBox.Show("Errore nella chiusura del mercato");
+                }
             }
         }
     }

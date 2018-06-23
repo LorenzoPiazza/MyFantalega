@@ -1,4 +1,4 @@
-﻿ using System;
+﻿using System;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,7 +9,7 @@ namespace ServerLega.Dominio
     public class Lega
     {
         private String _nomeLega;
-        private String _squadraAdmin;
+        private Squadra _squadraAdmin;
         private int _numeroSquadreTotali;
         private int _creditiInizialiSquadra;
         private int _numeroPor;
@@ -56,7 +56,7 @@ namespace ServerLega.Dominio
         }
 
         public string NomeLega { get => _nomeLega; }
-        public String SquadraAdmin { get => _squadraAdmin; set => _squadraAdmin = value; }
+        public Squadra SquadraAdmin { get => _squadraAdmin; set => _squadraAdmin = value; }
         public int NumeroSquadreTotali { get => _numeroSquadreTotali; set => _numeroSquadreTotali = value; }
         public int CreditiInizialiSquadra { get => _creditiInizialiSquadra; set => _creditiInizialiSquadra = value; }
         public int NumeroPor { get => _numeroPor; set => _numeroPor = value; }
@@ -117,5 +117,4 @@ namespace ServerLega.Dominio
         }
 
     }
-
 }

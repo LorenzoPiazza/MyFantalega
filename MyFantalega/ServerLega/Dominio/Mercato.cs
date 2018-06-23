@@ -39,6 +39,10 @@ namespace ServerLega.Dominio
             {
                 return _lega;
             }
+            set
+            {
+                _lega = value;
+            }
         }
 
         public List<Asta> Aste

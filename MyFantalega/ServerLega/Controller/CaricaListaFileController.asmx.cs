@@ -32,7 +32,8 @@ namespace ServerLega.Controller
                 DateTime data = new DateTime();
                 SqlCommand update = new SqlCommand("insert into ListaSvincolati (Id,dataCaricamento) values(100,"+data.Date+")", conn);
                 update.ExecuteNonQuery();
-                //String ruolo, club;
+                //String club;
+                String ruolo;
                 String nome;
                 int quotazione;
                 String strExcel = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\Alan\Documents\universita\terzo anno\secondo semestre\progetto\MyFantalega\ServerLega\Quotazioni.xlsx";
@@ -45,10 +46,10 @@ namespace ServerLega.Controller
                 {
                     nome = (String)dr["Nome"];
                     quotazione = (int)dr["Qt.I"];
-                    //ruolo = (String)dr["R"];
+                    ruolo = (String)dr["R"];
                     //club = (String)dr["Squadra"];
                     //Giocatore giocatore = new Giocatore(nome, quotazione, ruolo, club);
-                    update = new SqlCommand("insert into Giocatore (nome,quotazioneIniziale,lista) values("+nome+","+quotazione+",100)", conn);
+                    update = new SqlCommand("insert into Giocatore (nome,quotazioneIniziale,lista,ruolo) values("+nome+","+quotazione+",100,"+ruolo+")", conn);
                     update.ExecuteNonQuery();
                 }
             }

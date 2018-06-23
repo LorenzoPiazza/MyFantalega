@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using System.Text;
 using ServerLega.Dominio;
-
+using System.Net;
+using System.Web.Services;
 
 namespace ServerLega.Dominio
 {
@@ -45,7 +46,7 @@ namespace ServerLega.Dominio
         public int NumeroCen { get => _numeroCen; set => _numeroCen = value; }
         public int NumeroAtt { get => _numeroAtt; set => _numeroAtt = value; }
         public List<Giocatore> Giocatori { get => _giocatori; }
-        public Lega Lega { get => _lega; }
+        public Lega Lega { get => _lega; set => _lega = value; }
         public Utente Utente { get => _utente; }
 
 
@@ -90,6 +91,7 @@ namespace ServerLega.Dominio
             return null;
         }
 
+        [WebMethod]
         public Boolean VerificaReparto(String reparto)
         {
             switch (reparto)
@@ -115,6 +117,7 @@ namespace ServerLega.Dominio
             return false;
         }
 
+        [WebMethod]
         public Boolean VerificaCompletezza()
         {
             if (_numeroPor == _lega.NumeroPor && _numeroDif == _lega.NumeroDif && _numeroCen == _lega.NumeroCen && _numeroAtt == _lega.NumeroAtt)

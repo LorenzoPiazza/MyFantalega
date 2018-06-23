@@ -8,10 +8,54 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Client.ServerLegaLega {
+namespace Client.ServerLegaUtente {
     using System.Runtime.Serialization;
     using System;
     
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Utente", Namespace="http://tempuri.org/")]
+    [System.SerializableAttribute()]
+    public partial class Utente : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private bool IsAdminField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public bool IsAdmin {
+            get {
+                return this.IsAdminField;
+            }
+            set {
+                if ((this.IsAdminField.Equals(value) != true)) {
+                    this.IsAdminField = value;
+                    this.RaisePropertyChanged("IsAdmin");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -23,7 +67,7 @@ namespace Client.ServerLegaLega {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Client.ServerLegaLega.Squadra SquadraAdminField;
+        private Client.ServerLegaUtente.Squadra SquadraAdminField;
         
         private int NumeroSquadreTotaliField;
         
@@ -38,13 +82,13 @@ namespace Client.ServerLegaLega {
         private int NumeroAttField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Client.ServerLegaLega.Mercato MercatoAttivoField;
+        private Client.ServerLegaUtente.Mercato MercatoAttivoField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Client.ServerLegaLega.ListaSvincolati ListaSvincolatiField;
+        private Client.ServerLegaUtente.ListaSvincolati ListaSvincolatiField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Client.ServerLegaLega.Squadra[] SquadreField;
+        private Client.ServerLegaUtente.Squadra[] SquadreField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -57,7 +101,7 @@ namespace Client.ServerLegaLega {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
-        public Client.ServerLegaLega.Squadra SquadraAdmin {
+        public Client.ServerLegaUtente.Squadra SquadraAdmin {
             get {
                 return this.SquadraAdminField;
             }
@@ -148,7 +192,7 @@ namespace Client.ServerLegaLega {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=7)]
-        public Client.ServerLegaLega.Mercato MercatoAttivo {
+        public Client.ServerLegaUtente.Mercato MercatoAttivo {
             get {
                 return this.MercatoAttivoField;
             }
@@ -161,7 +205,7 @@ namespace Client.ServerLegaLega {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=8)]
-        public Client.ServerLegaLega.ListaSvincolati ListaSvincolati {
+        public Client.ServerLegaUtente.ListaSvincolati ListaSvincolati {
             get {
                 return this.ListaSvincolatiField;
             }
@@ -174,7 +218,7 @@ namespace Client.ServerLegaLega {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=9)]
-        public Client.ServerLegaLega.Squadra[] Squadre {
+        public Client.ServerLegaUtente.Squadra[] Squadre {
             get {
                 return this.SquadreField;
             }
@@ -219,10 +263,10 @@ namespace Client.ServerLegaLega {
         private int NumeroAttField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Client.ServerLegaLega.Giocatore[] GiocatoriField;
+        private Client.ServerLegaUtente.Giocatore[] GiocatoriField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Client.ServerLegaLega.Lega LegaField;
+        private Client.ServerLegaUtente.Lega LegaField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -313,7 +357,7 @@ namespace Client.ServerLegaLega {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=6)]
-        public Client.ServerLegaLega.Giocatore[] Giocatori {
+        public Client.ServerLegaUtente.Giocatore[] Giocatori {
             get {
                 return this.GiocatoriField;
             }
@@ -326,7 +370,7 @@ namespace Client.ServerLegaLega {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=7)]
-        public Client.ServerLegaLega.Lega Lega {
+        public Client.ServerLegaUtente.Lega Lega {
             get {
                 return this.LegaField;
             }
@@ -358,13 +402,13 @@ namespace Client.ServerLegaLega {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Client.ServerLegaLega.Lega LegaField;
+        private Client.ServerLegaUtente.Lega LegaField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Client.ServerLegaLega.Asta[] AsteField;
+        private Client.ServerLegaUtente.Asta[] AsteField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Client.ServerLegaLega.Squadra[] SquadreField;
+        private Client.ServerLegaUtente.Squadra[] SquadreField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -377,7 +421,7 @@ namespace Client.ServerLegaLega {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
-        public Client.ServerLegaLega.Lega Lega {
+        public Client.ServerLegaUtente.Lega Lega {
             get {
                 return this.LegaField;
             }
@@ -390,7 +434,7 @@ namespace Client.ServerLegaLega {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
-        public Client.ServerLegaLega.Asta[] Aste {
+        public Client.ServerLegaUtente.Asta[] Aste {
             get {
                 return this.AsteField;
             }
@@ -403,7 +447,7 @@ namespace Client.ServerLegaLega {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
-        public Client.ServerLegaLega.Squadra[] Squadre {
+        public Client.ServerLegaUtente.Squadra[] Squadre {
             get {
                 return this.SquadreField;
             }
@@ -437,7 +481,7 @@ namespace Client.ServerLegaLega {
         private System.DateTime DataCaricamentoField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Client.ServerLegaLega.Giocatore[] GiocatoriField;
+        private Client.ServerLegaUtente.Giocatore[] GiocatoriField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -463,7 +507,7 @@ namespace Client.ServerLegaLega {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
-        public Client.ServerLegaLega.Giocatore[] Giocatori {
+        public Client.ServerLegaUtente.Giocatore[] Giocatori {
             get {
                 return this.GiocatoriField;
             }
@@ -573,13 +617,13 @@ namespace Client.ServerLegaLega {
         private int UltimaOffertaField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Client.ServerLegaLega.Squadra UltimoOfferenteField;
+        private Client.ServerLegaUtente.Squadra UltimoOfferenteField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Client.ServerLegaLega.Squadra[] SquadreField;
+        private Client.ServerLegaUtente.Squadra[] SquadreField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Client.ServerLegaLega.Giocatore GiocatoreField;
+        private Client.ServerLegaUtente.Giocatore GiocatoreField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -605,7 +649,7 @@ namespace Client.ServerLegaLega {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
-        public Client.ServerLegaLega.Squadra UltimoOfferente {
+        public Client.ServerLegaUtente.Squadra UltimoOfferente {
             get {
                 return this.UltimoOfferenteField;
             }
@@ -618,7 +662,7 @@ namespace Client.ServerLegaLega {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
-        public Client.ServerLegaLega.Squadra[] Squadre {
+        public Client.ServerLegaUtente.Squadra[] Squadre {
             get {
                 return this.SquadreField;
             }
@@ -631,7 +675,7 @@ namespace Client.ServerLegaLega {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
-        public Client.ServerLegaLega.Giocatore Giocatore {
+        public Client.ServerLegaUtente.Giocatore Giocatore {
             get {
                 return this.GiocatoreField;
             }
@@ -654,37 +698,30 @@ namespace Client.ServerLegaLega {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServerLegaLega.GestioneLegaControllerSoap")]
-    public interface GestioneLegaControllerSoap {
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServerLegaUtente.GestioneUtenteControllerSoap")]
+    public interface GestioneUtenteControllerSoap {
         
-        // CODEGEN: Generazione di un contratto di messaggio perché il nome di elemento lega dallo spazio dei nomi http://tempuri.org/ non è contrassegnato come nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/SetImpostazioni", ReplyAction="*")]
-        Client.ServerLegaLega.SetImpostazioniResponse SetImpostazioni(Client.ServerLegaLega.SetImpostazioniRequest request);
+        // CODEGEN: Generazione di un contratto di messaggio perché il nome di elemento nome dallo spazio dei nomi http://tempuri.org/ non è contrassegnato come nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/CreaLega", ReplyAction="*")]
+        Client.ServerLegaUtente.CreaLegaResponse CreaLega(Client.ServerLegaUtente.CreaLegaRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/SetImpostazioni", ReplyAction="*")]
-        System.Threading.Tasks.Task<Client.ServerLegaLega.SetImpostazioniResponse> SetImpostazioniAsync(Client.ServerLegaLega.SetImpostazioniRequest request);
-        
-        // CODEGEN: Generazione di un contratto di messaggio perché il nome di elemento source dallo spazio dei nomi http://tempuri.org/ non è contrassegnato come nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/CaricaLista", ReplyAction="*")]
-        Client.ServerLegaLega.CaricaListaResponse CaricaLista(Client.ServerLegaLega.CaricaListaRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/CaricaLista", ReplyAction="*")]
-        System.Threading.Tasks.Task<Client.ServerLegaLega.CaricaListaResponse> CaricaListaAsync(Client.ServerLegaLega.CaricaListaRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/CreaLega", ReplyAction="*")]
+        System.Threading.Tasks.Task<Client.ServerLegaUtente.CreaLegaResponse> CreaLegaAsync(Client.ServerLegaUtente.CreaLegaRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class SetImpostazioniRequest {
+    public partial class CreaLegaRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="SetImpostazioni", Namespace="http://tempuri.org/", Order=0)]
-        public Client.ServerLegaLega.SetImpostazioniRequestBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="CreaLega", Namespace="http://tempuri.org/", Order=0)]
+        public Client.ServerLegaUtente.CreaLegaRequestBody Body;
         
-        public SetImpostazioniRequest() {
+        public CreaLegaRequest() {
         }
         
-        public SetImpostazioniRequest(Client.ServerLegaLega.SetImpostazioniRequestBody Body) {
+        public CreaLegaRequest(Client.ServerLegaUtente.CreaLegaRequestBody Body) {
             this.Body = Body;
         }
     }
@@ -693,112 +730,24 @@ namespace Client.ServerLegaLega {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class SetImpostazioniRequestBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
-        public int sqTot;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
-        public int creIni;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
-        public int numPor;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=3)]
-        public int numDif;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=4)]
-        public int numCen;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=5)]
-        public int numAtt;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=6)]
-        public Client.ServerLegaLega.Lega lega;
-        
-        public SetImpostazioniRequestBody() {
-        }
-        
-        public SetImpostazioniRequestBody(int sqTot, int creIni, int numPor, int numDif, int numCen, int numAtt, Client.ServerLegaLega.Lega lega) {
-            this.sqTot = sqTot;
-            this.creIni = creIni;
-            this.numPor = numPor;
-            this.numDif = numDif;
-            this.numCen = numCen;
-            this.numAtt = numAtt;
-            this.lega = lega;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class SetImpostazioniResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="SetImpostazioniResponse", Namespace="http://tempuri.org/", Order=0)]
-        public Client.ServerLegaLega.SetImpostazioniResponseBody Body;
-        
-        public SetImpostazioniResponse() {
-        }
-        
-        public SetImpostazioniResponse(Client.ServerLegaLega.SetImpostazioniResponseBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class SetImpostazioniResponseBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
-        public bool SetImpostazioniResult;
-        
-        public SetImpostazioniResponseBody() {
-        }
-        
-        public SetImpostazioniResponseBody(bool SetImpostazioniResult) {
-            this.SetImpostazioniResult = SetImpostazioniResult;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class CaricaListaRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="CaricaLista", Namespace="http://tempuri.org/", Order=0)]
-        public Client.ServerLegaLega.CaricaListaRequestBody Body;
-        
-        public CaricaListaRequest() {
-        }
-        
-        public CaricaListaRequest(Client.ServerLegaLega.CaricaListaRequestBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class CaricaListaRequestBody {
+    public partial class CreaLegaRequestBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string source;
+        public string nome;
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
-        public Client.ServerLegaLega.Lega lega;
+        [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+        public int numeroPartecipanti;
         
-        public CaricaListaRequestBody() {
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
+        public Client.ServerLegaUtente.Utente utente;
+        
+        public CreaLegaRequestBody() {
         }
         
-        public CaricaListaRequestBody(string source, Client.ServerLegaLega.Lega lega) {
-            this.source = source;
-            this.lega = lega;
+        public CreaLegaRequestBody(string nome, int numeroPartecipanti, Client.ServerLegaUtente.Utente utente) {
+            this.nome = nome;
+            this.numeroPartecipanti = numeroPartecipanti;
+            this.utente = utente;
         }
     }
     
@@ -806,15 +755,15 @@ namespace Client.ServerLegaLega {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class CaricaListaResponse {
+    public partial class CreaLegaResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="CaricaListaResponse", Namespace="http://tempuri.org/", Order=0)]
-        public Client.ServerLegaLega.CaricaListaResponseBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="CreaLegaResponse", Namespace="http://tempuri.org/", Order=0)]
+        public Client.ServerLegaUtente.CreaLegaResponseBody Body;
         
-        public CaricaListaResponse() {
+        public CreaLegaResponse() {
         }
         
-        public CaricaListaResponse(Client.ServerLegaLega.CaricaListaResponseBody Body) {
+        public CreaLegaResponse(Client.ServerLegaUtente.CreaLegaResponseBody Body) {
             this.Body = Body;
         }
     }
@@ -823,108 +772,73 @@ namespace Client.ServerLegaLega {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class CaricaListaResponseBody {
+    public partial class CreaLegaResponseBody {
         
-        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
-        public bool CaricaListaResult;
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public Client.ServerLegaUtente.Lega CreaLegaResult;
         
-        public CaricaListaResponseBody() {
+        public CreaLegaResponseBody() {
         }
         
-        public CaricaListaResponseBody(bool CaricaListaResult) {
-            this.CaricaListaResult = CaricaListaResult;
+        public CreaLegaResponseBody(Client.ServerLegaUtente.Lega CreaLegaResult) {
+            this.CreaLegaResult = CreaLegaResult;
         }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface GestioneLegaControllerSoapChannel : Client.ServerLegaLega.GestioneLegaControllerSoap, System.ServiceModel.IClientChannel {
+    public interface GestioneUtenteControllerSoapChannel : Client.ServerLegaUtente.GestioneUtenteControllerSoap, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class GestioneLegaControllerSoapClient : System.ServiceModel.ClientBase<Client.ServerLegaLega.GestioneLegaControllerSoap>, Client.ServerLegaLega.GestioneLegaControllerSoap {
+    public partial class GestioneUtenteControllerSoapClient : System.ServiceModel.ClientBase<Client.ServerLegaUtente.GestioneUtenteControllerSoap>, Client.ServerLegaUtente.GestioneUtenteControllerSoap {
         
-        public GestioneLegaControllerSoapClient() {
+        public GestioneUtenteControllerSoapClient() {
         }
         
-        public GestioneLegaControllerSoapClient(string endpointConfigurationName) : 
+        public GestioneUtenteControllerSoapClient(string endpointConfigurationName) : 
                 base(endpointConfigurationName) {
         }
         
-        public GestioneLegaControllerSoapClient(string endpointConfigurationName, string remoteAddress) : 
+        public GestioneUtenteControllerSoapClient(string endpointConfigurationName, string remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public GestioneLegaControllerSoapClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public GestioneUtenteControllerSoapClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public GestioneLegaControllerSoapClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public GestioneUtenteControllerSoapClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Client.ServerLegaLega.SetImpostazioniResponse Client.ServerLegaLega.GestioneLegaControllerSoap.SetImpostazioni(Client.ServerLegaLega.SetImpostazioniRequest request) {
-            return base.Channel.SetImpostazioni(request);
+        Client.ServerLegaUtente.CreaLegaResponse Client.ServerLegaUtente.GestioneUtenteControllerSoap.CreaLega(Client.ServerLegaUtente.CreaLegaRequest request) {
+            return base.Channel.CreaLega(request);
         }
         
-        public bool SetImpostazioni(int sqTot, int creIni, int numPor, int numDif, int numCen, int numAtt, Client.ServerLegaLega.Lega lega) {
-            Client.ServerLegaLega.SetImpostazioniRequest inValue = new Client.ServerLegaLega.SetImpostazioniRequest();
-            inValue.Body = new Client.ServerLegaLega.SetImpostazioniRequestBody();
-            inValue.Body.sqTot = sqTot;
-            inValue.Body.creIni = creIni;
-            inValue.Body.numPor = numPor;
-            inValue.Body.numDif = numDif;
-            inValue.Body.numCen = numCen;
-            inValue.Body.numAtt = numAtt;
-            inValue.Body.lega = lega;
-            Client.ServerLegaLega.SetImpostazioniResponse retVal = ((Client.ServerLegaLega.GestioneLegaControllerSoap)(this)).SetImpostazioni(inValue);
-            return retVal.Body.SetImpostazioniResult;
+        public Client.ServerLegaUtente.Lega CreaLega(string nome, int numeroPartecipanti, Client.ServerLegaUtente.Utente utente) {
+            Client.ServerLegaUtente.CreaLegaRequest inValue = new Client.ServerLegaUtente.CreaLegaRequest();
+            inValue.Body = new Client.ServerLegaUtente.CreaLegaRequestBody();
+            inValue.Body.nome = nome;
+            inValue.Body.numeroPartecipanti = numeroPartecipanti;
+            inValue.Body.utente = utente;
+            Client.ServerLegaUtente.CreaLegaResponse retVal = ((Client.ServerLegaUtente.GestioneUtenteControllerSoap)(this)).CreaLega(inValue);
+            return retVal.Body.CreaLegaResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Client.ServerLegaLega.SetImpostazioniResponse> Client.ServerLegaLega.GestioneLegaControllerSoap.SetImpostazioniAsync(Client.ServerLegaLega.SetImpostazioniRequest request) {
-            return base.Channel.SetImpostazioniAsync(request);
+        System.Threading.Tasks.Task<Client.ServerLegaUtente.CreaLegaResponse> Client.ServerLegaUtente.GestioneUtenteControllerSoap.CreaLegaAsync(Client.ServerLegaUtente.CreaLegaRequest request) {
+            return base.Channel.CreaLegaAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Client.ServerLegaLega.SetImpostazioniResponse> SetImpostazioniAsync(int sqTot, int creIni, int numPor, int numDif, int numCen, int numAtt, Client.ServerLegaLega.Lega lega) {
-            Client.ServerLegaLega.SetImpostazioniRequest inValue = new Client.ServerLegaLega.SetImpostazioniRequest();
-            inValue.Body = new Client.ServerLegaLega.SetImpostazioniRequestBody();
-            inValue.Body.sqTot = sqTot;
-            inValue.Body.creIni = creIni;
-            inValue.Body.numPor = numPor;
-            inValue.Body.numDif = numDif;
-            inValue.Body.numCen = numCen;
-            inValue.Body.numAtt = numAtt;
-            inValue.Body.lega = lega;
-            return ((Client.ServerLegaLega.GestioneLegaControllerSoap)(this)).SetImpostazioniAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Client.ServerLegaLega.CaricaListaResponse Client.ServerLegaLega.GestioneLegaControllerSoap.CaricaLista(Client.ServerLegaLega.CaricaListaRequest request) {
-            return base.Channel.CaricaLista(request);
-        }
-        
-        public bool CaricaLista(string source, Client.ServerLegaLega.Lega lega) {
-            Client.ServerLegaLega.CaricaListaRequest inValue = new Client.ServerLegaLega.CaricaListaRequest();
-            inValue.Body = new Client.ServerLegaLega.CaricaListaRequestBody();
-            inValue.Body.source = source;
-            inValue.Body.lega = lega;
-            Client.ServerLegaLega.CaricaListaResponse retVal = ((Client.ServerLegaLega.GestioneLegaControllerSoap)(this)).CaricaLista(inValue);
-            return retVal.Body.CaricaListaResult;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Client.ServerLegaLega.CaricaListaResponse> Client.ServerLegaLega.GestioneLegaControllerSoap.CaricaListaAsync(Client.ServerLegaLega.CaricaListaRequest request) {
-            return base.Channel.CaricaListaAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<Client.ServerLegaLega.CaricaListaResponse> CaricaListaAsync(string source, Client.ServerLegaLega.Lega lega) {
-            Client.ServerLegaLega.CaricaListaRequest inValue = new Client.ServerLegaLega.CaricaListaRequest();
-            inValue.Body = new Client.ServerLegaLega.CaricaListaRequestBody();
-            inValue.Body.source = source;
-            inValue.Body.lega = lega;
-            return ((Client.ServerLegaLega.GestioneLegaControllerSoap)(this)).CaricaListaAsync(inValue);
+        public System.Threading.Tasks.Task<Client.ServerLegaUtente.CreaLegaResponse> CreaLegaAsync(string nome, int numeroPartecipanti, Client.ServerLegaUtente.Utente utente) {
+            Client.ServerLegaUtente.CreaLegaRequest inValue = new Client.ServerLegaUtente.CreaLegaRequest();
+            inValue.Body = new Client.ServerLegaUtente.CreaLegaRequestBody();
+            inValue.Body.nome = nome;
+            inValue.Body.numeroPartecipanti = numeroPartecipanti;
+            inValue.Body.utente = utente;
+            return ((Client.ServerLegaUtente.GestioneUtenteControllerSoap)(this)).CreaLegaAsync(inValue);
         }
     }
 }

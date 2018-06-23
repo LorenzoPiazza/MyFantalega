@@ -112,6 +112,7 @@
     <Content Include="Controller\GestioneAdminController.asmx" />
     <Content Include="Controller\GestioneLegaController.asmx" />
     <Content Include="Controller\GestioneMercatoController.asmx" />
+    <Content Include="Controller\GestioneSvincoloController.asmx" />
     <Content Include="Controller\GestioneUtenteController.asmx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -148,6 +149,10 @@
       <DependentUpon>GestioneMercatoController.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Controller\GestioneSvincoloController.asmx.cs">
+      <DependentUpon>GestioneSvincoloController.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Controller\GestioneUtenteController.asmx.cs">
       <DependentUpon>GestioneUtenteController.asmx</DependentUpon>
       <SubType>Component</SubType>
@@ -164,6 +169,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="InterfacceController\IGestioneSvincoloCotroller.cs" />
     <Compile Include="InterfacceController\ICaricaListaController.cs" />
     <Compile Include="InterfacceController\IGestioneAdminController.cs" />
     <Compile Include="InterfacceController\IGestioneLegaController.cs" />

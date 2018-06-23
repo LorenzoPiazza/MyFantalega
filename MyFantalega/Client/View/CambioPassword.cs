@@ -49,7 +49,7 @@ namespace Client.View
             //Client.ServerLogin1.RegistrazioneControllerSoapClient myRegistrazioneController = new Client.ServerLogin1.RegistrazioneControllerSoapClient();
             //Boolean cambio = myRegistrazioneController.RegistraUtente(textBoxUsername.Text, textBoxPassword.Text);
                 
-                if (cambio)
+            if (cambio)
             {
                 MessageBox.Show("Cambio password avvenuto con successo");
                 this.Close();

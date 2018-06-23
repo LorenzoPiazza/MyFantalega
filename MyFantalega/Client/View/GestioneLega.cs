@@ -120,7 +120,7 @@ namespace Client.View
 
         private void button6_Click(object sender, EventArgs e)
         {
-            new HomeLegaAdmin().Show();
+            new HomeLegaAdmin(lega.SquadraAdmin).Show();
         }
     }
 }

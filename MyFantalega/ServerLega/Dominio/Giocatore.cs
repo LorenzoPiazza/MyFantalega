@@ -49,7 +49,7 @@ namespace ServerLega.Dominio
 
         }
 
-        public String Nome { get => _nome; }
+        public String Nome { get => _nome; set => _nome = value; }
         public int QuotazioneIniziale { get => _quotazioneIniziale; }
         public String Ruolo { get => _ruolo; }
         public String Club { get => _club; }

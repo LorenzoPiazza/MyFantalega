@@ -22,7 +22,7 @@ namespace TestDominio
             _lega = new Lega("FantacalcioClub", 10);
             _squadraAdmin = new Squadra("SquareFC", _lega, _utente);
             _lega.AggiungiSquadra(_squadraAdmin);
-            _lega.SquadraAdmin = _squadraAdmin.Nome;
+            _lega.SquadraAdmin = _squadraAdmin;
 
         }
 

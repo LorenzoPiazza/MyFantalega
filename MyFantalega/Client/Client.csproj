@@ -53,6 +53,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Connected Services\ServerLegaAdmin\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\ServerLegaLega\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -63,12 +68,22 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Connected Services\ServerLegaSvincolo\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\ServerLogin1\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Connected Services\ServerLogin\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\ServerLegaUtente\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -220,6 +235,13 @@
     <EmbeddedResource Include="View\WelcomeHome.resx">
       <DependentUpon>WelcomeHome.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Connected Services\ServerLegaAdmin\Client.ServerLegaAdmin.creaMercatoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServerLegaAdmin\Client.ServerLegaAdmin.Mercato.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServerLegaAdmin\GestioneAdminController.wsdl" />
     <None Include="Connected Services\ServerLegaLega\Client.ServerLegaLega.CaricaListaResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -231,6 +253,16 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ServerLegaMercato\GestioneMercatoController.wsdl" />
+    <None Include="Connected Services\ServerLegaSvincolo\Client.ServerLegaSvincolo.SvincolaGiocatoreResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServerLegaSvincolo\GestioneSvincoloController.wsdl" />
+    <None Include="Connected Services\ServerLegaUtente\Client.ServerLegaUtente.CreaLegaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServerLegaUtente\Client.ServerLegaUtente.Lega.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\ServerLogin1\Client.ServerLogin1.RegistraUtenteResponse1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -239,6 +271,7 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ServerLogin\LoginController.wsdl" />
+    <None Include="Connected Services\ServerLegaUtente\GestioneUtenteController.wsdl" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -257,10 +290,13 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\ServerLegaAdmin\" />
     <WCFMetadataStorage Include="Connected Services\ServerLegaLega\" />
     <WCFMetadataStorage Include="Connected Services\ServerLegaMercato\" />
+    <WCFMetadataStorage Include="Connected Services\ServerLegaSvincolo\" />
     <WCFMetadataStorage Include="Connected Services\ServerLogin1\" />
     <WCFMetadataStorage Include="Connected Services\ServerLogin\" />
+    <WCFMetadataStorage Include="Connected Services\ServerLegaUtente\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\ServerLogin\LoginController.disco" />
@@ -318,6 +354,51 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\ServerLegaLega\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServerLegaSvincolo\GestioneSvincoloController.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServerLegaSvincolo\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServerLegaSvincolo\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServerLegaSvincolo\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServerLegaUtente\GestioneUtenteController.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServerLegaUtente\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServerLegaUtente\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServerLegaUtente\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServerLegaAdmin\GestioneAdminController.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServerLegaAdmin\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServerLegaAdmin\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServerLegaAdmin\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
