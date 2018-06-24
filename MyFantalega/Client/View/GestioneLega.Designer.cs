@@ -43,13 +43,13 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.buttonGestioneGiocatori = new System.Windows.Forms.Button();
-            this.buttonGestionePartecipanti = new System.Windows.Forms.Button();
             this.buttonCaricaLista = new System.Windows.Forms.Button();
             this.buttonVisualizzaLog = new System.Windows.Forms.Button();
             this.buttonEliminaLega = new System.Windows.Forms.Button();
             this.buttonIndietro = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.buttonGestionePartecipanti = new System.Windows.Forms.Button();
+            this.buttonGestioneGiocatori = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarNumPartecipanti)).BeginInit();
             this.SuspendLayout();
@@ -210,26 +210,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Impostazioni della tua lega";
             // 
-            // buttonGestioneGiocatori
-            // 
-            this.buttonGestioneGiocatori.Location = new System.Drawing.Point(475, 89);
-            this.buttonGestioneGiocatori.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonGestioneGiocatori.Name = "buttonGestioneGiocatori";
-            this.buttonGestioneGiocatori.Size = new System.Drawing.Size(125, 57);
-            this.buttonGestioneGiocatori.TabIndex = 17;
-            this.buttonGestioneGiocatori.Text = "Gestione Giocatori";
-            this.buttonGestioneGiocatori.UseVisualStyleBackColor = true;
-            // 
-            // buttonGestionePartecipanti
-            // 
-            this.buttonGestionePartecipanti.Location = new System.Drawing.Point(644, 89);
-            this.buttonGestionePartecipanti.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonGestionePartecipanti.Name = "buttonGestionePartecipanti";
-            this.buttonGestionePartecipanti.Size = new System.Drawing.Size(125, 57);
-            this.buttonGestionePartecipanti.TabIndex = 18;
-            this.buttonGestionePartecipanti.Text = "Gestione Partecipanti";
-            this.buttonGestionePartecipanti.UseVisualStyleBackColor = true;
-            // 
             // buttonCaricaLista
             // 
             this.buttonCaricaLista.Location = new System.Drawing.Point(561, 170);
@@ -280,10 +260,30 @@
             this.label2.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.label2.Location = new System.Drawing.Point(285, 21);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(242, 37);
+            this.label2.Size = new System.Drawing.Size(238, 38);
             this.label2.TabIndex = 36;
             this.label2.Text = "Gestione Lega";
             this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // buttonGestionePartecipanti
+            // 
+            this.buttonGestionePartecipanti.Location = new System.Drawing.Point(644, 89);
+            this.buttonGestionePartecipanti.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonGestionePartecipanti.Name = "buttonGestionePartecipanti";
+            this.buttonGestionePartecipanti.Size = new System.Drawing.Size(125, 57);
+            this.buttonGestionePartecipanti.TabIndex = 18;
+            this.buttonGestionePartecipanti.Text = "Gestione Partecipanti";
+            this.buttonGestionePartecipanti.UseVisualStyleBackColor = true;
+            // 
+            // buttonGestioneGiocatori
+            // 
+            this.buttonGestioneGiocatori.Location = new System.Drawing.Point(475, 89);
+            this.buttonGestioneGiocatori.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonGestioneGiocatori.Name = "buttonGestioneGiocatori";
+            this.buttonGestioneGiocatori.Size = new System.Drawing.Size(125, 57);
+            this.buttonGestioneGiocatori.TabIndex = 17;
+            this.buttonGestioneGiocatori.Text = "Gestione Giocatori";
+            this.buttonGestioneGiocatori.UseVisualStyleBackColor = true;
             // 
             // GestioneLega
             // 
@@ -326,13 +326,13 @@
         private System.Windows.Forms.TextBox textBoxPor;
         private System.Windows.Forms.TextBox textBoxAtt;
         private System.Windows.Forms.TrackBar trackBarNumPartecipanti;
-        private System.Windows.Forms.Button buttonGestioneGiocatori;
-        private System.Windows.Forms.Button buttonGestionePartecipanti;
         private System.Windows.Forms.Button buttonCaricaLista;
         private System.Windows.Forms.Button buttonVisualizzaLog;
         private System.Windows.Forms.Button buttonEliminaLega;
         private System.Windows.Forms.Button buttonIndietro;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button buttonConferma;
+        private System.Windows.Forms.Button buttonGestionePartecipanti;
+        private System.Windows.Forms.Button buttonGestioneGiocatori;
     }
 }

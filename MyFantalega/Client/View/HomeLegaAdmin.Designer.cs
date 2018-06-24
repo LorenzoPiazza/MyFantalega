@@ -33,7 +33,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.gestioneLegaButton = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -90,15 +90,16 @@
             this.button5.Text = "Crea un Mercato";
             this.button5.UseVisualStyleBackColor = true;
             // 
-            // button6
+            // gestioneLegaButton
             // 
-            this.button6.Location = new System.Drawing.Point(476, 110);
-            this.button6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(143, 74);
-            this.button6.TabIndex = 26;
-            this.button6.Text = "Gestione Lega";
-            this.button6.UseVisualStyleBackColor = true;
+            this.gestioneLegaButton.Location = new System.Drawing.Point(476, 110);
+            this.gestioneLegaButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.gestioneLegaButton.Name = "gestioneLegaButton";
+            this.gestioneLegaButton.Size = new System.Drawing.Size(143, 74);
+            this.gestioneLegaButton.TabIndex = 26;
+            this.gestioneLegaButton.Text = "Gestione Lega";
+            this.gestioneLegaButton.UseVisualStyleBackColor = true;
+            this.gestioneLegaButton.Click += new System.EventHandler(this.gestioneLegaButton_Click);
             // 
             // button7
             // 
@@ -118,7 +119,7 @@
             this.label1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.label1.Location = new System.Drawing.Point(253, 21);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(313, 37);
+            this.label1.Size = new System.Drawing.Size(310, 38);
             this.label1.TabIndex = 36;
             this.label1.Text = "Home Lega Admin";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -150,7 +151,7 @@
             this.Controls.Add(this.squadraTextBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button7);
-            this.Controls.Add(this.button6);
+            this.Controls.Add(this.gestioneLegaButton);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
@@ -159,6 +160,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "HomeLegaAdmin";
             this.Text = "MyFantalega";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.HomeLegaAdmin_FormClosed);
             this.Load += new System.EventHandler(this.HomeLegaAdmin_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -171,7 +173,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button gestioneLegaButton;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;

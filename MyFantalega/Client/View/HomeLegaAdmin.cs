@@ -32,5 +32,16 @@ namespace Client.View
         {
 
         }
+
+        private void gestioneLegaButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new GestioneLega(lega).Show();
+        }
+
+        private void HomeLegaAdmin_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
