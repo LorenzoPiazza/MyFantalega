@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.Services;
+using ServerLega.InterfacceController;
 
 namespace ServerLega.Controller
 {
@@ -19,15 +20,24 @@ namespace ServerLega.Controller
     public class ServerLega : System.Web.Services.WebService
     {
 
-        CaricaListaFileController caricaListaFileController = new CaricaListaFileController();
-        
-
         [WebMethod]
         public Lega CreaLega(String nome, int numeroPartecipanti, Utente utente)
         {
             GestioneUtenteController gestioneUtenteController = new GestioneUtenteController();
             Lega lega = gestioneUtenteController.CreaLega(nome, numeroPartecipanti, utente);
             return lega;
+        }
+
+        public Boolean AbbandonaGiocatore(Asta asta, Squadra squadra)
+        {
+            IPartecipaAstaController partecipaAstaController = new PartecipaAstaController();
+            return partecipaAstaController.AbbandonaGiocatore(asta, squadra);
+        }
+
+        public Boolean RialzaOfferta(Asta asta, Squadra squadra)
+        {
+            IPartecipaAstaController partecipaAstaController = new PartecipaAstaController();
+            return partecipaAstaController.RialzaOfferta(asta, squadra);
         }
     }
 }
