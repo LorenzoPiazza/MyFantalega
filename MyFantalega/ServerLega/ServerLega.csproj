@@ -104,6 +104,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\DBMyFantalega.mdf" />
+    <Content Include="App_Data\DBMyFantalegaJacopo.mdf" />
+    <Content Include="App_Data\DBMyFantalegaJacopo_log.ldf">
+      <DependentUpon>DBMyFantalegaJacopo.mdf</DependentUpon>
+    </Content>
     <Content Include="App_Data\DBMyFantalegaLori.mdf" />
     <Content Include="App_Data\DBMyFantalegaLori_log.ldf">
       <DependentUpon>DBMyFantalegaLori.mdf</DependentUpon>
