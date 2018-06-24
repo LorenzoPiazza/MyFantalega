@@ -109,14 +109,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net;
-using ServerLega.Dominio;
+using Client.ServerLega;
 
 namespace Client.View
 {
     public partial class ViewLogin : Form
     {
         String emailUtenteNav;
-        Client.ServerLegaUtente.Utente utenteNav;
+        Client.ServerLega.Utente utenteNav;
         public ViewLogin()
         {
             InitializeComponent();
@@ -144,7 +144,7 @@ namespace Client.View
             Client.ServerLogin.LoginControllerSoapClient myLoginController = new Client.ServerLogin.LoginControllerSoapClient();
             emailUtenteNav = myLoginController.VerificaCredenziali(textBoxUsername.Text, textBoxPassword.Text);
             if (emailUtenteNav != null){
-                utenteNav = new Client.ServerLegaUtente.Utente();
+                utenteNav = new Client.ServerLega.Utente();
                 utenteNav.Email = emailUtenteNav;
                 this.Hide();
                 new WelcomeHome(utenteNav).ShowDialog();

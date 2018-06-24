@@ -123,6 +123,7 @@
     <Content Include="Controller\GestioneSvincoloController.asmx" />
     <Content Include="Controller\GestioneUtenteController.asmx" />
     <Content Include="Controller\PartecipaAstaController.asmx" />
+    <Content Include="Controller\ServerLega.asmx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\bootstrap.js" />
@@ -176,6 +177,10 @@
     </Compile>
     <Compile Include="Controller\PartecipaAstaController.asmx.cs">
       <DependentUpon>PartecipaAstaController.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controller\ServerLega.asmx.cs">
+      <DependentUpon>ServerLega.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Dominio\Asta.cs" />

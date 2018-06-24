@@ -14,9 +14,9 @@ namespace Client.View
     public partial class HomeLegaAdmin : Form
     {
         //private Squadra _squadra;
-        private ServerLegaUtente.Lega lega;
+        private ServerLega.Lega lega;
 
-        public HomeLegaAdmin(ServerLegaUtente.Lega lega)
+        public HomeLegaAdmin(ServerLega.Lega lega)
         {
             InitializeComponent();
             this.lega = lega;

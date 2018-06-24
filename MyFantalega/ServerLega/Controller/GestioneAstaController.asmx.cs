@@ -16,7 +16,7 @@ namespace ServerLega.Controller
     [System.ComponentModel.ToolboxItem(false)]
     // Per consentire la chiamata di questo servizio Web dallo script utilizzando ASP.NET AJAX, rimuovere il commento dalla riga seguente. 
     // [System.Web.Script.Services.ScriptService]
-    public class GestioneAstaController : System.Web.Services.WebService,ServerLega.InterfacceController.IGestioneAstaController
+    public class GestioneAstaController : System.Web.Services.WebService, InterfacceController.IGestioneAstaController
     {
         //variabile per mantenere la asta attiva da passare agli altri controller
         private Asta _asta;

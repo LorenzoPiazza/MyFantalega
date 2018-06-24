@@ -7,16 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ServerLega.Dominio;
+using Client.ServerLega;
 
 
 namespace Client.View
 {
     public partial class WelcomeHome : Form
     {
-        private Client.ServerLegaUtente.Utente _utenteNav;
+        private Client.ServerLega.Utente _utenteNav;
 
-        public WelcomeHome(Client.ServerLegaUtente.Utente utente)
+        public WelcomeHome(Client.ServerLega.Utente utente)
         {
             InitializeComponent();
             _utenteNav = utente;
@@ -27,7 +27,7 @@ namespace Client.View
         private void WelcomeHome_Load(object sender, EventArgs e)
         {
             //textBoxBenvenuto.Text = "Benvenuto " + _utenteNav.Email;
-            Client.ServerLegaUtente.GestioneUtenteControllerSoapClient myGestioneUtenteController = new Client.ServerLegaUtente.GestioneUtenteControllerSoapClient();
+           /* Client.ServerLegaUtente.GestioneUtenteControllerSoapClient myGestioneUtenteController = new Client.ServerLegaUtente.GestioneUtenteControllerSoapClient();
 
             List<Client.ServerLegaUtente.Lega> mieLeghe = myGestioneUtenteController.getLeghe(_utenteNav);
 
@@ -47,7 +47,7 @@ namespace Client.View
                     comboBoxLeghe.Items.Add(l);
                     textBoxBenvenuto.Text = "Benvenuto" + l.NomeLega;
                 }
-            }
+            }*/
         }
 
        

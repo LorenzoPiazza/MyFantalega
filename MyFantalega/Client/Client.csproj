@@ -53,27 +53,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Connected Services\ServerLegaAdmin\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
-    <Compile Include="Connected Services\ServerLegaCaricaLista\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
-    <Compile Include="Connected Services\ServerLegaLega\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
-    <Compile Include="Connected Services\ServerLegaMercato\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
-    <Compile Include="Connected Services\ServerLegaSvincolo\Reference.cs">
+    <Compile Include="Connected Services\ServerLega\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -84,11 +64,6 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Connected Services\ServerLogin\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
-    <Compile Include="Connected Services\ServerLegaUtente\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -240,44 +215,13 @@
     <EmbeddedResource Include="View\WelcomeHome.resx">
       <DependentUpon>WelcomeHome.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="Connected Services\ServerLegaAdmin\Client.ServerLegaAdmin.creaMercatoResponse.datasource">
+    <None Include="Connected Services\ServerLega\Client.ServerLega.CreaLegaResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\ServerLegaAdmin\Client.ServerLegaAdmin.Mercato.datasource">
+    <None Include="Connected Services\ServerLega\Client.ServerLega.Lega.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\ServerLegaAdmin\GestioneAdminController.wsdl" />
-    <None Include="Connected Services\ServerLegaCaricaLista\CaricaListaFileController.wsdl" />
-    <None Include="Connected Services\ServerLegaCaricaLista\Client.ServerLegaCaricaLista.CaricaListaResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\ServerLegaLega\Client.ServerLegaLega.CaricaListaResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\ServerLegaLega\Client.ServerLegaLega.SetImpostazioniResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\ServerLegaLega\GestioneLegaController.wsdl" />
-    <None Include="Connected Services\ServerLegaMercato\Client.ServerLegaMercato.ChiudiMercatoResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\ServerLegaMercato\GestioneMercatoController.wsdl" />
-    <None Include="Connected Services\ServerLegaSvincolo\Client.ServerLegaSvincolo.SvincolaGiocatoreResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\ServerLegaSvincolo\GestioneSvincoloController.wsdl" />
-    <None Include="Connected Services\ServerLegaUtente\Client.ServerLegaUtente.CreaLegaResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\ServerLegaUtente\Client.ServerLegaUtente.getLegheResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\ServerLegaUtente\Client.ServerLegaUtente.Lega.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\ServerLegaUtente\Client.ServerLegaUtente.uniscitiAMercatoResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
+    <None Include="Connected Services\ServerLega\ServerLega.wsdl" />
     <None Include="Connected Services\ServerLogin1\Client.ServerLogin1.RegistraUtenteResponse1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -286,7 +230,6 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ServerLogin\LoginController.wsdl" />
-    <None Include="Connected Services\ServerLegaUtente\GestioneUtenteController.wsdl" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -305,14 +248,9 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Connected Services\ServerLegaAdmin\" />
-    <WCFMetadataStorage Include="Connected Services\ServerLegaCaricaLista\" />
-    <WCFMetadataStorage Include="Connected Services\ServerLegaLega\" />
-    <WCFMetadataStorage Include="Connected Services\ServerLegaMercato\" />
-    <WCFMetadataStorage Include="Connected Services\ServerLegaSvincolo\" />
+    <WCFMetadataStorage Include="Connected Services\ServerLega\" />
     <WCFMetadataStorage Include="Connected Services\ServerLogin1\" />
     <WCFMetadataStorage Include="Connected Services\ServerLogin\" />
-    <WCFMetadataStorage Include="Connected Services\ServerLegaUtente\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\ServerLogin\LoginController.disco" />
@@ -345,81 +283,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\ServerLegaMercato\GestioneMercatoController.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ServerLegaMercato\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ServerLegaMercato\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ServerLegaMercato\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ServerLegaLega\GestioneLegaController.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ServerLegaLega\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ServerLegaLega\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ServerLegaLega\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ServerLegaSvincolo\GestioneSvincoloController.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ServerLegaSvincolo\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ServerLegaSvincolo\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ServerLegaSvincolo\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ServerLegaUtente\GestioneUtenteController.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ServerLegaUtente\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ServerLegaUtente\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ServerLegaUtente\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ServerLegaAdmin\GestioneAdminController.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ServerLegaAdmin\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ServerLegaAdmin\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ServerLegaAdmin\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\ServerLega\ServerLega.csproj">
       <Project>{de83f4aa-3cf3-4c7f-9d09-8d954de33da9}</Project>
       <Name>ServerLega</Name>
@@ -430,16 +293,16 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\ServerLegaCaricaLista\CaricaListaFileController.disco" />
+    <None Include="Connected Services\ServerLega\ServerLega.disco" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\ServerLegaCaricaLista\configuration91.svcinfo" />
+    <None Include="Connected Services\ServerLega\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\ServerLegaCaricaLista\configuration.svcinfo" />
+    <None Include="Connected Services\ServerLega\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\ServerLegaCaricaLista\Reference.svcmap">
+    <None Include="Connected Services\ServerLega\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

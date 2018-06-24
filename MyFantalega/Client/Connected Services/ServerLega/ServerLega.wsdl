@@ -2,20 +2,28 @@
 <wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
-      <s:element name="ChiudiMercato">
+      <s:element name="CreaLega">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="mercato" type="tns:Mercato" />
+            <s:element minOccurs="0" maxOccurs="1" name="nome" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="numeroPartecipanti" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="utente" type="tns:Utente" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:complexType name="Mercato">
+      <s:complexType name="Utente">
         <s:sequence>
-          <s:element minOccurs="0" maxOccurs="1" name="Lega" type="tns:Lega" />
-          <s:element minOccurs="0" maxOccurs="1" name="Aste" type="tns:ArrayOfAsta" />
-          <s:element minOccurs="0" maxOccurs="1" name="Squadre" type="tns:ArrayOfSquadra" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsAdmin" type="s:boolean" />
         </s:sequence>
       </s:complexType>
+      <s:element name="CreaLegaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CreaLegaResult" type="tns:Lega" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:complexType name="Lega">
         <s:sequence>
           <s:element minOccurs="0" maxOccurs="1" name="NomeLega" type="s:string" />
@@ -51,27 +59,16 @@
       </s:complexType>
       <s:complexType name="Giocatore">
         <s:sequence>
-          <s:element minOccurs="0" maxOccurs="1" name="Nome" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="NomeSquadra" type="s:string" />
           <s:element minOccurs="1" maxOccurs="1" name="PrezzoAcquisto" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nome" type="s:string" />
         </s:sequence>
       </s:complexType>
-      <s:complexType name="Utente">
+      <s:complexType name="Mercato">
         <s:sequence>
-          <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
-          <s:element minOccurs="1" maxOccurs="1" name="IsAdmin" type="s:boolean" />
-        </s:sequence>
-      </s:complexType>
-      <s:complexType name="ListaSvincolati">
-        <s:sequence>
-          <s:element minOccurs="1" maxOccurs="1" name="DataCaricamento" type="s:dateTime" />
-          <s:element minOccurs="1" maxOccurs="1" name="IdLista" type="s:int" />
-          <s:element minOccurs="0" maxOccurs="1" name="Giocatori" type="tns:ArrayOfGiocatore" />
-        </s:sequence>
-      </s:complexType>
-      <s:complexType name="ArrayOfSquadra">
-        <s:sequence>
-          <s:element minOccurs="0" maxOccurs="unbounded" name="Squadra" nillable="true" type="tns:Squadra" />
+          <s:element minOccurs="0" maxOccurs="1" name="Lega" type="tns:Lega" />
+          <s:element minOccurs="0" maxOccurs="1" name="Aste" type="tns:ArrayOfAsta" />
+          <s:element minOccurs="0" maxOccurs="1" name="Squadre" type="tns:ArrayOfSquadra" />
         </s:sequence>
       </s:complexType>
       <s:complexType name="ArrayOfAsta">
@@ -88,31 +85,36 @@
           <s:element minOccurs="0" maxOccurs="1" name="Giocatore" type="tns:Giocatore" />
         </s:sequence>
       </s:complexType>
-      <s:element name="ChiudiMercatoResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="ChiudiMercatoResult" type="s:boolean" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
+      <s:complexType name="ArrayOfSquadra">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Squadra" nillable="true" type="tns:Squadra" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ListaSvincolati">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="DataCaricamento" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdLista" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Giocatori" type="tns:ArrayOfGiocatore" />
+        </s:sequence>
+      </s:complexType>
     </s:schema>
   </wsdl:types>
-  <wsdl:message name="ChiudiMercatoSoapIn">
-    <wsdl:part name="parameters" element="tns:ChiudiMercato" />
+  <wsdl:message name="CreaLegaSoapIn">
+    <wsdl:part name="parameters" element="tns:CreaLega" />
   </wsdl:message>
-  <wsdl:message name="ChiudiMercatoSoapOut">
-    <wsdl:part name="parameters" element="tns:ChiudiMercatoResponse" />
+  <wsdl:message name="CreaLegaSoapOut">
+    <wsdl:part name="parameters" element="tns:CreaLegaResponse" />
   </wsdl:message>
-  <wsdl:portType name="GestioneMercatoControllerSoap">
-    <wsdl:operation name="ChiudiMercato">
-      <wsdl:input message="tns:ChiudiMercatoSoapIn" />
-      <wsdl:output message="tns:ChiudiMercatoSoapOut" />
+  <wsdl:portType name="ServerLegaSoap">
+    <wsdl:operation name="CreaLega">
+      <wsdl:input message="tns:CreaLegaSoapIn" />
+      <wsdl:output message="tns:CreaLegaSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
-  <wsdl:binding name="GestioneMercatoControllerSoap" type="tns:GestioneMercatoControllerSoap">
+  <wsdl:binding name="ServerLegaSoap" type="tns:ServerLegaSoap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="ChiudiMercato">
-      <soap:operation soapAction="http://tempuri.org/ChiudiMercato" style="document" />
+    <wsdl:operation name="CreaLega">
+      <soap:operation soapAction="http://tempuri.org/CreaLega" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -121,10 +123,10 @@
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
-  <wsdl:binding name="GestioneMercatoControllerSoap12" type="tns:GestioneMercatoControllerSoap">
+  <wsdl:binding name="ServerLegaSoap12" type="tns:ServerLegaSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="ChiudiMercato">
-      <soap12:operation soapAction="http://tempuri.org/ChiudiMercato" style="document" />
+    <wsdl:operation name="CreaLega">
+      <soap12:operation soapAction="http://tempuri.org/CreaLega" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -133,12 +135,12 @@
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
-  <wsdl:service name="GestioneMercatoController">
-    <wsdl:port name="GestioneMercatoControllerSoap" binding="tns:GestioneMercatoControllerSoap">
-      <soap:address location="http://localhost:54424/Controller/GestioneMercatoController.asmx" />
+  <wsdl:service name="ServerLega">
+    <wsdl:port name="ServerLegaSoap" binding="tns:ServerLegaSoap">
+      <soap:address location="http://localhost:54424/Controller/ServerLega.asmx" />
     </wsdl:port>
-    <wsdl:port name="GestioneMercatoControllerSoap12" binding="tns:GestioneMercatoControllerSoap12">
-      <soap12:address location="http://localhost:54424/Controller/GestioneMercatoController.asmx" />
+    <wsdl:port name="ServerLegaSoap12" binding="tns:ServerLegaSoap12">
+      <soap12:address location="http://localhost:54424/Controller/ServerLega.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

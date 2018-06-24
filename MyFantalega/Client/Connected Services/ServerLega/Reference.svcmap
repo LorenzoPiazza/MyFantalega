@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="eb7001e4-0252-4e44-a90a-2fe5153a4687" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="71dfd135-2177-4f5a-a22b-6602dac2afeb" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -19,11 +19,11 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:54424/Controller/GestioneLegaController.asmx" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost:54424/Controller/ServerLega.asmx" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="GestioneLegaController.wsdl" MetadataType="Wsdl" ID="1955f7fa-8446-4861-a41d-db2af647eb6e" SourceId="1" SourceUrl="http://localhost:54424/Controller/GestioneLegaController.asmx?wsdl" />
-    <MetadataFile FileName="GestioneLegaController.disco" MetadataType="Disco" ID="aaab1bb6-aef9-4137-bc1a-f6c66930a3b1" SourceId="1" SourceUrl="http://localhost:54424/Controller/GestioneLegaController.asmx?disco" />
+    <MetadataFile FileName="ServerLega.disco" MetadataType="Disco" ID="4418de23-152f-4f16-97eb-dbb5f29774ff" SourceId="1" SourceUrl="http://localhost:54424/Controller/ServerLega.asmx?disco" />
+    <MetadataFile FileName="ServerLega.wsdl" MetadataType="Wsdl" ID="3425af40-4784-4a0d-a073-9e532ffcc727" SourceId="1" SourceUrl="http://localhost:54424/Controller/ServerLega.asmx?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

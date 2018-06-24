@@ -8,29 +8,24 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Client.ServerLegaMercato {
+namespace Client.ServerLega {
     using System.Runtime.Serialization;
     using System;
-    using Client.Dominio;
-    using System.Collections.Generic;
-
+    
+    
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Mercato", Namespace="http://tempuri.org/")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Utente", Namespace="http://tempuri.org/")]
     [System.SerializableAttribute()]
-    public partial class Mercato : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class Utente : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Client.ServerLegaMercato.Lega LegaField;
+        private string EmailField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Client.ServerLegaMercato.Asta[] AsteField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Client.ServerLegaMercato.Squadra[] SquadreField;
+        private bool IsAdminField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -43,40 +38,27 @@ namespace Client.ServerLegaMercato {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
-        public Client.ServerLegaMercato.Lega Lega {
+        public string Email {
             get {
-                return this.LegaField;
+                return this.EmailField;
             }
             set {
-                if ((object.ReferenceEquals(this.LegaField, value) != true)) {
-                    this.LegaField = value;
-                    this.RaisePropertyChanged("Lega");
+                if ((object.ReferenceEquals(this.EmailField, value) != true)) {
+                    this.EmailField = value;
+                    this.RaisePropertyChanged("Email");
                 }
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
-        public Client.ServerLegaMercato.Asta[] Aste {
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public bool IsAdmin {
             get {
-                return this.AsteField;
+                return this.IsAdminField;
             }
             set {
-                if ((object.ReferenceEquals(this.AsteField, value) != true)) {
-                    this.AsteField = value;
-                    this.RaisePropertyChanged("Aste");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
-        public Client.ServerLegaMercato.Squadra[] Squadre {
-            get {
-                return this.SquadreField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.SquadreField, value) != true)) {
-                    this.SquadreField = value;
-                    this.RaisePropertyChanged("Squadre");
+                if ((this.IsAdminField.Equals(value) != true)) {
+                    this.IsAdminField = value;
+                    this.RaisePropertyChanged("IsAdmin");
                 }
             }
         }
@@ -104,7 +86,7 @@ namespace Client.ServerLegaMercato {
         private string NomeLegaField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Client.ServerLegaMercato.Squadra SquadraAdminField;
+        private Client.ServerLega.Squadra SquadraAdminField;
         
         private int NumeroSquadreTotaliField;
         
@@ -119,13 +101,13 @@ namespace Client.ServerLegaMercato {
         private int NumeroAttField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Client.ServerLegaMercato.Mercato MercatoAttivoField;
+        private Client.ServerLega.Mercato MercatoAttivoField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Client.ServerLegaMercato.ListaSvincolati ListaSvincolatiField;
+        private Client.ServerLega.ListaSvincolati ListaSvincolatiField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Client.ServerLegaMercato.Squadra[] SquadreField;
+        private Client.ServerLega.Squadra[] SquadreField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -151,7 +133,7 @@ namespace Client.ServerLegaMercato {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
-        public Client.ServerLegaMercato.Squadra SquadraAdmin {
+        public Client.ServerLega.Squadra SquadraAdmin {
             get {
                 return this.SquadraAdminField;
             }
@@ -242,7 +224,7 @@ namespace Client.ServerLegaMercato {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=8)]
-        public Client.ServerLegaMercato.Mercato MercatoAttivo {
+        public Client.ServerLega.Mercato MercatoAttivo {
             get {
                 return this.MercatoAttivoField;
             }
@@ -255,7 +237,7 @@ namespace Client.ServerLegaMercato {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=9)]
-        public Client.ServerLegaMercato.ListaSvincolati ListaSvincolati {
+        public Client.ServerLega.ListaSvincolati ListaSvincolati {
             get {
                 return this.ListaSvincolatiField;
             }
@@ -268,7 +250,7 @@ namespace Client.ServerLegaMercato {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=10)]
-        public Client.ServerLegaMercato.Squadra[] Squadre {
+        public Client.ServerLega.Squadra[] Squadre {
             get {
                 return this.SquadreField;
             }
@@ -287,118 +269,6 @@ namespace Client.ServerLegaMercato {
             if ((propertyChanged != null)) {
                 propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
             }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Asta", Namespace="http://tempuri.org/")]
-    [System.SerializableAttribute()]
-    public partial class Asta : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        private int IdAstaField;
-        
-        private int UltimaOffertaField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Client.ServerLegaMercato.Squadra UltimoOfferenteField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Client.ServerLegaMercato.Squadra[] SquadreField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Client.ServerLegaMercato.Giocatore GiocatoreField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public int IdAsta {
-            get {
-                return this.IdAstaField;
-            }
-            set {
-                if ((this.IdAstaField.Equals(value) != true)) {
-                    this.IdAstaField = value;
-                    this.RaisePropertyChanged("IdAsta");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public int UltimaOfferta {
-            get {
-                return this.UltimaOffertaField;
-            }
-            set {
-                if ((this.UltimaOffertaField.Equals(value) != true)) {
-                    this.UltimaOffertaField = value;
-                    this.RaisePropertyChanged("UltimaOfferta");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
-        public Client.ServerLegaMercato.Squadra UltimoOfferente {
-            get {
-                return this.UltimoOfferenteField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.UltimoOfferenteField, value) != true)) {
-                    this.UltimoOfferenteField = value;
-                    this.RaisePropertyChanged("UltimoOfferente");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
-        public Client.ServerLegaMercato.Squadra[] Squadre {
-            get {
-                return this.SquadreField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.SquadreField, value) != true)) {
-                    this.SquadreField = value;
-                    this.RaisePropertyChanged("Squadre");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=4)]
-        public Client.ServerLegaMercato.Giocatore Giocatore {
-            get {
-                return this.GiocatoreField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.GiocatoreField, value) != true)) {
-                    this.GiocatoreField = value;
-                    this.RaisePropertyChanged("Giocatore");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-
-        public static explicit operator Asta(List<Dominio.Asta> v)
-        {
-            throw new NotImplementedException();
         }
     }
     
@@ -425,13 +295,13 @@ namespace Client.ServerLegaMercato {
         private int NumeroAttField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Client.ServerLegaMercato.Giocatore[] GiocatoriField;
+        private Client.ServerLega.Giocatore[] GiocatoriField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Client.ServerLegaMercato.Lega LegaField;
+        private Client.ServerLega.Lega LegaField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Client.ServerLegaMercato.Utente UtenteField;
+        private Client.ServerLega.Utente UtenteField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -522,7 +392,7 @@ namespace Client.ServerLegaMercato {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=6)]
-        public Client.ServerLegaMercato.Giocatore[] Giocatori {
+        public Client.ServerLega.Giocatore[] Giocatori {
             get {
                 return this.GiocatoriField;
             }
@@ -535,7 +405,7 @@ namespace Client.ServerLegaMercato {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=7)]
-        public Client.ServerLegaMercato.Lega Lega {
+        public Client.ServerLega.Lega Lega {
             get {
                 return this.LegaField;
             }
@@ -548,7 +418,7 @@ namespace Client.ServerLegaMercato {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=8)]
-        public Client.ServerLegaMercato.Utente Utente {
+        public Client.ServerLega.Utente Utente {
             get {
                 return this.UtenteField;
             }
@@ -556,6 +426,83 @@ namespace Client.ServerLegaMercato {
                 if ((object.ReferenceEquals(this.UtenteField, value) != true)) {
                     this.UtenteField = value;
                     this.RaisePropertyChanged("Utente");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Mercato", Namespace="http://tempuri.org/")]
+    [System.SerializableAttribute()]
+    public partial class Mercato : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Client.ServerLega.Lega LegaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Client.ServerLega.Asta[] AsteField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Client.ServerLega.Squadra[] SquadreField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public Client.ServerLega.Lega Lega {
+            get {
+                return this.LegaField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LegaField, value) != true)) {
+                    this.LegaField = value;
+                    this.RaisePropertyChanged("Lega");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
+        public Client.ServerLega.Asta[] Aste {
+            get {
+                return this.AsteField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AsteField, value) != true)) {
+                    this.AsteField = value;
+                    this.RaisePropertyChanged("Aste");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
+        public Client.ServerLega.Squadra[] Squadre {
+            get {
+                return this.SquadreField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SquadreField, value) != true)) {
+                    this.SquadreField = value;
+                    this.RaisePropertyChanged("Squadre");
                 }
             }
         }
@@ -584,7 +531,7 @@ namespace Client.ServerLegaMercato {
         private int IdListaField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Client.ServerLegaMercato.Giocatore[] GiocatoriField;
+        private Client.ServerLega.Giocatore[] GiocatoriField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -623,7 +570,7 @@ namespace Client.ServerLegaMercato {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
-        public Client.ServerLegaMercato.Giocatore[] Giocatori {
+        public Client.ServerLega.Giocatore[] Giocatori {
             get {
                 return this.GiocatoriField;
             }
@@ -631,66 +578,6 @@ namespace Client.ServerLegaMercato {
                 if ((object.ReferenceEquals(this.GiocatoriField, value) != true)) {
                     this.GiocatoriField = value;
                     this.RaisePropertyChanged("Giocatori");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Utente", Namespace="http://tempuri.org/")]
-    [System.SerializableAttribute()]
-    public partial class Utente : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string EmailField;
-        
-        private bool IsAdminField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
-        public string Email {
-            get {
-                return this.EmailField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.EmailField, value) != true)) {
-                    this.EmailField = value;
-                    this.RaisePropertyChanged("Email");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public bool IsAdmin {
-            get {
-                return this.IsAdminField;
-            }
-            set {
-                if ((this.IsAdminField.Equals(value) != true)) {
-                    this.IsAdminField = value;
-                    this.RaisePropertyChanged("IsAdmin");
                 }
             }
         }
@@ -715,12 +602,12 @@ namespace Client.ServerLegaMercato {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NomeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NomeSquadraField;
         
         private int PrezzoAcquistoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NomeField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -729,19 +616,6 @@ namespace Client.ServerLegaMercato {
             }
             set {
                 this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
-        public string Nome {
-            get {
-                return this.NomeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NomeField, value) != true)) {
-                    this.NomeField = value;
-                    this.RaisePropertyChanged("Nome");
-                }
             }
         }
         
@@ -771,6 +645,126 @@ namespace Client.ServerLegaMercato {
             }
         }
         
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
+        public string Nome {
+            get {
+                return this.NomeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NomeField, value) != true)) {
+                    this.NomeField = value;
+                    this.RaisePropertyChanged("Nome");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Asta", Namespace="http://tempuri.org/")]
+    [System.SerializableAttribute()]
+    public partial class Asta : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private int IdAstaField;
+        
+        private int UltimaOffertaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Client.ServerLega.Squadra UltimoOfferenteField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Client.ServerLega.Squadra[] SquadreField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Client.ServerLega.Giocatore GiocatoreField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public int IdAsta {
+            get {
+                return this.IdAstaField;
+            }
+            set {
+                if ((this.IdAstaField.Equals(value) != true)) {
+                    this.IdAstaField = value;
+                    this.RaisePropertyChanged("IdAsta");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public int UltimaOfferta {
+            get {
+                return this.UltimaOffertaField;
+            }
+            set {
+                if ((this.UltimaOffertaField.Equals(value) != true)) {
+                    this.UltimaOffertaField = value;
+                    this.RaisePropertyChanged("UltimaOfferta");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public Client.ServerLega.Squadra UltimoOfferente {
+            get {
+                return this.UltimoOfferenteField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UltimoOfferenteField, value) != true)) {
+                    this.UltimoOfferenteField = value;
+                    this.RaisePropertyChanged("UltimoOfferente");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
+        public Client.ServerLega.Squadra[] Squadre {
+            get {
+                return this.SquadreField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SquadreField, value) != true)) {
+                    this.SquadreField = value;
+                    this.RaisePropertyChanged("Squadre");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=4)]
+        public Client.ServerLega.Giocatore Giocatore {
+            get {
+                return this.GiocatoreField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.GiocatoreField, value) != true)) {
+                    this.GiocatoreField = value;
+                    this.RaisePropertyChanged("Giocatore");
+                }
+            }
+        }
+        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
         protected void RaisePropertyChanged(string propertyName) {
@@ -782,30 +776,30 @@ namespace Client.ServerLegaMercato {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServerLegaMercato.GestioneMercatoControllerSoap")]
-    public interface GestioneMercatoControllerSoap {
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServerLega.ServerLegaSoap")]
+    public interface ServerLegaSoap {
         
-        // CODEGEN: Generazione di un contratto di messaggio perché il nome di elemento mercato dallo spazio dei nomi http://tempuri.org/ non è contrassegnato come nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ChiudiMercato", ReplyAction="*")]
-        Client.ServerLegaMercato.ChiudiMercatoResponse ChiudiMercato(Client.ServerLegaMercato.ChiudiMercatoRequest request);
+        // CODEGEN: Generazione di un contratto di messaggio perché il nome di elemento nome dallo spazio dei nomi http://tempuri.org/ non è contrassegnato come nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/CreaLega", ReplyAction="*")]
+        Client.ServerLega.CreaLegaResponse CreaLega(Client.ServerLega.CreaLegaRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ChiudiMercato", ReplyAction="*")]
-        System.Threading.Tasks.Task<Client.ServerLegaMercato.ChiudiMercatoResponse> ChiudiMercatoAsync(Client.ServerLegaMercato.ChiudiMercatoRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/CreaLega", ReplyAction="*")]
+        System.Threading.Tasks.Task<Client.ServerLega.CreaLegaResponse> CreaLegaAsync(Client.ServerLega.CreaLegaRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class ChiudiMercatoRequest {
+    public partial class CreaLegaRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="ChiudiMercato", Namespace="http://tempuri.org/", Order=0)]
-        public Client.ServerLegaMercato.ChiudiMercatoRequestBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="CreaLega", Namespace="http://tempuri.org/", Order=0)]
+        public Client.ServerLega.CreaLegaRequestBody Body;
         
-        public ChiudiMercatoRequest() {
+        public CreaLegaRequest() {
         }
         
-        public ChiudiMercatoRequest(Client.ServerLegaMercato.ChiudiMercatoRequestBody Body) {
+        public CreaLegaRequest(Client.ServerLega.CreaLegaRequestBody Body) {
             this.Body = Body;
         }
     }
@@ -814,16 +808,24 @@ namespace Client.ServerLegaMercato {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class ChiudiMercatoRequestBody {
+    public partial class CreaLegaRequestBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public Client.ServerLegaMercato.Mercato mercato;
+        public string nome;
         
-        public ChiudiMercatoRequestBody() {
+        [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+        public int numeroPartecipanti;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
+        public Client.ServerLega.Utente utente;
+        
+        public CreaLegaRequestBody() {
         }
         
-        public ChiudiMercatoRequestBody(Client.ServerLegaMercato.Mercato mercato) {
-            this.mercato = mercato;
+        public CreaLegaRequestBody(string nome, int numeroPartecipanti, Client.ServerLega.Utente utente) {
+            this.nome = nome;
+            this.numeroPartecipanti = numeroPartecipanti;
+            this.utente = utente;
         }
     }
     
@@ -831,15 +833,15 @@ namespace Client.ServerLegaMercato {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class ChiudiMercatoResponse {
+    public partial class CreaLegaResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="ChiudiMercatoResponse", Namespace="http://tempuri.org/", Order=0)]
-        public Client.ServerLegaMercato.ChiudiMercatoResponseBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="CreaLegaResponse", Namespace="http://tempuri.org/", Order=0)]
+        public Client.ServerLega.CreaLegaResponseBody Body;
         
-        public ChiudiMercatoResponse() {
+        public CreaLegaResponse() {
         }
         
-        public ChiudiMercatoResponse(Client.ServerLegaMercato.ChiudiMercatoResponseBody Body) {
+        public CreaLegaResponse(Client.ServerLega.CreaLegaResponseBody Body) {
             this.Body = Body;
         }
     }
@@ -848,69 +850,73 @@ namespace Client.ServerLegaMercato {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class ChiudiMercatoResponseBody {
+    public partial class CreaLegaResponseBody {
         
-        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
-        public bool ChiudiMercatoResult;
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public Client.ServerLega.Lega CreaLegaResult;
         
-        public ChiudiMercatoResponseBody() {
+        public CreaLegaResponseBody() {
         }
         
-        public ChiudiMercatoResponseBody(bool ChiudiMercatoResult) {
-            this.ChiudiMercatoResult = ChiudiMercatoResult;
+        public CreaLegaResponseBody(Client.ServerLega.Lega CreaLegaResult) {
+            this.CreaLegaResult = CreaLegaResult;
         }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface GestioneMercatoControllerSoapChannel : Client.ServerLegaMercato.GestioneMercatoControllerSoap, System.ServiceModel.IClientChannel {
+    public interface ServerLegaSoapChannel : Client.ServerLega.ServerLegaSoap, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class GestioneMercatoControllerSoapClient : System.ServiceModel.ClientBase<Client.ServerLegaMercato.GestioneMercatoControllerSoap>, Client.ServerLegaMercato.GestioneMercatoControllerSoap {
+    public partial class ServerLegaSoapClient : System.ServiceModel.ClientBase<Client.ServerLega.ServerLegaSoap>, Client.ServerLega.ServerLegaSoap {
         
-        public GestioneMercatoControllerSoapClient() {
+        public ServerLegaSoapClient() {
         }
         
-        public GestioneMercatoControllerSoapClient(string endpointConfigurationName) : 
+        public ServerLegaSoapClient(string endpointConfigurationName) : 
                 base(endpointConfigurationName) {
         }
         
-        public GestioneMercatoControllerSoapClient(string endpointConfigurationName, string remoteAddress) : 
+        public ServerLegaSoapClient(string endpointConfigurationName, string remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public GestioneMercatoControllerSoapClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public ServerLegaSoapClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public GestioneMercatoControllerSoapClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public ServerLegaSoapClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Client.ServerLegaMercato.ChiudiMercatoResponse Client.ServerLegaMercato.GestioneMercatoControllerSoap.ChiudiMercato(Client.ServerLegaMercato.ChiudiMercatoRequest request) {
-            return base.Channel.ChiudiMercato(request);
+        Client.ServerLega.CreaLegaResponse Client.ServerLega.ServerLegaSoap.CreaLega(Client.ServerLega.CreaLegaRequest request) {
+            return base.Channel.CreaLega(request);
         }
         
-        public bool ChiudiMercato(Client.ServerLegaMercato.Mercato mercato) {
-            Client.ServerLegaMercato.ChiudiMercatoRequest inValue = new Client.ServerLegaMercato.ChiudiMercatoRequest();
-            inValue.Body = new Client.ServerLegaMercato.ChiudiMercatoRequestBody();
-            inValue.Body.mercato = mercato;
-            Client.ServerLegaMercato.ChiudiMercatoResponse retVal = ((Client.ServerLegaMercato.GestioneMercatoControllerSoap)(this)).ChiudiMercato(inValue);
-            return retVal.Body.ChiudiMercatoResult;
+        public Client.ServerLega.Lega CreaLega(string nome, int numeroPartecipanti, Client.ServerLega.Utente utente) {
+            Client.ServerLega.CreaLegaRequest inValue = new Client.ServerLega.CreaLegaRequest();
+            inValue.Body = new Client.ServerLega.CreaLegaRequestBody();
+            inValue.Body.nome = nome;
+            inValue.Body.numeroPartecipanti = numeroPartecipanti;
+            inValue.Body.utente = utente;
+            Client.ServerLega.CreaLegaResponse retVal = ((Client.ServerLega.ServerLegaSoap)(this)).CreaLega(inValue);
+            return retVal.Body.CreaLegaResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Client.ServerLegaMercato.ChiudiMercatoResponse> Client.ServerLegaMercato.GestioneMercatoControllerSoap.ChiudiMercatoAsync(Client.ServerLegaMercato.ChiudiMercatoRequest request) {
-            return base.Channel.ChiudiMercatoAsync(request);
+        System.Threading.Tasks.Task<Client.ServerLega.CreaLegaResponse> Client.ServerLega.ServerLegaSoap.CreaLegaAsync(Client.ServerLega.CreaLegaRequest request) {
+            return base.Channel.CreaLegaAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Client.ServerLegaMercato.ChiudiMercatoResponse> ChiudiMercatoAsync(Client.ServerLegaMercato.Mercato mercato) {
-            Client.ServerLegaMercato.ChiudiMercatoRequest inValue = new Client.ServerLegaMercato.ChiudiMercatoRequest();
-            inValue.Body = new Client.ServerLegaMercato.ChiudiMercatoRequestBody();
-            inValue.Body.mercato = mercato;
-            return ((Client.ServerLegaMercato.GestioneMercatoControllerSoap)(this)).ChiudiMercatoAsync(inValue);
+        public System.Threading.Tasks.Task<Client.ServerLega.CreaLegaResponse> CreaLegaAsync(string nome, int numeroPartecipanti, Client.ServerLega.Utente utente) {
+            Client.ServerLega.CreaLegaRequest inValue = new Client.ServerLega.CreaLegaRequest();
+            inValue.Body = new Client.ServerLega.CreaLegaRequestBody();
+            inValue.Body.nome = nome;
+            inValue.Body.numeroPartecipanti = numeroPartecipanti;
+            inValue.Body.utente = utente;
+            return ((Client.ServerLega.ServerLegaSoap)(this)).CreaLegaAsync(inValue);
         }
     }
 }

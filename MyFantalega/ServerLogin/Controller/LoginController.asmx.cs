@@ -25,7 +25,10 @@ namespace ServerLogin
             try
             {
                 //CAMBIARE IL PATH DEI FILE
-                String[] lines = File.ReadAllLines(@"C:\Users\Alan\Documents\universita\terzo anno\secondo semestre\progetto\MyFantalega\ServerLogin\registrazioni.txt");
+
+                String[] lines = File.ReadAllLines(@"C:\Users\Lorenzo\source\repos\progettoIngegneriaDelSoftware\MyFantalega\ServerLogin\registrazioni.txt");
+                //ALAN PATH:
+                //String[] lines = File.ReadAllLines(@"C:\Users\Alan\Documents\universita\terzo anno\secondo semestre\progetto\MyFantalega\ServerLogin\registrazioni.txt");
                 char[] seps = {':'};
                 foreach (String l in lines)
                 {

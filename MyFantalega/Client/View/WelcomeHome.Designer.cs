@@ -138,10 +138,6 @@ namespace Client.View
             this.listBoxLeghe.ValueMember = "NomeLega";
             this.listBoxLeghe.SelectedIndexChanged += new System.EventHandler(this.listBoxLeghe_SelectedIndexChanged);
             // 
-            // legaBindingSource
-            // 
-            this.legaBindingSource.DataSource = typeof(Client.ServerLegaUtente.Lega);
-            // 
             // comboBoxLeghe
             // 
             this.comboBoxLeghe.DataSource = this.legaBindingSource;
