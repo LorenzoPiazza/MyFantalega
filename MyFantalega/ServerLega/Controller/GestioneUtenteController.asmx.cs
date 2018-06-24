@@ -176,8 +176,6 @@ namespace ServerLega.Controller
         {
             if (mercato.Squadre.Contains(squadra))
                 return false;
-            //aggiungiamo squadre per l'esposizione del progetto
-
             mercato.Squadre.Add(squadra);
             return true;
 

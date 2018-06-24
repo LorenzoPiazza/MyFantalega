@@ -22,10 +22,23 @@ namespace ServerLega.Controller
         [WebMethod]
         public Mercato CreaMercato(Lega lega)
         {
-            //id del mercato generato random, non esistono conflitti con altri mercati!?
             Random random = new Random();
-            int id = random.Next(0, 100);
-            return new Mercato(id, lega);
+            int id = random.Next(0, 1000);
+            Mercato m = new Mercato(id, lega);
+            //aggiungiamo squadre per l'esposizione del progetto
+            m.addSquadra( new Squadra("JACOPENSE", lega, new Utente()));
+            m.addSquadra( new Squadra("SquareFc", lega, new Utente()));
+            m.addSquadra( new Squadra("Juvenilia", lega, new Utente()));
+            m.addSquadra( new Squadra("DSGalaxy", lega, new Utente()));
+            m.addSquadra( new Squadra("Foizasteam", lega, new Utente()));
+            m.addSquadra( new Squadra("TagliesterUnited", lega, new Utente()));
+            m.addSquadra( new Squadra("TaglionsporKulubu", lega, new Utente()));
+            m.addSquadra( new Squadra("Stefanese1997", lega, new Utente()));
+            m.addSquadra( new Squadra("DeportivoAperitivo", lega, new Utente()));
+            m.addSquadra( new Squadra("CRFantasia7", lega, new Utente()));
+            m.addSquadra( new Squadra("MercedesAMG", lega, new Utente()));
+            m.addSquadra( new Squadra("SanGallo", lega, new Utente()));
+            return m;
         }
     }
 }
