@@ -23,7 +23,10 @@ namespace ServerLogin.Controller
         {
             try
             {
-                String [] lines = File.ReadAllLines(@"C:\Users\Lorenzo\Source\Repos\progettoIngegneriaDelSoftware\MyFantalega\ServerLogin\registrazioni.txt");
+                //LORI
+                //String [] lines = File.ReadAllLines(@"C:\Users\Lorenzo\Source\Repos\progettoIngegneriaDelSoftware\MyFantalega\ServerLogin\registrazioni.txt");
+                //JACOPO
+                String[] lines = File.ReadAllLines(@"C:\Users\Jacopo\Source\Repos\progettoIngegneriaDelSoftware\MyFantalega\ServerLogin\registrazioni.txt");
                 char[] seps = { ':' };
                 foreach (String l in lines)
                 {
@@ -45,7 +48,10 @@ namespace ServerLogin.Controller
             try
             {
                 String line = username + ":" + password + ":" + email + ":" + domanda + ":" + risposta;
-                using (StreamWriter sw = new StreamWriter(@"C:\Users\Lorenzo\Source\Repos\progettoIngegneriaDelSoftware\MyFantalega\ServerLogin\registrazioni.txt", true))
+                //LORI
+                //using (StreamWriter sw = new StreamWriter(@"C:\Users\Lorenzo\Source\Repos\progettoIngegneriaDelSoftware\MyFantalega\ServerLogin\registrazioni.txt", true))
+                //JACOPO
+                using (StreamWriter sw = new StreamWriter(@"C:\Users\Jacopo\Source\Repos\progettoIngegneriaDelSoftware\MyFantalega\ServerLogin\registrazioni.txt", true))
                 {
                     sw.WriteLine(line);
                 }

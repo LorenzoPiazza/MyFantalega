@@ -17,12 +17,12 @@ namespace Client.View
         public GestioneLega(Lega legaPass)
         {
             lega = legaPass;
+            InitializeComponent();
             buttonGestioneGiocatori.Enabled = false;
             buttonGestionePartecipanti.Enabled = false;
             buttonVisualizzaLog.Enabled = false;
             buttonEliminaLega.Enabled = false;
             buttonConferma.Enabled = false;
-            InitializeComponent();
         }
 
 
@@ -32,9 +32,9 @@ namespace Client.View
         }
 
        private void buttonConferma_Click(object sender, EventArgs e)
-        {/*
+        {
             //richiesta al ServerLega mediante il proxy Client
-            ServerLegaLega.GestioneLegaControllerSoapClient myLegaController = new ServerLegaLega.GestioneLegaControllerSoapClient();
+            ServerLega.ServerLegaSoapClient myLegaController = new ServerLega.ServerLegaSoapClient();
             Boolean result;
             result = myLegaController.SetImpostazioni(trackBarNumPartecipanti.Value, int.Parse(textBoxCreditiIniz.Text), int.Parse(textBoxPor.Text), int.Parse(textBoxCen.Text), int.Parse(textBoxDif.Text), int.Parse(textBoxAtt.Text), lega);
             if (result == true)
@@ -50,7 +50,7 @@ namespace Client.View
             else
             {
                 MessageBox.Show("Impostazioni errate");
-            }*/
+            }
         }
 
         private void textBoxPor_TextChanged(object sender, EventArgs e)
@@ -93,9 +93,11 @@ namespace Client.View
 
         private void buttonCaricaLista_Click(object sender, EventArgs e)
         {
-           /* ServerLegaLega.GestioneLegaControllerSoapClient myLegaController = new ServerLegaLega.GestioneLegaControllerSoapClient();
+            ServerLega.ServerLegaSoapClient myLegaController = new ServerLega.ServerLegaSoapClient();
             Boolean result;
-            result = myLegaController.CaricaLista("file", lega);
+            //JACOPO
+            String file = "C:/Users/Jacopo/Source/Repos/progettoIngegneriaDelSoftware/MyFantalega/ServerLega/Quotazioni.xlsx";
+            result = myLegaController.CaricaLista(file, lega);
             if (result == true)
             {
                 //NON MI TORNA NESSUNA LISTA
@@ -104,13 +106,13 @@ namespace Client.View
             else
             {
                 MessageBox.Show("Errore nel caricamento lista");
-            }*/
+            }
         }
         
 
         private void buttonIndietro_Click(object sender, EventArgs e)
         {
-            //new HomeLegaAdmin(lega.SquadraAdmin).Show();
+            new HomeLegaAdmin(lega).Show();
         }
 
 
@@ -177,6 +179,6 @@ namespace Client.View
            return true;
         }
 
-
+        
     }
 }

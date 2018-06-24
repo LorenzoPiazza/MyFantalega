@@ -95,5 +95,10 @@ namespace Client.View
         {
             Application.Exit();
         }
+
+        private void ViewLogin_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
