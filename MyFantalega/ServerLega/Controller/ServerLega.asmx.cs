@@ -58,7 +58,44 @@ namespace ServerLega.Controller
             return gestioneUtenteController.cambiaPassword(vecchiaPass, nuovaPass, domanda, risposta, utente);
         }
 
+
+         //CREAZIONE ASTA CONTROLLER
         [WebMethod]
+        public Boolean ChiamaGiocatore(Giocatore giocatore, Asta asta)
+        {
+            ICreazioneAstaController creazioneAstaController = new CreazioneAstaController();
+            return creazioneAstaController.ChiamaGiocatore(giocatore, asta);
+        }
+
+        [WebMethod]
+        public Boolean OffriCrediti(int offerta, Asta asta, Squadra squadra)
+        {
+            ICreazioneAstaController creazioneAstaController = new CreazioneAstaController();
+            return creazioneAstaController.OffriCrediti(offerta, asta, squadra);
+        }
+
+
+        //GESTIONE ADMIN CONTROLLER
+        [WebMethod]
+        public Mercato creaMercato(Lega lega)
+        {
+            IGestioneAdminController adminController = new GestioneAdminController();
+            return adminController.CreaMercato(lega);
+        }
+
+
+        //GESTIONE ASTA CONTROLLER
+        /*[WebMethod]
+        public void GestisciAsta(Lega lega)
+        {
+
+        }
+
+        [WebMethod]
+        public Asta CreaAsta(Giocatore giocatore, int offerta)
+        {
+
+        }
         public List<Lega> getLeghe(Utente utente)
         {
             IGestioneUtenteController gestioneUtenteController = new GestioneUtenteController();
@@ -98,6 +135,38 @@ namespace ServerLega.Controller
 
         [WebMethod]
         public Boolean CaricaLista(String source, Lega lega)
+        [WebMethod]
+        public Boolean AssegnaGiocatore(Giocatore giocatore, Squadra squadra)
+        {
+            
+        }
+
+        [WebMethod]
+        public Boolean AssegnaTurnoAsta(Turno turno, Asta asta)
+        {
+
+        }
+
+        [WebMethod]
+        public Boolean AssegnaTurnoChiamata(Turno turno, Asta asta)
+        {
+
+        }
+
+        [WebMethod]
+        public Boolean Offri(int offerta)
+        {
+
+        }
+
+        [WebMethod]
+        public Boolean Rialza()
+        {
+
+        }
+
+        [WebMethod]
+        public Boolean Abbandona()
         {
             IGestioneLegaController gestioneLegaController = new GestioneLegaController();
             return gestioneLegaController.CaricaLista(source, lega);
@@ -105,4 +174,9 @@ namespace ServerLega.Controller
     }
 }
 
+        }*/
+    }
+}
+
         
+ 

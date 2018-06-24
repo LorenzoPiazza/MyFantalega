@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Services;
+using ServerLega.InterfacceController;
 
 namespace ServerLega.Controller
 {
@@ -15,11 +16,11 @@ namespace ServerLega.Controller
     [System.ComponentModel.ToolboxItem(false)]
     // Per consentire la chiamata di questo servizio Web dallo script utilizzando ASP.NET AJAX, rimuovere il commento dalla riga seguente. 
     // [System.Web.Script.Services.ScriptService]
-    public class GestioneAdminController : System.Web.Services.WebService
+    public class GestioneAdminController : System.Web.Services.WebService, IGestioneAdminController
     {
 
         [WebMethod]
-        public Mercato creaMercato(Lega lega)
+        public Mercato CreaMercato(Lega lega)
         {
             //id del mercato generato random, non esistono conflitti con altri mercati!?
             Random random = new Random();
