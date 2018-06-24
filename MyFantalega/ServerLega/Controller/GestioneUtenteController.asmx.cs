@@ -23,14 +23,18 @@ namespace ServerLega.Controller
     {
         public GestioneUtenteController() { }
 
-     
-        public Lega CreaLega(String nome, int numeroPartecipanti, Utente utente)
+
+        public Lega CreaLega(String nome, int numeroPartecipanti, String nomeSquadra, Utente utente)
         {
 
             SqlConnection conn = null;
             try
             {
                 Lega lega = new Lega(nome, numeroPartecipanti);
+                Squadra squadraAdmin = new Squadra(nomeSquadra, lega, utente);
+                lega.SquadraAdmin = squadraAdmin;
+                lega.Squadre.Add(squadraAdmin);
+
                 //CAMBIARE IL PATH A SECONDA DEL DB USATO!!
                 //JACOPO
                 //conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Jacopo\Source\Repos\progettoIngegneriaDelSoftware\MyFantalega\ServerLega\App_Data\DBMyFantalegaJacopo.mdf;Integrated Security=True");
@@ -39,10 +43,23 @@ namespace ServerLega.Controller
                 //ALAN
                 //conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Alan\Documents\universita\terzo anno\secondo semestre\progetto\MyFantalega\ServerLega\App_Data\DBMyFantalega.mdf;Integrated Security=True");
                 conn.Open();
-                //QUERY DI INSERIMENTO
-                SqlCommand insert = new SqlCommand("INSERT INTO Lega (nome, numSquadreTot, creditiIniziali, numPor, numDif, numCen, numAtt, squadraAdmin, lista, legaAdmin ) VALUES ( '" + lega.NomeLega + "', " + lega.NumeroSquadreTotali + ", " + lega.CreditiInizialiSquadra + ", " + lega.NumeroPor + ", " + lega.NumeroDif + ", " + lega.NumeroCen + ", " + lega.NumeroAtt + ", NULL" + ", NULL" + ", '" + lega.NomeLega + "' )", conn);
 
-                insert.ExecuteNonQuery();
+                //QUERY DI RECUPERO DELL' USERNAME DELL' UTENTE
+                SqlCommand selectUsername = new SqlCommand("select username FROM Utente WHERE [email]='" + utente.Email + "'");
+                SqlDataReader reader = selectUsername.ExecuteReader();
+                String username = reader.GetString(0);
+                reader.Close();
+
+                //QUERY DI INSERIMENTO DELLA LEGA
+                SqlCommand insertLega = new SqlCommand("INSERT INTO Lega (nome, numSquadreTot, creditiIniziali, numPor, numDif, numCen, numAtt, squadraAdmin, lista, legaAdmin ) VALUES ( '" + lega.NomeLega + "', " + lega.NumeroSquadreTotali + ", " + lega.CreditiInizialiSquadra + ", " + lega.NumeroPor + ", " + lega.NumeroDif + ", " + lega.NumeroCen + ", " + lega.NumeroAtt + ", '" + nomeSquadra + "', NULL" + ", '" + lega.NomeLega + "' )", conn);
+                insertLega.ExecuteNonQuery();
+                
+                //QUERY DI INSERIMENTO DELLA SQUADRA
+                SqlCommand insertSquadra = new SqlCommand("INSERT INTO Squadra (nome, creditiResidui, lega, utente ) VALUES ( '" + lega.SquadraAdmin.Nome + "', " + squadraAdmin.CreditResidui + ", '" + lega.NomeLega + "', '" + username + "')", conn);
+
+                SqlCommand updateLega = new SqlCommand("UPDATE Lega SET squadraAdmin='" + squadraAdmin.Nome + "' WHERE nome='" + lega.NomeLega+"')");
+
+                insertLega.ExecuteNonQuery();
                 return lega;
             }
             catch (Exception e)
@@ -108,9 +125,9 @@ namespace ServerLega.Controller
                 ///JACOPO
                 //conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Jacopo\Source\Repos\progettoIngegneriaDelSoftware\MyFantalega\ServerLega\App_Data\DBMyFantalegaJacopo.mdf;Integrated Security=True");
                 //LORENZO
-                //conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Lorenzo\Source\Repos\progettoIngegneriaDelSoftware\MyFantalega\ServerLega\App_Data\DBMyFantalegaLori.mdf;Integrated Security=True");
+                conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Lorenzo\Source\Repos\progettoIngegneriaDelSoftware\MyFantalega\ServerLega\App_Data\DBMyFantalegaLori.mdf;Integrated Security=True");
                 //ALAN
-                conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C: \Users\Alan\Documents\universita\terzo anno\secondo semestre\progetto\MyFantalega\ServerLega\App_Data\DBMyFantalega.mdf;Integrated Security=True");
+                //conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C: \Users\Alan\Documents\universita\terzo anno\secondo semestre\progetto\MyFantalega\ServerLega\App_Data\DBMyFantalega.mdf;Integrated Security=True");
                 conn.Open();
                 //QUERY CHE RESTITUISCE LE LEGHE
                 SqlCommand select = new SqlCommand("SELECT * FROM Lega WHERE nome IN (SELECT S.lega FROM Squadra S JOIN Utente U ON U.username = S.utente WHERE U.[e-mail]='" + utente.Email + "')", conn);
@@ -137,6 +154,7 @@ namespace ServerLega.Controller
 
                     }
                 }
+                reader.Close();
 
                 return leghe;
             }

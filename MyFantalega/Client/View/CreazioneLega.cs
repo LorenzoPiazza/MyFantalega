@@ -52,10 +52,10 @@ namespace Client.View
         {
             //sul numero di partecipanti non viene fatto nessun controllo perche la track bar lascia inserire solo valori dal 4 al 12
             Client.ServerLega.ServerLegaSoapClient myGestioneUtenteController = new Client.ServerLega.ServerLegaSoapClient();
-            Lega lega = myGestioneUtenteController.CreaLega(NomeDellaLegatextBox.Text, NPartTrackBar.Value, _utenteNav);
+            Lega lega = myGestioneUtenteController.CreaLega(NomeDellaLegatextBox.Text, NPartTrackBar.Value, NomeDellaSquadratextBox.Text, _utenteNav);
             if(lega == null)
             {
-                MessageBox.Show("Creazione andata male. Probabilemente esiste già una lega con quel nome!");
+                MessageBox.Show("Creazione andata male. Probabilmente esiste già una lega con quel nome!");
             }
             else
             {
@@ -73,6 +73,12 @@ namespace Client.View
             welcomeHome.Show();
             */
         }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
 

@@ -41,8 +41,8 @@ namespace Client.View
             this.buttonAccedi = new System.Windows.Forms.Button();
             this.groupBoxLeghe = new System.Windows.Forms.GroupBox();
             this.listBoxLeghe = new System.Windows.Forms.ListBox();
-            this.comboBoxLeghe = new System.Windows.Forms.ComboBox();
             this.legaBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.comboBoxLeghe = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.legaBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -70,7 +70,7 @@ namespace Client.View
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(128, 154);
+            this.label1.Location = new System.Drawing.Point(128, 129);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(170, 31);
             this.label1.TabIndex = 10;
@@ -114,6 +114,7 @@ namespace Client.View
             this.buttonAccedi.TabIndex = 38;
             this.buttonAccedi.Text = "Accedi alla Lega";
             this.buttonAccedi.UseVisualStyleBackColor = true;
+            this.buttonAccedi.Click += new System.EventHandler(this.buttonAccedi_Click);
             // 
             // groupBoxLeghe
             // 
@@ -123,12 +124,10 @@ namespace Client.View
             this.groupBoxLeghe.TabIndex = 37;
             this.groupBoxLeghe.TabStop = false;
             this.groupBoxLeghe.Text = "Le tue Leghe";
-            this.groupBoxLeghe.Enter += new System.EventHandler(this.groupBoxLeghe_Enter);
             // 
             // listBoxLeghe
             // 
             this.listBoxLeghe.DataSource = this.legaBindingSource1;
-            this.listBoxLeghe.DisplayMember = "NomeLega";
             this.listBoxLeghe.FormattingEnabled = true;
             this.listBoxLeghe.ItemHeight = 16;
             this.listBoxLeghe.Location = new System.Drawing.Point(134, 210);
@@ -138,18 +137,19 @@ namespace Client.View
             this.listBoxLeghe.ValueMember = "NomeLega";
             this.listBoxLeghe.SelectedIndexChanged += new System.EventHandler(this.listBoxLeghe_SelectedIndexChanged);
             // 
+            // legaBindingSource1
+            // 
+            this.legaBindingSource1.DataSource = typeof(Client.ServerLega.Lega);
+            // 
             // comboBoxLeghe
             // 
+            this.comboBoxLeghe.DisplayMember = "NomeLega";
             this.comboBoxLeghe.FormattingEnabled = true;
-            this.comboBoxLeghe.Location = new System.Drawing.Point(318, 344);
+            this.comboBoxLeghe.Location = new System.Drawing.Point(346, 340);
             this.comboBoxLeghe.Name = "comboBoxLeghe";
             this.comboBoxLeghe.Size = new System.Drawing.Size(121, 24);
             this.comboBoxLeghe.TabIndex = 40;
             this.comboBoxLeghe.ValueMember = "NomeLega";
-            // 
-            // legaBindingSource1
-            // 
-            this.legaBindingSource1.DataSource = typeof(Client.ServerLega.Lega);
             // 
             // WelcomeHome
             // 

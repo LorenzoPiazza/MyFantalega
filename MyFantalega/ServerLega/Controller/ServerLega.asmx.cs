@@ -45,10 +45,10 @@ namespace ServerLega.Controller
 
         //GESTIONE UTENTE CONTROLLER
         [WebMethod]
-        public Lega CreaLega(String nome, int numeroPartecipanti, Utente utente)
+        public Lega CreaLega(String nome, int numeroPartecipanti, String nomeSquadra, Utente utente)
         {
             IGestioneUtenteController gestioneUtenteController = new GestioneUtenteController();
-            return gestioneUtenteController.CreaLega(nome, numeroPartecipanti, utente);
+            return gestioneUtenteController.CreaLega(nome, numeroPartecipanti, nomeSquadra, utente);
         }
 
         [WebMethod]

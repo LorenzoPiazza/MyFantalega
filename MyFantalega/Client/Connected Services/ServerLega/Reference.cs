@@ -1128,14 +1128,18 @@ namespace Client.ServerLega {
         public int numeroPartecipanti;
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
+        public string nomeSquadra;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
         public Client.ServerLega.Utente utente;
         
         public CreaLegaRequestBody() {
         }
         
-        public CreaLegaRequestBody(string nome, int numeroPartecipanti, Client.ServerLega.Utente utente) {
+        public CreaLegaRequestBody(string nome, int numeroPartecipanti, string nomeSquadra, Client.ServerLega.Utente utente) {
             this.nome = nome;
             this.numeroPartecipanti = numeroPartecipanti;
+            this.nomeSquadra = nomeSquadra;
             this.utente = utente;
         }
     }
@@ -2033,11 +2037,12 @@ namespace Client.ServerLega {
             return base.Channel.CreaLega(request);
         }
         
-        public Client.ServerLega.Lega CreaLega(string nome, int numeroPartecipanti, Client.ServerLega.Utente utente) {
+        public Client.ServerLega.Lega CreaLega(string nome, int numeroPartecipanti, string nomeSquadra, Client.ServerLega.Utente utente) {
             Client.ServerLega.CreaLegaRequest inValue = new Client.ServerLega.CreaLegaRequest();
             inValue.Body = new Client.ServerLega.CreaLegaRequestBody();
             inValue.Body.nome = nome;
             inValue.Body.numeroPartecipanti = numeroPartecipanti;
+            inValue.Body.nomeSquadra = nomeSquadra;
             inValue.Body.utente = utente;
             Client.ServerLega.CreaLegaResponse retVal = ((Client.ServerLega.ServerLegaSoap)(this)).CreaLega(inValue);
             return retVal.Body.CreaLegaResult;
@@ -2048,11 +2053,12 @@ namespace Client.ServerLega {
             return base.Channel.CreaLegaAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Client.ServerLega.CreaLegaResponse> CreaLegaAsync(string nome, int numeroPartecipanti, Client.ServerLega.Utente utente) {
+        public System.Threading.Tasks.Task<Client.ServerLega.CreaLegaResponse> CreaLegaAsync(string nome, int numeroPartecipanti, string nomeSquadra, Client.ServerLega.Utente utente) {
             Client.ServerLega.CreaLegaRequest inValue = new Client.ServerLega.CreaLegaRequest();
             inValue.Body = new Client.ServerLega.CreaLegaRequestBody();
             inValue.Body.nome = nome;
             inValue.Body.numeroPartecipanti = numeroPartecipanti;
+            inValue.Body.nomeSquadra = nomeSquadra;
             inValue.Body.utente = utente;
             return ((Client.ServerLega.ServerLegaSoap)(this)).CreaLegaAsync(inValue);
         }
