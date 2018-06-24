@@ -28,26 +28,97 @@ namespace ServerLega.Controller
             return lega;
         }
 
+
+        //PARTECIPA ASTA CONTROLLER
+        [WebMethod]
         public Boolean AbbandonaGiocatore(Asta asta, Squadra squadra)
         {
             IPartecipaAstaController partecipaAstaController = new PartecipaAstaController();
             return partecipaAstaController.AbbandonaGiocatore(asta, squadra);
         }
 
+        [WebMethod]
         public Boolean RialzaOfferta(Asta asta, Squadra squadra)
         {
             IPartecipaAstaController partecipaAstaController = new PartecipaAstaController();
             return partecipaAstaController.RialzaOfferta(asta, squadra);
         }
+
+
+         //CREAZIONE ASTA CONTROLLER
+        [WebMethod]
+        public Boolean ChiamaGiocatore(Giocatore giocatore, Asta asta)
+        {
+            ICreazioneAstaController creazioneAstaController = new CreazioneAstaController();
+            return creazioneAstaController.ChiamaGiocatore(giocatore, asta);
+        }
+
+        [WebMethod]
+        public Boolean OffriCrediti(int offerta, Asta asta, Squadra squadra)
+        {
+            ICreazioneAstaController creazioneAstaController = new CreazioneAstaController();
+            return creazioneAstaController.OffriCrediti(offerta, asta, squadra);
+        }
+
+
+        //GESTIONE ADMIN CONTROLLER
+        [WebMethod]
+        public Mercato creaMercato(Lega lega)
+        {
+            IGestioneAdminController adminController = new GestioneAdminController();
+            return adminController.CreaMercato(lega);
+        }
+
+
+        //GESTIONE ASTA CONTROLLER
+        /*[WebMethod]
+        public void GestisciAsta(Lega lega)
+        {
+
+        }
+
+        [WebMethod]
+        public Asta CreaAsta(Giocatore giocatore, int offerta)
+        {
+
+        }
+
+        [WebMethod]
+        public Boolean AssegnaGiocatore(Giocatore giocatore, Squadra squadra)
+        {
+            
+        }
+
+        [WebMethod]
+        public Boolean AssegnaTurnoAsta(Turno turno, Asta asta)
+        {
+
+        }
+
+        [WebMethod]
+        public Boolean AssegnaTurnoChiamata(Turno turno, Asta asta)
+        {
+
+        }
+
+        [WebMethod]
+        public Boolean Offri(int offerta)
+        {
+
+        }
+
+        [WebMethod]
+        public Boolean Rialza()
+        {
+
+        }
+
+        [WebMethod]
+        public Boolean Abbandona()
+        {
+
+        }*/
     }
 }
 
-        [WebMethod]
-
-        public Boolean CaricaLista(String source, Lega lega)
-        {
-            ICaricaListaController caricaListaController = new CaricaListaFileController();
-            return caricaListaController.CaricaLista(source, lega);
-        }
-    }
-
+ 

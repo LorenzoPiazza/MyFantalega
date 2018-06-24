@@ -18,7 +18,7 @@ namespace ServerLega.Controller
     public class CreazioneAstaController : System.Web.Services.WebService, InterfacceController.ICreazioneAstaController
     {
 
-        [WebMethod]
+     
         public Boolean ChiamaGiocatore(Giocatore giocatore, Asta asta)
         {
             Boolean result=false;
@@ -32,7 +32,7 @@ namespace ServerLega.Controller
         }
 
 
-        [WebMethod]
+       
         public Boolean OffriCrediti(int offerta, Asta asta,Squadra squadra)
         {
             Boolean result=false;
