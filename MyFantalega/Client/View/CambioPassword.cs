@@ -105,10 +105,10 @@ namespace Client.View
 
        private void buttonIndietro_Click(object sender, EventArgs e)
         {
-            /*this.Close();
+            this.Close();
             WelcomeHome welcomeHome = new WelcomeHome(_utenteNav);
             welcomeHome.BringToFront();
-            welcomeHome.Show();*/
+            welcomeHome.Show();
         }
 
         private void CambioPassword_Load(object sender, EventArgs e)

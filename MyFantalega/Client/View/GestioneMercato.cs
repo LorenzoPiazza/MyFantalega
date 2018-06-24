@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ServerLega.Dominio;
+using Client.Dominio;
 
 namespace Client.View
 {
@@ -32,8 +32,8 @@ namespace Client.View
 
        private void buttonIndietro_Click(object sender, EventArgs e)
         {
-           /* this.Close();
-            new HomeLegaAdmin(mercato.Lega.SquadraAdmin).Show();*/
+            this.Close();
+            new HomeLegaAdmin(mercato.Lega.SquadraAdmin).Show();
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -49,7 +49,7 @@ namespace Client.View
 
         private void buttonChiudiMercato_Click(object sender, EventArgs e)
         {
-         /*   Boolean benFormate = true;
+            Boolean benFormate = true;
             for (int i = 0; i < mercato.Squadre.Count(); i++)
             {
                 if (!mercato.Squadre.ElementAt(i).VerificaCompletezza())
@@ -64,7 +64,7 @@ namespace Client.View
                 {
                     ServerLegaMercato.GestioneMercatoControllerSoapClient myMercatoController = new ServerLegaMercato.GestioneMercatoControllerSoapClient();
                     Boolean result;
-                    result = myMercatoController.ChiudiMercato(mercato);
+                    result = myMercatoController.ChiudiMercato((Client.ServerLegaMercato.Mercato)mercato);
                     if (result == true)
                     {
                         MessageBox.Show("Mercato chiuso anche se non completo");
@@ -94,7 +94,7 @@ namespace Client.View
                 {
                     MessageBox.Show("Errore nella chiusura del mercato");
                 }
-            }*/
+            }
         }
     }
 }

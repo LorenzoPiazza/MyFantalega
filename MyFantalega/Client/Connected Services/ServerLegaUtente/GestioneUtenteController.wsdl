@@ -78,6 +78,7 @@
       </s:complexType>
       <s:complexType name="Asta">
         <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdAsta" type="s:int" />
           <s:element minOccurs="1" maxOccurs="1" name="UltimaOfferta" type="s:int" />
           <s:element minOccurs="0" maxOccurs="1" name="UltimoOfferente" type="tns:Squadra" />
           <s:element minOccurs="0" maxOccurs="1" name="Squadre" type="tns:ArrayOfSquadra" />

@@ -17,6 +17,7 @@
       </s:element>
       <s:complexType name="Lega">
         <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="NomeLega" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="SquadraAdmin" type="tns:Squadra" />
           <s:element minOccurs="1" maxOccurs="1" name="NumeroSquadreTotali" type="s:int" />
           <s:element minOccurs="1" maxOccurs="1" name="CreditiInizialiSquadra" type="s:int" />
@@ -39,6 +40,7 @@
           <s:element minOccurs="1" maxOccurs="1" name="NumeroAtt" type="s:int" />
           <s:element minOccurs="0" maxOccurs="1" name="Giocatori" type="tns:ArrayOfGiocatore" />
           <s:element minOccurs="0" maxOccurs="1" name="Lega" type="tns:Lega" />
+          <s:element minOccurs="0" maxOccurs="1" name="Utente" type="tns:Utente" />
         </s:sequence>
       </s:complexType>
       <s:complexType name="ArrayOfGiocatore">
@@ -51,6 +53,12 @@
           <s:element minOccurs="0" maxOccurs="1" name="Nome" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="NomeSquadra" type="s:string" />
           <s:element minOccurs="1" maxOccurs="1" name="PrezzoAcquisto" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Utente">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsAdmin" type="s:boolean" />
         </s:sequence>
       </s:complexType>
       <s:complexType name="Mercato">
@@ -67,6 +75,7 @@
       </s:complexType>
       <s:complexType name="Asta">
         <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdAsta" type="s:int" />
           <s:element minOccurs="1" maxOccurs="1" name="UltimaOfferta" type="s:int" />
           <s:element minOccurs="0" maxOccurs="1" name="UltimoOfferente" type="tns:Squadra" />
           <s:element minOccurs="0" maxOccurs="1" name="Squadre" type="tns:ArrayOfSquadra" />
@@ -81,6 +90,7 @@
       <s:complexType name="ListaSvincolati">
         <s:sequence>
           <s:element minOccurs="1" maxOccurs="1" name="DataCaricamento" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdLista" type="s:int" />
           <s:element minOccurs="0" maxOccurs="1" name="Giocatori" type="tns:ArrayOfGiocatore" />
         </s:sequence>
       </s:complexType>

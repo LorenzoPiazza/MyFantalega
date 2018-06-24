@@ -677,6 +677,8 @@ namespace Client.ServerLegaUtente {
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
+        private int IdAstaField;
+        
         private int UltimaOffertaField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -695,6 +697,19 @@ namespace Client.ServerLegaUtente {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public int IdAsta {
+            get {
+                return this.IdAstaField;
+            }
+            set {
+                if ((this.IdAstaField.Equals(value) != true)) {
+                    this.IdAstaField = value;
+                    this.RaisePropertyChanged("IdAsta");
+                }
             }
         }
         
@@ -724,7 +739,7 @@ namespace Client.ServerLegaUtente {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
         public System.Collections.Generic.List<Client.ServerLegaUtente.Squadra> Squadre {
             get {
                 return this.SquadreField;
@@ -737,7 +752,7 @@ namespace Client.ServerLegaUtente {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=4)]
         public Client.ServerLegaUtente.Giocatore Giocatore {
             get {
                 return this.GiocatoreField;

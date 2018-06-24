@@ -113,11 +113,14 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Controller\CaricaListaFileController.asmx" />
+    <Content Include="Controller\CreazioneAstaController.asmx" />
     <Content Include="Controller\GestioneAdminController.asmx" />
+    <Content Include="Controller\GestioneAstaController.asmx" />
     <Content Include="Controller\GestioneLegaController.asmx" />
     <Content Include="Controller\GestioneMercatoController.asmx" />
     <Content Include="Controller\GestioneSvincoloController.asmx" />
     <Content Include="Controller\GestioneUtenteController.asmx" />
+    <Content Include="Controller\PartecipaAstaController.asmx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\bootstrap.js" />
@@ -141,8 +144,16 @@
       <DependentUpon>CaricaListaFileController.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Controller\CreazioneAstaController.asmx.cs">
+      <DependentUpon>CreazioneAstaController.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Controller\GestioneAdminController.asmx.cs">
       <DependentUpon>GestioneAdminController.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controller\GestioneAstaController.asmx.cs">
+      <DependentUpon>GestioneAstaController.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Controller\GestioneLegaController.asmx.cs">
@@ -161,6 +172,10 @@
       <DependentUpon>GestioneUtenteController.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Controller\PartecipaAstaController.asmx.cs">
+      <DependentUpon>PartecipaAstaController.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Dominio\Asta.cs" />
     <Compile Include="Dominio\Giocatore.cs" />
     <Compile Include="Dominio\Lega.cs" />
@@ -173,6 +188,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="InterfacceController\IPartecipaAstaController.cs" />
+    <Compile Include="InterfacceController\ICreazioneAstaController.cs" />
+    <Compile Include="InterfacceController\IGestioneAstaController.cs" />
     <Compile Include="InterfacceController\IGestioneSvincoloCotroller.cs" />
     <Compile Include="InterfacceController\ICaricaListaController.cs" />
     <Compile Include="InterfacceController\IGestioneAdminController.cs" />

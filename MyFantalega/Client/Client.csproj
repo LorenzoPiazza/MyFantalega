@@ -273,12 +273,6 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ServerLogin1\RegistrazioneController.wsdl" />
-    <None Include="Connected Services\ServerLogin\Client.ServerLogin.Utente.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\ServerLogin\Client.ServerLogin.VerificaCredenzialiProvaResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="Connected Services\ServerLogin\Client.ServerLogin.VerificaCredenzialiResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

@@ -3,11 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Client.ServerLegaMercato;
 
 namespace Client.Dominio
 {
     public class Mercato
     {
+        public static explicit operator Client.ServerLegaMercato.Mercato(Mercato m)
+        {
+            Client.ServerLegaMercato.Mercato result = new Client.ServerLegaMercato.Mercato();
+            return result;
+        }
         private int _idMercato;
         private Lega _lega;
         private List<Asta> _aste;

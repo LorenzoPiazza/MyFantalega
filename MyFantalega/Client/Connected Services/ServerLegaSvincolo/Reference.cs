@@ -117,6 +117,9 @@ namespace Client.ServerLegaSvincolo {
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private Client.ServerLegaSvincolo.Lega LegaField;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Client.ServerLegaSvincolo.Utente UtenteField;
+        
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
             get {
@@ -231,6 +234,19 @@ namespace Client.ServerLegaSvincolo {
             }
         }
         
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=8)]
+        public Client.ServerLegaSvincolo.Utente Utente {
+            get {
+                return this.UtenteField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UtenteField, value) != true)) {
+                    this.UtenteField = value;
+                    this.RaisePropertyChanged("Utente");
+                }
+            }
+        }
+        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
         protected void RaisePropertyChanged(string propertyName) {
@@ -249,6 +265,9 @@ namespace Client.ServerLegaSvincolo {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NomeLegaField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private Client.ServerLegaSvincolo.Squadra SquadraAdminField;
@@ -285,6 +304,19 @@ namespace Client.ServerLegaSvincolo {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string NomeLega {
+            get {
+                return this.NomeLegaField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NomeLegaField, value) != true)) {
+                    this.NomeLegaField = value;
+                    this.RaisePropertyChanged("NomeLega");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
         public Client.ServerLegaSvincolo.Squadra SquadraAdmin {
             get {
                 return this.SquadraAdminField;
@@ -297,7 +329,7 @@ namespace Client.ServerLegaSvincolo {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=1)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=2)]
         public int NumeroSquadreTotali {
             get {
                 return this.NumeroSquadreTotaliField;
@@ -310,7 +342,7 @@ namespace Client.ServerLegaSvincolo {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=2)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=3)]
         public int CreditiInizialiSquadra {
             get {
                 return this.CreditiInizialiSquadraField;
@@ -323,7 +355,7 @@ namespace Client.ServerLegaSvincolo {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=3)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=4)]
         public int NumeroPor {
             get {
                 return this.NumeroPorField;
@@ -336,7 +368,7 @@ namespace Client.ServerLegaSvincolo {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=4)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=5)]
         public int NumeroDif {
             get {
                 return this.NumeroDifField;
@@ -349,7 +381,7 @@ namespace Client.ServerLegaSvincolo {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=5)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=6)]
         public int NumeroCen {
             get {
                 return this.NumeroCenField;
@@ -362,7 +394,7 @@ namespace Client.ServerLegaSvincolo {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=6)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=7)]
         public int NumeroAtt {
             get {
                 return this.NumeroAttField;
@@ -375,7 +407,7 @@ namespace Client.ServerLegaSvincolo {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=7)]
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=8)]
         public Client.ServerLegaSvincolo.Mercato MercatoAttivo {
             get {
                 return this.MercatoAttivoField;
@@ -388,7 +420,7 @@ namespace Client.ServerLegaSvincolo {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=8)]
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=9)]
         public Client.ServerLegaSvincolo.ListaSvincolati ListaSvincolati {
             get {
                 return this.ListaSvincolatiField;
@@ -401,7 +433,7 @@ namespace Client.ServerLegaSvincolo {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=9)]
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=10)]
         public Client.ServerLegaSvincolo.Squadra[] Squadre {
             get {
                 return this.SquadreField;
@@ -410,6 +442,66 @@ namespace Client.ServerLegaSvincolo {
                 if ((object.ReferenceEquals(this.SquadreField, value) != true)) {
                     this.SquadreField = value;
                     this.RaisePropertyChanged("Squadre");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Utente", Namespace="http://tempuri.org/")]
+    [System.SerializableAttribute()]
+    public partial class Utente : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EmailField;
+        
+        private bool IsAdminField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string Email {
+            get {
+                return this.EmailField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EmailField, value) != true)) {
+                    this.EmailField = value;
+                    this.RaisePropertyChanged("Email");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public bool IsAdmin {
+            get {
+                return this.IsAdminField;
+            }
+            set {
+                if ((this.IsAdminField.Equals(value) != true)) {
+                    this.IsAdminField = value;
+                    this.RaisePropertyChanged("IsAdmin");
                 }
             }
         }
@@ -512,6 +604,8 @@ namespace Client.ServerLegaSvincolo {
         
         private System.DateTime DataCaricamentoField;
         
+        private int IdListaField;
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private Client.ServerLegaSvincolo.Giocatore[] GiocatoriField;
         
@@ -538,7 +632,20 @@ namespace Client.ServerLegaSvincolo {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public int IdLista {
+            get {
+                return this.IdListaField;
+            }
+            set {
+                if ((this.IdListaField.Equals(value) != true)) {
+                    this.IdListaField = value;
+                    this.RaisePropertyChanged("IdLista");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
         public Client.ServerLegaSvincolo.Giocatore[] Giocatori {
             get {
                 return this.GiocatoriField;
@@ -570,6 +677,8 @@ namespace Client.ServerLegaSvincolo {
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
+        private int IdAstaField;
+        
         private int UltimaOffertaField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -588,6 +697,19 @@ namespace Client.ServerLegaSvincolo {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public int IdAsta {
+            get {
+                return this.IdAstaField;
+            }
+            set {
+                if ((this.IdAstaField.Equals(value) != true)) {
+                    this.IdAstaField = value;
+                    this.RaisePropertyChanged("IdAsta");
+                }
             }
         }
         
@@ -617,7 +739,7 @@ namespace Client.ServerLegaSvincolo {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
         public Client.ServerLegaSvincolo.Squadra[] Squadre {
             get {
                 return this.SquadreField;
@@ -630,7 +752,7 @@ namespace Client.ServerLegaSvincolo {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=4)]
         public Client.ServerLegaSvincolo.Giocatore Giocatore {
             get {
                 return this.GiocatoreField;

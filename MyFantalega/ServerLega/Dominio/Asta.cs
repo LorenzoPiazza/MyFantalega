@@ -28,7 +28,7 @@ namespace ServerLega.Dominio
         {
         }
 
-        public int IdAsta { get => _idAsta; }
+        public int IdAsta { get => _idAsta; set => _idAsta = value; }
         public int UltimaOfferta { get => _ultimaOfferta; set => _ultimaOfferta = value; }
         public Squadra UltimoOfferente { get => _ultimoOfferente; set => _ultimoOfferente = value; }
         public List<Squadra> Squadre { get => _squadre; set => _squadre = value; }

@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Client.Dominio;
+using Client.ServerLegaMercato;
 
 namespace Client.Dominio
 {

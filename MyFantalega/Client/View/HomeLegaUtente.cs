@@ -28,7 +28,7 @@ namespace Client.View
         private void unioneMercatoButton_Click(object sender, EventArgs e)
         {
             Client.ServerLegaUtente.GestioneUtenteControllerSoapClient myGestioneUtenteController = new Client.ServerLegaUtente.GestioneUtenteControllerSoapClient();
-            myGestioneUtenteController.UniscitiAMercato(_squadra);
+            //myGestioneUtenteController.UniscitiAMercato(_squadra);
         }
 
         private void squadraTextBox_TextChanged(object sender, EventArgs e)
