@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Client.Dominio;
+using Client.ServerLega;
 
 namespace Client.View
 {
