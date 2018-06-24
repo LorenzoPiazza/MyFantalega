@@ -16,6 +16,11 @@ namespace ServerLega.Dominio
         private String _nomeSquadra;    //squadra che ha acquistato il giocatore
         private int _prezzoAcquisto;
 
+        public Giocatore()
+        {
+
+        }
+
 
         public Giocatore(String nome, int quotazioneI, String ruolo, String club)
         {
@@ -39,21 +44,10 @@ namespace ServerLega.Dominio
 
             //valori di default assegnati a giocatore con stato Libero
             //Si assume che un giocatore alla creazione sia libero
-            _nomeSquadra = null;
+            _nomeSquadra = "ListaSvincolati";
             _prezzoAcquisto = 0;
             StateChanged();
         }
-
-        public Giocatore()
-        {
-
-        }
-
-        public String Nome { get => _nome; set => _nome = value; }
-        public int QuotazioneIniziale { get => _quotazioneIniziale; }
-        public String Ruolo { get => _ruolo; }
-        public String Club { get => _club; }
-
         public string NomeSquadra
         {
             get
@@ -61,8 +55,7 @@ namespace ServerLega.Dominio
                 if (_stato.Nome.Equals("Acquistato")){
                     return NomeSquadra;
                 }
-                else return "ListaSvincolati";
-                
+                else return "ListaSvincolati";  
             }
             set
             {
@@ -75,7 +68,6 @@ namespace ServerLega.Dominio
                 }
             }
         }
-
         public int PrezzoAcquisto
         {
             get
@@ -97,6 +89,14 @@ namespace ServerLega.Dominio
                 }
             }
         }
+
+
+        public String Nome { get => _nome; set => _nome = value; }
+        public int QuotazioneIniziale { get => _quotazioneIniziale; }
+        public String Ruolo { get => _ruolo; }
+        public String Club { get => _club; }
+
+
 
         private void StateChanged()
         {

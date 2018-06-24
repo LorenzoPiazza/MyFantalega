@@ -25,7 +25,7 @@ namespace ServerLega.Controller
         private IPartecipaAstaController _partecipaAstaController = new PartecipaAstaController();
         private IPartecipaAstaController _creazioneAstaController = new PartecipaAstaController();
 
-        [WebMethod]
+        /*[WebMethod]
         public void GestisciAsta(Lega lega)
         {
 
@@ -71,7 +71,7 @@ namespace ServerLega.Controller
         public Boolean Abbandona()
         {
 
-        }
+        }*/
 
     }
 }

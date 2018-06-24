@@ -7,20 +7,18 @@ namespace ServerLega.Dominio
 {
     public abstract class Stato
     {
-        public abstract string Nome { get; }
-
-
-        public static Stato DeterminaStato(Giocatore giocatore)
-        {
-            if (giocatore.PrezzoAcquisto > 0 && giocatore.NomeSquadra != null )
-                return new Acquistato();
-            else
-                return new Libero();
-        }
-
         public Stato()
         {
 
+        }
+        public abstract string Nome { get; }
+
+        public static Stato DeterminaStato(Giocatore giocatore)
+        {
+            if (giocatore.PrezzoAcquisto > 0 && (giocatore.NomeSquadra != null || giocatore.NomeSquadra.Equals("ListaSvincolati")) )
+                return new Acquistato();
+            else
+                return new Libero();
         }
 
         private class Acquistato : Stato

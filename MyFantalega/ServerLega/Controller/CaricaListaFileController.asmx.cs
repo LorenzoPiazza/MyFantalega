@@ -1,17 +1,17 @@
-﻿using System;
+﻿using ServerLega.Dominio;
+using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.OleDb;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.Services;
-using ServerLega.Dominio;
-using System.Data.OleDb;
-using System.Data;
-using System.Data.SqlClient;
 
 namespace ServerLega.Controller
 {
     /// <summary>
-    /// Descrizione di riepilogo per CaricaListaController
+    /// Descrizione di riepilogo per CaricaListaFileController
     /// </summary>
     [WebService(Namespace = "http://tempuri.org/")]
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
@@ -26,11 +26,12 @@ namespace ServerLega.Controller
         {
             SqlConnection conn = null;
             System.Data.OleDb.OleDbConnection connExcel = null;
-            try { 
+            try
+            {
                 conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C: \Users\Alan\Documents\universita\terzo anno\secondo semestre\progetto\MyFantalega\ServerLega\App_Data\DBMyFantalega.mdf;Integrated Security=True");
                 conn.Open();
                 DateTime data = new DateTime();
-                SqlCommand update = new SqlCommand("insert into ListaSvincolati (Id,dataCaricamento) values(100,"+data.Date+")", conn);
+                SqlCommand update = new SqlCommand("insert into ListaSvincolati (Id,dataCaricamento) values(100," + data.Date + ")", conn);
                 update.ExecuteNonQuery();
                 //String club;
                 String ruolo;
@@ -49,7 +50,7 @@ namespace ServerLega.Controller
                     ruolo = (String)dr["R"];
                     //club = (String)dr["Squadra"];
                     //Giocatore giocatore = new Giocatore(nome, quotazione, ruolo, club);
-                    update = new SqlCommand("insert into Giocatore (nome,quotazioneIniziale,lista,ruolo) values("+nome+","+quotazione+",100,"+ruolo+")", conn);
+                    update = new SqlCommand("insert into Giocatore (nome,quotazioneIniziale,lista,ruolo) values(" + nome + "," + quotazione + ",100," + ruolo + ")", conn);
                     update.ExecuteNonQuery();
                 }
             }

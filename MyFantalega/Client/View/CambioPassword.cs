@@ -46,7 +46,7 @@ namespace Client.View
 
         private void cambiaPassButton_Click(object sender, EventArgs e)
         {
-            Client.ServerLegaUtente.GestioneUtenteControllerSoapClient myGestioneUtenteController = new Client.ServerLegaUtente.GestioneUtenteControllerSoapClient();
+           /* Client.ServerLegaUtente.GestioneUtenteControllerSoapClient myGestioneUtenteController = new Client.ServerLegaUtente.GestioneUtenteControllerSoapClient();
             Boolean cambio = myGestioneUtenteController.CambiaPassword(vecchiaPassTextBox.Text, nuovaPassTextBox.Text, domandaTextBox.Text, rispostaTextBox.Text, _utenteNav);
                 
             if (cambio)
@@ -60,7 +60,7 @@ namespace Client.View
             else
             {
                 MessageBox.Show("Errore");
-            }
+            }*/
         }
 
         private void vecchiaPassTextBox_TextChanged(object sender, EventArgs e)
@@ -105,10 +105,10 @@ namespace Client.View
 
        private void buttonIndietro_Click(object sender, EventArgs e)
         {
-            this.Close();
+            /*this.Close();
             WelcomeHome welcomeHome = new WelcomeHome(_utenteNav);
             welcomeHome.BringToFront();
-            welcomeHome.Show();
+            welcomeHome.Show();*/
         }
 
         private void CambioPassword_Load(object sender, EventArgs e)

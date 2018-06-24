@@ -3,9 +3,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 
 namespace ServerLega.Dominio
 {
+    [DataContract]
     public class Lega
     {
         private String _nomeLega;
@@ -55,16 +57,27 @@ namespace ServerLega.Dominio
 
         }
 
+        [DataMember]
         public string NomeLega { get => _nomeLega; set => _nomeLega = value; }
+        [DataMember]
         public Squadra SquadraAdmin { get => _squadraAdmin; set => _squadraAdmin = value; }
+        [DataMember]
         public int NumeroSquadreTotali { get => _numeroSquadreTotali; set => _numeroSquadreTotali = value; }
+        [DataMember]
         public int CreditiInizialiSquadra { get => _creditiInizialiSquadra; set => _creditiInizialiSquadra = value; }
+        [DataMember]
         public int NumeroPor { get => _numeroPor; set => _numeroPor = value; }
+        [DataMember]
         public int NumeroDif { get => _numeroDif; set => _numeroDif = value; }
+        [DataMember]
         public int NumeroCen { get => _numeroCen; set => _numeroCen = value; }
+        [DataMember]
         public int NumeroAtt { get => _numeroAtt; set => _numeroAtt = value; }
+        [DataMember]
         public Mercato MercatoAttivo { get => _mercatoAttivo; set => _mercatoAttivo = value; }
+        [DataMember]
         public ListaSvincolati ListaSvincolati { get => _listaSvincolati; set => _listaSvincolati = value; }
+        [DataMember]
         public List<Squadra> Squadre { get => _squadre; }
 
 

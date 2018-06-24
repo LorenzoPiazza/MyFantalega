@@ -8,7 +8,7 @@ using ServerLega.Dominio;
 namespace ServerLega.InterfacceController
 {
     interface IGestioneAstaController
-    {
+    {/*
         Boolean AssegnaGiocatore(Giocatore giocatore,Squadra squadra);
         Boolean AssegnaTurnoAsta(Turno turno, Asta asta);
         Boolean AssegnaTurnoChiamata(Turno turno, Asta asta);
@@ -17,6 +17,6 @@ namespace ServerLega.InterfacceController
         Boolean Rialza();
         Boolean Abbandona();
         Asta CreaAsta(Giocatore giocatore, int offerta);
-
+        */
     }
 }
