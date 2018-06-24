@@ -14,9 +14,9 @@ namespace Client.View
     public partial class HomeMercatoAdmin : Form
     {
         Mercato mercato;
-        public HomeMercatoAdmin(Mercato mercatoPass)
+        public HomeMercatoAdmin(Lega legaPass, Squadra squadra)
         {
-            mercato = mercatoPass;
+            mercato = legaPass.MercatoAttivo;
             InitializeComponent();
         }
 

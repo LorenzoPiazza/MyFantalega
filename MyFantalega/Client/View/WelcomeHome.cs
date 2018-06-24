@@ -35,7 +35,6 @@ namespace Client.View
             {
                 groupBoxLeghe.Text = "Non partecipi ancora a nessuna lega, creane una nuova!";
             }
-            
 
             else
             {
@@ -90,14 +89,14 @@ namespace Client.View
             new ViewLogin().Show();
         }
 
-        private void groupBoxLeghe_Enter(object sender, EventArgs e)
+        private void listBoxLeghe_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void listBoxLeghe_SelectedIndexChanged(object sender, EventArgs e)
+        private void buttonAccedi_Click(object sender, EventArgs e)
         {
-
+            
         }
     }
 }

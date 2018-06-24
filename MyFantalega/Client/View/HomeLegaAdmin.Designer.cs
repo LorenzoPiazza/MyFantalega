@@ -28,27 +28,28 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button4 = new System.Windows.Forms.Button();
+            this.buttonUniscitiMercato = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.gestioneLegaButton = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
+            this.buttonCreaMercato = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.buttonIndietro = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.squadraTextBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // button4
+            // buttonUniscitiMercato
             // 
-            this.button4.Location = new System.Drawing.Point(476, 346);
-            this.button4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(125, 57);
-            this.button4.TabIndex = 24;
-            this.button4.Text = "Unisciti a un Mercato";
-            this.button4.UseVisualStyleBackColor = true;
+            this.buttonUniscitiMercato.Location = new System.Drawing.Point(476, 346);
+            this.buttonUniscitiMercato.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonUniscitiMercato.Name = "buttonUniscitiMercato";
+            this.buttonUniscitiMercato.Size = new System.Drawing.Size(125, 57);
+            this.buttonUniscitiMercato.TabIndex = 24;
+            this.buttonUniscitiMercato.Text = "Unisciti a un Mercato";
+            this.buttonUniscitiMercato.UseVisualStyleBackColor = true;
+            this.buttonUniscitiMercato.Click += new System.EventHandler(this.buttonUniscitiMercato_Click);
             // 
             // button3
             // 
@@ -80,15 +81,16 @@
             this.button1.Text = "Proponi uno Scambio";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // buttonCreaMercato
             // 
-            this.button5.Location = new System.Drawing.Point(195, 110);
-            this.button5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(143, 74);
-            this.button5.TabIndex = 25;
-            this.button5.Text = "Crea un Mercato";
-            this.button5.UseVisualStyleBackColor = true;
+            this.buttonCreaMercato.Location = new System.Drawing.Point(195, 110);
+            this.buttonCreaMercato.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonCreaMercato.Name = "buttonCreaMercato";
+            this.buttonCreaMercato.Size = new System.Drawing.Size(143, 74);
+            this.buttonCreaMercato.TabIndex = 25;
+            this.buttonCreaMercato.Text = "Crea un Mercato";
+            this.buttonCreaMercato.UseVisualStyleBackColor = true;
+            this.buttonCreaMercato.Click += new System.EventHandler(this.buttonCreaMercato_Click);
             // 
             // gestioneLegaButton
             // 
@@ -101,15 +103,15 @@
             this.gestioneLegaButton.UseVisualStyleBackColor = true;
             this.gestioneLegaButton.Click += new System.EventHandler(this.gestioneLegaButton_Click);
             // 
-            // button7
+            // buttonIndietro
             // 
-            this.button7.Location = new System.Drawing.Point(33, 21);
-            this.button7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(75, 23);
-            this.button7.TabIndex = 34;
-            this.button7.Text = "Indietro";
-            this.button7.UseVisualStyleBackColor = true;
+            this.buttonIndietro.Location = new System.Drawing.Point(33, 21);
+            this.buttonIndietro.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonIndietro.Name = "buttonIndietro";
+            this.buttonIndietro.Size = new System.Drawing.Size(75, 23);
+            this.buttonIndietro.TabIndex = 34;
+            this.buttonIndietro.Text = "Indietro";
+            this.buttonIndietro.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -150,10 +152,10 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.squadraTextBox);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button7);
-            this.Controls.Add(this.gestioneLegaButton);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.buttonIndietro);
+            this.Controls.Add(this.button6);
+            this.Controls.Add(this.buttonCreaMercato);
+            this.Controls.Add(this.buttonUniscitiMercato);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -168,13 +170,13 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button buttonUniscitiMercato;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button gestioneLegaButton;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button buttonCreaMercato;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button buttonIndietro;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox squadraTextBox;
