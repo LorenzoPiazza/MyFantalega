@@ -187,7 +187,7 @@
             this.Name = "ViewLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MyFantalega";
-            this.Load += new System.EventHandler(this.ViewLogin_Load);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ViewLogin_FormClosed);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);

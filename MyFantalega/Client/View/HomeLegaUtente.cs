@@ -1,5 +1,4 @@
-﻿using Client.Dominio;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -28,7 +27,7 @@ namespace Client.View
 
         private void unioneMercatoButton_Click(object sender, EventArgs e)
         {
-            Client.ServerLegaUtente.GestioneUtenteControllerSoapClient myGestioneUtenteController = new Client.ServerLegaUtente.GestioneUtenteControllerSoapClient();
+            Client.ServerLega.ServerLegaSoapClient myGestioneUtenteController = new Client.ServerLega.ServerLegaSoapClient();
             //myGestioneUtenteController.UniscitiAMercato(_squadra);
         }
 

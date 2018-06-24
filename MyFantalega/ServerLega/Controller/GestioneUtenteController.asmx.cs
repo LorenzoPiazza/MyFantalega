@@ -56,7 +56,8 @@ namespace ServerLega.Controller
             }
         }
 
-        public Boolean cambiaPassword(String vecchiaPass, String nuovaPass, String domanda, String risposta, Utente utente)
+        [WebMethod]
+        public Boolean CambiaPassword(String vecchiaPass, String nuovaPass, String domanda, String risposta, Utente utente)
         {
             String usernameInFile;
             String passwordInFile;
@@ -98,15 +99,17 @@ namespace ServerLega.Controller
 
 
         [WebMethod]
-        public List<Lega> getLeghe(Utente utente)
+        public List<Lega> GetLeghe(Utente utente)
         {
             List<Lega> leghe = new List<Lega>();
             SqlConnection conn = null;
             try
             {   //CAMBIARE IL PATH A SECONDA DEL DB USATO!!
                 //JACOPOconn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Jacopo\Source\Repos\progettoIngegneriaDelSoftware\MyFantalega\ServerLega\App_Data\DBMyFantalega.mdf;Integrated Security=True");
-                //LORENZOconn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Lorenzo\Source\Repos\progettoIngegneriaDelSoftware\MyFantalega\ServerLega\App_Data\DBMyFantalegaLori.mdf;Integrated Security=True");
-                conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C: \Users\Alan\Documents\universita\terzo anno\secondo semestre\progetto\MyFantalega\ServerLega\App_Data\DBMyFantalega.mdf;Integrated Security=True");
+                //LORENZO
+                conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Lorenzo\Source\Repos\progettoIngegneriaDelSoftware\MyFantalega\ServerLega\App_Data\DBMyFantalegaLori.mdf;Integrated Security=True");
+                //ALAN
+                //conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C: \Users\Alan\Documents\universita\terzo anno\secondo semestre\progetto\MyFantalega\ServerLega\App_Data\DBMyFantalega.mdf;Integrated Security=True");
                 conn.Open();
                 //QUERY CHE RESTITUISCE LE LEGHE
                 SqlCommand select = new SqlCommand("SELECT * FROM Lega WHERE nome IN (SELECT S.lega FROM Squadra S JOIN Utente U ON U.username = S.utente WHERE U.[e-mail]='" + utente.Email + "')", conn);
@@ -148,7 +151,7 @@ namespace ServerLega.Controller
         }
 
         [WebMethod]
-        public Boolean uniscitiAMercato(Mercato mercato, Squadra squadra)
+        public Boolean UniscitiAMercato(Mercato mercato, Squadra squadra)
         {
             if (mercato.Squadre.Contains(squadra))
                 return false;

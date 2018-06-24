@@ -54,7 +54,7 @@ namespace Client.View
         {
             if (MessageBox.Show("Sei sicuro di voler svincolare il giocatore?", giocatore.Nome, MessageBoxButtons.YesNo, MessageBoxIcon.Question)== DialogResult.Yes)
             {
-                ServerLegaSvincolo.GestioneSvincoloControllerSoapClient mySvincoloController = new ServerLegaSvincolo.GestioneSvincoloControllerSoapClient();
+                Client.ServerLega.ServerLegaSoapClient mySvincoloController = new Client.ServerLega.ServerLegaSoapClient();
                 Boolean result;
                 result = mySvincoloController.SvincolaGiocatore(giocatore, squadra);
                 if (result == true)

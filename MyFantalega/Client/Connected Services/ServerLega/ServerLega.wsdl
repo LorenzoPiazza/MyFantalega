@@ -2,41 +2,21 @@
 <wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
-      <s:element name="CreaLega">
+      <s:element name="AbbandonaGiocatore">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="nome" type="s:string" />
-            <s:element minOccurs="1" maxOccurs="1" name="numeroPartecipanti" type="s:int" />
-            <s:element minOccurs="0" maxOccurs="1" name="utente" type="tns:Utente" />
+            <s:element minOccurs="0" maxOccurs="1" name="asta" type="tns:Asta" />
+            <s:element minOccurs="0" maxOccurs="1" name="squadra" type="tns:Squadra" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:complexType name="Utente">
+      <s:complexType name="Asta">
         <s:sequence>
-          <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
-          <s:element minOccurs="1" maxOccurs="1" name="IsAdmin" type="s:boolean" />
-        </s:sequence>
-      </s:complexType>
-      <s:element name="CreaLegaResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="CreaLegaResult" type="tns:Lega" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:complexType name="Lega">
-        <s:sequence>
-          <s:element minOccurs="0" maxOccurs="1" name="NomeLega" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="SquadraAdmin" type="tns:Squadra" />
-          <s:element minOccurs="1" maxOccurs="1" name="NumeroSquadreTotali" type="s:int" />
-          <s:element minOccurs="1" maxOccurs="1" name="CreditiInizialiSquadra" type="s:int" />
-          <s:element minOccurs="1" maxOccurs="1" name="NumeroPor" type="s:int" />
-          <s:element minOccurs="1" maxOccurs="1" name="NumeroDif" type="s:int" />
-          <s:element minOccurs="1" maxOccurs="1" name="NumeroCen" type="s:int" />
-          <s:element minOccurs="1" maxOccurs="1" name="NumeroAtt" type="s:int" />
-          <s:element minOccurs="0" maxOccurs="1" name="MercatoAttivo" type="tns:Mercato" />
-          <s:element minOccurs="0" maxOccurs="1" name="ListaSvincolati" type="tns:ListaSvincolati" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdAsta" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="UltimaOfferta" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="UltimoOfferente" type="tns:Squadra" />
           <s:element minOccurs="0" maxOccurs="1" name="Squadre" type="tns:ArrayOfSquadra" />
+          <s:element minOccurs="0" maxOccurs="1" name="Giocatore" type="tns:Giocatore" />
         </s:sequence>
       </s:complexType>
       <s:complexType name="Squadra">
@@ -64,6 +44,21 @@
           <s:element minOccurs="0" maxOccurs="1" name="Nome" type="s:string" />
         </s:sequence>
       </s:complexType>
+      <s:complexType name="Lega">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="NomeLega" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SquadraAdmin" type="tns:Squadra" />
+          <s:element minOccurs="1" maxOccurs="1" name="NumeroSquadreTotali" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreditiInizialiSquadra" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="NumeroPor" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="NumeroDif" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="NumeroCen" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="NumeroAtt" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="MercatoAttivo" type="tns:Mercato" />
+          <s:element minOccurs="0" maxOccurs="1" name="ListaSvincolati" type="tns:ListaSvincolati" />
+          <s:element minOccurs="0" maxOccurs="1" name="Squadre" type="tns:ArrayOfSquadra" />
+        </s:sequence>
+      </s:complexType>
       <s:complexType name="Mercato">
         <s:sequence>
           <s:element minOccurs="0" maxOccurs="1" name="Lega" type="tns:Lega" />
@@ -74,15 +69,6 @@
       <s:complexType name="ArrayOfAsta">
         <s:sequence>
           <s:element minOccurs="0" maxOccurs="unbounded" name="Asta" nillable="true" type="tns:Asta" />
-        </s:sequence>
-      </s:complexType>
-      <s:complexType name="Asta">
-        <s:sequence>
-          <s:element minOccurs="1" maxOccurs="1" name="IdAsta" type="s:int" />
-          <s:element minOccurs="1" maxOccurs="1" name="UltimaOfferta" type="s:int" />
-          <s:element minOccurs="0" maxOccurs="1" name="UltimoOfferente" type="tns:Squadra" />
-          <s:element minOccurs="0" maxOccurs="1" name="Squadre" type="tns:ArrayOfSquadra" />
-          <s:element minOccurs="0" maxOccurs="1" name="Giocatore" type="tns:Giocatore" />
         </s:sequence>
       </s:complexType>
       <s:complexType name="ArrayOfSquadra">
@@ -97,24 +83,492 @@
           <s:element minOccurs="0" maxOccurs="1" name="Giocatori" type="tns:ArrayOfGiocatore" />
         </s:sequence>
       </s:complexType>
+      <s:complexType name="Utente">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsAdmin" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AbbandonaGiocatoreResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AbbandonaGiocatoreResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RialzaOfferta">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="asta" type="tns:Asta" />
+            <s:element minOccurs="0" maxOccurs="1" name="squadra" type="tns:Squadra" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RialzaOffertaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RialzaOffertaResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OffriCreditiPartecipaAsta">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="offerta" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="asta" type="tns:Asta" />
+            <s:element minOccurs="0" maxOccurs="1" name="squadra" type="tns:Squadra" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OffriCreditiPartecipaAstaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="OffriCreditiPartecipaAstaResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreaLega">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nome" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="numeroPartecipanti" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="utente" type="tns:Utente" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreaLegaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CreaLegaResult" type="tns:Lega" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="cambiaPassword">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vecchiaPass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="nuovaPass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="domanda" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="risposta" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="utente" type="tns:Utente" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="cambiaPasswordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="cambiaPasswordResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLeghe">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="utente" type="tns:Utente" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLegheResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLegheResult" type="tns:ArrayOfLega" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfLega">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Lega" nillable="true" type="tns:Lega" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="uniscitiAMercato">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="mercato" type="tns:Mercato" />
+            <s:element minOccurs="0" maxOccurs="1" name="squadra" type="tns:Squadra" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="uniscitiAMercatoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="uniscitiAMercatoResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChiamaGiocatore">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="giocatore" type="tns:Giocatore" />
+            <s:element minOccurs="0" maxOccurs="1" name="asta" type="tns:Asta" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChiamaGiocatoreResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ChiamaGiocatoreResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OffriCreditiCreazioneAsta">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="offerta" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="asta" type="tns:Asta" />
+            <s:element minOccurs="0" maxOccurs="1" name="squadra" type="tns:Squadra" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OffriCreditiCreazioneAstaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="OffriCreditiCreazioneAstaResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="creaMercato">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="lega" type="tns:Lega" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="creaMercatoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="creaMercatoResult" type="tns:Mercato" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SvincolaGiocatore">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="g" type="tns:Giocatore" />
+            <s:element minOccurs="0" maxOccurs="1" name="s" type="tns:Squadra" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SvincolaGiocatoreResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SvincolaGiocatoreResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChiudiMercato">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="mercato" type="tns:Mercato" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChiudiMercatoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ChiudiMercatoResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetImpostazioni">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="sqTot" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="creIni" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="numPor" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="numDif" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="numCen" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="numAtt" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="lega" type="tns:Lega" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetImpostazioniResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SetImpostazioniResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CaricaLista">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="source" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lega" type="tns:Lega" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CaricaListaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CaricaListaResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
+  <wsdl:message name="AbbandonaGiocatoreSoapIn">
+    <wsdl:part name="parameters" element="tns:AbbandonaGiocatore" />
+  </wsdl:message>
+  <wsdl:message name="AbbandonaGiocatoreSoapOut">
+    <wsdl:part name="parameters" element="tns:AbbandonaGiocatoreResponse" />
+  </wsdl:message>
+  <wsdl:message name="RialzaOffertaSoapIn">
+    <wsdl:part name="parameters" element="tns:RialzaOfferta" />
+  </wsdl:message>
+  <wsdl:message name="RialzaOffertaSoapOut">
+    <wsdl:part name="parameters" element="tns:RialzaOffertaResponse" />
+  </wsdl:message>
+  <wsdl:message name="OffriCreditiPartecipaAstaSoapIn">
+    <wsdl:part name="parameters" element="tns:OffriCreditiPartecipaAsta" />
+  </wsdl:message>
+  <wsdl:message name="OffriCreditiPartecipaAstaSoapOut">
+    <wsdl:part name="parameters" element="tns:OffriCreditiPartecipaAstaResponse" />
+  </wsdl:message>
   <wsdl:message name="CreaLegaSoapIn">
     <wsdl:part name="parameters" element="tns:CreaLega" />
   </wsdl:message>
   <wsdl:message name="CreaLegaSoapOut">
     <wsdl:part name="parameters" element="tns:CreaLegaResponse" />
   </wsdl:message>
+  <wsdl:message name="cambiaPasswordSoapIn">
+    <wsdl:part name="parameters" element="tns:cambiaPassword" />
+  </wsdl:message>
+  <wsdl:message name="cambiaPasswordSoapOut">
+    <wsdl:part name="parameters" element="tns:cambiaPasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLegheSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLeghe" />
+  </wsdl:message>
+  <wsdl:message name="GetLegheSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLegheResponse" />
+  </wsdl:message>
+  <wsdl:message name="uniscitiAMercatoSoapIn">
+    <wsdl:part name="parameters" element="tns:uniscitiAMercato" />
+  </wsdl:message>
+  <wsdl:message name="uniscitiAMercatoSoapOut">
+    <wsdl:part name="parameters" element="tns:uniscitiAMercatoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ChiamaGiocatoreSoapIn">
+    <wsdl:part name="parameters" element="tns:ChiamaGiocatore" />
+  </wsdl:message>
+  <wsdl:message name="ChiamaGiocatoreSoapOut">
+    <wsdl:part name="parameters" element="tns:ChiamaGiocatoreResponse" />
+  </wsdl:message>
+  <wsdl:message name="OffriCreditiCreazioneAstaSoapIn">
+    <wsdl:part name="parameters" element="tns:OffriCreditiCreazioneAsta" />
+  </wsdl:message>
+  <wsdl:message name="OffriCreditiCreazioneAstaSoapOut">
+    <wsdl:part name="parameters" element="tns:OffriCreditiCreazioneAstaResponse" />
+  </wsdl:message>
+  <wsdl:message name="creaMercatoSoapIn">
+    <wsdl:part name="parameters" element="tns:creaMercato" />
+  </wsdl:message>
+  <wsdl:message name="creaMercatoSoapOut">
+    <wsdl:part name="parameters" element="tns:creaMercatoResponse" />
+  </wsdl:message>
+  <wsdl:message name="SvincolaGiocatoreSoapIn">
+    <wsdl:part name="parameters" element="tns:SvincolaGiocatore" />
+  </wsdl:message>
+  <wsdl:message name="SvincolaGiocatoreSoapOut">
+    <wsdl:part name="parameters" element="tns:SvincolaGiocatoreResponse" />
+  </wsdl:message>
+  <wsdl:message name="ChiudiMercatoSoapIn">
+    <wsdl:part name="parameters" element="tns:ChiudiMercato" />
+  </wsdl:message>
+  <wsdl:message name="ChiudiMercatoSoapOut">
+    <wsdl:part name="parameters" element="tns:ChiudiMercatoResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetImpostazioniSoapIn">
+    <wsdl:part name="parameters" element="tns:SetImpostazioni" />
+  </wsdl:message>
+  <wsdl:message name="SetImpostazioniSoapOut">
+    <wsdl:part name="parameters" element="tns:SetImpostazioniResponse" />
+  </wsdl:message>
+  <wsdl:message name="CaricaListaSoapIn">
+    <wsdl:part name="parameters" element="tns:CaricaLista" />
+  </wsdl:message>
+  <wsdl:message name="CaricaListaSoapOut">
+    <wsdl:part name="parameters" element="tns:CaricaListaResponse" />
+  </wsdl:message>
   <wsdl:portType name="ServerLegaSoap">
+    <wsdl:operation name="AbbandonaGiocatore">
+      <wsdl:input message="tns:AbbandonaGiocatoreSoapIn" />
+      <wsdl:output message="tns:AbbandonaGiocatoreSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RialzaOfferta">
+      <wsdl:input message="tns:RialzaOffertaSoapIn" />
+      <wsdl:output message="tns:RialzaOffertaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="OffriCreditiPartecipaAsta">
+      <wsdl:input message="tns:OffriCreditiPartecipaAstaSoapIn" />
+      <wsdl:output message="tns:OffriCreditiPartecipaAstaSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="CreaLega">
       <wsdl:input message="tns:CreaLegaSoapIn" />
       <wsdl:output message="tns:CreaLegaSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="cambiaPassword">
+      <wsdl:input message="tns:cambiaPasswordSoapIn" />
+      <wsdl:output message="tns:cambiaPasswordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLeghe">
+      <wsdl:input message="tns:GetLegheSoapIn" />
+      <wsdl:output message="tns:GetLegheSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="uniscitiAMercato">
+      <wsdl:input message="tns:uniscitiAMercatoSoapIn" />
+      <wsdl:output message="tns:uniscitiAMercatoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ChiamaGiocatore">
+      <wsdl:input message="tns:ChiamaGiocatoreSoapIn" />
+      <wsdl:output message="tns:ChiamaGiocatoreSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="OffriCreditiCreazioneAsta">
+      <wsdl:input message="tns:OffriCreditiCreazioneAstaSoapIn" />
+      <wsdl:output message="tns:OffriCreditiCreazioneAstaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="creaMercato">
+      <wsdl:input message="tns:creaMercatoSoapIn" />
+      <wsdl:output message="tns:creaMercatoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SvincolaGiocatore">
+      <wsdl:input message="tns:SvincolaGiocatoreSoapIn" />
+      <wsdl:output message="tns:SvincolaGiocatoreSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ChiudiMercato">
+      <wsdl:input message="tns:ChiudiMercatoSoapIn" />
+      <wsdl:output message="tns:ChiudiMercatoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetImpostazioni">
+      <wsdl:input message="tns:SetImpostazioniSoapIn" />
+      <wsdl:output message="tns:SetImpostazioniSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CaricaLista">
+      <wsdl:input message="tns:CaricaListaSoapIn" />
+      <wsdl:output message="tns:CaricaListaSoapOut" />
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="ServerLegaSoap" type="tns:ServerLegaSoap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AbbandonaGiocatore">
+      <soap:operation soapAction="http://tempuri.org/AbbandonaGiocatore" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RialzaOfferta">
+      <soap:operation soapAction="http://tempuri.org/RialzaOfferta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OffriCreditiPartecipaAsta">
+      <soap:operation soapAction="http://tempuri.org/OffriCreditiPartecipaAsta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="CreaLega">
       <soap:operation soapAction="http://tempuri.org/CreaLega" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cambiaPassword">
+      <soap:operation soapAction="http://tempuri.org/cambiaPassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLeghe">
+      <soap:operation soapAction="http://tempuri.org/GetLeghe" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="uniscitiAMercato">
+      <soap:operation soapAction="http://tempuri.org/uniscitiAMercato" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChiamaGiocatore">
+      <soap:operation soapAction="http://tempuri.org/ChiamaGiocatore" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OffriCreditiCreazioneAsta">
+      <soap:operation soapAction="http://tempuri.org/OffriCreditiCreazioneAsta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="creaMercato">
+      <soap:operation soapAction="http://tempuri.org/creaMercato" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SvincolaGiocatore">
+      <soap:operation soapAction="http://tempuri.org/SvincolaGiocatore" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChiudiMercato">
+      <soap:operation soapAction="http://tempuri.org/ChiudiMercato" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetImpostazioni">
+      <soap:operation soapAction="http://tempuri.org/SetImpostazioni" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CaricaLista">
+      <soap:operation soapAction="http://tempuri.org/CaricaLista" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -125,8 +579,125 @@
   </wsdl:binding>
   <wsdl:binding name="ServerLegaSoap12" type="tns:ServerLegaSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AbbandonaGiocatore">
+      <soap12:operation soapAction="http://tempuri.org/AbbandonaGiocatore" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RialzaOfferta">
+      <soap12:operation soapAction="http://tempuri.org/RialzaOfferta" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OffriCreditiPartecipaAsta">
+      <soap12:operation soapAction="http://tempuri.org/OffriCreditiPartecipaAsta" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="CreaLega">
       <soap12:operation soapAction="http://tempuri.org/CreaLega" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cambiaPassword">
+      <soap12:operation soapAction="http://tempuri.org/cambiaPassword" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLeghe">
+      <soap12:operation soapAction="http://tempuri.org/GetLeghe" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="uniscitiAMercato">
+      <soap12:operation soapAction="http://tempuri.org/uniscitiAMercato" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChiamaGiocatore">
+      <soap12:operation soapAction="http://tempuri.org/ChiamaGiocatore" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OffriCreditiCreazioneAsta">
+      <soap12:operation soapAction="http://tempuri.org/OffriCreditiCreazioneAsta" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="creaMercato">
+      <soap12:operation soapAction="http://tempuri.org/creaMercato" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SvincolaGiocatore">
+      <soap12:operation soapAction="http://tempuri.org/SvincolaGiocatore" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChiudiMercato">
+      <soap12:operation soapAction="http://tempuri.org/ChiudiMercato" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetImpostazioni">
+      <soap12:operation soapAction="http://tempuri.org/SetImpostazioni" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CaricaLista">
+      <soap12:operation soapAction="http://tempuri.org/CaricaLista" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

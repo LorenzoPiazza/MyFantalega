@@ -68,15 +68,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Dominio%28Obsoleto%29\Asta.cs" />
-    <Compile Include="Dominio%28Obsoleto%29\Giocatore.cs" />
-    <Compile Include="Dominio%28Obsoleto%29\Lega.cs" />
-    <Compile Include="Dominio%28Obsoleto%29\ListaSvincolati.cs" />
-    <Compile Include="Dominio%28Obsoleto%29\Mercato.cs" />
-    <Compile Include="Dominio%28Obsoleto%29\Squadra.cs" />
-    <Compile Include="Dominio%28Obsoleto%29\Stato.cs" />
-    <Compile Include="Dominio%28Obsoleto%29\Turno.cs" />
-    <Compile Include="Dominio%28Obsoleto%29\Utente.cs" />
     <Compile Include="View\CambioPassword.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -215,10 +206,52 @@
     <EmbeddedResource Include="View\WelcomeHome.resx">
       <DependentUpon>WelcomeHome.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Connected Services\ServerLega\Client.ServerLega.AbbandonaGiocatoreResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServerLega\Client.ServerLega.cambiaPasswordResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServerLega\Client.ServerLega.CaricaListaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServerLega\Client.ServerLega.ChiamaGiocatoreResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServerLega\Client.ServerLega.ChiudiMercatoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\ServerLega\Client.ServerLega.CreaLegaResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\ServerLega\Client.ServerLega.creaMercatoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServerLega\Client.ServerLega.GetLegheResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\ServerLega\Client.ServerLega.Lega.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServerLega\Client.ServerLega.Mercato.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServerLega\Client.ServerLega.OffriCreditiCreazioneAstaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServerLega\Client.ServerLega.OffriCreditiPartecipaAstaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServerLega\Client.ServerLega.RialzaOffertaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServerLega\Client.ServerLega.SetImpostazioniResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServerLega\Client.ServerLega.SvincolaGiocatoreResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServerLega\Client.ServerLega.uniscitiAMercatoResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ServerLega\ServerLega.wsdl" />

@@ -14,9 +14,9 @@ namespace Client.View
 {
     public partial class WelcomeHome : Form
     {
-        private Client.ServerLega.Utente _utenteNav;
+        private Utente _utenteNav;
 
-        public WelcomeHome(Client.ServerLega.Utente utente)
+        public WelcomeHome(Utente utente)
         {
             InitializeComponent();
             _utenteNav = utente;
@@ -26,10 +26,10 @@ namespace Client.View
 
         private void WelcomeHome_Load(object sender, EventArgs e)
         {
-            //textBoxBenvenuto.Text = "Benvenuto " + _utenteNav.Email;
-           /* Client.ServerLegaUtente.GestioneUtenteControllerSoapClient myGestioneUtenteController = new Client.ServerLegaUtente.GestioneUtenteControllerSoapClient();
+           textBoxBenvenuto.Text = "Benvenuto " + _utenteNav.Email;
+           Client.ServerLega.ServerLegaSoapClient myGestioneUtenteController = new Client.ServerLega.ServerLegaSoapClient();
 
-            List<Client.ServerLegaUtente.Lega> mieLeghe = myGestioneUtenteController.getLeghe(_utenteNav);
+            List<Lega> mieLeghe = myGestioneUtenteController.GetLeghe(_utenteNav);
 
             if (mieLeghe == null)
             {
@@ -40,14 +40,12 @@ namespace Client.View
             else
             {
 
-                foreach (Client.ServerLegaUtente.Lega l in mieLeghe)
+                foreach (Lega l in mieLeghe)
                 {
-                    Console.WriteLine("trovata Lega {0}", l.NomeLega);
                     listBoxLeghe.Items.Add(l);
-                    comboBoxLeghe.Items.Add(l);
                     textBoxBenvenuto.Text = "Benvenuto" + l.NomeLega;
                 }
-            }*/
+            }
         }
 
        
@@ -61,23 +59,35 @@ namespace Client.View
 
         private void cambioPassButton_Click(object sender, EventArgs e)
         {
-            /*this.Hide();
+            this.Hide();
             CambioPassword cambioPass = new CambioPassword(_utenteNav);
             cambioPass.BringToFront();
-            cambioPass.Show();*/
+            cambioPass.Show();
         }
 
        private void legheListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            /*Lega lega = (Lega) legheListBox.SelectedItem;
+            Lega lega = (Lega) listBoxLeghe.SelectedItem;
             if (lega.SquadraAdmin.Utente.Email.Equals(_utenteNav.Email))
             {
                 this.Close();
-                HomeLegaAdmin homeLegaAdmin = new HomeLegaAdmin();
+                HomeLegaAdmin homeLegaAdmin = new HomeLegaAdmin(lega);
                 homeLegaAdmin.BringToFront();
                 homeLegaAdmin.Show();
-            }*/
+            }
 
+        }
+
+        private void WelcomeHome_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+
+
+        private void indietroButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new ViewLogin().Show();
         }
 
         private void groupBoxLeghe_Enter(object sender, EventArgs e)
@@ -85,29 +95,9 @@ namespace Client.View
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void radioButton1_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void listBoxLeghe_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-        }
-
-        private void comboBoxLeghe_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void WelcomeHome_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Application.Exit();
         }
     }
 }
