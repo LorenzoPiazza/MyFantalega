@@ -56,10 +56,12 @@ namespace ServerLega.Controller
                 
                 //QUERY DI INSERIMENTO DELLA SQUADRA
                 SqlCommand insertSquadra = new SqlCommand("INSERT INTO Squadra (nome, creditiResidui, lega, utente ) VALUES ( '" + lega.SquadraAdmin.Nome + "', " + squadraAdmin.CreditResidui + ", '" + lega.NomeLega + "', '" + username + "')", conn);
+                insertSquadra.ExecuteNonQuery();
 
+                //AGGIUNGO ALLA LEGA NEL DB IL NOME DELLA SQUADRA ADMIN
                 SqlCommand updateLega = new SqlCommand("UPDATE Lega SET squadraAdmin='" + squadraAdmin.Nome + "' WHERE nome='" + lega.NomeLega+"')");
+                updateLega.ExecuteNonQuery();
 
-                insertLega.ExecuteNonQuery();
                 return lega;
             }
             catch (Exception e)
