@@ -24,5 +24,10 @@ namespace Client.View
         {
          //   new GestioneMercato(mercato).Show();
         }
+
+        private void HomeMercatoAdmin_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -182,7 +182,7 @@
             this.label2.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.label2.Location = new System.Drawing.Point(217, 21);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(370, 37);
+            this.label2.Size = new System.Drawing.Size(366, 38);
             this.label2.TabIndex = 36;
             this.label2.Text = "Home Mercato Admin";
             this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -215,6 +215,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "HomeMercatoAdmin";
             this.Text = "MyFantalega";
+            this.Load += new System.EventHandler(this.HomeMercatoAdmin_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
