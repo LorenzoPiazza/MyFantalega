@@ -26,7 +26,7 @@ namespace ServerLega.Controller
             {
                 return result;
             }
-            //ho pensato che il controllo se e' l'ultima squdra lo faccia gestisci asta
+            //ho pensato che il controllo se e' l'ultima squadra lo faccia gestisci asta
             asta.Squadre.Remove(squadra);
             result = true;
             return result;

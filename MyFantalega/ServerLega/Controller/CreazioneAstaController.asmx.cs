@@ -19,31 +19,28 @@ namespace ServerLega.Controller
     {
 
      
-        public Boolean ChiamaGiocatore(Giocatore giocatore, Asta asta)
+        public Asta ChiamaGiocatore(Giocatore giocatore, Asta asta)
         {
-            Boolean result=false;
+            
             if(giocatore==null || asta == null)
             {
-                return result;
+                return null;
             }
             asta.Giocatore = giocatore;
-            result = true;
-            return result;
+            return asta;
         }
 
 
        
-        public Boolean OffriCrediti(int offerta, Asta asta,Squadra squadra)
+        public Asta OffriCrediti(int offerta, Asta asta,Squadra squadra)
         {
-            Boolean result=false;
             if (offerta.Equals(null) || asta == null || squadra==null)
             {
-                return result;
+                return null;
             }
             asta.UltimaOfferta=offerta;
             asta.UltimoOfferente = squadra;
-            result = true;
-            return result;
+            return asta;
         }
     }
 }

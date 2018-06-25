@@ -26,10 +26,14 @@ namespace ServerLega.Controller
             int id = random.Next(0, 1000);
             Mercato m = new Mercato(id, lega);
             //aggiungiamo squadre per l'esposizione del progetto
-            m.addSquadra( new Squadra("JACOPENSE", lega, new Utente()));
-            m.addSquadra( new Squadra("SquareFc", lega, new Utente()));
-            m.addSquadra( new Squadra("Juvenilia", lega, new Utente()));
-            m.addSquadra( new Squadra("DSGalaxy", lega, new Utente()));
+            m.addSquadra(lega.SquadraAdmin);
+            Squadra s1 = new Squadra("SquareFc", lega, new Utente());
+            m.addSquadra(s1);
+            Squadra s2 = new Squadra("Juvenilia", lega, new Utente());
+            m.addSquadra(s2);
+            Squadra s3 = new Squadra("JACOPENSE", lega, new Utente());
+            m.addSquadra(s3);
+            /*
             m.addSquadra( new Squadra("Foizasteam", lega, new Utente()));
             m.addSquadra( new Squadra("TagliesterUnited", lega, new Utente()));
             m.addSquadra( new Squadra("TaglionsporKulubu", lega, new Utente()));
@@ -38,6 +42,7 @@ namespace ServerLega.Controller
             m.addSquadra( new Squadra("CRFantasia7", lega, new Utente()));
             m.addSquadra( new Squadra("MercedesAMG", lega, new Utente()));
             m.addSquadra( new Squadra("SanGallo", lega, new Utente()));
+            */
             return m;
         }
     }

@@ -41,6 +41,12 @@ namespace Client.View
             {
                 ServerLegaSoapClient myGestioneAdminController = new ServerLegaSoapClient();
                 Mercato mercato = myGestioneAdminController.creaMercato(lega);
+                List<Squadra> squadre = mercato.Squadre;
+                foreach (Squadra s in squadre)
+                {
+                    if (!s.Equals(squadra))
+                        lega.Squadre.Add(s);
+                }
                 if (mercato != null)
                 {
                     lega.MercatoAttivo = mercato;

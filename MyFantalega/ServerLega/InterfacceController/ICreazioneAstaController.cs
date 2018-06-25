@@ -9,7 +9,7 @@ namespace ServerLega.InterfacceController
 {
     interface ICreazioneAstaController
     {
-        Boolean ChiamaGiocatore(Giocatore giocatore, Asta asta);
-        Boolean OffriCrediti(int offerta, Asta asta,Squadra squadra);
+        Asta ChiamaGiocatore(Giocatore giocatore, Asta asta);
+        Asta OffriCrediti(int offerta, Asta asta,Squadra squadra);
     }
 }

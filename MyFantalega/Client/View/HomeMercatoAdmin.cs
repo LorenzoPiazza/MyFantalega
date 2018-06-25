@@ -22,7 +22,7 @@ namespace Client.View
             Turno result = new Turno();
             result = myGestioneAdminController.ChiudiMercato(mercato);
         }
-
+        
         private void button4_Click(object sender, EventArgs e)
         {
             new GestioneMercato(mercato).Show();

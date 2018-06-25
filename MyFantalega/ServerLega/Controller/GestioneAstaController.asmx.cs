@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.Services;
@@ -78,6 +79,7 @@ namespace ServerLega.Controller
                 {
                     ruolo = "FINITO";
                 }
+
                 return AssegnaTurnoChiamata(turno,ruolo);
             }
             else
@@ -162,11 +164,38 @@ namespace ServerLega.Controller
             return asta;
         }
 
-        /*[WebMethod]
+        [WebMethod]
         public Boolean AssegnaGiocatore(Giocatore giocatore, Squadra squadra)
         {
-            
-        }*/
+            SqlConnection conn = null;
+            try
+            {
+                //CAMBIARE IL PATH A SECONDA DEL DB USATO!!
+                //JACOPO
+                //conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Jacopo\Source\Repos\progettoIngegneriaDelSoftware\MyFantalega\ServerLega\App_Data\DBMyFantalegaJacopo.mdf;Integrated Security=True");
+                //LORENZO
+                conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Lorenzo\source\repos\progettoIngegneriaDelSoftware\MyFantalega\ServerLega\App_Data\DBMyFantalegaLori.mdf;Integrated Security=True");
+                //ALAN
+                //conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Alan\Documents\universita\terzo anno\secondo semestre\progetto\MyFantalega\ServerLega\App_Data\DBMyFantalega.mdf;Integrated Security=True");
+                conn.Open();
+                giocatore.NomeSquadra = squadra.Nome;
+                //modifico nel Db la squadra di appartenenza al giocatore e il prezzo d'acquisto
+                SqlCommand updateGiocatore = new SqlCommand("UPDATE Giocatore SET [nomeSquadra] = '" + squadra.Nome + "' , [prezzoAcquisto] = '" + giocatore.PrezzoAcquisto + "' WHERE [nome] = '" + giocatore.Nome + "'", conn);
+                updateGiocatore.ExecuteNonQuery();
+                conn.Close();
+                return true;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                Console.WriteLine(e.ToString());
+                return false;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
 
         [WebMethod]
         public Turno AssegnaTurnoAsta(Turno turno,String ruolo)

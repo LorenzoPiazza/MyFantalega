@@ -17,5 +17,10 @@ namespace Client.View
         {
             InitializeComponent();
         }
+
+        private void HomeMercatoUtente_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

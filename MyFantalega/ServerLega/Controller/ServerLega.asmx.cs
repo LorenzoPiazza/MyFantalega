@@ -75,14 +75,14 @@ namespace ServerLega.Controller
 
         //CREAZIONE ASTA CONTROLLER
         [WebMethod]
-        public Boolean ChiamaGiocatore(Giocatore giocatore, Asta asta)
+        public Asta ChiamaGiocatore(Giocatore giocatore, Asta asta)
         {
             ICreazioneAstaController creazioneAstaController = new CreazioneAstaController();
             return creazioneAstaController.ChiamaGiocatore(giocatore, asta);
         }
 
         [WebMethod]
-        public Boolean OffriCreditiCreazioneAsta(int offerta, Asta asta, Squadra squadra)
+        public Asta OffriCreditiCreazioneAsta(int offerta, Asta asta, Squadra squadra)
         {
             ICreazioneAstaController creazioneAstaController = new CreazioneAstaController();
             return creazioneAstaController.OffriCrediti(offerta, asta, squadra);
@@ -151,11 +151,12 @@ namespace ServerLega.Controller
             return gestioneAstaController.GestisciAsta(lega, squadra);
         }
 
-        /*[WebMethod]
+       [WebMethod]
         public Boolean AssegnaGiocatore(Giocatore giocatore, Squadra squadra)
         {
-            
-        }*/
+            IGestioneAstaController gestioneAstaController = new GestioneAstaController();
+            return gestioneAstaController.AssegnaGiocatore(giocatore, squadra);
+        }
 
         [WebMethod]
         public Turno AssegnaTurnoAsta(Turno turno, String ruolo)
