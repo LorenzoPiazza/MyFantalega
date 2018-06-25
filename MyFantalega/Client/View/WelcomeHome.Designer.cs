@@ -31,7 +31,6 @@ namespace Client.View
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.cambioPassButton = new System.Windows.Forms.Button();
             this.creazioneLegaButton = new System.Windows.Forms.Button();
             this.indietroButton = new System.Windows.Forms.Button();
@@ -40,9 +39,7 @@ namespace Client.View
             this.buttonAccedi = new System.Windows.Forms.Button();
             this.groupBoxLeghe = new System.Windows.Forms.GroupBox();
             this.comboBoxLeghe = new System.Windows.Forms.ComboBox();
-            this.legaBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.groupBoxLeghe.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.legaBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // cambioPassButton
@@ -131,10 +128,6 @@ namespace Client.View
             this.comboBoxLeghe.ValueMember = "NomeLega";
             this.comboBoxLeghe.SelectedIndexChanged += new System.EventHandler(this.comboBoxLeghe_SelectedIndexChanged);
             // 
-            // legaBindingSource1
-            // 
-            this.legaBindingSource1.DataSource = typeof(Client.ServerLega.Lega);
-            // 
             // WelcomeHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -153,7 +146,6 @@ namespace Client.View
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.WelcomeHome_FormClosed);
             this.Load += new System.EventHandler(this.WelcomeHome_Load);
             this.groupBoxLeghe.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.legaBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -169,6 +161,5 @@ namespace Client.View
         private System.Windows.Forms.Button buttonAccedi;
         private System.Windows.Forms.GroupBox groupBoxLeghe;
         private System.Windows.Forms.ComboBox comboBoxLeghe;
-        public System.Windows.Forms.BindingSource legaBindingSource1;
     }
 }

@@ -28,132 +28,139 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.listBoxAcquisti = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxCrediti = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.labelAttesa = new System.Windows.Forms.Label();
+            this.buttonCrea = new System.Windows.Forms.Button();
+            this.buttonPartecipa = new System.Windows.Forms.Button();
+            this.textBoxOfferta = new System.Windows.Forms.TextBox();
+            this.textBoxGiocatore = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
+            this.buttonIndietro = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // listBox1
+            // listBoxAcquisti
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Items.AddRange(new object[] {
-            "Nome della Squadra",
-            "Testo ",
-            "Testo",
-            "Testo",
-            "Testo",
-            "Testo",
-            "Testo"});
-            this.listBox1.Location = new System.Drawing.Point(35, 86);
-            this.listBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.ScrollAlwaysVisible = true;
-            this.listBox1.Size = new System.Drawing.Size(536, 95);
-            this.listBox1.TabIndex = 26;
+            this.listBoxAcquisti.FormattingEnabled = true;
+            this.listBoxAcquisti.ItemHeight = 16;
+            this.listBoxAcquisti.Location = new System.Drawing.Point(47, 106);
+            this.listBoxAcquisti.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.listBoxAcquisti.Name = "listBoxAcquisti";
+            this.listBoxAcquisti.ScrollAlwaysVisible = true;
+            this.listBoxAcquisti.Size = new System.Drawing.Size(713, 116);
+            this.listBoxAcquisti.TabIndex = 26;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(32, 57);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(43, 70);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(109, 18);
+            this.label1.Size = new System.Drawing.Size(135, 24);
             this.label1.TabIndex = 25;
             this.label1.Text = "I tuoi Acquisti";
             // 
-            // textBox1
+            // textBoxCrediti
             // 
-            this.textBox1.Location = new System.Drawing.Point(111, 189);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(76, 20);
-            this.textBox1.TabIndex = 28;
+            this.textBoxCrediti.Location = new System.Drawing.Point(148, 233);
+            this.textBoxCrediti.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxCrediti.Name = "textBoxCrediti";
+            this.textBoxCrediti.ReadOnly = true;
+            this.textBoxCrediti.Size = new System.Drawing.Size(100, 22);
+            this.textBoxCrediti.TabIndex = 28;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(33, 192);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(44, 236);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(74, 15);
+            this.label3.Size = new System.Drawing.Size(89, 18);
             this.label3.TabIndex = 27;
             this.label3.Text = "I tuoi Crediti:";
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.textBox5);
-            this.groupBox1.Controls.Add(this.textBox3);
+            this.groupBox1.Controls.Add(this.labelAttesa);
+            this.groupBox1.Controls.Add(this.buttonCrea);
+            this.groupBox1.Controls.Add(this.buttonPartecipa);
+            this.groupBox1.Controls.Add(this.textBoxOfferta);
+            this.groupBox1.Controls.Add(this.textBoxGiocatore);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Location = new System.Drawing.Point(184, 226);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Location = new System.Drawing.Point(245, 278);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox1.Size = new System.Drawing.Size(268, 124);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Size = new System.Drawing.Size(357, 153);
             this.groupBox1.TabIndex = 29;
             this.groupBox1.TabStop = false;
             // 
-            // button2
+            // labelAttesa
             // 
-            this.button2.Location = new System.Drawing.Point(151, 80);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(94, 39);
-            this.button2.TabIndex = 14;
-            this.button2.Text = "Crea un\'Asta";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.labelAttesa.AutoSize = true;
+            this.labelAttesa.BackColor = System.Drawing.Color.Transparent;
+            this.labelAttesa.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelAttesa.ForeColor = System.Drawing.Color.DarkRed;
+            this.labelAttesa.Location = new System.Drawing.Point(89, 98);
+            this.labelAttesa.Name = "labelAttesa";
+            this.labelAttesa.Size = new System.Drawing.Size(185, 17);
+            this.labelAttesa.TabIndex = 15;
+            this.labelAttesa.Text = "...In attesa di un turno...";
             // 
-            // button1
+            // buttonCrea
             // 
-            this.button1.Location = new System.Drawing.Point(22, 80);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(94, 39);
-            this.button1.TabIndex = 13;
-            this.button1.Text = "Partecipa all\'Asta";
-            this.button1.UseVisualStyleBackColor = true;
+            this.buttonCrea.Location = new System.Drawing.Point(201, 98);
+            this.buttonCrea.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonCrea.Name = "buttonCrea";
+            this.buttonCrea.Size = new System.Drawing.Size(125, 48);
+            this.buttonCrea.TabIndex = 14;
+            this.buttonCrea.Text = "Crea un\'Asta";
+            this.buttonCrea.UseVisualStyleBackColor = true;
+            this.buttonCrea.Click += new System.EventHandler(this.buttonCrea_Click);
             // 
-            // textBox5
+            // buttonPartecipa
             // 
-            this.textBox5.Location = new System.Drawing.Point(151, 50);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(49, 20);
-            this.textBox5.TabIndex = 12;
+            this.buttonPartecipa.Location = new System.Drawing.Point(29, 98);
+            this.buttonPartecipa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonPartecipa.Name = "buttonPartecipa";
+            this.buttonPartecipa.Size = new System.Drawing.Size(125, 48);
+            this.buttonPartecipa.TabIndex = 13;
+            this.buttonPartecipa.Text = "Partecipa all\'Asta";
+            this.buttonPartecipa.UseVisualStyleBackColor = true;
             // 
-            // textBox3
+            // textBoxOfferta
             // 
-            this.textBox3.Location = new System.Drawing.Point(151, 17);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(114, 20);
-            this.textBox3.TabIndex = 10;
+            this.textBoxOfferta.Location = new System.Drawing.Point(201, 62);
+            this.textBoxOfferta.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxOfferta.Name = "textBoxOfferta";
+            this.textBoxOfferta.ReadOnly = true;
+            this.textBoxOfferta.Size = new System.Drawing.Size(64, 22);
+            this.textBoxOfferta.TabIndex = 12;
+            // 
+            // textBoxGiocatore
+            // 
+            this.textBoxGiocatore.Location = new System.Drawing.Point(201, 21);
+            this.textBoxGiocatore.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxGiocatore.Name = "textBoxGiocatore";
+            this.textBoxGiocatore.ReadOnly = true;
+            this.textBoxGiocatore.Size = new System.Drawing.Size(151, 22);
+            this.textBoxGiocatore.TabIndex = 10;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(20, 54);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Location = new System.Drawing.Point(27, 66);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(86, 15);
+            this.label4.Size = new System.Drawing.Size(104, 18);
             this.label4.TabIndex = 2;
             this.label4.Text = "Offerta attuale:";
             // 
@@ -161,22 +168,22 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(20, 20);
-            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label9.Location = new System.Drawing.Point(27, 25);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(105, 15);
+            this.label9.Size = new System.Drawing.Size(128, 18);
             this.label9.TabIndex = 1;
             this.label9.Text = "Giocatore all\'Asta:";
             // 
-            // button3
+            // buttonIndietro
             // 
-            this.button3.Location = new System.Drawing.Point(35, 19);
-            this.button3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(56, 19);
-            this.button3.TabIndex = 34;
-            this.button3.Text = "Indietro";
-            this.button3.UseVisualStyleBackColor = true;
+            this.buttonIndietro.Location = new System.Drawing.Point(47, 23);
+            this.buttonIndietro.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonIndietro.Name = "buttonIndietro";
+            this.buttonIndietro.Size = new System.Drawing.Size(75, 23);
+            this.buttonIndietro.TabIndex = 34;
+            this.buttonIndietro.Text = "Indietro";
+            this.buttonIndietro.UseVisualStyleBackColor = true;
+            this.buttonIndietro.Click += new System.EventHandler(this.buttonIndietro_Click);
             // 
             // label2
             // 
@@ -184,20 +191,19 @@
             this.label2.Font = new System.Drawing.Font("Lucida Bright", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.Highlight;
             this.label2.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.label2.Location = new System.Drawing.Point(163, 17);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(217, 21);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(304, 32);
+            this.label2.Size = new System.Drawing.Size(370, 37);
             this.label2.TabIndex = 36;
             this.label2.Text = "Home Mercato Admin";
             this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(476, 19);
-            this.button4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button4.Location = new System.Drawing.Point(635, 23);
+            this.button4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(94, 39);
+            this.button4.Size = new System.Drawing.Size(125, 48);
             this.button4.TabIndex = 37;
             this.button4.Text = "Gestione Mercato";
             this.button4.UseVisualStyleBackColor = true;
@@ -205,19 +211,19 @@
             // 
             // HomeMercatoAdmin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(600, 366);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.buttonIndietro);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxCrediti);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.listBoxAcquisti);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "HomeMercatoAdmin";
             this.Text = "MyFantalega";
             this.Load += new System.EventHandler(this.HomeMercatoAdmin_Load);
@@ -229,19 +235,20 @@
         }
 
         #endregion
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox listBoxAcquisti;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxCrediti;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Button buttonCrea;
+        private System.Windows.Forms.Button buttonPartecipa;
+        private System.Windows.Forms.TextBox textBoxOfferta;
+        private System.Windows.Forms.TextBox textBoxGiocatore;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button buttonIndietro;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Label labelAttesa;
     }
 }

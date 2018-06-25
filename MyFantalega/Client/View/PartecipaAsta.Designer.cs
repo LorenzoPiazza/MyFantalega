@@ -38,7 +38,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.buttonIndietro = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -125,14 +125,15 @@
             this.button3.Text = "Abbandona";
             this.button3.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // buttonIndietro
             // 
-            this.button4.Location = new System.Drawing.Point(55, 21);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 34;
-            this.button4.Text = "Indietro";
-            this.button4.UseVisualStyleBackColor = true;
+            this.buttonIndietro.Location = new System.Drawing.Point(55, 21);
+            this.buttonIndietro.Name = "buttonIndietro";
+            this.buttonIndietro.Size = new System.Drawing.Size(75, 23);
+            this.buttonIndietro.TabIndex = 34;
+            this.buttonIndietro.Text = "Indietro";
+            this.buttonIndietro.UseVisualStyleBackColor = true;
+            this.buttonIndietro.Click += new System.EventHandler(this.buttonIndietro_Click);
             // 
             // label2
             // 
@@ -142,7 +143,7 @@
             this.label2.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.label2.Location = new System.Drawing.Point(297, 21);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(251, 39);
+            this.label2.Size = new System.Drawing.Size(248, 37);
             this.label2.TabIndex = 35;
             this.label2.Text = "Partecipa Asta";
             this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -154,7 +155,7 @@
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.buttonIndietro);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -184,7 +185,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button buttonIndietro;
         private System.Windows.Forms.Label label2;
     }
 }

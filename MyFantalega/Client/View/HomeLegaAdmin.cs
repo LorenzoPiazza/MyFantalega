@@ -68,8 +68,16 @@ namespace Client.View
 
         private void buttonUniscitiMercato_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            new HomeMercatoAdmin(lega, squadra).Show();
+            if (lega.MercatoAttivo == null)
+            {
+                MessageBox.Show("Non esiste ancora un mercato attivo in questa lega. Crealo!");
+            }
+            else
+            {
+                this.Hide();
+                new HomeMercatoAdmin(lega, squadra).Show();
+            }
+            
         }
 
         private void gestioneLegaButton_Click(object sender, EventArgs e)

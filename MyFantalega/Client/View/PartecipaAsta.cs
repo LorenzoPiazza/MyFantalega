@@ -13,14 +13,24 @@ namespace Client.View
 {
     public partial class PartecipaAsta : Form
     {
-        public PartecipaAsta()
+        Lega lega;
+        Squadra squadra;
+        public PartecipaAsta(Lega lega, Squadra squadra)
         {
             InitializeComponent();
+            this.lega = lega;
+            this.squadra = squadra;
         }
 
         private void PartecipaAsta_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void buttonIndietro_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new HomeMercatoAdmin(lega, squadra);
         }
     }
 }
