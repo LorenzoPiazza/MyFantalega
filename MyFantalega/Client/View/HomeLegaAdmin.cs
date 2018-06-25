@@ -67,5 +67,10 @@ namespace Client.View
             new HomeMercatoAdmin(lega, squadra);
         }
 
+        private void gestioneLegaButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new GestioneLega(lega);
+        }
     }
 }
