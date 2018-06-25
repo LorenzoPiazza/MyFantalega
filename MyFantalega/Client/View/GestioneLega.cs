@@ -94,24 +94,26 @@ namespace Client.View
         private void buttonCaricaLista_Click(object sender, EventArgs e)
         {
             ServerLega.ServerLegaSoapClient myLegaController = new ServerLega.ServerLegaSoapClient();
-            Boolean result;
-            //JACOPO
-            String file = "C:/Users/Jacopo/Source/Repos/progettoIngegneriaDelSoftware/MyFantalega/ServerLega/Quotazioni.xlsx";
-            result = myLegaController.CaricaLista(file, lega);
-            if (result == true)
+            lega.ListaSvincolati = null;
+            lega = myLegaController.CaricaLista("file", lega);
+            if (lega.ListaSvincolati != null)
             {
-                //NON MI TORNA NESSUNA LISTA
-                MessageBox.Show("Lista aggiornata");
+                MessageBox.Show("Lista caricata!");
+                foreach (Giocatore g in lega.ListaSvincolati.Giocatori)
+                {
+                    comboBoxSvincolati.Items.Add(g.Nome + "---" + g.QuotazioneIniziale);
+                }
             }
             else
             {
-                MessageBox.Show("Errore nel caricamento lista");
+                MessageBox.Show("Errore nel caricamento lista!");
             }
         }
         
 
         private void buttonIndietro_Click(object sender, EventArgs e)
         {
+            this.Hide();
             new HomeLegaAdmin(lega).Show();
         }
 
@@ -179,6 +181,9 @@ namespace Client.View
            return true;
         }
 
-        
+        private void comboBoxSvincolati_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

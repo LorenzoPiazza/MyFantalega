@@ -148,7 +148,6 @@
             this.textBoxRisposta.Size = new System.Drawing.Size(505, 24);
             this.textBoxRisposta.TabIndex = 13;
             this.textBoxRisposta.TextChanged += new System.EventHandler(this.textBoxRisposta_TextChanged);
-            this.textBoxRisposta.Leave += new System.EventHandler(this.textBoxRisposta_Leave);
             // 
             // label6
             // 

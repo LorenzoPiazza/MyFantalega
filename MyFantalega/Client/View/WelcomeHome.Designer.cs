@@ -39,8 +39,8 @@ namespace Client.View
             this.label2 = new System.Windows.Forms.Label();
             this.buttonAccedi = new System.Windows.Forms.Button();
             this.groupBoxLeghe = new System.Windows.Forms.GroupBox();
-            this.legaBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.comboBoxLeghe = new System.Windows.Forms.ComboBox();
+            this.legaBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.groupBoxLeghe.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.legaBindingSource1)).BeginInit();
             this.SuspendLayout();
@@ -77,9 +77,10 @@ namespace Client.View
             // 
             // textBoxBenvenuto
             // 
-            this.textBoxBenvenuto.Location = new System.Drawing.Point(580, 22);
+            this.textBoxBenvenuto.Location = new System.Drawing.Point(553, 29);
             this.textBoxBenvenuto.Name = "textBoxBenvenuto";
-            this.textBoxBenvenuto.Size = new System.Drawing.Size(183, 22);
+            this.textBoxBenvenuto.ReadOnly = true;
+            this.textBoxBenvenuto.Size = new System.Drawing.Size(213, 22);
             this.textBoxBenvenuto.TabIndex = 35;
             // 
             // label2
@@ -116,10 +117,6 @@ namespace Client.View
             this.groupBoxLeghe.TabStop = false;
             this.groupBoxLeghe.Text = "Le tue Leghe";
             // 
-            // legaBindingSource1
-            // 
-            this.legaBindingSource1.DataSource = typeof(Client.ServerLega.Lega);
-            // 
             // comboBoxLeghe
             // 
             this.comboBoxLeghe.DisplayMember = "NomeLega";
@@ -133,6 +130,10 @@ namespace Client.View
             this.comboBoxLeghe.Text = "Seleziona qui la lega a cui vuoi accedere";
             this.comboBoxLeghe.ValueMember = "NomeLega";
             this.comboBoxLeghe.SelectedIndexChanged += new System.EventHandler(this.comboBoxLeghe_SelectedIndexChanged);
+            // 
+            // legaBindingSource1
+            // 
+            this.legaBindingSource1.DataSource = typeof(Client.ServerLega.Lega);
             // 
             // WelcomeHome
             // 

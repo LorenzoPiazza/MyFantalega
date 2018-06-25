@@ -7,6 +7,7 @@ using System.Web.Services;
 using ServerLega.Dominio;
 using ServerLega.InterfacceController;
 
+
 namespace ServerLega.Controller
 {
     /// <summary>
@@ -26,6 +27,8 @@ namespace ServerLega.Controller
         private IPartecipaAstaController _partecipaAstaController = new PartecipaAstaController();
         private IPartecipaAstaController _creazioneAstaController = new PartecipaAstaController();
 
+        public GestioneAstaController() { 
+}
         [WebMethod]
         public Turno GestisciAsta(Lega lega,Squadra squadra)
         {

@@ -19,8 +19,8 @@ namespace Client.View
             InitializeComponent();
             mercato = legaPass.MercatoAttivo;
             ServerLegaSoapClient myGestioneAdminController = new ServerLegaSoapClient();
-            Turno result = new Turno();
-            result = myGestioneAdminController.ChiudiMercato(mercato);
+            //Turno result = new Turno();
+            //result = myGestioneAdminController.ChiudiMercato(mercato);
         }
         
         private void button4_Click(object sender, EventArgs e)

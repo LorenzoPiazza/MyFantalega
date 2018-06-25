@@ -20,13 +20,12 @@ namespace Client.View
         {
             InitializeComponent();
             this.lega = lega;
-            
-            squadra = new Squadra();
+            squadra = lega.SquadraAdmin;
         }
 
         private void HomeLegaAdmin_Load(object sender, EventArgs e)
         {
-            squadraTextBox.Text = "Benvenuta " + lega.SquadraAdmin.Nome;
+            squadraTextBox.Text = "Benvenuta " + squadra.Nome;
         }
 
         private void squadraTextBox_TextChanged(object sender, EventArgs e)
@@ -70,13 +69,19 @@ namespace Client.View
         private void buttonUniscitiMercato_Click(object sender, EventArgs e)
         {
             this.Hide();
-            new HomeMercatoAdmin(lega, squadra);
+            new HomeMercatoAdmin(lega, squadra).Show();
         }
 
         private void gestioneLegaButton_Click(object sender, EventArgs e)
         {
             this.Hide();
-            new GestioneLega(lega);
+            new GestioneLega(lega).Show() ;
+        }
+
+        private void buttonIndietro_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new WelcomeHome(lega.SquadraAdmin.Utente).Show();
         }
     }
 }

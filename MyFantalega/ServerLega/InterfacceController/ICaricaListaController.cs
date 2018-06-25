@@ -11,6 +11,6 @@ namespace ServerLega.InterfacceController
 
     public interface ICaricaListaController
     {
-        Boolean CaricaLista(Lega lega);
+        Lega CaricaLista(Lega lega);
     }
 }

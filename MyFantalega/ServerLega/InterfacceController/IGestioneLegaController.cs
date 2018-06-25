@@ -9,7 +9,7 @@ namespace ServerLega.InterfacceController
 {
     interface IGestioneLegaController
     {
-        Boolean CaricaLista(String source,Lega lega);
+        Lega CaricaLista(String source, Lega lega);
         Boolean SetImpostazioni(int sqTot, int creIni, int numPor, int numDif, int numCen, int numAtt, Lega lega);
     }
 }

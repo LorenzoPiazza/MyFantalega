@@ -68,6 +68,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="TestDominio\TestSetImpostazioni.cs" />
     <Compile Include="View\CambioPassword.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -209,6 +210,18 @@
     <None Include="Connected Services\ServerLega\Client.ServerLega.AbbandonaGiocatoreResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\ServerLega\Client.ServerLega.AbbandonaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServerLega\Client.ServerLega.AssegnaTurnoAstaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServerLega\Client.ServerLega.AssegnaTurnoChiamataResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServerLega\Client.ServerLega.Asta.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\ServerLega\Client.ServerLega.cambiaPasswordResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -221,10 +234,16 @@
     <None Include="Connected Services\ServerLega\Client.ServerLega.ChiudiMercatoResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\ServerLega\Client.ServerLega.CreaAstaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\ServerLega\Client.ServerLega.CreaLegaResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ServerLega\Client.ServerLega.creaMercatoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServerLega\Client.ServerLega.GestisciAstaResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ServerLega\Client.ServerLega.GetLegheResponse.datasource">
@@ -242,13 +261,22 @@
     <None Include="Connected Services\ServerLega\Client.ServerLega.OffriCreditiPartecipaAstaResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\ServerLega\Client.ServerLega.OffriResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\ServerLega\Client.ServerLega.RialzaOffertaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServerLega\Client.ServerLega.RialzaResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ServerLega\Client.ServerLega.SetImpostazioniResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ServerLega\Client.ServerLega.SvincolaGiocatoreResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServerLega\Client.ServerLega.Turno.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ServerLega\Client.ServerLega.uniscitiAMercatoResponse.datasource">

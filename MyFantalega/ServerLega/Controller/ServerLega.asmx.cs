@@ -125,7 +125,7 @@ namespace ServerLega.Controller
 
 
         [WebMethod]
-        public Boolean CaricaLista(String source, Lega lega)
+        public Lega CaricaLista(String source, Lega lega)
         {
             IGestioneLegaController gestioneLegaController = new GestioneLegaController();
             return gestioneLegaController.CaricaLista(source, lega);

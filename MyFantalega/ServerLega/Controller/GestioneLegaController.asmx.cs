@@ -20,12 +20,12 @@ namespace ServerLega.Controller
     public class GestioneLegaController : System.Web.Services.WebService, InterfacceController.IGestioneLegaController
     {
         [WebMethod]
-        public Boolean CaricaLista(String source, Lega lega)
+        public Lega CaricaLista(String source, Lega lega)
         {
-            Boolean result = false;
+            Lega result = null;
             if(lega ==null || source.Equals(null))
             {
-                return false;
+                return null;
             }
             if (source.Equals("file"))
             {
