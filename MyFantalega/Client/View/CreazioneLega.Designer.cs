@@ -87,7 +87,7 @@
             this.NPartTrackBar.Minimum = 4;
             this.NPartTrackBar.Name = "NPartTrackBar";
             this.NPartTrackBar.Size = new System.Drawing.Size(449, 56);
-            this.NPartTrackBar.TabIndex = 2;
+            this.NPartTrackBar.TabIndex = 3;
             this.NPartTrackBar.Value = 4;
             this.NPartTrackBar.Scroll += new System.EventHandler(this.NPartTrackBar_Scroll);
             // 
@@ -96,7 +96,7 @@
             this.indietroButton.Location = new System.Drawing.Point(38, 21);
             this.indietroButton.Name = "indietroButton";
             this.indietroButton.Size = new System.Drawing.Size(75, 23);
-            this.indietroButton.TabIndex = 34;
+            this.indietroButton.TabIndex = 5;
             this.indietroButton.Text = "Indietro";
             this.indietroButton.UseVisualStyleBackColor = true;
             this.indietroButton.Click += new System.EventHandler(this.indietroButton_Click);
@@ -119,7 +119,7 @@
             this.CreaButton.Location = new System.Drawing.Point(271, 289);
             this.CreaButton.Name = "CreaButton";
             this.CreaButton.Size = new System.Drawing.Size(104, 47);
-            this.CreaButton.TabIndex = 3;
+            this.CreaButton.TabIndex = 4;
             this.CreaButton.Text = "Crea";
             this.CreaButton.UseVisualStyleBackColor = true;
             this.CreaButton.Click += new System.EventHandler(this.CreaButton_Click);
@@ -130,7 +130,7 @@
             this.NomeDellaSquadratextBox.MaxLength = 20;
             this.NomeDellaSquadratextBox.Name = "NomeDellaSquadratextBox";
             this.NomeDellaSquadratextBox.Size = new System.Drawing.Size(449, 22);
-            this.NomeDellaSquadratextBox.TabIndex = 37;
+            this.NomeDellaSquadratextBox.TabIndex = 2;
             // 
             // label4
             // 

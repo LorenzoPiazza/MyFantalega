@@ -15,6 +15,8 @@ namespace Client.View
     public partial class WelcomeHome : Form
     {
         private Utente _utenteNav;
+        List<Lega> mieLeghe;
+        Lega legaScelta;
 
         public WelcomeHome(Utente utente)
         {
@@ -29,7 +31,7 @@ namespace Client.View
            textBoxBenvenuto.Text = "Benvenuto " + _utenteNav.Email;
            Client.ServerLega.ServerLegaSoapClient myGestioneUtenteController = new Client.ServerLega.ServerLegaSoapClient();
 
-            List<Lega> mieLeghe = myGestioneUtenteController.GetLeghe(_utenteNav);
+            mieLeghe = myGestioneUtenteController.GetLeghe(_utenteNav);
 
             if (mieLeghe == null)
             {
@@ -41,7 +43,7 @@ namespace Client.View
 
                 foreach (Lega l in mieLeghe)
                 {
-                    listBoxLeghe.Items.Add(l);
+                    comboBoxLeghe.Items.Add(l.NomeLega);
                     textBoxBenvenuto.Text = "Benvenuto" + l.NomeLega;
                 }
             }
@@ -64,19 +66,6 @@ namespace Client.View
             cambioPass.Show();
         }
 
-       private void legheListBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Lega lega = (Lega) listBoxLeghe.SelectedItem;
-            if (lega.SquadraAdmin.Utente.Email.Equals(_utenteNav.Email))
-            {
-                this.Close();
-                HomeLegaAdmin homeLegaAdmin = new HomeLegaAdmin(lega);
-                homeLegaAdmin.BringToFront();
-                homeLegaAdmin.Show();
-            }
-
-        }
-
         private void WelcomeHome_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
@@ -96,7 +85,32 @@ namespace Client.View
 
         private void buttonAccedi_Click(object sender, EventArgs e)
         {
+            foreach (Lega l in mieLeghe)
+            {
+                if (l.NomeLega.Equals(comboBoxLeghe.SelectedItem))
+                {
+                    legaScelta = l;
+                    break;
+                }
+            }
             
+            if (legaScelta.SquadraAdmin.Utente.Email.Equals(_utenteNav.Email)) //Sta entrando l'admin della lega
+            {
+                this.Hide();
+                HomeLegaAdmin homeLegaAdmin = new HomeLegaAdmin(legaScelta);
+                homeLegaAdmin.BringToFront();
+                homeLegaAdmin.Show();
+            }
+            else
+            {
+                //entra un utente
+            }
+  
+        }
+
+        private void comboBoxLeghe_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            buttonAccedi.Enabled = true;
         }
     }
 }

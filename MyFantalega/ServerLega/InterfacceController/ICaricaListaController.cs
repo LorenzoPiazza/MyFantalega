@@ -8,11 +8,9 @@ using ServerLega.Dominio;
 
 namespace ServerLega.InterfacceController
 {
-    [ServiceContract]
-    [ServiceKnownType(typeof(Lega))]
+
     public interface ICaricaListaController
     {
-        [OperationContract]
-        Boolean CaricaLista(String source, Lega lega);
+        Boolean CaricaLista(Lega lega);
     }
 }

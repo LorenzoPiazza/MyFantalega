@@ -19,7 +19,26 @@ namespace ServerLega.Controller
     // [System.Web.Script.Services.ScriptService]
     public class GestioneLegaController : System.Web.Services.WebService, InterfacceController.IGestioneLegaController
     {
-        private ICaricaListaController listaController = new CaricaListaFileController();
+        [WebMethod]
+        public Boolean CaricaLista(String source, Lega lega)
+        {
+            Boolean result = false;
+            if(lega ==null || source.Equals(null))
+            {
+                return false;
+            }
+            if (source.Equals("file"))
+            {
+                ICaricaListaController listaController = new CaricaListaFileController();
+                result = listaController.CaricaLista(lega);
+            }
+            else if (source.Equals("url"))
+            {
+                //PREDISPOSIZIONE FUTURA: lettura della lista da url
+            }
+            return result;
+        }
+
 
         [WebMethod]
         public Boolean SetImpostazioni(int sqTot, int creIni, int numPor, int numDif, int numCen, int numAtt, Lega lega)
@@ -37,7 +56,7 @@ namespace ServerLega.Controller
             SqlConnection conn = null;
             try
             {
-                ///JACOPO
+                //JACOPO
                 conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Jacopo\Source\Repos\progettoIngegneriaDelSoftware\MyFantalega\ServerLega\App_Data\DBMyFantalegaJacopo.mdf;Integrated Security=True");
                 //LORENZO
                 //conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Lorenzo\Source\Repos\progettoIngegneriaDelSoftware\MyFantalega\ServerLega\App_Data\DBMyFantalegaLori.mdf;Integrated Security=True");
@@ -57,21 +76,6 @@ namespace ServerLega.Controller
                 conn.Close();
             }
             return true;
-        }
-
-        [WebMethod]
-        public Boolean CaricaLista(String source, Lega lega)
-        {
-            Boolean result = false;
-            if(lega ==null || source.Equals(null))
-            {
-                return false;
-            }
-            if (source.Equals("file"))
-            {
-                result = listaController.CaricaLista(source, lega);
-            }
-            return result;
         }
     }
 }

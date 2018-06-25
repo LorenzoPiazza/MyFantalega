@@ -31,7 +31,9 @@ namespace ServerLega.Controller
             try
             {
                 Lega lega = new Lega(nome, numeroPartecipanti);
-                Squadra squadraAdmin = new Squadra(nomeSquadra, lega, utente);
+                Squadra squadraAdmin = new Squadra();
+                squadraAdmin.Nome = nomeSquadra;
+                squadraAdmin.Utente = utente;
                 lega.SquadraAdmin = squadraAdmin;
                 lega.Squadre.Add(squadraAdmin);
 
@@ -45,8 +47,14 @@ namespace ServerLega.Controller
                 conn.Open();
 
                 //QUERY DI RECUPERO DELL' USERNAME DELL' UTENTE
-                SqlCommand selectUsername = new SqlCommand("SELECT username FROM Utente WHERE [e-mail]='" + utente.Email + "'", conn);
-                String username = (String) selectUsername.ExecuteScalar();
+                //SqlCommand selectUsername = new SqlCommand("SELECT username FROM Utente U  WHERE U.[e-mail]='" + utente.Email + "'", conn);
+                SqlCommand selectUsername = new SqlCommand("SELECT * FROM Utente U WHERE U.[e-mail] = 'lollo96.piazza@gmail.com'", conn);
+                SqlDataReader reader = selectUsername.ExecuteReader();
+                String username = null;
+                while (reader.Read())
+                {
+                    username = reader["username"].ToString();
+                }
                 conn.Close();
                 
 
@@ -64,7 +72,7 @@ namespace ServerLega.Controller
 
                 //AGGIUNGO ALLA LEGA NEL DB IL NOME DELLA SQUADRA ADMIN
                 conn.Open();
-                SqlCommand updateLega = new SqlCommand("UPDATE Lega SET squadraAdmin='" + squadraAdmin.Nome + "' WHERE nome='" + lega.NomeLega+"')", conn);
+                SqlCommand updateLega = new SqlCommand("UPDATE Lega SET [squadraAdmin]='" + squadraAdmin.Nome + "' WHERE [nome]='" + lega.NomeLega+"'", conn);
                 updateLega.ExecuteNonQuery();
                 conn.Close();
 
@@ -139,30 +147,33 @@ namespace ServerLega.Controller
                 //conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C: \Users\Alan\Documents\universita\terzo anno\secondo semestre\progetto\MyFantalega\ServerLega\App_Data\DBMyFantalega.mdf;Integrated Security=True");
                 conn.Open();
                 //QUERY CHE RESTITUISCE LE LEGHE
-                SqlCommand select = new SqlCommand("SELECT * FROM Lega WHERE nome IN (SELECT S.lega FROM Squadra S JOIN Utente U ON U.username = S.utente WHERE U.[e-mail]='" + utente.Email + "')", conn);
+                SqlCommand select = new SqlCommand("SELECT * FROM Lega L WHERE L.nome IN (SELECT S.lega FROM Squadra S JOIN Utente U ON U.username = S.utente WHERE U.[e-mail]='" + utente.Email + "')", conn);
+       
                 SqlDataReader reader = select.ExecuteReader();
 
-                if (reader.HasRows)
+                while (reader.Read())
                 {
-                    while (reader.Read())
-                    {
-                        Lega lega = new Lega(reader.GetString(0), reader.GetInt32(1));
-                        lega.CreditiInizialiSquadra = reader.GetInt32(2);
-                        lega.NumeroPor = reader.GetInt32(3);
-                        lega.NumeroDif = reader.GetInt32(4);
-                        lega.NumeroCen = reader.GetInt32(5);
-                        lega.NumeroAtt = reader.GetInt32(6);
-                        Squadra squadraAdmin = new Squadra();
-                        squadraAdmin.Nome = reader.GetString(7);
-                        ListaSvincolati lista = new ListaSvincolati();
+                    Lega lega = new Lega(reader["nome"].ToString(), (int)reader.GetValue(1));
+                    lega.CreditiInizialiSquadra = reader.GetInt32(2);
+                    lega.NumeroPor = reader.GetInt32(3);
+                    lega.NumeroDif = reader.GetInt32(4);
+                    lega.NumeroCen = reader.GetInt32(5);
+                    lega.NumeroAtt = reader.GetInt32(6);
+                    Squadra squadraAdmin = new Squadra();
+                    squadraAdmin.Nome = reader.GetString(7);
+                    ListaSvincolati lista = null;
+                    if (reader.GetValue(8).GetType() != typeof(DBNull) ) {
+                        lista = new ListaSvincolati();
                         lista.IdLista = reader.GetInt32(8);
-                        squadraAdmin.Lega = lega;
-                        squadraAdmin.Utente = utente;
-
-                        leghe.Add(lega);
-
                     }
+                    lega.ListaSvincolati = lista;
+                    //squadraAdmin.Lega = lega;
+                    squadraAdmin.Utente = utente;
+                    lega.SquadraAdmin = squadraAdmin;
+
+                    leghe.Add(lega);
                 }
+
                 reader.Close();
 
                 return leghe;
