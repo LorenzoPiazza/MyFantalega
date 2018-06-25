@@ -91,17 +91,7 @@
             this.buttonCreaMercato.Text = "Crea un Mercato";
             this.buttonCreaMercato.UseVisualStyleBackColor = true;
             this.buttonCreaMercato.Click += new System.EventHandler(this.buttonCreaMercato_Click);
-            // 
-            // gestioneLegaButton
-            // 
-            this.gestioneLegaButton.Location = new System.Drawing.Point(476, 110);
-            this.gestioneLegaButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.gestioneLegaButton.Name = "gestioneLegaButton";
-            this.gestioneLegaButton.Size = new System.Drawing.Size(143, 74);
-            this.gestioneLegaButton.TabIndex = 26;
-            this.gestioneLegaButton.Text = "Gestione Lega";
-            this.gestioneLegaButton.UseVisualStyleBackColor = true;
-            this.gestioneLegaButton.Click += new System.EventHandler(this.gestioneLegaButton_Click);
+           
             // 
             // buttonIndietro
             // 
@@ -162,7 +152,6 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "HomeLegaAdmin";
             this.Text = "MyFantalega";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.HomeLegaAdmin_FormClosed);
             this.Load += new System.EventHandler(this.HomeLegaAdmin_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

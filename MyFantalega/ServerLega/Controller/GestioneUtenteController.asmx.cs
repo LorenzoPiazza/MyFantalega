@@ -37,36 +37,43 @@ namespace ServerLega.Controller
 
                 //CAMBIARE IL PATH A SECONDA DEL DB USATO!!
                 //JACOPO
-                conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Jacopo\Source\Repos\progettoIngegneriaDelSoftware\MyFantalega\ServerLega\App_Data\DBMyFantalegaJacopo.mdf;Integrated Security=True");
+                //conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Jacopo\Source\Repos\progettoIngegneriaDelSoftware\MyFantalega\ServerLega\App_Data\DBMyFantalegaJacopo.mdf;Integrated Security=True");
                 //LORENZO
-                //conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Lorenzo\source\repos\progettoIngegneriaDelSoftware\MyFantalega\ServerLega\App_Data\DBMyFantalegaLori.mdf;Integrated Security=True");
+                conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Lorenzo\source\repos\progettoIngegneriaDelSoftware\MyFantalega\ServerLega\App_Data\DBMyFantalegaLori.mdf;Integrated Security=True");
                 //ALAN
                 //conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Alan\Documents\universita\terzo anno\secondo semestre\progetto\MyFantalega\ServerLega\App_Data\DBMyFantalega.mdf;Integrated Security=True");
                 conn.Open();
 
                 //QUERY DI RECUPERO DELL' USERNAME DELL' UTENTE
-                SqlCommand selectUsername = new SqlCommand("select username FROM Utente WHERE [email]='" + utente.Email + "'");
-                SqlDataReader reader = selectUsername.ExecuteReader();
-                String username = reader.GetString(0);
-                reader.Close();
+                SqlCommand selectUsername = new SqlCommand("SELECT username FROM Utente WHERE [e-mail]='" + utente.Email + "'", conn);
+                String username = (String) selectUsername.ExecuteScalar();
+                conn.Close();
+                
 
                 //QUERY DI INSERIMENTO DELLA LEGA
-                SqlCommand insertLega = new SqlCommand("INSERT INTO Lega (nome, numSquadreTot, creditiIniziali, numPor, numDif, numCen, numAtt, squadraAdmin, lista, legaAdmin ) VALUES ( '" + lega.NomeLega + "', " + lega.NumeroSquadreTotali + ", " + lega.CreditiInizialiSquadra + ", " + lega.NumeroPor + ", " + lega.NumeroDif + ", " + lega.NumeroCen + ", " + lega.NumeroAtt + ", '" + nomeSquadra + "', NULL" + ", '" + lega.NomeLega + "' )", conn);
+                conn.Open();
+                SqlCommand insertLega = new SqlCommand("INSERT INTO Lega (nome, numSquadreTot, creditiIniziali, numPor, numDif, numCen, numAtt, squadraAdmin, lista, legaAdmin ) VALUES ( '" + lega.NomeLega + "', " + lega.NumeroSquadreTotali + ", " + lega.CreditiInizialiSquadra + ", " + lega.NumeroPor + ", " + lega.NumeroDif + ", " + lega.NumeroCen + ", " + lega.NumeroAtt + ", NULL, NULL, '" + lega.NomeLega + "' )", conn);
                 insertLega.ExecuteNonQuery();
-                
+                conn.Close();
+
                 //QUERY DI INSERIMENTO DELLA SQUADRA
-                SqlCommand insertSquadra = new SqlCommand("INSERT INTO Squadra (nome, creditiResidui, lega, utente ) VALUES ( '" + lega.SquadraAdmin.Nome + "', " + squadraAdmin.CreditResidui + ", '" + lega.NomeLega + "', '" + username + "')", conn);
+                conn.Open();
+                SqlCommand insertSquadra = new SqlCommand("INSERT INTO Squadra (nome, creditiResidui, lega, utente ) VALUES ( '" + squadraAdmin.Nome + "', " + squadraAdmin.CreditResidui + ", '" + lega.NomeLega + "', '" + username + "')", conn);
                 insertSquadra.ExecuteNonQuery();
+                conn.Close();
 
                 //AGGIUNGO ALLA LEGA NEL DB IL NOME DELLA SQUADRA ADMIN
-                SqlCommand updateLega = new SqlCommand("UPDATE Lega SET squadraAdmin='" + squadraAdmin.Nome + "' WHERE nome='" + lega.NomeLega+"')");
+                conn.Open();
+                SqlCommand updateLega = new SqlCommand("UPDATE Lega SET squadraAdmin='" + squadraAdmin.Nome + "' WHERE nome='" + lega.NomeLega+"')", conn);
                 updateLega.ExecuteNonQuery();
+                conn.Close();
 
                 return lega;
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
+                Console.WriteLine(e.ToString());
                 return null;
             }
             finally
