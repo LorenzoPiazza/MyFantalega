@@ -32,9 +32,9 @@ namespace Client.View
 
        private void buttonIndietro_Click(object sender, EventArgs e)
         {
-          /* this.Close();
-            new HomeLegaAdmin(mercato.Lega.SquadraAdmin).Show();
-            */
+           this.Close();
+            new HomeLegaAdmin(mercato.Lega).Show();
+            
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -63,9 +63,9 @@ namespace Client.View
             {
                 if (MessageBox.Show("Sei sicuro di chiudere un mercato non concluso?", "Mercato", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    ServerLegaMercato.GestioneMercatoControllerSoapClient myMercatoController = new ServerLegaMercato.GestioneMercatoControllerSoapClient();
+                    ServerLegaSoapClient myGestioneAdminController = new ServerLegaSoapClient();
                     Boolean result;
-                    result = myMercatoController.ChiudiMercato((Client.ServerLegaMercato.Mercato)mercato);
+                    result = myGestioneAdminController.ChiudiMercato(mercato);
                     if (result == true)
                     {
                         MessageBox.Show("Mercato chiuso anche se non completo");
@@ -82,10 +82,10 @@ namespace Client.View
                 }
             }
             else
-            {
-                Client.ServerLegaMercato.GestioneMercatoControllerSoapClient myMercatoController = new Client.ServerLegaMercato.GestioneMercatoControllerSoapClient();
+            {*/
+                ServerLegaSoapClient myGestioneAdminController = new ServerLegaSoapClient();
                 Boolean result;
-                result = myMercatoController.ChiudiMercato(mercato);
+                result = myGestioneAdminController.ChiudiMercato(mercato);
                 if (result == true)
                 {
                     MessageBox.Show("Mercato chiuso correttamente");
@@ -95,7 +95,7 @@ namespace Client.View
                 {
                     MessageBox.Show("Errore nella chiusura del mercato");
                 }
-            }*/
+           /*}*/
         }
     }
 }
