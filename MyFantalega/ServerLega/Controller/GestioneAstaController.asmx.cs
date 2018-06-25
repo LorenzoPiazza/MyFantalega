@@ -44,7 +44,9 @@ namespace ServerLega.Controller
             List<Squadra> squadre = _lega.Squadre;
             if (mercatoAttivo.AstaAttiva == null)
             {
-                foreach (Squadra s in _lega.Squadre)
+                //foreach (Squadra s in _lega.Squadre)
+                //per la presentazione sarà sempre la squadra admin a chiamare il giocatore
+                Squadra s = _lega.SquadraAdmin;
                 {
                     if (!s.VerificaReparto("POR"))
                     {
@@ -82,7 +84,7 @@ namespace ServerLega.Controller
                 {
                     ruolo = "FINITO";
                 }
-
+                //la squadra a cui è assegnato il turno è decisa nella view
                 return AssegnaTurnoChiamata(turno,ruolo);
             }
             else
@@ -126,7 +128,7 @@ namespace ServerLega.Controller
                 {
                     return null;
                 }
-                foreach (Squadra s in _lega.Squadre)
+                foreach (Squadra s in mercatoAttivo.AstaAttiva.Squadre)
                 {
                     if (!s.Equals(squadra))
                     {
@@ -135,17 +137,18 @@ namespace ServerLega.Controller
                         result=r.Next(0, 1);
                         if (result == 0)
                         {
-                            Boolean bol;
-                            bol = Abbandona(s);
-                            if (bol == false){
+                            Asta a;
+                            a = Abbandona(s);
+                            if (a.Equals(null))
+                            {
                                 return null;
                             }
                         }
                         else
                         {
-                            Boolean bol;
-                            bol = Rialza(s);
-                            if (bol == false)
+                            Asta a;
+                            a = Rialza(s);
+                            if (a.Equals(null))
                             {
                                 return null;
                             }
@@ -217,25 +220,39 @@ namespace ServerLega.Controller
         }
 
         [WebMethod]
-        public Boolean Offri(int offerta,Squadra squadra)
+        public Asta Offri(int offerta,Squadra squadra)
         {
             Boolean result;
             IPartecipaAstaController myPartecipaAsta = new PartecipaAstaController();
             result=myPartecipaAsta.OffriCrediti(offerta, _lega.MercatoAttivo.AstaAttiva, squadra);
-            return result;
+            if (result)
+            {
+                return _lega.MercatoAttivo.AstaAttiva;
+            }
+            else
+            {
+                return null;
+            }
         }
 
         [WebMethod]
-        public Boolean Rialza(Squadra squadra)
+        public Asta Rialza(Squadra squadra)
         {
             Boolean result;
             IPartecipaAstaController myPartecipaAsta = new PartecipaAstaController();
             result = myPartecipaAsta.RialzaOfferta(_lega.MercatoAttivo.AstaAttiva, squadra);
-            return result;
+            if (result)
+            {
+                return _lega.MercatoAttivo.AstaAttiva;
+            }
+            else
+            {
+                return null;
+            }
         }
 
         [WebMethod]
-        public Boolean Abbandona(Squadra squadra)
+        public Asta Abbandona(Squadra squadra)
         {
             Boolean result;
             IPartecipaAstaController myPartecipaAsta = new PartecipaAstaController();
@@ -243,9 +260,11 @@ namespace ServerLega.Controller
             if (_lega.MercatoAttivo.AstaAttiva.isFinita())
             {
                 result = AssegnaGiocatore(_lega.MercatoAttivo.AstaAttiva.Giocatore, _lega.MercatoAttivo.AstaAttiva.Squadre.ElementAt(0));
-                _lega.MercatoAttivo.AstaAttiva = null;
+                if(result)
+                    _lega.MercatoAttivo.AstaAttiva = null;
             }
-            return result;
+            return _lega.MercatoAttivo.AstaAttiva;
+           
         }
 
     }

@@ -173,21 +173,21 @@ namespace ServerLega.Controller
         }
 
         [WebMethod]
-        public Boolean Offri(int offerta, Squadra squadra)
+        public Asta Offri(int offerta, Squadra squadra)
         {
             IGestioneAstaController gestioneAstaController = new GestioneAstaController();
             return gestioneAstaController.Offri(offerta,squadra);
         }
 
         [WebMethod]
-        public Boolean Rialza(Squadra squadra)
+        public Asta Rialza(Squadra squadra)
         {
             IGestioneAstaController gestioneAstaController = new GestioneAstaController();
             return gestioneAstaController.Rialza(squadra);
         }
 
         [WebMethod]
-        public Boolean Abbandona(Squadra squadra)
+        public Asta Abbandona(Squadra squadra)
         {
             IGestioneAstaController gestioneAstaController = new GestioneAstaController();
             return gestioneAstaController.Abbandona(squadra);

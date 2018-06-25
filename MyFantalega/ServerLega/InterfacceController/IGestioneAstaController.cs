@@ -13,9 +13,9 @@ namespace ServerLega.InterfacceController
         Turno AssegnaTurnoAsta(Turno turno, String ruolo);
         Turno AssegnaTurnoChiamata(Turno turno,String ruolo);
         Turno GestisciAsta(Lega lega,Squadra squadra);
-        Boolean Offri(int offerta,Squadra squadra);
-        Boolean Rialza(Squadra squadra);
-        Boolean Abbandona(Squadra squadra);
+        Asta Offri(int offerta,Squadra squadra);
+        Asta Rialza(Squadra squadra);
+        Asta Abbandona(Squadra squadra);
         Asta CreaAsta(Giocatore giocatore, int offerta,Squadra squadra);
         
     }
