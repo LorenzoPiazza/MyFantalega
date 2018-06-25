@@ -18,7 +18,11 @@ namespace ServerLega.Dominio
 
         public Giocatore()
         {
-
+            //valori di default assegnati a giocatore con stato Libero
+            //Si assume che un giocatore alla creazione sia libero
+            _nomeSquadra = "ListaSvincolati";
+            _prezzoAcquisto = 0;
+            StateChanged();
         }
 
 
@@ -92,9 +96,9 @@ namespace ServerLega.Dominio
 
 
         public String Nome { get => _nome; set => _nome = value; }
-        public int QuotazioneIniziale { get => _quotazioneIniziale; }
-        public String Ruolo { get => _ruolo; }
-        public String Club { get => _club; }
+        public int QuotazioneIniziale { get => _quotazioneIniziale; set => _quotazioneIniziale = value; }
+        public String Ruolo { get => _ruolo; set => _ruolo = value; }
+        public String Club { get => _club; set => _club = value; }
 
 
 

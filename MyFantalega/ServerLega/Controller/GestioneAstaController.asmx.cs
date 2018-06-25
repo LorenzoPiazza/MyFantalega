@@ -6,6 +6,7 @@ using System.Web.Services;
 using ServerLega.Dominio;
 using ServerLega.InterfacceController;
 
+
 namespace ServerLega.Controller
 {
     /// <summary>
@@ -25,6 +26,8 @@ namespace ServerLega.Controller
         private IPartecipaAstaController _partecipaAstaController = new PartecipaAstaController();
         private IPartecipaAstaController _creazioneAstaController = new PartecipaAstaController();
 
+        public GestioneAstaController() { 
+}
         [WebMethod]
         public Turno GestisciAsta(Lega lega,Squadra squadra)
         {
@@ -162,11 +165,11 @@ namespace ServerLega.Controller
             return asta;
         }
 
-        /*[WebMethod]
+        [WebMethod]
         public Boolean AssegnaGiocatore(Giocatore giocatore, Squadra squadra)
         {
-            
-        }*/
+            return true;
+        }
 
         [WebMethod]
         public Turno AssegnaTurnoAsta(Turno turno,String ruolo)
@@ -202,10 +205,11 @@ namespace ServerLega.Controller
             return result;
         }
 
-        [WebMethod]
-        public Boolean Abbandona(Squadra squadra)
+       [WebMethod]
+       public Boolean Abbandona(Squadra squadra)
         {
-            Boolean result;
+            return true;
+           /* Boolean result;
             IPartecipaAstaController myPartecipaAsta = new PartecipaAstaController();
             result = myPartecipaAsta.AbbandonaGiocatore(_lega.MercatoAttivo.AstaAttiva, squadra);
             if (_lega.MercatoAttivo.AstaAttiva.isFinita())
@@ -213,7 +217,7 @@ namespace ServerLega.Controller
                 result = AssegnaGiocatore(_lega.MercatoAttivo.AstaAttiva.Giocatore, _lega.MercatoAttivo.AstaAttiva.Squadre.ElementAt(0));
                 _lega.MercatoAttivo.AstaAttiva = null;
             }
-            return result;
+            return result;*/
         }
 
     }

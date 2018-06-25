@@ -150,21 +150,6 @@ namespace Client.View
             
         }
 
-        private void textBoxRisposta_Leave(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Registrazione_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Registrazione_Load_1(object sender, EventArgs e)
-        {
-
-        }
-
         private void Registrazione_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();

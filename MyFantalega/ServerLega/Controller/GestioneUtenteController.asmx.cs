@@ -147,8 +147,7 @@ namespace ServerLega.Controller
                 //conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C: \Users\Alan\Documents\universita\terzo anno\secondo semestre\progetto\MyFantalega\ServerLega\App_Data\DBMyFantalega.mdf;Integrated Security=True");
                 conn.Open();
                 //QUERY CHE RESTITUISCE LE LEGHE
-                SqlCommand select = new SqlCommand("SELECT * FROM Lega L WHERE L.nome IN (SELECT S.lega FROM Squadra S JOIN Utente U ON U.username = S.utente WHERE U.[e-mail]='" + utente.Email + "')", conn);
-       
+                SqlCommand select = new SqlCommand("SELECT * FROM Lega WHERE nome IN (SELECT S.lega FROM Squadra S JOIN Utente U ON U.username = S.utente WHERE U.[e-mail]='" + utente.Email + "')", conn);
                 SqlDataReader reader = select.ExecuteReader();
 
                 while (reader.Read())

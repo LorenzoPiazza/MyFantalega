@@ -132,7 +132,7 @@
             this.label3.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.label3.Location = new System.Drawing.Point(334, 21);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(175, 39);
+            this.label3.Size = new System.Drawing.Size(172, 37);
             this.label3.TabIndex = 36;
             this.label3.Text = "Crea Asta";
             this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;

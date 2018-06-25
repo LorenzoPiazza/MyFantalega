@@ -21,35 +21,39 @@ namespace ServerLega.Controller
     // [System.Web.Script.Services.ScriptService]
     public class CaricaListaFileController : System.Web.Services.WebService, ICaricaListaController 
     {
-
-
-        public Boolean CaricaLista(Lega lega)
+        public Lega CaricaLista(Lega lega)
         {
             SqlConnection conn = null;
             System.Data.OleDb.OleDbConnection connExcel = null;
             try
             {
+                ListaSvincolati listaSvincolati = new ListaSvincolati();
+                listaSvincolati.IdLista = new Random().Next(999);
+                listaSvincolati.DataCaricamento = DateTime.Now;
+
                 ///JACOPO
-                conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Jacopo\Source\Repos\progettoIngegneriaDelSoftware\MyFantalega\ServerLega\App_Data\DBMyFantalegaJacopo.mdf;Integrated Security=True");
+                //conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Jacopo\Source\Repos\progettoIngegneriaDelSoftware\MyFantalega\ServerLega\App_Data\DBMyFantalegaJacopo.mdf;Integrated Security=True");
                 //LORENZO
                 conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Lorenzo\Source\Repos\progettoIngegneriaDelSoftware\MyFantalega\ServerLega\App_Data\DBMyFantalegaLori.mdf;Integrated Security=True");
                 //ALAN
                 //conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C: \Users\Alan\Documents\universita\terzo anno\secondo semestre\progetto\MyFantalega\ServerLega\App_Data\DBMyFantalega.mdf;Integrated Security=True");
                 conn.Open();
-                DateTime data = new DateTime();
-                SqlCommand update = new SqlCommand("insert into ListaSvincolati (Id,dataCaricamento) values(100," + data + ")", conn);
-                update.ExecuteNonQuery();
+
+                SqlCommand insert = new SqlCommand("INSERT INTO ListaSvincolati (Id, dataCaricamento) VALUES ("+listaSvincolati.IdLista+", '" + listaSvincolati.DataCaricamento.Date + "')", conn);
+                insert.ExecuteNonQuery();
+                
                 //String club;
                 String ruolo;
                 String nome;
                 int quotazione;
-                ///JACOPO
-                String strExcel = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\Jacopo\Source\Repos\progettoIngegneriaDelSoftware\MyFantalega\ServerLega\Quotazioni.xlsx;Integrated Security=True";
+                String club;
+                //JACOPO
+                //String strExcel = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\Jacopo\Source\Repos\progettoIngegneriaDelSoftware\MyFantalega\ServerLega\Quotazioni.xlsx";
                 //LORENZO
-                //String strExcel = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\Lorenzo\Source\Repos\progettoIngegneriaDelSoftware\MyFantalega\ServerLega\Quotazioni.xlsx;Integrated Security=True");
+                String strExcel = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\Lorenzo\Source\Repos\progettoIngegneriaDelSoftware\MyFantalega\ServerLega\Quotazioni.xlsx";
                 //ALAN
                 //String strExcel = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\Alan\Documents\universita\terzo anno\secondo semestre\progetto\MyFantalega\ServerLega\Quotazioni.xlsx";
-                connExcel = new System.Data.OleDb.OleDbConnection(strExcel);
+                connExcel = new OleDbConnection(strExcel);
                 connExcel.Open();
                 OleDbDataAdapter da = new OleDbDataAdapter("Select * From [Tutti]", connExcel);
                 DataSet ds = new DataSet();
@@ -59,23 +63,30 @@ namespace ServerLega.Controller
                     nome = (String)dr["Nome"];
                     quotazione = (int)dr["Qt.I"];
                     ruolo = (String)dr["R"];
-                    //club = (String)dr["Squadra"];
-                    //Giocatore giocatore = new Giocatore(nome, quotazione, ruolo, club);
-                    update = new SqlCommand("insert into Giocatore (nome,quotazioneIniziale,lista,ruolo) values('" + nome + "'," + quotazione + ",100,'" + ruolo + "')", conn);
-                    update.ExecuteNonQuery();
+                    club = (String)dr["Squadra"];
+                    Giocatore giocatore = new Giocatore(nome, quotazione, ruolo, club);
+                    insert = new SqlCommand("INSERT INTO Giocatore (nome, quotazioneIniziale, lista, ruolo) VALUES ('" + nome + "'," + quotazione + ", "+listaSvincolati.IdLista +", '" + ruolo + "')", conn);
+                    insert.ExecuteNonQuery();
+
+                    listaSvincolati.Giocatori.Add(giocatore);
                 }
+
+
+                lega.ListaSvincolati = listaSvincolati;
+                return lega;
+
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
-                return false;
+                lega.ListaSvincolati = null;
+                return lega;
             }
             finally
             {
                 connExcel.Close();
                 conn.Close();
             }
-            return true;
         }
     }
 }

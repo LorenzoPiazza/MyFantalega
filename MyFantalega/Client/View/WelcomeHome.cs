@@ -71,16 +71,10 @@ namespace Client.View
             Application.Exit();
         }
 
-
         private void indietroButton_Click(object sender, EventArgs e)
         {
             this.Hide();
             new ViewLogin().Show();
-        }
-
-        private void listBoxLeghe_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void buttonAccedi_Click(object sender, EventArgs e)
