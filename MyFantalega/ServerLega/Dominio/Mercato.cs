@@ -12,6 +12,7 @@ namespace ServerLega.Dominio
         private Lega _lega;
         private List<Asta> _aste;
         private List<Squadra> _squadre;
+        private Asta _astaAttiva;
 
         public Mercato(int _idMercato, Lega _lega)
         {
@@ -59,6 +60,7 @@ namespace ServerLega.Dominio
         }
 
         public List<Squadra> Squadre { get => _squadre; set => _squadre = value; }
+        public Asta AstaAttiva { get => _astaAttiva; set => _astaAttiva = value; }
 
         public void addSquadra(Squadra squadra)
         {

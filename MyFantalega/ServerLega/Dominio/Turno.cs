@@ -6,13 +6,14 @@ namespace ServerLega.Dominio
 {
     public class Turno
     {
+        //true uguale a chiamata
         private Boolean _tipo;
-        private Asta _astaAttiva;
-
-        public Turno (Boolean tipo, Asta astaAttiva)
+        //nel ruolo ci sara finito se il mercato risulta concluso
+        String _ruolo;
+        public Turno (Boolean tipo,String ruolo)
         {
             this._tipo = tipo;
-            this._astaAttiva = astaAttiva;
+            this.Ruolo = ruolo;
         }
 
         public Turno()
@@ -20,7 +21,7 @@ namespace ServerLega.Dominio
 
         }
 
-        public bool Tipo { get => _tipo; }
-        public Asta AstaAttiva { get => _astaAttiva; }
+        public bool Tipo { get => _tipo; set => _tipo = value; }
+        public string Ruolo { get => _ruolo; set => _ruolo = value; }
     }
 }

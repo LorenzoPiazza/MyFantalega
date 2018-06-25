@@ -132,56 +132,65 @@ namespace ServerLega.Controller
         }
 
 
-        /*
-         //GESTIONE ASTA CONTROLLER
+
+        //GESTIONE ASTA CONTROLLER
+
 
         [WebMethod]
-        public Asta CreaAsta(Giocatore giocatore, int offerta)
+        public Asta CreaAsta(Giocatore giocatore, int offerta, Squadra squadra)
         {
-
+            IGestioneAstaController gestioneAstaController = new GestioneAstaController();
+            return gestioneAstaController.CreaAsta(giocatore, offerta, squadra);
         }
          
         [WebMethod]
       
-        public void GestisciAsta(Lega lega)
+        public Turno GestisciAsta(Lega lega, Squadra squadra)
         {
-
+            IGestioneAstaController gestioneAstaController = new GestioneAstaController();
+            return gestioneAstaController.GestisciAsta(lega, squadra);
         }
-         [WebMethod]
+
+        /*[WebMethod]
         public Boolean AssegnaGiocatore(Giocatore giocatore, Squadra squadra)
         {
             
-        }
-
-        [WebMethod]
-        public Boolean AssegnaTurnoAsta(Turno turno, Asta asta)
-        {
-
-        }
-
-        [WebMethod]
-        public Boolean AssegnaTurnoChiamata(Turno turno, Asta asta)
-        {
-
-        }
-
-        [WebMethod]
-        public Boolean Offri(int offerta)
-        {
-
-        }
-
-        [WebMethod]
-        public Boolean Rialza()
-        {
-
-        }
-
-        [WebMethod]
-        public Boolean Abbandona()
-        {
-            
         }*/
+
+        [WebMethod]
+        public Turno AssegnaTurnoAsta(Turno turno, String ruolo)
+        {
+            IGestioneAstaController gestioneAstaController = new GestioneAstaController();
+            return gestioneAstaController.AssegnaTurnoAsta(turno,ruolo);
+        }
+
+        [WebMethod]
+        public Turno AssegnaTurnoChiamata(Turno turno, String ruolo)
+        {
+            IGestioneAstaController gestioneAstaController = new GestioneAstaController();
+            return gestioneAstaController.AssegnaTurnoChiamata(turno, ruolo);
+        }
+
+        [WebMethod]
+        public Boolean Offri(int offerta, Squadra squadra)
+        {
+            IGestioneAstaController gestioneAstaController = new GestioneAstaController();
+            return gestioneAstaController.Offri(offerta,squadra);
+        }
+
+        [WebMethod]
+        public Boolean Rialza(Squadra squadra)
+        {
+            IGestioneAstaController gestioneAstaController = new GestioneAstaController();
+            return gestioneAstaController.Rialza(squadra);
+        }
+
+        [WebMethod]
+        public Boolean Abbandona(Squadra squadra)
+        {
+            IGestioneAstaController gestioneAstaController = new GestioneAstaController();
+            return gestioneAstaController.Abbandona(squadra);
+        }
     }
 }
 

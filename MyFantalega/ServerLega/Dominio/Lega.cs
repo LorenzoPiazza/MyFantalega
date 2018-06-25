@@ -78,7 +78,7 @@ namespace ServerLega.Dominio
         [DataMember]
         public ListaSvincolati ListaSvincolati { get => _listaSvincolati; set => _listaSvincolati = value; }
         [DataMember]
-        public List<Squadra> Squadre { get => _squadre; }
+        public List<Squadra> Squadre { get => _squadre; set => _squadre = value; }
 
 
 

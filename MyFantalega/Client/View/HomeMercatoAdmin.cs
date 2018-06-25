@@ -16,16 +16,24 @@ namespace Client.View
         Mercato mercato;
         public HomeMercatoAdmin(Lega legaPass, Squadra squadra)
         {
-            mercato = legaPass.MercatoAttivo;
             InitializeComponent();
+            mercato = legaPass.MercatoAttivo;
+            ServerLegaSoapClient myGestioneAdminController = new ServerLegaSoapClient();
+            Turno result = new Turno();
+            result = myGestioneAdminController.ChiudiMercato(mercato);
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-         //   new GestioneMercato(mercato).Show();
+            new GestioneMercato(mercato).Show();
         }
 
         private void HomeMercatoAdmin_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
         {
 
         }

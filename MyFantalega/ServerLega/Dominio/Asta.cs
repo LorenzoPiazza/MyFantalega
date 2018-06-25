@@ -13,11 +13,11 @@ namespace ServerLega.Dominio
         private List<Squadra> _squadre;
         private Giocatore _giocatore;
 
-        public Asta(int idAsta, int ultimaOfferta, Squadra ultimoOfferente, List<Squadra> squadre, Giocatore giocatore)
+        public Asta(int idAsta, List<Squadra> squadre, Giocatore giocatore)
         {
             _idAsta = idAsta;
-            this.UltimaOfferta = ultimaOfferta;
-            this.UltimoOfferente = ultimoOfferente;
+            this.UltimaOfferta = giocatore.QuotazioneIniziale;
+            this.UltimoOfferente = null;
             this.Squadre = squadre;
             this.Giocatore = giocatore;
 
