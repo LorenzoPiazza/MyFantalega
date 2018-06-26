@@ -29,7 +29,6 @@ namespace ServerLega.Dominio
             _numeroAtt = 0;
 
             _giocatori = new List<Giocatore>();
-
             _nome = nome;
             _lega = lega;
             _utente = utente;
@@ -37,7 +36,19 @@ namespace ServerLega.Dominio
 
         public Squadra()
         {
+            //valori di default
+            _creditResidui = 500;
+            _numeroPor = 0;
+            _numeroDif = 0;
+            _numeroCen = 0;
+            _numeroAtt = 0;
 
+            //Ai fini dell'esposizione del progetto
+            _lega = new Lega();
+
+
+
+            _giocatori = new List<Giocatore>();
         }
         public string Nome { get => _nome; set => _nome = value; }
         public int CreditResidui { get => _creditResidui; set => _creditResidui = value; }
@@ -60,6 +71,7 @@ namespace ServerLega.Dominio
                 return false;
 
             _giocatori.Add(toAdd);
+
             return true;
         }
 

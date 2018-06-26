@@ -1014,6 +1014,13 @@ namespace Client.ServerLega {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GestisciAsta", ReplyAction="*")]
         System.Threading.Tasks.Task<Client.ServerLega.GestisciAstaResponse> GestisciAstaAsync(Client.ServerLega.GestisciAstaRequest request);
         
+        // CODEGEN: Generazione di un contratto di messaggio perché il nome di elemento giocatore dallo spazio dei nomi http://tempuri.org/ non è contrassegnato come nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AssegnaGiocatore", ReplyAction="*")]
+        Client.ServerLega.AssegnaGiocatoreResponse AssegnaGiocatore(Client.ServerLega.AssegnaGiocatoreRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AssegnaGiocatore", ReplyAction="*")]
+        System.Threading.Tasks.Task<Client.ServerLega.AssegnaGiocatoreResponse> AssegnaGiocatoreAsync(Client.ServerLega.AssegnaGiocatoreRequest request);
+        
         // CODEGEN: Generazione di un contratto di messaggio perché il nome di elemento turno dallo spazio dei nomi http://tempuri.org/ non è contrassegnato come nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AssegnaTurnoAsta", ReplyAction="*")]
         Client.ServerLega.AssegnaTurnoAstaResponse AssegnaTurnoAsta(Client.ServerLega.AssegnaTurnoAstaRequest request);
@@ -1635,13 +1642,13 @@ namespace Client.ServerLega {
     [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
     public partial class ChiamaGiocatoreResponseBody {
         
-        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
-        public bool ChiamaGiocatoreResult;
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public Client.ServerLega.Asta ChiamaGiocatoreResult;
         
         public ChiamaGiocatoreResponseBody() {
         }
         
-        public ChiamaGiocatoreResponseBody(bool ChiamaGiocatoreResult) {
+        public ChiamaGiocatoreResponseBody(Client.ServerLega.Asta ChiamaGiocatoreResult) {
             this.ChiamaGiocatoreResult = ChiamaGiocatoreResult;
         }
     }
@@ -1711,13 +1718,13 @@ namespace Client.ServerLega {
     [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
     public partial class OffriCreditiCreazioneAstaResponseBody {
         
-        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
-        public bool OffriCreditiCreazioneAstaResult;
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public Client.ServerLega.Asta OffriCreditiCreazioneAstaResult;
         
         public OffriCreditiCreazioneAstaResponseBody() {
         }
         
-        public OffriCreditiCreazioneAstaResponseBody(bool OffriCreditiCreazioneAstaResult) {
+        public OffriCreditiCreazioneAstaResponseBody(Client.ServerLega.Asta OffriCreditiCreazioneAstaResult) {
             this.OffriCreditiCreazioneAstaResult = OffriCreditiCreazioneAstaResult;
         }
     }
@@ -2246,6 +2253,78 @@ namespace Client.ServerLega {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class AssegnaGiocatoreRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="AssegnaGiocatore", Namespace="http://tempuri.org/", Order=0)]
+        public Client.ServerLega.AssegnaGiocatoreRequestBody Body;
+        
+        public AssegnaGiocatoreRequest() {
+        }
+        
+        public AssegnaGiocatoreRequest(Client.ServerLega.AssegnaGiocatoreRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class AssegnaGiocatoreRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public Client.ServerLega.Giocatore giocatore;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
+        public Client.ServerLega.Squadra squadra;
+        
+        public AssegnaGiocatoreRequestBody() {
+        }
+        
+        public AssegnaGiocatoreRequestBody(Client.ServerLega.Giocatore giocatore, Client.ServerLega.Squadra squadra) {
+            this.giocatore = giocatore;
+            this.squadra = squadra;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class AssegnaGiocatoreResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="AssegnaGiocatoreResponse", Namespace="http://tempuri.org/", Order=0)]
+        public Client.ServerLega.AssegnaGiocatoreResponseBody Body;
+        
+        public AssegnaGiocatoreResponse() {
+        }
+        
+        public AssegnaGiocatoreResponse(Client.ServerLega.AssegnaGiocatoreResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class AssegnaGiocatoreResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public bool AssegnaGiocatoreResult;
+        
+        public AssegnaGiocatoreResponseBody() {
+        }
+        
+        public AssegnaGiocatoreResponseBody(bool AssegnaGiocatoreResult) {
+            this.AssegnaGiocatoreResult = AssegnaGiocatoreResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class AssegnaTurnoAstaRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="AssegnaTurnoAsta", Namespace="http://tempuri.org/", Order=0)]
@@ -2447,13 +2526,13 @@ namespace Client.ServerLega {
     [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
     public partial class OffriResponseBody {
         
-        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
-        public bool OffriResult;
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public Client.ServerLega.Asta OffriResult;
         
         public OffriResponseBody() {
         }
         
-        public OffriResponseBody(bool OffriResult) {
+        public OffriResponseBody(Client.ServerLega.Asta OffriResult) {
             this.OffriResult = OffriResult;
         }
     }
@@ -2515,13 +2594,13 @@ namespace Client.ServerLega {
     [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
     public partial class RialzaResponseBody {
         
-        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
-        public bool RialzaResult;
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public Client.ServerLega.Asta RialzaResult;
         
         public RialzaResponseBody() {
         }
         
-        public RialzaResponseBody(bool RialzaResult) {
+        public RialzaResponseBody(Client.ServerLega.Asta RialzaResult) {
             this.RialzaResult = RialzaResult;
         }
     }
@@ -2583,13 +2662,13 @@ namespace Client.ServerLega {
     [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
     public partial class AbbandonaResponseBody {
         
-        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
-        public bool AbbandonaResult;
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public Client.ServerLega.Asta AbbandonaResult;
         
         public AbbandonaResponseBody() {
         }
         
-        public AbbandonaResponseBody(bool AbbandonaResult) {
+        public AbbandonaResponseBody(Client.ServerLega.Asta AbbandonaResult) {
             this.AbbandonaResult = AbbandonaResult;
         }
     }
@@ -2825,7 +2904,7 @@ namespace Client.ServerLega {
             return base.Channel.ChiamaGiocatore(request);
         }
         
-        public bool ChiamaGiocatore(Client.ServerLega.Giocatore giocatore, Client.ServerLega.Asta asta) {
+        public Client.ServerLega.Asta ChiamaGiocatore(Client.ServerLega.Giocatore giocatore, Client.ServerLega.Asta asta) {
             Client.ServerLega.ChiamaGiocatoreRequest inValue = new Client.ServerLega.ChiamaGiocatoreRequest();
             inValue.Body = new Client.ServerLega.ChiamaGiocatoreRequestBody();
             inValue.Body.giocatore = giocatore;
@@ -2852,7 +2931,7 @@ namespace Client.ServerLega {
             return base.Channel.OffriCreditiCreazioneAsta(request);
         }
         
-        public bool OffriCreditiCreazioneAsta(int offerta, Client.ServerLega.Asta asta, Client.ServerLega.Squadra squadra) {
+        public Client.ServerLega.Asta OffriCreditiCreazioneAsta(int offerta, Client.ServerLega.Asta asta, Client.ServerLega.Squadra squadra) {
             Client.ServerLega.OffriCreditiCreazioneAstaRequest inValue = new Client.ServerLega.OffriCreditiCreazioneAstaRequest();
             inValue.Body = new Client.ServerLega.OffriCreditiCreazioneAstaRequestBody();
             inValue.Body.offerta = offerta;
@@ -3074,6 +3153,33 @@ namespace Client.ServerLega {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Client.ServerLega.AssegnaGiocatoreResponse Client.ServerLega.ServerLegaSoap.AssegnaGiocatore(Client.ServerLega.AssegnaGiocatoreRequest request) {
+            return base.Channel.AssegnaGiocatore(request);
+        }
+        
+        public bool AssegnaGiocatore(Client.ServerLega.Giocatore giocatore, Client.ServerLega.Squadra squadra) {
+            Client.ServerLega.AssegnaGiocatoreRequest inValue = new Client.ServerLega.AssegnaGiocatoreRequest();
+            inValue.Body = new Client.ServerLega.AssegnaGiocatoreRequestBody();
+            inValue.Body.giocatore = giocatore;
+            inValue.Body.squadra = squadra;
+            Client.ServerLega.AssegnaGiocatoreResponse retVal = ((Client.ServerLega.ServerLegaSoap)(this)).AssegnaGiocatore(inValue);
+            return retVal.Body.AssegnaGiocatoreResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<Client.ServerLega.AssegnaGiocatoreResponse> Client.ServerLega.ServerLegaSoap.AssegnaGiocatoreAsync(Client.ServerLega.AssegnaGiocatoreRequest request) {
+            return base.Channel.AssegnaGiocatoreAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<Client.ServerLega.AssegnaGiocatoreResponse> AssegnaGiocatoreAsync(Client.ServerLega.Giocatore giocatore, Client.ServerLega.Squadra squadra) {
+            Client.ServerLega.AssegnaGiocatoreRequest inValue = new Client.ServerLega.AssegnaGiocatoreRequest();
+            inValue.Body = new Client.ServerLega.AssegnaGiocatoreRequestBody();
+            inValue.Body.giocatore = giocatore;
+            inValue.Body.squadra = squadra;
+            return ((Client.ServerLega.ServerLegaSoap)(this)).AssegnaGiocatoreAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         Client.ServerLega.AssegnaTurnoAstaResponse Client.ServerLega.ServerLegaSoap.AssegnaTurnoAsta(Client.ServerLega.AssegnaTurnoAstaRequest request) {
             return base.Channel.AssegnaTurnoAsta(request);
         }
@@ -3132,7 +3238,7 @@ namespace Client.ServerLega {
             return base.Channel.Offri(request);
         }
         
-        public bool Offri(int offerta, Client.ServerLega.Squadra squadra) {
+        public Client.ServerLega.Asta Offri(int offerta, Client.ServerLega.Squadra squadra) {
             Client.ServerLega.OffriRequest inValue = new Client.ServerLega.OffriRequest();
             inValue.Body = new Client.ServerLega.OffriRequestBody();
             inValue.Body.offerta = offerta;
@@ -3159,7 +3265,7 @@ namespace Client.ServerLega {
             return base.Channel.Rialza(request);
         }
         
-        public bool Rialza(Client.ServerLega.Squadra squadra) {
+        public Client.ServerLega.Asta Rialza(Client.ServerLega.Squadra squadra) {
             Client.ServerLega.RialzaRequest inValue = new Client.ServerLega.RialzaRequest();
             inValue.Body = new Client.ServerLega.RialzaRequestBody();
             inValue.Body.squadra = squadra;
@@ -3184,7 +3290,7 @@ namespace Client.ServerLega {
             return base.Channel.Abbandona(request);
         }
         
-        public bool Abbandona(Client.ServerLega.Squadra squadra) {
+        public Client.ServerLega.Asta Abbandona(Client.ServerLega.Squadra squadra) {
             Client.ServerLega.AbbandonaRequest inValue = new Client.ServerLega.AbbandonaRequest();
             inValue.Body = new Client.ServerLega.AbbandonaRequestBody();
             inValue.Body.squadra = squadra;

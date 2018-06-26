@@ -16,12 +16,13 @@ namespace ServerLega.Dominio
         {
             this._dataCaricamento = _dataCaricamento;
             this.idLista = idLista;
+            this._giocatori = new List<Giocatore>();
             this._giocatori = _giocatori;
         }
 
         public ListaSvincolati()
         {
-
+            this._giocatori = new List<Giocatore>();
         }
 
         public DateTime DataCaricamento

@@ -211,7 +211,7 @@
       <s:element name="ChiamaGiocatoreResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="ChiamaGiocatoreResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="ChiamaGiocatoreResult" type="tns:Asta" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -227,7 +227,7 @@
       <s:element name="OffriCreditiCreazioneAstaResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="OffriCreditiCreazioneAstaResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="OffriCreditiCreazioneAstaResult" type="tns:Asta" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -346,6 +346,21 @@
           <s:element minOccurs="0" maxOccurs="1" name="Ruolo" type="s:string" />
         </s:sequence>
       </s:complexType>
+      <s:element name="AssegnaGiocatore">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="giocatore" type="tns:Giocatore" />
+            <s:element minOccurs="0" maxOccurs="1" name="squadra" type="tns:Squadra" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AssegnaGiocatoreResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AssegnaGiocatoreResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="AssegnaTurnoAsta">
         <s:complexType>
           <s:sequence>
@@ -387,7 +402,7 @@
       <s:element name="OffriResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="OffriResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="OffriResult" type="tns:Asta" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -401,7 +416,7 @@
       <s:element name="RialzaResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="RialzaResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="RialzaResult" type="tns:Asta" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -415,7 +430,7 @@
       <s:element name="AbbandonaResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="AbbandonaResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="AbbandonaResult" type="tns:Asta" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -517,6 +532,12 @@
   <wsdl:message name="GestisciAstaSoapOut">
     <wsdl:part name="parameters" element="tns:GestisciAstaResponse" />
   </wsdl:message>
+  <wsdl:message name="AssegnaGiocatoreSoapIn">
+    <wsdl:part name="parameters" element="tns:AssegnaGiocatore" />
+  </wsdl:message>
+  <wsdl:message name="AssegnaGiocatoreSoapOut">
+    <wsdl:part name="parameters" element="tns:AssegnaGiocatoreResponse" />
+  </wsdl:message>
   <wsdl:message name="AssegnaTurnoAstaSoapIn">
     <wsdl:part name="parameters" element="tns:AssegnaTurnoAsta" />
   </wsdl:message>
@@ -611,6 +632,10 @@
     <wsdl:operation name="GestisciAsta">
       <wsdl:input message="tns:GestisciAstaSoapIn" />
       <wsdl:output message="tns:GestisciAstaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AssegnaGiocatore">
+      <wsdl:input message="tns:AssegnaGiocatoreSoapIn" />
+      <wsdl:output message="tns:AssegnaGiocatoreSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="AssegnaTurnoAsta">
       <wsdl:input message="tns:AssegnaTurnoAstaSoapIn" />
@@ -772,6 +797,15 @@
     </wsdl:operation>
     <wsdl:operation name="GestisciAsta">
       <soap:operation soapAction="http://tempuri.org/GestisciAsta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AssegnaGiocatore">
+      <soap:operation soapAction="http://tempuri.org/AssegnaGiocatore" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -964,6 +998,15 @@
     </wsdl:operation>
     <wsdl:operation name="GestisciAsta">
       <soap12:operation soapAction="http://tempuri.org/GestisciAsta" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AssegnaGiocatore">
+      <soap12:operation soapAction="http://tempuri.org/AssegnaGiocatore" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

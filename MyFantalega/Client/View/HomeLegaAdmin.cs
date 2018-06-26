@@ -74,6 +74,28 @@ namespace Client.View
             }
             else
             {
+                //Per l'esposizione se non va CaricaLista
+               /* Giocatore g1 = new Giocatore();
+                g1.Nome = "TONI";
+                g1.Ruolo = "ATT";
+                g1.QuotazioneIniziale = 30;
+
+                Giocatore g2 = new Giocatore();
+                g2.Nome = "PIRLO";
+                g2.Ruolo = "CEN";
+                g2.QuotazioneIniziale = 22;
+
+                Giocatore g3 = new Giocatore();
+                g3.Nome = "DESTRO";
+                g3.Ruolo = "ATT";
+                g3.QuotazioneIniziale = 13;
+
+                lega.ListaSvincolati = new ListaSvincolati();
+                lega.ListaSvincolati.Giocatori = new List<Giocatore>();
+                lega.ListaSvincolati.Giocatori.Add(g1);
+                lega.ListaSvincolati.Giocatori.Add(g2);
+                lega.ListaSvincolati.Giocatori.Add(g3);*/
+
                 this.Hide();
                 new HomeMercatoAdmin(lega, squadra).Show();
             }
@@ -90,6 +112,7 @@ namespace Client.View
         {
             this.Hide();
             new WelcomeHome(lega.SquadraAdmin.Utente).Show();
+
         }
     }
 }

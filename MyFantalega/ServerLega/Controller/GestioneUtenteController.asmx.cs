@@ -193,7 +193,6 @@ namespace ServerLega.Controller
         {
             if (mercato.Squadre.Contains(squadra))
                 return false;
-            mercato.Squadre.Add(squadra);
             return true;
 
         }

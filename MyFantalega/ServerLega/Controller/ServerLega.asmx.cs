@@ -144,7 +144,6 @@ namespace ServerLega.Controller
         }
          
         [WebMethod]
-      
         public Turno GestisciAsta(Lega lega, Squadra squadra)
         {
             IGestioneAstaController gestioneAstaController = new GestioneAstaController();

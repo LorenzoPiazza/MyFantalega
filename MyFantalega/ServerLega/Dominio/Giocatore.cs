@@ -20,9 +20,9 @@ namespace ServerLega.Dominio
         {
             //valori di default assegnati a giocatore con stato Libero
             //Si assume che un giocatore alla creazione sia libero
-            _nomeSquadra = "ListaSvincolati";
-            _prezzoAcquisto = 0;
-            StateChanged();
+            //_nomeSquadra = "ListaSvincolati";
+            //_prezzoAcquisto = 0;
+            //StateChanged();
         }
 
 
@@ -45,6 +45,7 @@ namespace ServerLega.Dominio
             _quotazioneIniziale = quotazioneI;
             _ruolo = ruolo;
             _club = club;
+           
 
             //valori di default assegnati a giocatore con stato Libero
             //Si assume che un giocatore alla creazione sia libero

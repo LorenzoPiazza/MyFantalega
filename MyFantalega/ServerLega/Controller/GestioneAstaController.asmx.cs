@@ -186,7 +186,7 @@ namespace ServerLega.Controller
                 conn.Open();
                 giocatore.NomeSquadra = squadra.Nome;
                 //modifico nel Db la squadra di appartenenza al giocatore e il prezzo d'acquisto
-                SqlCommand updateGiocatore = new SqlCommand("UPDATE Giocatore SET [nomeSquadra] = '" + squadra.Nome + "' , [prezzoAcquisto] = '" + giocatore.PrezzoAcquisto + "' WHERE [nome] = '" + giocatore.Nome + "'", conn);
+                SqlCommand updateGiocatore = new SqlCommand("UPDATE Giocatore SET [nomeSquadra] = '" + squadra.Nome + "' , [prezzoAcquisto] = " + giocatore.PrezzoAcquisto + " WHERE [nome] = '" + giocatore.Nome + "'", conn);
                 updateGiocatore.ExecuteNonQuery();
                 conn.Close();
                 return true;

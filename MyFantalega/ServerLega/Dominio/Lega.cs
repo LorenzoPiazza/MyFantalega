@@ -35,17 +35,10 @@ namespace ServerLega.Dominio
                 throw new ArgumentException("numero partecipanti <4 o >12");
             }
 
-            //Parameri di default modificabili tramite set
-            _creditiInizialiSquadra = 500;
-            _numeroPor = 3;
-            _numeroDif = 8;
-            _numeroCen = 8;
-            _numeroAtt = 6;
-
-            _squadre = new List<Squadra>();
-
+          
             _nomeLega = nomeLega;
             _numeroSquadreTotali = numeroSquadreTotali;
+            _squadre = new List<Squadra>();
 
             MercatoAttivo = null;
             ListaSvincolati = null;
@@ -54,6 +47,16 @@ namespace ServerLega.Dominio
 
         public Lega()
         {
+            //Parameri di default modificabili tramite set
+            _creditiInizialiSquadra = 500;
+            _numeroPor = 3;
+            _numeroDif = 8;
+            _numeroCen = 8;
+            _numeroAtt = 6;
+
+            _squadre = new List<Squadra>();
+            MercatoAttivo = null;
+            ListaSvincolati = null;
 
         }
 

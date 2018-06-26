@@ -36,7 +36,7 @@ namespace Client.View
         private void buttonIndietro_Click(object sender, EventArgs e)
         {
             this.Hide();
-            new HomeMercatoAdmin(lega, squadra);
+            new HomeMercatoAdmin(lega, squadra).Show();
         }
 
         private void buttonOffri_Click(object sender, EventArgs e)
