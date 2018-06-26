@@ -15,7 +15,7 @@ namespace TestDominio
         private Lega _lega;
 
         [SetUp]
-        public void LegaSetUp()
+        public void SetUp()
         {
             Utente _utente = new Utente();
             _utente.Email = "mailtestLega.com";
@@ -35,7 +35,7 @@ namespace TestDominio
         }
 
         [TestCase]
-        public void TestConstructor()
+        public void TestMethod()
         {
             //variabili per test da database
             int sqTot = 0;
