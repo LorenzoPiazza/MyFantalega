@@ -203,6 +203,7 @@
             // 
             this.textBox3.Location = new System.Drawing.Point(31, 402);
             this.textBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBox3.MaxLength = 3;
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(106, 22);
             this.textBox3.TabIndex = 38;

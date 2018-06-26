@@ -74,10 +74,13 @@ namespace Client.View
             // 
             // textBoxBenvenuto
             // 
+            this.textBoxBenvenuto.BackColor = System.Drawing.SystemColors.Window;
+            this.textBoxBenvenuto.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxBenvenuto.ForeColor = System.Drawing.SystemColors.Highlight;
             this.textBoxBenvenuto.Location = new System.Drawing.Point(553, 29);
             this.textBoxBenvenuto.Name = "textBoxBenvenuto";
             this.textBoxBenvenuto.ReadOnly = true;
-            this.textBoxBenvenuto.Size = new System.Drawing.Size(213, 22);
+            this.textBoxBenvenuto.Size = new System.Drawing.Size(213, 15);
             this.textBoxBenvenuto.TabIndex = 35;
             // 
             // label2

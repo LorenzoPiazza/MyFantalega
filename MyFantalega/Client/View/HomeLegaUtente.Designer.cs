@@ -79,6 +79,7 @@
             // squadraTextBox
             // 
             this.squadraTextBox.Location = new System.Drawing.Point(382, 120);
+            this.squadraTextBox.MaxLength = 32;
             this.squadraTextBox.Name = "squadraTextBox";
             this.squadraTextBox.Size = new System.Drawing.Size(203, 22);
             this.squadraTextBox.TabIndex = 20;
@@ -87,11 +88,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(182, 120);
+            this.label1.Location = new System.Drawing.Point(137, 120);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(158, 17);
+            this.label1.Size = new System.Drawing.Size(226, 17);
             this.label1.TabIndex = 21;
-            this.label1.Text = "Inserisci nome squadra:";
+            this.label1.Text = "Inserisci il nome della tua squadra:";
             // 
             // indietroButton
             // 
@@ -111,7 +112,7 @@
             this.label3.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.label3.Location = new System.Drawing.Point(265, 21);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(307, 38);
+            this.label3.Size = new System.Drawing.Size(312, 37);
             this.label3.TabIndex = 36;
             this.label3.Text = "Home Lega Utente";
             this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;

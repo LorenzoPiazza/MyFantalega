@@ -234,7 +234,7 @@
             this.textBoxDif.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxDif.Name = "textBoxDif";
             this.textBoxDif.Size = new System.Drawing.Size(159, 22);
-            this.textBoxDif.TabIndex = 11;
+            this.textBoxDif.TabIndex = 12;
             // 
             // textBoxPor
             // 
@@ -242,7 +242,7 @@
             this.textBoxPor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxPor.Name = "textBoxPor";
             this.textBoxPor.Size = new System.Drawing.Size(159, 22);
-            this.textBoxPor.TabIndex = 10;
+            this.textBoxPor.TabIndex = 1;
             // 
             // textBoxAtt
             // 

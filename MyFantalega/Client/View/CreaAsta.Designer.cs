@@ -50,6 +50,7 @@
             // textBoxOfferta
             // 
             this.textBoxOfferta.Location = new System.Drawing.Point(457, 154);
+            this.textBoxOfferta.MaxLength = 6;
             this.textBoxOfferta.Name = "textBoxOfferta";
             this.textBoxOfferta.Size = new System.Drawing.Size(64, 22);
             this.textBoxOfferta.TabIndex = 2;

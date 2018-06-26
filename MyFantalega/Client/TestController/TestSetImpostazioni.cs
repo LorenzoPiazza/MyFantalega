@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Client.ServerLega;
 using System.Data.SqlClient;
 
-namespace TestDominio
+namespace TestController
 {
     [TestFixture]
     public class TestImpostazioni
@@ -57,7 +57,8 @@ namespace TestDominio
             SqlConnection conn = null;
             try
             {
-                conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Lorenzo\source\repos\progettoIngegneriaDelSoftware\MyFantalega\ServerLega\App_Data\DBMyFantalegaLori.mdf;Integrated Security=True");
+                conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Lorenzo\source\repos\progettoIngegneriaDelSoftware 
+                                                                        \MyFantalega\ServerLega\App_Data\DBMyFantalegaLori.mdf;Integrated Security=True");
                 conn.Open();
                 SqlCommand selectLega = new SqlCommand("SELECT * FROM Lega WHERE nome = '"+_lega.NomeLega+"'", conn);
                 SqlDataReader reader = selectLega.ExecuteReader();
