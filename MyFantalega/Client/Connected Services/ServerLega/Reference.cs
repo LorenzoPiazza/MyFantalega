@@ -2018,13 +2018,13 @@ namespace Client.ServerLega {
     [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
     public partial class SetImpostazioniResponseBody {
         
-        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
-        public bool SetImpostazioniResult;
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public Client.ServerLega.Lega SetImpostazioniResult;
         
         public SetImpostazioniResponseBody() {
         }
         
-        public SetImpostazioniResponseBody(bool SetImpostazioniResult) {
+        public SetImpostazioniResponseBody(Client.ServerLega.Lega SetImpostazioniResult) {
             this.SetImpostazioniResult = SetImpostazioniResult;
         }
     }
@@ -2278,12 +2278,16 @@ namespace Client.ServerLega {
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
         public Client.ServerLega.Squadra squadra;
         
+        [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+        public int offerta;
+        
         public AssegnaGiocatoreRequestBody() {
         }
         
-        public AssegnaGiocatoreRequestBody(Client.ServerLega.Giocatore giocatore, Client.ServerLega.Squadra squadra) {
+        public AssegnaGiocatoreRequestBody(Client.ServerLega.Giocatore giocatore, Client.ServerLega.Squadra squadra, int offerta) {
             this.giocatore = giocatore;
             this.squadra = squadra;
+            this.offerta = offerta;
         }
     }
     
@@ -3037,7 +3041,7 @@ namespace Client.ServerLega {
             return base.Channel.SetImpostazioni(request);
         }
         
-        public bool SetImpostazioni(int sqTot, int creIni, int numPor, int numDif, int numCen, int numAtt, Client.ServerLega.Lega lega) {
+        public Client.ServerLega.Lega SetImpostazioni(int sqTot, int creIni, int numPor, int numDif, int numCen, int numAtt, Client.ServerLega.Lega lega) {
             Client.ServerLega.SetImpostazioniRequest inValue = new Client.ServerLega.SetImpostazioniRequest();
             inValue.Body = new Client.ServerLega.SetImpostazioniRequestBody();
             inValue.Body.sqTot = sqTot;
@@ -3157,11 +3161,12 @@ namespace Client.ServerLega {
             return base.Channel.AssegnaGiocatore(request);
         }
         
-        public bool AssegnaGiocatore(Client.ServerLega.Giocatore giocatore, Client.ServerLega.Squadra squadra) {
+        public bool AssegnaGiocatore(Client.ServerLega.Giocatore giocatore, Client.ServerLega.Squadra squadra, int offerta) {
             Client.ServerLega.AssegnaGiocatoreRequest inValue = new Client.ServerLega.AssegnaGiocatoreRequest();
             inValue.Body = new Client.ServerLega.AssegnaGiocatoreRequestBody();
             inValue.Body.giocatore = giocatore;
             inValue.Body.squadra = squadra;
+            inValue.Body.offerta = offerta;
             Client.ServerLega.AssegnaGiocatoreResponse retVal = ((Client.ServerLega.ServerLegaSoap)(this)).AssegnaGiocatore(inValue);
             return retVal.Body.AssegnaGiocatoreResult;
         }
@@ -3171,11 +3176,12 @@ namespace Client.ServerLega {
             return base.Channel.AssegnaGiocatoreAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Client.ServerLega.AssegnaGiocatoreResponse> AssegnaGiocatoreAsync(Client.ServerLega.Giocatore giocatore, Client.ServerLega.Squadra squadra) {
+        public System.Threading.Tasks.Task<Client.ServerLega.AssegnaGiocatoreResponse> AssegnaGiocatoreAsync(Client.ServerLega.Giocatore giocatore, Client.ServerLega.Squadra squadra, int offerta) {
             Client.ServerLega.AssegnaGiocatoreRequest inValue = new Client.ServerLega.AssegnaGiocatoreRequest();
             inValue.Body = new Client.ServerLega.AssegnaGiocatoreRequestBody();
             inValue.Body.giocatore = giocatore;
             inValue.Body.squadra = squadra;
+            inValue.Body.offerta = offerta;
             return ((Client.ServerLega.ServerLegaSoap)(this)).AssegnaGiocatoreAsync(inValue);
         }
         

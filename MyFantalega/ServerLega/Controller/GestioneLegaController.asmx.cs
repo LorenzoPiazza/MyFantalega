@@ -41,41 +41,47 @@ namespace ServerLega.Controller
 
 
         [WebMethod]
-        public Boolean SetImpostazioni(int sqTot, int creIni, int numPor, int numDif, int numCen, int numAtt, Lega lega)
+        public Lega SetImpostazioni(int sqTot, int creIni, int numPor, int numDif, int numCen, int numAtt, Lega lega)
         {
-            if(sqTot.Equals(null) || creIni.Equals(null) || numPor.Equals(null) || numDif.Equals(null) || numCen.Equals(null) || numAtt.Equals(null) || lega == null)
+            Lega aggiornata = lega;
+
+            if (sqTot.Equals(null) || creIni.Equals(null) || numPor.Equals(null) || numDif.Equals(null) || numCen.Equals(null) || numAtt.Equals(null) || lega == null)
             {
-                return false;
+                return null;
             }
-            lega.NumeroSquadreTotali = sqTot;
-            lega.CreditiInizialiSquadra = creIni;
-            lega.NumeroAtt = numAtt;
-            lega.NumeroCen = numCen;
-            lega.NumeroDif = numDif;
-            lega.NumeroPor = numPor;
+
+            //AGGIORNO PRIMA IL DB
             SqlConnection conn = null;
             try
             {
                 //JACOPO
-                conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Jacopo\Source\Repos\progettoIngegneriaDelSoftware\MyFantalega\ServerLega\App_Data\DBMyFantalegaJacopo.mdf;Integrated Security=True");
+                //conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Jacopo\Source\Repos\progettoIngegneriaDelSoftware\MyFantalega\ServerLega\App_Data\DBMyFantalegaJacopo.mdf;Integrated Security=True");
                 //LORENZO
-                //conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Lorenzo\Source\Repos\progettoIngegneriaDelSoftware\MyFantalega\ServerLega\App_Data\DBMyFantalegaLori.mdf;Integrated Security=True");
+                conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Lorenzo\Source\Repos\progettoIngegneriaDelSoftware\MyFantalega\ServerLega\App_Data\DBMyFantalegaLori.mdf;Integrated Security=True");
                 //ALAN
                 //conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C: \Users\Alan\Documents\universita\terzo anno\secondo semestre\progetto\MyFantalega\ServerLega\App_Data\DBMyFantalega.mdf;Integrated Security=True");
                 conn.Open();
-                SqlCommand update = new SqlCommand("update Lega set numSquadreTot=" + sqTot + ", creditiIniziali=" + creIni + ", numPor=" + numPor + ", numDif=" + numDif + ", numCen=" + numCen + ", numAtt=" + numAtt + " where nome=" + lega.NomeLega, conn);
+                SqlCommand update = new SqlCommand("UPDATE Lega SET numSquadreTot=" + sqTot + ", creditiIniziali=" + creIni + ", numPor=" + numPor + ", numDif=" + numDif + ", numCen=" + numCen + ", numAtt=" + numAtt + " WHERE nome='" + lega.NomeLega +"'", conn);
                 update.ExecuteNonQuery();
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
-                return false;
+                return null;
             }
             finally
             {
                 conn.Close();
             }
-            return true;
+
+            //SE IL DB E' STATO AGGIORNATO CORRETTAMENTE, AGGIORNO E RITORNO LA LEGA AGGIORNATA
+            aggiornata.NumeroSquadreTotali = sqTot;
+            aggiornata.CreditiInizialiSquadra = creIni;
+            aggiornata.NumeroAtt = numAtt;
+            aggiornata.NumeroCen = numCen;
+            aggiornata.NumeroDif = numDif;
+            aggiornata.NumeroPor = numPor;
+            return aggiornata;
         }
     }
 }

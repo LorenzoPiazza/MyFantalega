@@ -117,7 +117,7 @@ namespace ServerLega.Controller
 
         //GESTIONE LEGA CONTROLLER
         [WebMethod]
-        public Boolean SetImpostazioni(int sqTot, int creIni, int numPor, int numDif, int numCen, int numAtt, Lega lega)
+        public Lega SetImpostazioni(int sqTot, int creIni, int numPor, int numDif, int numCen, int numAtt, Lega lega)
         {
             IGestioneLegaController gestioneLegaController = new GestioneLegaController();
             return gestioneLegaController.SetImpostazioni(sqTot, creIni, numPor, numDif, numCen, numAtt, lega);
