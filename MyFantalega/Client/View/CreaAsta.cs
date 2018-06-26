@@ -21,6 +21,7 @@ namespace Client.View
             InitializeComponent();
             this.lega = lega;
             this.squadra = squadra;
+            comboBoxGiocatore.Items.Add(lega.ListaSvincolati.Giocatori);
         }
 
         private void textBox3_TextChanged(object sender, EventArgs e)
@@ -51,10 +52,11 @@ namespace Client.View
                     break;
                 }
             }
-            if ( (ValidaOfferta(textBoxOfferta.Text)) && (comboBoxGiocatore.SelectedItem !=null ) && selezionato!= null)
+            if ( (ValidaOfferta(textBoxOfferta.Text,(Giocatore) comboBoxGiocatore.SelectedItem)) && (comboBoxGiocatore.SelectedItem !=null ) && selezionato!= null)
             {
                 ServerLega.ServerLegaSoapClient myGestioneAsta = new ServerLegaSoapClient();
-                myGestioneAsta.CreaAsta(selezionato, Int32.Parse(textBoxOfferta.Text), squadra);
+                Asta asta=myGestioneAsta.CreaAsta(selezionato, Int32.Parse(textBoxOfferta.Text), squadra);
+                lega.MercatoAttivo.AstaAttiva = asta;
             }
             else
             {
@@ -64,17 +66,22 @@ namespace Client.View
         }
 
 
-        private Boolean ValidaOfferta(String offerta)
+        private Boolean ValidaOfferta(String offerta,Giocatore giocatore)
         {
+            int offertaNum = giocatore.QuotazioneIniziale;
             try
             {
-                int offertaNum = Int32.Parse(offerta);
+                offertaNum = Int32.Parse(offerta);
 
             } catch (Exception e)
             {
+                Console.Write(e.Message);
                 return false;
             }
-
+            if(offertaNum < giocatore.QuotazioneIniziale || offertaNum> squadra.CreditResidui)
+            {
+                return false;
+            }
             return true;
         }
     }

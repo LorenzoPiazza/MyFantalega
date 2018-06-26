@@ -150,11 +150,12 @@ namespace ServerLega.Controller
             return gestioneAstaController.GestisciAsta(lega, squadra);
         }
 
+        //Questo non credo sia chiamabile dal client come forse anche altri
        [WebMethod]
-        public Boolean AssegnaGiocatore(Giocatore giocatore, Squadra squadra)
+        public Boolean AssegnaGiocatore(Giocatore giocatore, Squadra squadra,int offerta)
         {
             IGestioneAstaController gestioneAstaController = new GestioneAstaController();
-            return gestioneAstaController.AssegnaGiocatore(giocatore, squadra);
+            return gestioneAstaController.AssegnaGiocatore(giocatore, squadra,offerta);
         }
 
         [WebMethod]

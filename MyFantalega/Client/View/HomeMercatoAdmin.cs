@@ -81,5 +81,11 @@ namespace Client.View
             this.Hide();
             new CreaAsta(lega, squadra).Show();
         }
+
+        private void buttonPartecipa_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new PartecipaAsta(lega, squadra).Show();
+        }
     }
 }

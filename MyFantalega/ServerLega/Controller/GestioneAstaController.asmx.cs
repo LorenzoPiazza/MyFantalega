@@ -171,7 +171,7 @@ namespace ServerLega.Controller
         }
 
         [WebMethod]
-        public Boolean AssegnaGiocatore(Giocatore giocatore, Squadra squadra)
+        public Boolean AssegnaGiocatore(Giocatore giocatore, Squadra squadra,int offertaFinale)
         {
             SqlConnection conn = null;
             try
@@ -185,11 +185,11 @@ namespace ServerLega.Controller
                 //conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Alan\Documents\universita\terzo anno\secondo semestre\progetto\MyFantalega\ServerLega\App_Data\DBMyFantalega.mdf;Integrated Security=True");
                 conn.Open();
                 giocatore.NomeSquadra = squadra.Nome;
+                giocatore.PrezzoAcquisto = offertaFinale;
                 //modifico nel Db la squadra di appartenenza al giocatore e il prezzo d'acquisto
-                SqlCommand updateGiocatore = new SqlCommand("UPDATE Giocatore SET [nomeSquadra] = '" + squadra.Nome + "' , [prezzoAcquisto] = " + giocatore.PrezzoAcquisto + " WHERE [nome] = '" + giocatore.Nome + "'", conn);
+                SqlCommand updateGiocatore = new SqlCommand("UPDATE Giocatore SET nomeSquadra = " + squadra.Nome + " , legaSquadra ="+squadra.Lega.NomeLega+", prezzoAcquisto = " + giocatore.PrezzoAcquisto + " WHERE nome = '" + giocatore.Nome + "'", conn);
                 updateGiocatore.ExecuteNonQuery();
-                conn.Close();
-                return true;
+                conn.Close(); 
             }
             catch (Exception e)
             {
@@ -201,6 +201,7 @@ namespace ServerLega.Controller
             {
                 conn.Close();
             }
+            return true;
         }
 
         [WebMethod]
@@ -259,7 +260,7 @@ namespace ServerLega.Controller
             result = myPartecipaAsta.AbbandonaGiocatore(_lega.MercatoAttivo.AstaAttiva, squadra);
             if (_lega.MercatoAttivo.AstaAttiva.isFinita())
             {
-                result = AssegnaGiocatore(_lega.MercatoAttivo.AstaAttiva.Giocatore, _lega.MercatoAttivo.AstaAttiva.Squadre.ElementAt(0));
+                result = AssegnaGiocatore(_lega.MercatoAttivo.AstaAttiva.Giocatore, _lega.MercatoAttivo.AstaAttiva.UltimoOfferente, _lega.MercatoAttivo.AstaAttiva.UltimaOfferta);
                 if(result)
                     _lega.MercatoAttivo.AstaAttiva = null;
             }
