@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Client.ServerLega;
@@ -26,6 +27,9 @@ namespace Client.View
             textBoxCrediti.Text = ""+squadra.CreditiResidui;
             buttonCrea.Enabled = false;
             buttonPartecipa.Enabled = false;
+            textBoxGiocatore.Enabled = false;
+            textBoxCrediti.Enabled = false;
+            textBoxOfferta.Enabled = false;
             if(squadra.Giocatori.Count != 0)
             {
                 foreach (Giocatore g in squadra.Giocatori)
@@ -49,15 +53,23 @@ namespace Client.View
                 MessageBox.Show("Il mercato è stato completato.");
                 new HomeLegaAdmin(squadra.Lega).Show();
             }
+            if (result.Ruolo == "ALTRI")
+            {
+                MessageBox.Show("Altri utenti devono finire di fare l'asta.");
+                Thread.Sleep(3000);
+                result = myGestioneAdminController.GestisciAsta(lega, squadra);
+            }
 
             if(result.Tipo == true)
             {
                 labelAttesa.Visible = false;
+                MessageBox.Show("E' il tuo turno devi creare una asta.");
                 buttonCrea.Enabled = true;
             }
             else
             {
                 labelAttesa.Visible = false;
+                MessageBox.Show("E' il tuo turno devi partecipare ad una asta.");
                 buttonPartecipa.Enabled = true;
             }
 
