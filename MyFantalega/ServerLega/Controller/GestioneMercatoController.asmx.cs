@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.Services;
@@ -22,13 +23,17 @@ namespace ServerLega.Controller
         public Boolean ChiudiMercato(Mercato mercato)
         {
             Lega lega = mercato.Lega;
-            Mercato attivo = lega.MercatoAttivo;
-            if(!attivo.Equals(mercato))
+            lega.MercatoAttivo = null;
+            if (lega.MercatoAttivo.Equals(null)) {
+                return true;
+            }
+            else
             {
                 return false;
             }
-            lega.MercatoAttivo = null;
-            return true;
+                
+               
+           
         }
     }
 }

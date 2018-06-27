@@ -26,9 +26,9 @@ namespace ServerLogin
             {
                 //CAMBIARE IL PATH DEI FILE
                 //JACOPO
-                //String[] lines = File.ReadAllLines(@"C:\Users\Jacopo\Source\Repos\progettoIngegneriaDelSoftware\MyFantalega\ServerLogin\registrazioni.txt");
+                String[] lines = File.ReadAllLines(@"C:\Users\Jacopo\Source\Repos\progettoIngegneriaDelSoftware\MyFantalega\ServerLogin\registrazioni.txt");
                 //LORI
-                String[] lines = File.ReadAllLines(@"C:\Users\Lorenzo\source\repos\progettoIngegneriaDelSoftware\MyFantalega\ServerLogin\registrazioni.txt");
+                //String[] lines = File.ReadAllLines(@"C:\Users\Lorenzo\source\repos\progettoIngegneriaDelSoftware\MyFantalega\ServerLogin\registrazioni.txt");
                 //ALAN
                 //String[] lines = File.ReadAllLines(@"C:\Users\Alan\Documents\universita\terzo anno\secondo semestre\progetto\MyFantalega\ServerLogin\registrazioni.txt");
                 char[] seps = {':'};

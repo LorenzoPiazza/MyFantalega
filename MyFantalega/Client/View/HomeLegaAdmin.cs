@@ -35,21 +35,27 @@ namespace Client.View
 
         private void buttonCreaMercato_Click(object sender, EventArgs e)
         {
-
+            if (lega.ListaSvincolati.Equals(null))
+            {
+                MessageBox.Show("Caricare prima la lista svincolati");
+            }
             if (lega.MercatoAttivo == null)
             {
                 ServerLegaSoapClient myGestioneAdminController = new ServerLegaSoapClient();
                 Mercato mercato = myGestioneAdminController.creaMercato(lega);
                 List<Squadra> squadre = mercato.Squadre;
-                foreach (Squadra s in squadre)
-                {
-                    if (!s.Equals(squadra))
-                        lega.Squadre.Add(s);
-                }
                 if (mercato != null)
                 {
-                    lega.MercatoAttivo = mercato;
-                    MessageBox.Show("Hai creato un mercato per la lega. Unisciti!");
+                    if (lega.ListaSvincolati.Equals(null))
+                    {
+                        MessageBox.Show("Caricare prima la lista svincolati");
+                    }
+                    else
+                    {
+                        lega.MercatoAttivo = mercato;
+                        MessageBox.Show("Hai creato un mercato per la lega. Unisciti!");
+                    }
+                    
                 }
                 else
                 {
