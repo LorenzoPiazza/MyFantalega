@@ -101,10 +101,10 @@ namespace ServerLega.Controller
 
         //GESTIONE SVINCOLO CONTROLLER
         [WebMethod]
-        public Boolean SvincolaGiocatore(Giocatore g, Squadra s)
+        public Lega SvincolaGiocatore(Giocatore g, Squadra s, Lega l)
         {
             IGestioneSvincoloController gestioneSvincoloController = new GestioneSvincoloController();
-            return gestioneSvincoloController.SvincolaGiocatore(g, s);
+            return gestioneSvincoloController.SvincolaGiocatore(g, s,l);
         }
 
         //GESTIONE MERCATO CONTROLLER
