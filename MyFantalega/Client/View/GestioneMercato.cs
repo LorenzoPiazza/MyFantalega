@@ -45,7 +45,7 @@ namespace Client.View
             textBox5.Text = Convert.ToString(squadra.NumeroDif);
             textBox4.Text = Convert.ToString(squadra.NumeroCen);
             textBox6.Text = Convert.ToString(squadra.NumeroAtt);
-            textBox7.Text = Convert.ToString(squadra.CreditResidui);
+            textBox7.Text = Convert.ToString(squadra.CreditiResidui);
         }
 
         private void buttonChiudiMercato_Click(object sender, EventArgs e)

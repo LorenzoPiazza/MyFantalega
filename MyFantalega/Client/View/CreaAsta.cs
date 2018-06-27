@@ -27,16 +27,6 @@ namespace Client.View
             }
         }
 
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label9_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void buttonIndietro_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -45,7 +35,7 @@ namespace Client.View
 
         private void buttonOffri_Click(object sender, EventArgs e)
         {
-
+            int offertaNum = 0;
             Giocatore selezionato = null;
             foreach (Giocatore g in lega.ListaSvincolati.Giocatori)
             {
@@ -55,42 +45,39 @@ namespace Client.View
                     break;
                 }
             }
-            if ( (ValidaOfferta(textBoxOfferta.Text,(Giocatore) comboBoxSvincolati.SelectedItem)) && (comboBoxSvincolati.SelectedItem !=null ) && selezionato!= null)
+            try
+            {
+                offertaNum = Int32.Parse(textBoxOfferta.Text);
+
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show("Hai sbagliato a scrivere l'offerta, deve essere un intero!");
+                return;
+            }
+            if ( (ValidaOfferta(offertaNum,(Giocatore) comboBoxSvincolati.SelectedItem)) && (comboBoxSvincolati.SelectedItem !=null ) && selezionato!= null)
             {
                 ServerLega.ServerLegaSoapClient myGestioneAsta = new ServerLegaSoapClient();
-                Asta asta=myGestioneAsta.CreaAsta(selezionato, Int32.Parse(textBoxOfferta.Text), squadra);
-                lega.MercatoAttivo.AstaAttiva = asta;
+                Lega legaPass=myGestioneAsta.CreaAsta(selezionato, offertaNum, squadra);
+                lega= legaPass;
+                new HomeMercatoAdmin(lega, squadra).Show();
             }
             else
             {
-                MessageBox.Show("Offerta non valida o giocatore selezionato non valido!");
+                MessageBox.Show("Offerta non valida o giocatore selezionato non valido, reinserire i dati!");
             }
             
         }
 
 
-        private Boolean ValidaOfferta(String offerta,Giocatore giocatore)
+        private Boolean ValidaOfferta(int offerta, Giocatore giocatore)
         {
-            int offertaNum = giocatore.QuotazioneIniziale;
-            try
-            {
-                offertaNum = Int32.Parse(offerta);
-
-            } catch (Exception e)
-            {
-                Console.Write(e.Message);
-                return false;
-            }
-            if(offertaNum < giocatore.QuotazioneIniziale || offertaNum> squadra.CreditResidui)
+            if (offerta < giocatore.QuotazioneIniziale || offerta > squadra.CreditiResidui)
             {
                 return false;
             }
             return true;
         }
 
-        private void comboBoxGiocatore_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

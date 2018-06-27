@@ -102,18 +102,18 @@ namespace ServerLega.Controller
                                 result = r.Next(0, 1);
                                 if (result == 0)
                                 {
-                                    Asta a;
-                                    a = Abbandona(s);
-                                    if (a.Equals(null))
+                                    Lega l;
+                                    l = Abbandona(s);
+                                    if (l.Equals(null))
                                     {
                                         return null;
                                     }
                                 }
                                 else
                                 {
-                                    Asta a;
-                                    a = Rialza(s);
-                                    if (a.Equals(null))
+                                    Lega l;
+                                    l = Rialza(s);
+                                    if (l.Equals(null))
                                     {
                                         return null;
                                     }
@@ -133,18 +133,18 @@ namespace ServerLega.Controller
                             result = r.Next(0, 1);
                             if (result == 0)
                             {
-                                Asta a;
-                                a = Abbandona(s);
-                                if (a.Equals(null))
+                                Lega l;
+                                l = Abbandona(s);
+                                if (l.Equals(null))
                                 {
                                     return null;
                                 }
                             }
                             else
                             {
-                                Asta a;
-                                a = Rialza(s);
-                                if (a.Equals(null))
+                                Lega l;
+                                l = Rialza(s);
+                                if (l.Equals(null))
                                 {
                                     return null;
                                 }
@@ -157,14 +157,14 @@ namespace ServerLega.Controller
         }
 
         [WebMethod]
-        public Asta CreaAsta(Giocatore giocatore, int offerta, Squadra squadra)
+        public Lega CreaAsta(Giocatore giocatore, int offerta, Squadra squadra)
         {
             Asta asta = new Asta(1, _lega.Squadre, giocatore);
             _lega.MercatoAttivo.AstaAttiva = asta;
             ICreazioneAstaController myCreaAsta = new CreazioneAstaController();
             myCreaAsta.ChiamaGiocatore(giocatore, asta);
             myCreaAsta.OffriCrediti(offerta, asta, squadra);
-            return asta;
+            return _lega;
         }
 
         [WebMethod]
@@ -182,6 +182,7 @@ namespace ServerLega.Controller
                 //ALAN
                 //conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Alan\Documents\universita\terzo anno\secondo semestre\progetto\MyFantalega\ServerLega\App_Data\DBMyFantalega.mdf;Integrated Security=True");
                 conn.Open();
+                squadra.Lega.ListaSvincolati.RimuoviGiocatore(giocatore);
                 giocatore.NomeSquadra = squadra.Nome;
                 giocatore.PrezzoAcquisto = offertaFinale;
                 creditiSq =squadra.CreditiResidui - offertaFinale;
@@ -223,14 +224,14 @@ namespace ServerLega.Controller
         }
 
         [WebMethod]
-        public Asta Offri(int offerta,Squadra squadra)
+        public Lega Offri(int offerta,Squadra squadra)
         {
             Boolean result;
             IPartecipaAstaController myPartecipaAsta = new PartecipaAstaController();
             result=myPartecipaAsta.OffriCrediti(offerta, _lega.MercatoAttivo.AstaAttiva, squadra);
             if (result)
             {
-                return _lega.MercatoAttivo.AstaAttiva;
+                return _lega;
             }
             else
             {
@@ -239,14 +240,14 @@ namespace ServerLega.Controller
         }
 
         [WebMethod]
-        public Asta Rialza(Squadra squadra)
+        public Lega Rialza(Squadra squadra)
         {
             Boolean result;
             IPartecipaAstaController myPartecipaAsta = new PartecipaAstaController();
             result = myPartecipaAsta.RialzaOfferta(_lega.MercatoAttivo.AstaAttiva, squadra);
             if (result)
             {
-                return _lega.MercatoAttivo.AstaAttiva;
+                return _lega;
             }
             else
             {
@@ -255,7 +256,7 @@ namespace ServerLega.Controller
         }
 
         [WebMethod]
-        public Asta Abbandona(Squadra squadra)
+        public Lega Abbandona(Squadra squadra)
         {
             Boolean result = false;
             IPartecipaAstaController myPartecipaAsta = new PartecipaAstaController();
@@ -266,7 +267,7 @@ namespace ServerLega.Controller
                 if(result)
                     _lega.MercatoAttivo.AstaAttiva = null;
             }
-            return _lega.MercatoAttivo.AstaAttiva;
+            return _lega;
            
         }
 

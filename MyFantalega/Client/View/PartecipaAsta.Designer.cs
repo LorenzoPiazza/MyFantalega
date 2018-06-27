@@ -40,12 +40,14 @@
             this.button3 = new System.Windows.Forms.Button();
             this.buttonIndietro = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // textBox3
             // 
             this.textBox3.Location = new System.Drawing.Point(244, 93);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(2);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(185, 20);
             this.textBox3.TabIndex = 25;
@@ -63,7 +65,7 @@
             // textBox5
             // 
             this.textBox5.Location = new System.Drawing.Point(244, 132);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox5.Margin = new System.Windows.Forms.Padding(2);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(49, 20);
             this.textBox5.TabIndex = 27;
@@ -81,7 +83,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(100, 177);
+            this.label1.Location = new System.Drawing.Point(98, 217);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(121, 13);
@@ -91,8 +93,8 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(244, 170);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBox1.Location = new System.Drawing.Point(244, 209);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(185, 21);
             this.comboBox1.TabIndex = 29;
@@ -100,7 +102,7 @@
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(102, 280);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(76, 20);
             this.textBox1.TabIndex = 30;
@@ -108,37 +110,40 @@
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(102, 300);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(56, 22);
             this.button1.TabIndex = 31;
             this.button1.Text = "Offri";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(254, 300);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(66, 22);
             this.button2.TabIndex = 32;
             this.button2.Text = "Rialza (+1)";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
             this.button3.Location = new System.Drawing.Point(399, 300);
-            this.button3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button3.Margin = new System.Windows.Forms.Padding(2);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(72, 22);
             this.button3.TabIndex = 33;
             this.button3.Text = "Abbandona";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // buttonIndietro
             // 
             this.buttonIndietro.Location = new System.Drawing.Point(41, 17);
-            this.buttonIndietro.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonIndietro.Margin = new System.Windows.Forms.Padding(2);
             this.buttonIndietro.Name = "buttonIndietro";
             this.buttonIndietro.Size = new System.Drawing.Size(56, 19);
             this.buttonIndietro.TabIndex = 34;
@@ -160,12 +165,32 @@
             this.label2.Text = "Partecipa Asta";
             this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(98, 173);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(118, 13);
+            this.label3.TabIndex = 36;
+            this.label3.Text = "Squadra offerta attuale:";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(244, 166);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(185, 20);
+            this.textBox2.TabIndex = 37;
+            // 
             // PartecipaAsta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(600, 366);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.buttonIndietro);
             this.Controls.Add(this.button3);
@@ -178,10 +203,9 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.label9);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "PartecipaAsta";
             this.Text = "MyFantalega";
-            this.Load += new System.EventHandler(this.PartecipaAsta_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -200,5 +224,7 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button buttonIndietro;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }

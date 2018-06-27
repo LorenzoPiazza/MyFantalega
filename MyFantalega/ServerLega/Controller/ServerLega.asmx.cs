@@ -137,7 +137,7 @@ namespace ServerLega.Controller
 
 
         [WebMethod]
-        public Asta CreaAsta(Giocatore giocatore, int offerta, Squadra squadra)
+        public Lega CreaAsta(Giocatore giocatore, int offerta, Squadra squadra)
         {
             IGestioneAstaController gestioneAstaController = new GestioneAstaController();
             return gestioneAstaController.CreaAsta(giocatore, offerta, squadra);
@@ -151,21 +151,21 @@ namespace ServerLega.Controller
         }
 
         [WebMethod]
-        public Asta Offri(int offerta, Squadra squadra)
+        public Lega Offri(int offerta, Squadra squadra)
         {
             IGestioneAstaController gestioneAstaController = new GestioneAstaController();
             return gestioneAstaController.Offri(offerta,squadra);
         }
 
         [WebMethod]
-        public Asta Rialza(Squadra squadra)
+        public Lega Rialza(Squadra squadra)
         {
             IGestioneAstaController gestioneAstaController = new GestioneAstaController();
             return gestioneAstaController.Rialza(squadra);
         }
 
         [WebMethod]
-        public Asta Abbandona(Squadra squadra)
+        public Lega Abbandona(Squadra squadra)
         {
             IGestioneAstaController gestioneAstaController = new GestioneAstaController();
             return gestioneAstaController.Abbandona(squadra);
