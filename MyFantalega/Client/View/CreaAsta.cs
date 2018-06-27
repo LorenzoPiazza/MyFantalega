@@ -27,15 +27,20 @@ namespace Client.View
             }
         }
 
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void buttonIndietro_Click(object sender, EventArgs e)
         {
             this.Hide();
             new HomeMercatoAdmin(lega, squadra).Show();
-        }
-
-        private void CreaAsta_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Application.Exit();
         }
 
         private void buttonOffri_Click(object sender, EventArgs e)
@@ -75,14 +80,28 @@ namespace Client.View
         }
 
 
-        private Boolean ValidaOfferta(int offerta, Giocatore giocatore)
+        private Boolean ValidaOfferta(String offerta,Giocatore giocatore)
         {
-            if (offerta < giocatore.QuotazioneIniziale || offerta > squadra.CreditiResidui)
+            int offertaNum = giocatore.QuotazioneIniziale;
+            try
+            {
+                offertaNum = Int32.Parse(offerta);
+
+            } catch (Exception e)
+            {
+                Console.Write(e.Message);
+                return false;
+            }
+            if(offertaNum < giocatore.QuotazioneIniziale || offertaNum> squadra.CreditResidui)
             {
                 return false;
             }
             return true;
         }
 
+        private void comboBoxGiocatore_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
