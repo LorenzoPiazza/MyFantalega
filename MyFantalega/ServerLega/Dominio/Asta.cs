@@ -22,10 +22,14 @@ namespace ServerLega.Dominio
             this.Giocatore = giocatore;
 
             _squadre = new List<Squadra>();
+            _squadre = squadre;
         }
 
         public Asta()
         {
+            _squadre = new List<Squadra>();
+            this.UltimoOfferente = null;
+            _giocatore = null;
         }
 
         public int IdAsta { get => _idAsta; set => _idAsta = value; }

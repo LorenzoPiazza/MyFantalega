@@ -78,18 +78,18 @@ namespace ServerLega.Dominio
 
         public Boolean RimuoviGiocatore(Giocatore toRemove)
         {
+            int count=0;
             if (toRemove == null)
                 return false;
-
-            if (_giocatori.Contains(toRemove))
+            for(int i=0;i<this.Giocatori.Count;i++)
             {
-                _giocatori.Remove(toRemove);
-                return true;
+                if (this.Giocatori[i].Nome.Equals(toRemove.Nome))
+                {
+                    count = i;
+                }
             }
-            else
-            {
-                return false;
-            }
+            _giocatori.RemoveAt(count);
+            return true;
 
         }
 

@@ -118,7 +118,7 @@ namespace Client.View
         private void button3_Click(object sender, EventArgs e)
         {
             this.Hide();
-            new SvincolaGiocatore(squadra, lega);
+            new SvincolaGiocatore(squadra, lega).Show();
         }
     }
 }

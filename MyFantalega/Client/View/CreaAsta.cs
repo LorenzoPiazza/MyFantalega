@@ -63,6 +63,7 @@ namespace Client.View
                 ServerLega.ServerLegaSoapClient myGestioneAsta = new ServerLegaSoapClient();
                 Lega legaPass = myGestioneAsta.CreaAsta(selezionato, offertaNum, squadra, lega);
                 lega = legaPass;
+                this.Hide();
                 new HomeMercatoAdmin(lega, squadra).Show();
             }
             else

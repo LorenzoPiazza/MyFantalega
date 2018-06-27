@@ -29,6 +29,15 @@ namespace Client.View
             textBox1.Enabled = false;
             svincolaButton.Enabled = false;
             button2.Enabled = true;
+            List<Giocatore> giocatori = squadra.Giocatori;
+            if (giocatori == null)
+            {
+                comboBoxGiocatori.Text = "Nessuna giocatore disponibile";
+            }
+            foreach (Giocatore giocatore in giocatori)
+            {
+                comboBoxGiocatori.Items.Add(giocatore.Nome);
+            }
         }
         public SvincolaGiocatore(Squadra squadraPass, HomeLegaUtente utentePass)
         {
@@ -46,8 +55,7 @@ namespace Client.View
             if (MessageBox.Show("Sei sicuro di voler svincolare il giocatore?", giocatore.Nome, MessageBoxButtons.YesNo, MessageBoxIcon.Question)== DialogResult.Yes)
             {
                 Client.ServerLega.ServerLegaSoapClient mySvincoloController = new Client.ServerLega.ServerLegaSoapClient();
-                Lega result;
-                result = mySvincoloController.SvincolaGiocatore(giocatore, squadra,lega);
+                Lega result = mySvincoloController.SvincolaGiocatore(giocatore, squadra,lega);
                 if (result != null)
                 {
                     MessageBox.Show("Giocatore svincolato");
@@ -69,24 +77,13 @@ namespace Client.View
             this.Close();
             if (admin == null)
             {
+                this.Hide();
                 new HomeLegaAdmin(lega).Show();
             }
             else
             {
+                this.Hide();
                 new HomeLegaUtente(squadra).Show();
-            }
-        }
-
-        private void SvincolaGiocatore_Load(object sender, EventArgs e)
-        {
-            List <Giocatore> giocatori = squadra.Giocatori;
-            if (giocatori == null)
-            {
-                comboBoxGiocatori.Text = "Nessuna giocatore disponibile";
-            }
-            foreach (Giocatore giocatore in giocatori)
-            {
-                comboBoxGiocatori.Items.Add(giocatore.Nome);
             }
         }
 

@@ -103,7 +103,6 @@ namespace ServerLega.Dominio
             return null;
         }
 
-        [WebMethod]
         public Boolean VerificaReparto(String reparto,Lega lega)
         {
             switch (reparto)
@@ -129,7 +128,6 @@ namespace ServerLega.Dominio
             return false;
         }
 
-        [WebMethod]
         public Boolean VerificaCompletezza(Lega lega)
         {
             if (_numeroPor == lega.NumeroPor && _numeroDif == lega.NumeroDif && _numeroCen == lega.NumeroCen && _numeroAtt == lega.NumeroAtt)

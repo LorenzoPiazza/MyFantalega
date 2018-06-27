@@ -29,7 +29,7 @@ namespace ServerLega.Controller
             s.RimuoviGiocatore(g);
             g.NomeSquadra = "ListaSvincolati";
             s.CreditiResidui = s.CreditiResidui + (g.PrezzoAcquisto / 2);
-            g.PrezzoAcquisto = 0;
+            //g.PrezzoAcquisto = 0;
             lega.ListaSvincolati.AggiungiGiocatore(g);
             SqlConnection conn = null;
             try
@@ -39,7 +39,7 @@ namespace ServerLega.Controller
                 //LORENZO
                 //conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Lorenzo\Source\Repos\progettoIngegneriaDelSoftware\MyFantalega\ServerLega\App_Data\DBMyFantalegaLori.mdf;Integrated Security=True");
                 //ALAN
-                conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C: \Users\Alan\Documents\universita\terzo anno\secondo semestre\progetto\MyFantalega\ServerLega\App_Data\DBMyFantalega.mdf;Integrated Security=True");
+                conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Alan\Documents\universita\terzo anno\secondo semestre\progetto\MyFantalega\ServerLega\App_Data\DBMyFantalega.mdf;Integrated Security=True");
                 conn.Open();
                 SqlCommand update = new SqlCommand("update Giocatore set lista=" + lega.ListaSvincolati.IdLista + ", legaSquadra=NULL, nomeSquadra=NULL, prezzoAcquisto= " + g.PrezzoAcquisto + "  where nome='" + g.Nome + "'", conn);
                 update.ExecuteNonQuery();

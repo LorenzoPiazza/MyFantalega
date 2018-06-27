@@ -20,7 +20,7 @@ namespace Client.View
             InitializeComponent();
             this.lega = lega;
             this.squadra = squadra;
-            foreach (Squadra s in lega.MercatoAttivo.Squadre)
+            foreach (Squadra s in lega.MercatoAttivo.AstaAttiva.Squadre)
             {
                 comboBox1.Items.Add(s.Nome);
             }
@@ -76,7 +76,7 @@ namespace Client.View
 
         private Boolean ValidaOfferta(int offerta, Giocatore giocatore)
         {
-            if (offerta < giocatore.QuotazioneIniziale || offerta > squadra.CreditiResidui)
+            if (offerta < lega.MercatoAttivo.AstaAttiva.UltimaOfferta || offerta > squadra.CreditiResidui)
             {
                 return false;
             }
