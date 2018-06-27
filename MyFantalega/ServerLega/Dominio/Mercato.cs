@@ -24,6 +24,8 @@ namespace ServerLega.Dominio
 
         public Mercato()
         {
+            _aste = new List<Asta>();
+            _squadre = new List<Squadra>();
         }
 
         public int IdMercato

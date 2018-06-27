@@ -35,41 +35,43 @@ namespace Client.View
 
         private void buttonCreaMercato_Click(object sender, EventArgs e)
         {
-            if (lega.ListaSvincolati.Equals(null))
+            if (lega.ListaSvincolati == null)
             {
                 MessageBox.Show("Caricare prima la lista svincolati");
             }
-            if (lega.MercatoAttivo == null)
+            else
             {
-                ServerLegaSoapClient myGestioneAdminController = new ServerLegaSoapClient();
-                Mercato mercato = myGestioneAdminController.creaMercato(lega);
-                List<Squadra> squadre = mercato.Squadre;
-                if (mercato != null)
+                if (lega.MercatoAttivo == null)
                 {
-                    if (lega.ListaSvincolati.Equals(null))
+                    ServerLegaSoapClient myGestioneAdminController = new ServerLegaSoapClient();
+                    Mercato mercato = myGestioneAdminController.creaMercato(lega);
+                    List<Squadra> squadre = mercato.Squadre;
+                    if (mercato != null)
                     {
-                        MessageBox.Show("Caricare prima la lista svincolati");
+                        if (lega.ListaSvincolati.Equals(null))
+                        {
+                            MessageBox.Show("Caricare prima la lista svincolati");
+                        }
+                        else
+                        {
+                            lega.MercatoAttivo = mercato;
+                            MessageBox.Show("Hai creato un mercato per la lega. Unisciti!");
+                        }
+
                     }
                     else
                     {
-                        lega.MercatoAttivo = mercato;
-                        MessageBox.Show("Hai creato un mercato per la lega. Unisciti!");
+                        MessageBox.Show("Errore nella creazione del mercato! Riprova!");
                     }
-                    
                 }
+
                 else
                 {
-                    MessageBox.Show("Errore nella creazione del mercato! Riprova!");
+                    MessageBox.Show("E' già presente un mercato attivo in questa lega. Unisciti!");
                 }
+
+
             }
-
-            else
-            {
-                MessageBox.Show("E' già presente un mercato attivo in questa lega. Unisciti!");
-            }
-
-          
-
         }
 
         private void buttonUniscitiMercato_Click(object sender, EventArgs e)

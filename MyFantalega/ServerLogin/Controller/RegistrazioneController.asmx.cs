@@ -24,9 +24,9 @@ namespace ServerLogin.Controller
             try
             {
                 //LORI
-                String [] lines = File.ReadAllLines(@"C:\Users\Lorenzo\Source\Repos\progettoIngegneriaDelSoftware\MyFantalega\ServerLogin\registrazioni.txt");
+                //String [] lines = File.ReadAllLines(@"C:\Users\Lorenzo\Source\Repos\progettoIngegneriaDelSoftware\MyFantalega\ServerLogin\registrazioni.txt");
                 //JACOPO
-                //String[] lines = File.ReadAllLines(@"C:\Users\Jacopo\Source\Repos\progettoIngegneriaDelSoftware\MyFantalega\ServerLogin\registrazioni.txt");
+                String[] lines = File.ReadAllLines(@"C:\Users\Jacopo\Source\Repos\progettoIngegneriaDelSoftware\MyFantalega\ServerLogin\registrazioni.txt");
                 char[] seps = { ':' };
                 foreach (String l in lines)
                 {
@@ -49,9 +49,9 @@ namespace ServerLogin.Controller
             {
                 String line = username + ":" + password + ":" + email + ":" + domanda + ":" + risposta;
                 //LORI
-                using (StreamWriter sw = new StreamWriter(@"C:\Users\Lorenzo\Source\Repos\progettoIngegneriaDelSoftware\MyFantalega\ServerLogin\registrazioni.txt", true))
+                //using (StreamWriter sw = new StreamWriter(@"C:\Users\Lorenzo\Source\Repos\progettoIngegneriaDelSoftware\MyFantalega\ServerLogin\registrazioni.txt", true))
                 //JACOPO
-                //using (StreamWriter sw = new StreamWriter(@"C:\Users\Jacopo\Source\Repos\progettoIngegneriaDelSoftware\MyFantalega\ServerLogin\registrazioni.txt", true))
+                using (StreamWriter sw = new StreamWriter(@"C:\Users\Jacopo\Source\Repos\progettoIngegneriaDelSoftware\MyFantalega\ServerLogin\registrazioni.txt", true))
                 {
                     sw.WriteLine(line);
                 }
