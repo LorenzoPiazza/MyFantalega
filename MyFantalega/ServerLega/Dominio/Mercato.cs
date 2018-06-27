@@ -19,7 +19,7 @@ namespace ServerLega.Dominio
             _aste = new List<Asta>();
             _squadre = new List<Squadra>();
             this._idMercato = _idMercato;
-            this._lega = _lega;
+            //this._lega = _lega;
         }
 
         public Mercato()
@@ -31,6 +31,10 @@ namespace ServerLega.Dominio
             get
             {
                 return _idMercato;
+            }
+            set
+            {
+                _idMercato = value;
             }
         }
 

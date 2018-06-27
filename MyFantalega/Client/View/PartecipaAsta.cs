@@ -33,6 +33,11 @@ namespace Client.View
             new HomeMercatoAdmin(lega, squadra);
         }
 
+        private void PartecipaAsta_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+
 
     }
 }

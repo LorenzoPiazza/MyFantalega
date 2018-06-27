@@ -49,7 +49,7 @@
             // 
             // textBoxOfferta
             // 
-            this.textBoxOfferta.Location = new System.Drawing.Point(529, 154);
+            this.textBoxOfferta.Location = new System.Drawing.Point(659, 115);
             this.textBoxOfferta.MaxLength = 6;
             this.textBoxOfferta.Name = "textBoxOfferta";
             this.textBoxOfferta.Size = new System.Drawing.Size(64, 22);
@@ -59,7 +59,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(525, 117);
+            this.label4.Location = new System.Drawing.Point(525, 116);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(118, 20);
             this.label4.TabIndex = 30;
@@ -67,10 +67,10 @@
             // 
             // buttonOffri
             // 
-            this.buttonOffri.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonOffri.Location = new System.Drawing.Point(529, 211);
+            this.buttonOffri.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonOffri.Location = new System.Drawing.Point(529, 167);
             this.buttonOffri.Name = "buttonOffri";
-            this.buttonOffri.Size = new System.Drawing.Size(114, 35);
+            this.buttonOffri.Size = new System.Drawing.Size(194, 41);
             this.buttonOffri.TabIndex = 3;
             this.buttonOffri.Text = "Offri";
             this.buttonOffri.UseVisualStyleBackColor = true;

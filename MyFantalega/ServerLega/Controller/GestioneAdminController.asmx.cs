@@ -35,24 +35,54 @@ namespace ServerLega.Controller
                 conn.Open();
                 Random random = new Random();
                 int id = random.Next(0, 1000);
-                Mercato m = new Mercato(id, lega);
+                Mercato m = new Mercato();
+                m.IdMercato = id;
                 //aggiungiamo squadre per l'esposizione del progetto
+                //ATTENZIONE: AGGIUNGERE A MANO AL DB NELLA TABELLA UTENTE 3 Utenti con username rispettivamente userMock1, userMock2, userMock3
                 m.addSquadra(lega.SquadraAdmin);
+
                 Utente a1 = new Utente();
-                Squadra s1 = new Squadra("SquareFc", lega, a1);
-                SqlCommand insert = new SqlCommand("INSERT INTO Squadra(nome, creditiResidui, lega, utente) VALUES('" + s1.Nome + "' ," + lega.CreditiInizialiSquadra + ", '" + lega.NomeLega + "' ,'" + a1.Email + "')", conn);
+                Squadra s1 = new Squadra();
+                int codice= random.Next(0, 9999);
+                s1.Nome = "SquadraMock" + codice;
+                s1.Utente = a1;
+                String userMock = "UserMock" + codice;
+                SqlCommand insertUtente = new SqlCommand("INSERT INTO Utente (username, [e-mail] ) VALUES ( '" + userMock + "', 'mok@hotmail.it')", conn);
+                insertUtente.ExecuteNonQuery();
+                SqlCommand insert = new SqlCommand("INSERT INTO Squadra(nome, creditiResidui, lega, utente) VALUES('" + s1.Nome + "' ," + lega.CreditiInizialiSquadra + ", '" + lega.NomeLega + "' , '"+userMock+"')", conn);
                 insert.ExecuteNonQuery();
                 m.addSquadra(s1);
+                lega.AggiungiSquadra(s1);
+
+
                 Utente a2 = new Utente();
-                Squadra s2 = new Squadra("Juvenilia", lega, a2);
-                insert = new SqlCommand("INSERT INTO Squadra(nome, creditiResidui, lega, utente) VALUES('" + s2.Nome + "' ," + lega.CreditiInizialiSquadra + ", '" + lega.NomeLega + "' ,'" + a2.Email + "')", conn);
+                Squadra s2 = new Squadra();
+                codice = random.Next(0, 9999);
+                s2.Nome = "SquadraMock"+codice;
+                s2.Utente = a2;
+                userMock = "UserMock" + codice;
+                insertUtente = new SqlCommand("INSERT INTO Utente (username, [e-mail] ) VALUES ( '" + userMock + "', 'mok@hotmail.it')", conn);
+                insertUtente.ExecuteNonQuery();
+                insert = new SqlCommand("INSERT INTO Squadra(nome, creditiResidui, lega, utente) VALUES('" + s2.Nome + "' ," + lega.CreditiInizialiSquadra + ", '" + lega.NomeLega + "' , '" + userMock + "')", conn);
                 insert.ExecuteNonQuery();
                 m.addSquadra(s2);
+                lega.AggiungiSquadra(s2);
+
+
                 Utente a3 = new Utente();
-                Squadra s3 = new Squadra("JACOPENSE", lega, a3);
-                insert = new SqlCommand("INSERT INTO Squadra(nome, creditiResidui, lega, utente) VALUES('" + s3.Nome + "' ," + lega.CreditiInizialiSquadra + ", '" + lega.NomeLega + "' ,'" + a3.Email + "')", conn);
+                Squadra s3 = new Squadra();
+                codice = random.Next(0, 9999);
+                s3.Nome = "SquadraMock" + codice;
+                s3.Utente = a3;
+                userMock = "UserMock" + codice;
+                insertUtente = new SqlCommand("INSERT INTO Utente (username, [e-mail] ) VALUES ( '" + userMock + "', 'mok@hotmail.it')", conn);
+                insertUtente.ExecuteNonQuery();
+                insert = new SqlCommand("INSERT INTO Squadra(nome, creditiResidui, lega, utente) VALUES('" + s3.Nome + "' ," + lega.CreditiInizialiSquadra + ", '" + lega.NomeLega + "' , '" + userMock + "')", conn);
                 insert.ExecuteNonQuery();
                 m.addSquadra(s3);
+                lega.AggiungiSquadra(s3);
+
+
                 /*
                 m.addSquadra( new Squadra("Foizasteam", lega, new Utente()));
                 m.addSquadra( new Squadra("TagliesterUnited", lega, new Utente()));

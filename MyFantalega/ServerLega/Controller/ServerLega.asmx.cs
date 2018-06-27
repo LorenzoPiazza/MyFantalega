@@ -185,8 +185,8 @@ namespace ServerLega.Controller
                 //ALAN
                 //conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Alan\Documents\universita\terzo anno\secondo semestre\progetto\MyFantalega\ServerLega\App_Data\DBMyFantalega.mdf;Integrated Security=True");
                 conn.Open();
-                SqlCommand insertSquadra = new SqlCommand("INSERT INTO Utente (username, [e-mail] ) VALUES ( '" + username + "', '" + email + "')", conn);
-                insertSquadra.ExecuteNonQuery();
+                SqlCommand insertUtente = new SqlCommand("INSERT INTO Utente (username, [e-mail] ) VALUES ( '" + username + "', '" + email + "')", conn);
+                insertUtente.ExecuteNonQuery();
                 return true;
             }
             catch (Exception e)

@@ -38,11 +38,11 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
+            this.buttonVisualizzaReport = new System.Windows.Forms.Button();
             this.buttonChiudiMercato = new System.Windows.Forms.Button();
             this.buttonIndietro = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonCreaPausa = new System.Windows.Forms.Button();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -144,15 +144,15 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Squadre partecipanti";
             // 
-            // button4
+            // buttonVisualizzaReport
             // 
-            this.button4.Location = new System.Drawing.Point(615, 300);
-            this.button4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(145, 37);
-            this.button4.TabIndex = 24;
-            this.button4.Text = "Visualizza Report";
-            this.button4.UseVisualStyleBackColor = true;
+            this.buttonVisualizzaReport.Location = new System.Drawing.Point(615, 300);
+            this.buttonVisualizzaReport.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonVisualizzaReport.Name = "buttonVisualizzaReport";
+            this.buttonVisualizzaReport.Size = new System.Drawing.Size(145, 37);
+            this.buttonVisualizzaReport.TabIndex = 24;
+            this.buttonVisualizzaReport.Text = "Visualizza Report";
+            this.buttonVisualizzaReport.UseVisualStyleBackColor = true;
             // 
             // buttonChiudiMercato
             // 
@@ -189,15 +189,15 @@
             this.label2.Text = "Gestione Mercato";
             this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // button1
+            // buttonCreaPausa
             // 
-            this.button1.Location = new System.Drawing.Point(160, 387);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(145, 37);
-            this.button1.TabIndex = 37;
-            this.button1.Text = "Crea Pausa";
-            this.button1.UseVisualStyleBackColor = true;
+            this.buttonCreaPausa.Location = new System.Drawing.Point(160, 387);
+            this.buttonCreaPausa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonCreaPausa.Name = "buttonCreaPausa";
+            this.buttonCreaPausa.Size = new System.Drawing.Size(145, 37);
+            this.buttonCreaPausa.TabIndex = 37;
+            this.buttonCreaPausa.Text = "Crea Pausa";
+            this.buttonCreaPausa.UseVisualStyleBackColor = true;
             // 
             // textBox3
             // 
@@ -216,11 +216,11 @@
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.buttonCreaPausa);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.buttonIndietro);
             this.Controls.Add(this.buttonChiudiMercato);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.buttonVisualizzaReport);
             this.Controls.Add(this.groupBox1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "GestioneMercato";
@@ -236,11 +236,11 @@
 
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button buttonVisualizzaReport;
         private System.Windows.Forms.Button buttonChiudiMercato;
         private System.Windows.Forms.Button buttonIndietro;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonCreaPausa;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label3;

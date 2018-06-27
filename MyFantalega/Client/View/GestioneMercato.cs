@@ -13,13 +13,16 @@ namespace Client.View
 {
     public partial class GestioneMercato : Form
     {
-       Mercato mercato;
-        public GestioneMercato(Mercato mercatoPass)
+        Mercato mercato;
+        Squadra squadra;
+        Lega lega;
+        public GestioneMercato(Lega lega, Squadra squadra)
         {
             InitializeComponent();
-            mercato = mercatoPass;
-            button4.Enabled = false;
-            button1.Enabled = false;
+            mercato = lega.MercatoAttivo;
+            this.squadra = squadra;
+            buttonVisualizzaReport.Enabled = false;
+            buttonCreaPausa.Enabled = false;
             textBox1.Enabled = false;
             textBox2.Enabled = false;
             textBox3.Enabled = false;
@@ -27,13 +30,17 @@ namespace Client.View
             textBox5.Enabled = false;
             textBox6.Enabled = false;
             textBox7.Enabled = false;
-            comboBox1.Items.Add(mercato.Squadre);
+            foreach ( Squadra s in mercato.Squadre)
+            {
+                comboBox1.Items.Add(s.Nome);
+            }
+            
         }
 
        private void buttonIndietro_Click(object sender, EventArgs e)
         {
-           this.Hide();
-            new HomeLegaAdmin(mercato.Lega).Show();
+            this.Hide();
+            new HomeMercatoAdmin(mercato.Lega, squadra).Show();
             
         }
 
@@ -45,7 +52,7 @@ namespace Client.View
             textBox5.Text = Convert.ToString(squadra.NumeroDif);
             textBox4.Text = Convert.ToString(squadra.NumeroCen);
             textBox6.Text = Convert.ToString(squadra.NumeroAtt);
-            textBox7.Text = Convert.ToString(squadra.CreditResidui);
+            textBox7.Text = Convert.ToString(squadra.CreditiResidui);
         }
 
         private void buttonChiudiMercato_Click(object sender, EventArgs e)
@@ -96,6 +103,11 @@ namespace Client.View
                     MessageBox.Show("Errore nella chiusura del mercato");
                 }
            /*}*/
+        }
+
+        private void GestioneMercato_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
