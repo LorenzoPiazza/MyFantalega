@@ -46,21 +46,20 @@ namespace ServerLega.Controller
             {
                 //foreach (Squadra s in _lega.Squadre)
                 //per la presentazione sarà sempre la squadra admin a chiamare il giocatore
-                Squadra s = _lega.SquadraAdmin;
                 {
-                    if (!s.VerificaReparto("POR"))
+                    if (!squadra.VerificaReparto("POR"))
                     {
                         por = false;
                     }
-                    if (!s.VerificaReparto("DIF"))
+                    if (!squadra.VerificaReparto("DIF"))
                     {
                         dif = false;
                     }
-                    if (!s.VerificaReparto("CEN"))
+                    if (!squadra.VerificaReparto("CEN"))
                     {
                         cen = false;
                     }
-                    if (!s.VerificaReparto("ATT"))
+                    if (!squadra.VerificaReparto("ATT"))
                     {
                         att = false;
                     }
@@ -84,73 +83,71 @@ namespace ServerLega.Controller
                 {
                     ruolo = "FINITO";
                 }
-                //la squadra a cui è assegnato il turno è decisa nella view
                 return AssegnaTurnoChiamata(turno,ruolo);
             }
             else
             {
-                foreach(Squadra s in _lega.Squadre)
+                ruolo=mercatoAttivo.AstaAttiva.Giocatore.Ruolo;
+                if (squadra.VerificaReparto(ruolo))
                 {
-                    if (!s.VerificaReparto("POR"))
+                    ruolo = "ALTRI";
+                    foreach (Squadra s in mercatoAttivo.AstaAttiva.Squadre)
                     {
-                        por = false;
+                        if (!s.Equals(squadra))
+                        {
+                            while (_lega.MercatoAttivo.AstaAttiva==null)
+                            {
+                                int result;
+                                Random r = new Random();
+                                result = r.Next(0, 1);
+                                if (result == 0)
+                                {
+                                    Asta a;
+                                    a = Abbandona(s);
+                                    if (a.Equals(null))
+                                    {
+                                        return null;
+                                    }
+                                }
+                                else
+                                {
+                                    Asta a;
+                                    a = Rialza(s);
+                                    if (a.Equals(null))
+                                    {
+                                        return null;
+                                    }
+                                }
+                            }
+                        }
                     }
-                    if (!s.VerificaReparto("DIF"))
-                    {
-                        dif = false;
-                    }
-                    if (!s.VerificaReparto("CEN"))
-                    {
-                        cen = false;
-                    }
-                    if (!s.VerificaReparto("ATT"))
-                    {
-                        att = false;
-                    } 
-                }
-                if (por == false)
-                {
-                    ruolo = "POR";
-                }
-                else if (dif == false)
-                {
-                    ruolo = "DIF";
-                }
-                else if (cen == false)
-                {
-                    ruolo = "CEN";
-                }
-                else if (att == false)
-                {
-                    ruolo = "ATT";
                 }
                 else
                 {
-                    return null;
-                }
-                foreach (Squadra s in mercatoAttivo.AstaAttiva.Squadre)
-                {
-                    if (!s.Equals(squadra))
+                    foreach (Squadra s in mercatoAttivo.AstaAttiva.Squadre)
                     {
-                        int result;
-                        Random r = new Random();
-                        result=r.Next(0, 1);
-                        if (result == 0)
+                        if (!s.Equals(squadra))
                         {
-                            Asta a;
-                            a = Abbandona(s);
-                            if (a.Equals(null))
+                            int result;
+                            Random r = new Random();
+                            result = r.Next(0, 1);
+                            if (result == 0)
                             {
-                                return null;
+                                Asta a;
+                                a = Abbandona(s);
+                                if (a.Equals(null))
+                                {
+                                    return null;
+                                }
                             }
-                        }
-                        else
-                        {
-                            Asta a;
-                            a = Rialza(s);
-                            if (a.Equals(null))
+                            else
                             {
-                                return null;
+                                Asta a;
+                                a = Rialza(s);
+                                if (a.Equals(null))
+                                {
+                                    return null;
+                                }
                             }
                         }
                     }
@@ -171,8 +168,9 @@ namespace ServerLega.Controller
         }
 
         [WebMethod]
-        public Boolean AssegnaGiocatore(Giocatore giocatore, Squadra squadra,int offertaFinale)
+        private Boolean AssegnaGiocatore(Giocatore giocatore, Squadra squadra,int offertaFinale)
         {
+            int creditiSq;
             SqlConnection conn = null;
             try
             {
@@ -186,9 +184,13 @@ namespace ServerLega.Controller
                 conn.Open();
                 giocatore.NomeSquadra = squadra.Nome;
                 giocatore.PrezzoAcquisto = offertaFinale;
+                creditiSq =squadra.CreditiResidui - offertaFinale;
+                squadra.CreditiResidui = creditiSq;
                 //modifico nel Db la squadra di appartenenza al giocatore e il prezzo d'acquisto
                 SqlCommand updateGiocatore = new SqlCommand("UPDATE Giocatore SET nomeSquadra = '" + squadra.Nome + "' , legaSquadra = '"+squadra.Lega.NomeLega+"' , prezzoAcquisto = " + giocatore.PrezzoAcquisto + " , lista = NULL WHERE nome = '" + giocatore.Nome + "'", conn);
                 updateGiocatore.ExecuteNonQuery();
+                SqlCommand updateSquadra = new SqlCommand("UPDATE Squadra SET creditiResidui = " + creditiSq + " WHERE nome = '" + squadra.Nome + "'", conn);
+                updateSquadra.ExecuteNonQuery();
                 conn.Close(); 
             }
             catch (Exception e)
@@ -205,7 +207,7 @@ namespace ServerLega.Controller
         }
 
         [WebMethod]
-        public Turno AssegnaTurnoAsta(Turno turno,String ruolo)
+        private Turno AssegnaTurnoAsta(Turno turno,String ruolo)
         {
             turno.Tipo = false;
             turno.Ruolo = ruolo;
@@ -213,7 +215,7 @@ namespace ServerLega.Controller
         }
 
         [WebMethod]
-        public Turno AssegnaTurnoChiamata(Turno turno,String ruolo)
+        private Turno AssegnaTurnoChiamata(Turno turno,String ruolo)
         {
             turno.Tipo = true;
             turno.Ruolo = ruolo;
@@ -255,7 +257,7 @@ namespace ServerLega.Controller
         [WebMethod]
         public Asta Abbandona(Squadra squadra)
         {
-            Boolean result;
+            Boolean result = false;
             IPartecipaAstaController myPartecipaAsta = new PartecipaAstaController();
             result = myPartecipaAsta.AbbandonaGiocatore(_lega.MercatoAttivo.AstaAttiva, squadra);
             if (_lega.MercatoAttivo.AstaAttiva.isFinita())

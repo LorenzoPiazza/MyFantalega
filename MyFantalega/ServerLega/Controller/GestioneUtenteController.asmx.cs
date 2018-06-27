@@ -65,7 +65,7 @@ namespace ServerLega.Controller
 
                 //QUERY DI INSERIMENTO DELLA SQUADRA
                 conn.Open();
-                SqlCommand insertSquadra = new SqlCommand("INSERT INTO Squadra (nome, creditiResidui, lega, utente ) VALUES ( '" + squadraAdmin.Nome + "', " + squadraAdmin.CreditResidui + ", '" + lega.NomeLega + "', '" + username + "')", conn);
+                SqlCommand insertSquadra = new SqlCommand("INSERT INTO Squadra (nome, creditiResidui, lega, utente ) VALUES ( '" + squadraAdmin.Nome + "', " + squadraAdmin.CreditiResidui + ", '" + lega.NomeLega + "', '" + username + "')", conn);
                 insertSquadra.ExecuteNonQuery();
                 conn.Close();
 
