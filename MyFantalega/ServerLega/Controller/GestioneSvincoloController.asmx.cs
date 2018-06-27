@@ -20,16 +20,17 @@ namespace ServerLega.Controller
     {
 
         [WebMethod]
-        public Boolean SvincolaGiocatore(Giocatore g,Squadra s)
+        public Lega SvincolaGiocatore(Giocatore g,Squadra s, Lega lega)
         {
             if (!s.Giocatori.Contains(g) || g==null || s==null)
             {
-                return false;
+                return null;
             }
             s.RimuoviGiocatore(g);
-            g.PrezzoAcquisto = 0;
-            g.NomeSquadra = "Lista Svincolati";
+            g.NomeSquadra = "ListaSvincolati";
             s.CreditiResidui = s.CreditiResidui + (g.PrezzoAcquisto / 2);
+            g.PrezzoAcquisto = 0;
+            lega.ListaSvincolati.AggiungiGiocatore(g);
             SqlConnection conn = null;
             try
             {
@@ -40,19 +41,19 @@ namespace ServerLega.Controller
                 //ALAN
                 conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C: \Users\Alan\Documents\universita\terzo anno\secondo semestre\progetto\MyFantalega\ServerLega\App_Data\DBMyFantalega.mdf;Integrated Security=True");
                 conn.Open();
-                SqlCommand update = new SqlCommand("update Giocatore set quotazioneIniziale=" + g.QuotazioneIniziale + ", lista=" + s.Lega.ListaSvincolati.IdLista + ", legaSquadra=NULL, nomeSquadra=NULL, prezzoAcquisto=NULL, ruolo=" + g.Ruolo + " where nome=" + g.Nome, conn);
+                SqlCommand update = new SqlCommand("update Giocatore set lista=" + lega.ListaSvincolati.IdLista + ", legaSquadra=NULL, nomeSquadra=NULL, prezzoAcquisto= " + g.PrezzoAcquisto + "  where nome='" + g.Nome + "'", conn);
                 update.ExecuteNonQuery();
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
-                return false;
+                return null;
             }
             finally
             {
                 conn.Close();
             }
-            return true;
+            return lega;
         }
     }
 }

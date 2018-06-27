@@ -17,17 +17,17 @@ namespace Client.View
         Giocatore giocatore;
         HomeLegaAdmin admin;
         HomeLegaUtente utente;
+        Lega lega;
 
-        public SvincolaGiocatore(Squadra squadraPass,HomeLegaAdmin adminPass)
+        public SvincolaGiocatore(Squadra squadraPass, Lega legaPass)
         {
             InitializeComponent();
-            admin = adminPass;
+            lega = legaPass;
             utente = null;
             giocatore = null;
-            listBoxGiocatori.Items.Add(squadra.Giocatori);
             squadra = squadraPass;
             textBox1.Enabled = false;
-            button1.Enabled = false;
+            svincolaButton.Enabled = false;
             button2.Enabled = true;
         }
         public SvincolaGiocatore(Squadra squadraPass, HomeLegaUtente utentePass)
@@ -36,21 +36,12 @@ namespace Client.View
             admin = null;
             utente = utentePass;
             giocatore = null;
-            listBoxGiocatori.Items.Add(squadra.Giocatori);
             squadra = squadraPass;
-            button1.Enabled = false;
+            svincolaButton.Enabled = false;
             button2.Enabled = true;
         }
 
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Giocatore g = (Giocatore)listBoxGiocatori.SelectedItem;
-            giocatore = g;
-            textBox1.Text = (g.PrezzoAcquisto / 2).ToString();
-            button1.Enabled = true;
-        }
-
-        private void button1_Click(object sender, EventArgs e)
+        private void svincolaButton_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Sei sicuro di voler svincolare il giocatore?", giocatore.Nome, MessageBoxButtons.YesNo, MessageBoxIcon.Question)== DialogResult.Yes)
             {
@@ -74,15 +65,44 @@ namespace Client.View
 
        private void button2_Click(object sender, EventArgs e)
         {
-           /* this.Close();
+            this.Close();
             if (admin == null)
             {
                 new HomeLegaAdmin(squadra.Lega).Show();
             }
             else
             {
-                new HomeLegaUtente(squadra.Lega).Show();
-            }*/
+                new HomeLegaUtente(squadra).Show();
+            }
+        }
+
+        private void SvincolaGiocatore_Load(object sender, EventArgs e)
+        {
+            List <Giocatore> giocatori = squadra.Giocatori;
+            if (giocatori == null)
+            {
+                comboBoxGiocatori.Text = "Nessuna giocatore disponibile";
+            }
+            foreach (Giocatore giocatore in giocatori)
+            {
+                comboBoxGiocatori.Items.Add(giocatore.Nome);
+            }
+        }
+
+        private void comboBoxGiocatori_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            String nome = comboBoxGiocatori.SelectedItem.ToString();
+            foreach(Giocatore g in squadra.Giocatori)
+            {
+                if (nome.Equals(g.Nome))
+                {
+                    giocatore = g;
+                    textBox1.Text = (g.PrezzoAcquisto / 2).ToString();
+                    svincolaButton.Enabled = true;
+                }
+
+            }
+            
         }
     }
 }

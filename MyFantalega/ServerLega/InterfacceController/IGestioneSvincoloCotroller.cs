@@ -9,6 +9,6 @@ namespace ServerLega.InterfacceController
 {
     interface IGestioneSvincoloController
     {
-        Boolean SvincolaGiocatore(Giocatore giocatore,Squadra squadra);
+        Lega SvincolaGiocatore(Giocatore giocatore,Squadra squadra,Lega lega);
     }
 }

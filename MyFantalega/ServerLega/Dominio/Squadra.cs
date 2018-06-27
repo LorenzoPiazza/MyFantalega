@@ -16,7 +16,7 @@ namespace ServerLega.Dominio
         private int _numeroCen;
         private int _numeroAtt;
         private List<Giocatore> _giocatori;
-        private Lega _lega;
+        //private Lega _lega;
         private Utente _utente;
 
         public Squadra(string nome, Lega lega, Utente utente)
@@ -30,7 +30,7 @@ namespace ServerLega.Dominio
 
             _giocatori = new List<Giocatore>();
             _nome = nome;
-            _lega = lega;
+            //_lega = lega;
             _utente = utente;
         }
 
@@ -44,7 +44,7 @@ namespace ServerLega.Dominio
             _numeroAtt = 0;
 
             //Ai fini dell'esposizione del progetto
-            _lega = new Lega();
+            //_lega = new Lega();
 
 
 
@@ -57,7 +57,7 @@ namespace ServerLega.Dominio
         public int NumeroCen { get => _numeroCen; set => _numeroCen = value; }
         public int NumeroAtt { get => _numeroAtt; set => _numeroAtt = value; }
         public List<Giocatore> Giocatori { get => _giocatori; }
-        public Lega Lega { get => _lega; set => _lega = value; }
+        //public Lega Lega { get => _lega; set => _lega = value; }
         public Utente Utente { get => _utente; set => _utente = value; }
 
 
@@ -104,24 +104,24 @@ namespace ServerLega.Dominio
         }
 
         [WebMethod]
-        public Boolean VerificaReparto(String reparto)
+        public Boolean VerificaReparto(String reparto,Lega lega)
         {
             switch (reparto)
             {
                 case "POR":
-                    if (_numeroPor == _lega.NumeroPor)
+                    if (_numeroPor == lega.NumeroPor)
                         return true;
                     break;
                 case "DIF":
-                    if (_numeroDif == _lega.NumeroDif)
+                    if (_numeroDif == lega.NumeroDif)
                         return true;
                     break;
                 case "CEN":
-                    if (_numeroCen == _lega.NumeroCen)
+                    if (_numeroCen == lega.NumeroCen)
                         return true;
                     break;
                 case "ATT":
-                    if (_numeroAtt == _lega.NumeroAtt)
+                    if (_numeroAtt == lega.NumeroAtt)
                         return true;
                     break;
             }
@@ -130,9 +130,9 @@ namespace ServerLega.Dominio
         }
 
         [WebMethod]
-        public Boolean VerificaCompletezza()
+        public Boolean VerificaCompletezza(Lega lega)
         {
-            if (_numeroPor == _lega.NumeroPor && _numeroDif == _lega.NumeroDif && _numeroCen == _lega.NumeroCen && _numeroAtt == _lega.NumeroAtt)
+            if (_numeroPor == lega.NumeroPor && _numeroDif == lega.NumeroDif && _numeroCen == lega.NumeroCen && _numeroAtt == lega.NumeroAtt)
                 return true;
 
             return false;

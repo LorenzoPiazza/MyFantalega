@@ -321,7 +321,7 @@
       <s:element name="CreaAstaResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="CreaAstaResult" type="tns:Asta" />
+            <s:element minOccurs="0" maxOccurs="1" name="CreaAstaResult" type="tns:Lega" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -357,7 +357,7 @@
       <s:element name="OffriResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="OffriResult" type="tns:Asta" />
+            <s:element minOccurs="0" maxOccurs="1" name="OffriResult" type="tns:Lega" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -371,7 +371,7 @@
       <s:element name="RialzaResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="RialzaResult" type="tns:Asta" />
+            <s:element minOccurs="0" maxOccurs="1" name="RialzaResult" type="tns:Lega" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -385,7 +385,7 @@
       <s:element name="AbbandonaResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="AbbandonaResult" type="tns:Asta" />
+            <s:element minOccurs="0" maxOccurs="1" name="AbbandonaResult" type="tns:Lega" />
           </s:sequence>
         </s:complexType>
       </s:element>

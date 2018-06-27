@@ -2153,12 +2153,12 @@ namespace Client.ServerLega {
     public partial class CreaAstaResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public Client.ServerLega.Asta CreaAstaResult;
+        public Client.ServerLega.Lega CreaAstaResult;
         
         public CreaAstaResponseBody() {
         }
         
-        public CreaAstaResponseBody(Client.ServerLega.Asta CreaAstaResult) {
+        public CreaAstaResponseBody(Client.ServerLega.Lega CreaAstaResult) {
             this.CreaAstaResult = CreaAstaResult;
         }
     }
@@ -2297,12 +2297,12 @@ namespace Client.ServerLega {
     public partial class OffriResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public Client.ServerLega.Asta OffriResult;
+        public Client.ServerLega.Lega OffriResult;
         
         public OffriResponseBody() {
         }
         
-        public OffriResponseBody(Client.ServerLega.Asta OffriResult) {
+        public OffriResponseBody(Client.ServerLega.Lega OffriResult) {
             this.OffriResult = OffriResult;
         }
     }
@@ -2365,12 +2365,12 @@ namespace Client.ServerLega {
     public partial class RialzaResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public Client.ServerLega.Asta RialzaResult;
+        public Client.ServerLega.Lega RialzaResult;
         
         public RialzaResponseBody() {
         }
         
-        public RialzaResponseBody(Client.ServerLega.Asta RialzaResult) {
+        public RialzaResponseBody(Client.ServerLega.Lega RialzaResult) {
             this.RialzaResult = RialzaResult;
         }
     }
@@ -2433,12 +2433,12 @@ namespace Client.ServerLega {
     public partial class AbbandonaResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public Client.ServerLega.Asta AbbandonaResult;
+        public Client.ServerLega.Lega AbbandonaResult;
         
         public AbbandonaResponseBody() {
         }
         
-        public AbbandonaResponseBody(Client.ServerLega.Asta AbbandonaResult) {
+        public AbbandonaResponseBody(Client.ServerLega.Lega AbbandonaResult) {
             this.AbbandonaResult = AbbandonaResult;
         }
     }
@@ -2943,7 +2943,7 @@ namespace Client.ServerLega {
             return base.Channel.CreaAsta(request);
         }
         
-        public Client.ServerLega.Asta CreaAsta(Client.ServerLega.Giocatore giocatore, int offerta, Client.ServerLega.Squadra squadra) {
+        public Client.ServerLega.Lega CreaAsta(Client.ServerLega.Giocatore giocatore, int offerta, Client.ServerLega.Squadra squadra) {
             Client.ServerLega.CreaAstaRequest inValue = new Client.ServerLega.CreaAstaRequest();
             inValue.Body = new Client.ServerLega.CreaAstaRequestBody();
             inValue.Body.giocatore = giocatore;
@@ -2999,7 +2999,7 @@ namespace Client.ServerLega {
             return base.Channel.Offri(request);
         }
         
-        public Client.ServerLega.Asta Offri(int offerta, Client.ServerLega.Squadra squadra) {
+        public Client.ServerLega.Lega Offri(int offerta, Client.ServerLega.Squadra squadra) {
             Client.ServerLega.OffriRequest inValue = new Client.ServerLega.OffriRequest();
             inValue.Body = new Client.ServerLega.OffriRequestBody();
             inValue.Body.offerta = offerta;
@@ -3026,7 +3026,7 @@ namespace Client.ServerLega {
             return base.Channel.Rialza(request);
         }
         
-        public Client.ServerLega.Asta Rialza(Client.ServerLega.Squadra squadra) {
+        public Client.ServerLega.Lega Rialza(Client.ServerLega.Squadra squadra) {
             Client.ServerLega.RialzaRequest inValue = new Client.ServerLega.RialzaRequest();
             inValue.Body = new Client.ServerLega.RialzaRequestBody();
             inValue.Body.squadra = squadra;
@@ -3051,7 +3051,7 @@ namespace Client.ServerLega {
             return base.Channel.Abbandona(request);
         }
         
-        public Client.ServerLega.Asta Abbandona(Client.ServerLega.Squadra squadra) {
+        public Client.ServerLega.Lega Abbandona(Client.ServerLega.Squadra squadra) {
             Client.ServerLega.AbbandonaRequest inValue = new Client.ServerLega.AbbandonaRequest();
             inValue.Body = new Client.ServerLega.AbbandonaRequestBody();
             inValue.Body.squadra = squadra;

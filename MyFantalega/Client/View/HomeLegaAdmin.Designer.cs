@@ -59,6 +59,7 @@
             this.button3.TabIndex = 5;
             this.button3.Text = "Svincola un Giocatore";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
@@ -110,7 +111,7 @@
             this.label1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.label1.Location = new System.Drawing.Point(253, 21);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(313, 37);
+            this.label1.Size = new System.Drawing.Size(310, 38);
             this.label1.TabIndex = 36;
             this.label1.Text = "Home Lega Admin";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
