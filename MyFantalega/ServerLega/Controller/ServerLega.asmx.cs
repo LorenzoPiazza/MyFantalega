@@ -20,29 +20,6 @@ namespace ServerLega.Controller
     public class ServerLega : System.Web.Services.WebService
     {
 
-        //PARTECIPA ASTA CONTROLLER
-        [WebMethod]
-        public Boolean AbbandonaGiocatore(Asta asta, Squadra squadra)
-        {
-            IPartecipaAstaController partecipaAstaController = new PartecipaAstaController();
-            return partecipaAstaController.AbbandonaGiocatore(asta, squadra);
-        }
-
-        [WebMethod]
-        public Boolean RialzaOfferta(Asta asta, Squadra squadra)
-        {
-            IPartecipaAstaController partecipaAstaController = new PartecipaAstaController();
-            return partecipaAstaController.RialzaOfferta(asta, squadra);
-        }
-
-
-        [WebMethod]
-        public Boolean OffriCreditiPartecipaAsta(int offerta, Asta asta, Squadra squadra)
-        {
-            IPartecipaAstaController partecipaAstaController = new PartecipaAstaController();
-            return partecipaAstaController.OffriCrediti(offerta, asta, squadra);
-        }
-
         //GESTIONE UTENTE CONTROLLER
         [WebMethod]
         public Lega CreaLega(String nome, int numeroPartecipanti, String nomeSquadra, Utente utente)
@@ -70,22 +47,6 @@ namespace ServerLega.Controller
         {
             IGestioneUtenteController gestioneUtenteController = new GestioneUtenteController();
             return gestioneUtenteController.UniscitiAMercato(mercato, squadra);
-        }
-
-
-        //CREAZIONE ASTA CONTROLLER
-        [WebMethod]
-        public Asta ChiamaGiocatore(Giocatore giocatore, Asta asta)
-        {
-            ICreazioneAstaController creazioneAstaController = new CreazioneAstaController();
-            return creazioneAstaController.ChiamaGiocatore(giocatore, asta);
-        }
-
-        [WebMethod]
-        public Asta OffriCreditiCreazioneAsta(int offerta, Asta asta, Squadra squadra)
-        {
-            ICreazioneAstaController creazioneAstaController = new CreazioneAstaController();
-            return creazioneAstaController.OffriCrediti(offerta, asta, squadra);
         }
 
 
