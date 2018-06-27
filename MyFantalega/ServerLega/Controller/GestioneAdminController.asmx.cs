@@ -21,7 +21,7 @@ namespace ServerLega.Controller
     {
 
         [WebMethod]
-        public Mercato CreaMercato(Lega lega)
+        public Lega CreaMercato(Lega lega)
         {
             SqlConnection conn = null;
             try
@@ -93,7 +93,8 @@ namespace ServerLega.Controller
                 m.addSquadra( new Squadra("MercedesAMG", lega, new Utente()));
                 m.addSquadra( new Squadra("SanGallo", lega, new Utente()));
                 */
-                return m;
+                lega.MercatoAttivo = m;
+                return lega;
             }
             catch (Exception e)
             {

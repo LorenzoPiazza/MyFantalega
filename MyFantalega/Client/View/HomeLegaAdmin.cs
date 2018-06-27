@@ -28,11 +28,6 @@ namespace Client.View
             squadraTextBox.Text = "Benvenuta " + squadra.Nome;
         }
 
-        private void squadraTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void buttonCreaMercato_Click(object sender, EventArgs e)
         {
             if (lega.ListaSvincolati == null)
@@ -44,9 +39,9 @@ namespace Client.View
                 if (lega.MercatoAttivo == null)
                 {
                     ServerLegaSoapClient myGestioneAdminController = new ServerLegaSoapClient();
-                    Mercato mercato = myGestioneAdminController.creaMercato(lega);
-                    List<Squadra> squadre = mercato.Squadre;
-                    if (mercato != null)
+                    Lega result = myGestioneAdminController.creaMercato(lega);
+                    //List<Squadra> squadre = mercato.Squadre;
+                    if (lega.MercatoAttivo != null)
                     {
                         if (lega.ListaSvincolati.Equals(null))
                         {

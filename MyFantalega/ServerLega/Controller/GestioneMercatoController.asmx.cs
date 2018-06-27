@@ -20,20 +20,16 @@ namespace ServerLega.Controller
     {
 
         [WebMethod]
-        public Boolean ChiudiMercato(Mercato mercato)
+        public Lega ChiudiMercato(Mercato mercato,Lega lega)
         {
-            Lega lega = mercato.Lega;
             lega.MercatoAttivo = null;
             if (lega.MercatoAttivo.Equals(null)) {
-                return true;
+                return lega;
             }
             else
             {
-                return false;
-            }
-                
-               
-           
+                return null;
+            }         
         }
     }
 }

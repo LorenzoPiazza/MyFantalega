@@ -52,7 +52,7 @@ namespace ServerLega.Controller
 
         //GESTIONE ADMIN CONTROLLER
         [WebMethod]
-        public Mercato creaMercato(Lega lega)
+        public Lega creaMercato(Lega lega)
         {
             IGestioneAdminController adminController = new GestioneAdminController();
             return adminController.CreaMercato(lega);
@@ -70,10 +70,10 @@ namespace ServerLega.Controller
 
         //GESTIONE MERCATO CONTROLLER
         [WebMethod]
-        public Boolean ChiudiMercato(Mercato mercato)
+        public Lega ChiudiMercato(Mercato mercato,Lega lega)
         {
             IGestioneMercatoController gestioneMercatoController = new GestioneMercatoController();
-            return gestioneMercatoController.ChiudiMercato(mercato);
+            return gestioneMercatoController.ChiudiMercato(mercato,lega);
         }
 
         //GESTIONE LEGA CONTROLLER

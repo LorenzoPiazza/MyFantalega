@@ -46,11 +46,12 @@ namespace Client.View
             if (MessageBox.Show("Sei sicuro di voler svincolare il giocatore?", giocatore.Nome, MessageBoxButtons.YesNo, MessageBoxIcon.Question)== DialogResult.Yes)
             {
                 Client.ServerLega.ServerLegaSoapClient mySvincoloController = new Client.ServerLega.ServerLegaSoapClient();
-                Boolean result;
-                result = mySvincoloController.SvincolaGiocatore(giocatore, squadra);
-                if (result == true)
+                Lega result;
+                result = mySvincoloController.SvincolaGiocatore(giocatore, squadra,lega);
+                if (result != null)
                 {
                     MessageBox.Show("Giocatore svincolato");
+                    lega = result;
                 }
                 else
                 {
@@ -68,7 +69,7 @@ namespace Client.View
             this.Close();
             if (admin == null)
             {
-                new HomeLegaAdmin(squadra.Lega).Show();
+                new HomeLegaAdmin(lega).Show();
             }
             else
             {

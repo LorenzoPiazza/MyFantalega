@@ -9,6 +9,6 @@ namespace ServerLega.InterfacceController
 {
     interface IGestioneAdminController
     {
-        Mercato CreaMercato(Lega lega);
+        Lega CreaMercato(Lega lega);
     }
 }
