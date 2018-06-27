@@ -32,9 +32,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.svincolaButton = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.listBoxGiocatori = new System.Windows.Forms.ComboBox();
+            this.comboBoxGiocatori = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label2
@@ -45,7 +45,7 @@
             this.label2.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.label2.Location = new System.Drawing.Point(277, 26);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(309, 37);
+            this.label2.Size = new System.Drawing.Size(306, 38);
             this.label2.TabIndex = 21;
             this.label2.Text = "Svincola Giocatori";
             this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -78,16 +78,16 @@
             this.textBox1.Size = new System.Drawing.Size(84, 22);
             this.textBox1.TabIndex = 25;
             // 
-            // button1
+            // svincolaButton
             // 
-            this.button1.Location = new System.Drawing.Point(284, 373);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(87, 35);
-            this.button1.TabIndex = 26;
-            this.button1.Text = "Svincola";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.svincolaButton.Location = new System.Drawing.Point(284, 373);
+            this.svincolaButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.svincolaButton.Name = "svincolaButton";
+            this.svincolaButton.Size = new System.Drawing.Size(87, 35);
+            this.svincolaButton.TabIndex = 26;
+            this.svincolaButton.Text = "Svincola";
+            this.svincolaButton.UseVisualStyleBackColor = true;
+            this.svincolaButton.Click += new System.EventHandler(this.svincolaButton_Click);
             // 
             // button2
             // 
@@ -100,18 +100,19 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // listBoxGiocatori
+            // comboBoxGiocatori
             // 
-            this.listBoxGiocatori.DisplayMember = "NomeLega";
-            this.listBoxGiocatori.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listBoxGiocatori.FormattingEnabled = true;
-            this.listBoxGiocatori.Location = new System.Drawing.Point(55, 124);
-            this.listBoxGiocatori.Name = "listBoxGiocatori";
-            this.listBoxGiocatori.Size = new System.Drawing.Size(728, 26);
-            this.listBoxGiocatori.TabIndex = 41;
-            this.listBoxGiocatori.Tag = "";
-            this.listBoxGiocatori.Text = "Scegli il giocatore da svincolare";
-            this.listBoxGiocatori.ValueMember = "NomeLega";
+            this.comboBoxGiocatori.DisplayMember = "NomeLega";
+            this.comboBoxGiocatori.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxGiocatori.FormattingEnabled = true;
+            this.comboBoxGiocatori.Location = new System.Drawing.Point(55, 124);
+            this.comboBoxGiocatori.Name = "comboBoxGiocatori";
+            this.comboBoxGiocatori.Size = new System.Drawing.Size(728, 26);
+            this.comboBoxGiocatori.TabIndex = 41;
+            this.comboBoxGiocatori.Tag = "";
+            this.comboBoxGiocatori.Text = "Scegli il giocatore da svincolare";
+            this.comboBoxGiocatori.ValueMember = "NomeLega";
+            this.comboBoxGiocatori.SelectedIndexChanged += new System.EventHandler(this.comboBoxGiocatori_SelectedIndexChanged);
             // 
             // SvincolaGiocatore
             // 
@@ -119,9 +120,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(827, 465);
-            this.Controls.Add(this.listBoxGiocatori);
+            this.Controls.Add(this.comboBoxGiocatori);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.svincolaButton);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
@@ -129,6 +130,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "SvincolaGiocatore";
             this.Text = "MyFantalega";
+            this.Load += new System.EventHandler(this.SvincolaGiocatore_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -140,8 +142,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button svincolaButton;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.ComboBox listBoxGiocatori;
+        private System.Windows.Forms.ComboBox comboBoxGiocatori;
     }
 }
