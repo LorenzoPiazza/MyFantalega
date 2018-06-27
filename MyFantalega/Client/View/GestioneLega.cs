@@ -124,6 +124,11 @@ namespace Client.View
             new HomeLegaAdmin(lega).Show();
         }
 
+        private void GestioneLega_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+
 
 
         //Validazione degli Input

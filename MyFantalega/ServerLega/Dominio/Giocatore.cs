@@ -65,7 +65,7 @@ namespace ServerLega.Dominio
             set
             {
                 if (value == null || value.Length == 0)
-                    throw new ArgumentException("Nome squadra acquirente nullo");
+                    throw new ArgumentException("Nome Squadra acquirente nullo");
                 if (value != _nomeSquadra)
                 {
                     _nomeSquadra = value;

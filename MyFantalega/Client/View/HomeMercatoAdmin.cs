@@ -75,16 +75,11 @@ namespace Client.View
 
         }
         
-        private void button4_Click(object sender, EventArgs e)
+        private void buttonGestioneMercato_Click(object sender, EventArgs e)
         {
-            new GestioneMercato(mercato).Show();
+            this.Hide();
+            new GestioneMercato(lega, squadra).Show();
         }
-
-        private void HomeMercatoAdmin_Load(object sender, EventArgs e)
-        {
-            
-        }
-
 
 
         private void buttonIndietro_Click(object sender, EventArgs e)
@@ -103,6 +98,11 @@ namespace Client.View
         {
             this.Hide();
             new PartecipaAsta(lega, squadra).Show();
+        }
+
+        private void HomeMercatoAdmin_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

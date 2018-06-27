@@ -41,40 +41,36 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(43, 64);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(57, 79);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(162, 18);
+            this.label1.Size = new System.Drawing.Size(200, 24);
             this.label1.TabIndex = 25;
             this.label1.Text = "Scegli un Giocatore:";
             // 
             // textBoxOfferta
             // 
-            this.textBoxOfferta.Location = new System.Drawing.Point(397, 125);
-            this.textBoxOfferta.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxOfferta.Location = new System.Drawing.Point(659, 115);
             this.textBoxOfferta.MaxLength = 6;
             this.textBoxOfferta.Name = "textBoxOfferta";
-            this.textBoxOfferta.Size = new System.Drawing.Size(49, 20);
+            this.textBoxOfferta.Size = new System.Drawing.Size(64, 22);
             this.textBoxOfferta.TabIndex = 2;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(394, 95);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Location = new System.Drawing.Point(525, 116);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(100, 17);
+            this.label4.Size = new System.Drawing.Size(118, 20);
             this.label4.TabIndex = 30;
             this.label4.Text = "La tua Offerta:";
             // 
             // buttonOffri
             // 
-            this.buttonOffri.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonOffri.Location = new System.Drawing.Point(397, 171);
-            this.buttonOffri.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonOffri.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonOffri.Location = new System.Drawing.Point(529, 167);
             this.buttonOffri.Name = "buttonOffri";
-            this.buttonOffri.Size = new System.Drawing.Size(86, 28);
+            this.buttonOffri.Size = new System.Drawing.Size(194, 41);
             this.buttonOffri.TabIndex = 3;
             this.buttonOffri.Text = "Offri";
             this.buttonOffri.UseVisualStyleBackColor = true;
@@ -82,10 +78,9 @@
             // 
             // buttonIndietro
             // 
-            this.buttonIndietro.Location = new System.Drawing.Point(41, 17);
-            this.buttonIndietro.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonIndietro.Location = new System.Drawing.Point(55, 21);
             this.buttonIndietro.Name = "buttonIndietro";
-            this.buttonIndietro.Size = new System.Drawing.Size(56, 19);
+            this.buttonIndietro.Size = new System.Drawing.Size(75, 23);
             this.buttonIndietro.TabIndex = 33;
             this.buttonIndietro.Text = "Indietro";
             this.buttonIndietro.UseVisualStyleBackColor = true;
@@ -97,10 +92,9 @@
             this.label3.Font = new System.Drawing.Font("Lucida Bright", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.Highlight;
             this.label3.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.label3.Location = new System.Drawing.Point(250, 17);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(334, 21);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(143, 32);
+            this.label3.Size = new System.Drawing.Size(172, 37);
             this.label3.TabIndex = 36;
             this.label3.Text = "Crea Asta";
             this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -110,10 +104,9 @@
             this.comboBoxSvincolati.DisplayMember = "NomeLega";
             this.comboBoxSvincolati.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxSvincolati.FormattingEnabled = true;
-            this.comboBoxSvincolati.Location = new System.Drawing.Point(41, 90);
-            this.comboBoxSvincolati.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBoxSvincolati.Location = new System.Drawing.Point(55, 111);
             this.comboBoxSvincolati.Name = "comboBoxSvincolati";
-            this.comboBoxSvincolati.Size = new System.Drawing.Size(274, 23);
+            this.comboBoxSvincolati.Size = new System.Drawing.Size(364, 26);
             this.comboBoxSvincolati.TabIndex = 42;
             this.comboBoxSvincolati.Tag = "";
             this.comboBoxSvincolati.Text = "Lista Svincolati";
@@ -121,10 +114,10 @@
             // 
             // CreaAsta
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(600, 366);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.comboBoxSvincolati);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.buttonIndietro);
@@ -132,7 +125,6 @@
             this.Controls.Add(this.textBoxOfferta);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "CreaAsta";
             this.Text = "MyFantalega";
             this.ResumeLayout(false);

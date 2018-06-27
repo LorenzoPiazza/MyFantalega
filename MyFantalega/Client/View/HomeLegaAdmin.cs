@@ -111,7 +111,7 @@ namespace Client.View
         private void gestioneLegaButton_Click(object sender, EventArgs e)
         {
             this.Hide();
-            new GestioneLega(lega).Show() ;
+            new GestioneLega(lega).Show();
         }
 
         private void buttonIndietro_Click(object sender, EventArgs e)
@@ -119,6 +119,11 @@ namespace Client.View
             this.Hide();
             new WelcomeHome(lega.SquadraAdmin.Utente).Show();
 
+        }
+
+        private void HomeLegaAdmin_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
 
         private void button3_Click(object sender, EventArgs e)

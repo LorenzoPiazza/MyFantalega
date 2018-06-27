@@ -43,11 +43,6 @@ namespace Client.View
                 CreaButton.Enabled = false;
         }
 
-        private void NPartTrackBar_Scroll(object sender, EventArgs e)
-        {
-
-        }
-
         private void CreaButton_Click(object sender, EventArgs e)
         {
             //sul numero di partecipanti non viene fatto nessun controllo perche la track bar lascia inserire solo valori dal 4 al 12
@@ -66,17 +61,16 @@ namespace Client.View
         }
 
         private void indietroButton_Click(object sender, EventArgs e)
-        {/*
-            this.Close();
+        {
+            this.Hide();
             WelcomeHome welcomeHome = new WelcomeHome(_utenteNav);
             welcomeHome.BringToFront();
             welcomeHome.Show();
-            */
         }
 
-        private void label4_Click(object sender, EventArgs e)
+        private void CreazioneLega_FormClosed(object sender, FormClosedEventArgs e)
         {
-
+            Application.Exit();
         }
 
     }

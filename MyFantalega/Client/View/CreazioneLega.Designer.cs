@@ -89,7 +89,6 @@
             this.NPartTrackBar.Size = new System.Drawing.Size(449, 56);
             this.NPartTrackBar.TabIndex = 3;
             this.NPartTrackBar.Value = 4;
-            this.NPartTrackBar.Scroll += new System.EventHandler(this.NPartTrackBar_Scroll);
             // 
             // indietroButton
             // 
@@ -142,7 +141,6 @@
             this.label4.Size = new System.Drawing.Size(193, 20);
             this.label4.TabIndex = 38;
             this.label4.Text = "Nome della tua Squadra:";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label5
             // 

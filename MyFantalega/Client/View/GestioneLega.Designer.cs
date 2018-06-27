@@ -210,7 +210,7 @@
             // 
             // buttonConferma
             // 
-            this.buttonConferma.Location = new System.Drawing.Point(200, 306);
+            this.buttonConferma.Location = new System.Drawing.Point(200, 316);
             this.buttonConferma.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonConferma.Name = "buttonConferma";
             this.buttonConferma.Size = new System.Drawing.Size(109, 37);
