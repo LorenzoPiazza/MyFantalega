@@ -1034,6 +1034,13 @@ namespace Client.ServerLega {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Abbandona", ReplyAction="*")]
         System.Threading.Tasks.Task<Client.ServerLega.AbbandonaResponse> AbbandonaAsync(Client.ServerLega.AbbandonaRequest request);
+        
+        // CODEGEN: Generazione di un contratto di messaggio perché il nome di elemento username dallo spazio dei nomi http://tempuri.org/ non è contrassegnato come nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/InsertUtente", ReplyAction="*")]
+        Client.ServerLega.InsertUtenteResponse InsertUtente(Client.ServerLega.InsertUtenteRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/InsertUtente", ReplyAction="*")]
+        System.Threading.Tasks.Task<Client.ServerLega.InsertUtenteResponse> InsertUtenteAsync(Client.ServerLega.InsertUtenteRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -2436,6 +2443,78 @@ namespace Client.ServerLega {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class InsertUtenteRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="InsertUtente", Namespace="http://tempuri.org/", Order=0)]
+        public Client.ServerLega.InsertUtenteRequestBody Body;
+        
+        public InsertUtenteRequest() {
+        }
+        
+        public InsertUtenteRequest(Client.ServerLega.InsertUtenteRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class InsertUtenteRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string username;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
+        public string email;
+        
+        public InsertUtenteRequestBody() {
+        }
+        
+        public InsertUtenteRequestBody(string username, string email) {
+            this.username = username;
+            this.email = email;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class InsertUtenteResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="InsertUtenteResponse", Namespace="http://tempuri.org/", Order=0)]
+        public Client.ServerLega.InsertUtenteResponseBody Body;
+        
+        public InsertUtenteResponse() {
+        }
+        
+        public InsertUtenteResponse(Client.ServerLega.InsertUtenteResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class InsertUtenteResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public bool InsertUtenteResult;
+        
+        public InsertUtenteResponseBody() {
+        }
+        
+        public InsertUtenteResponseBody(bool InsertUtenteResult) {
+            this.InsertUtenteResult = InsertUtenteResult;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface ServerLegaSoapChannel : Client.ServerLega.ServerLegaSoap, System.ServiceModel.IClientChannel {
     }
@@ -2990,6 +3069,33 @@ namespace Client.ServerLega {
             inValue.Body = new Client.ServerLega.AbbandonaRequestBody();
             inValue.Body.squadra = squadra;
             return ((Client.ServerLega.ServerLegaSoap)(this)).AbbandonaAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Client.ServerLega.InsertUtenteResponse Client.ServerLega.ServerLegaSoap.InsertUtente(Client.ServerLega.InsertUtenteRequest request) {
+            return base.Channel.InsertUtente(request);
+        }
+        
+        public bool InsertUtente(string username, string email) {
+            Client.ServerLega.InsertUtenteRequest inValue = new Client.ServerLega.InsertUtenteRequest();
+            inValue.Body = new Client.ServerLega.InsertUtenteRequestBody();
+            inValue.Body.username = username;
+            inValue.Body.email = email;
+            Client.ServerLega.InsertUtenteResponse retVal = ((Client.ServerLega.ServerLegaSoap)(this)).InsertUtente(inValue);
+            return retVal.Body.InsertUtenteResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<Client.ServerLega.InsertUtenteResponse> Client.ServerLega.ServerLegaSoap.InsertUtenteAsync(Client.ServerLega.InsertUtenteRequest request) {
+            return base.Channel.InsertUtenteAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<Client.ServerLega.InsertUtenteResponse> InsertUtenteAsync(string username, string email) {
+            Client.ServerLega.InsertUtenteRequest inValue = new Client.ServerLega.InsertUtenteRequest();
+            inValue.Body = new Client.ServerLega.InsertUtenteRequestBody();
+            inValue.Body.username = username;
+            inValue.Body.email = email;
+            return ((Client.ServerLega.ServerLegaSoap)(this)).InsertUtenteAsync(inValue);
         }
     }
 }

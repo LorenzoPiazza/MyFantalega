@@ -76,8 +76,9 @@ namespace Client.View
             // 
             this.textBoxBenvenuto.BackColor = System.Drawing.SystemColors.Window;
             this.textBoxBenvenuto.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxBenvenuto.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxBenvenuto.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.textBoxBenvenuto.Location = new System.Drawing.Point(552, 40);
+            this.textBoxBenvenuto.Location = new System.Drawing.Point(552, 34);
             this.textBoxBenvenuto.Name = "textBoxBenvenuto";
             this.textBoxBenvenuto.ReadOnly = true;
             this.textBoxBenvenuto.Size = new System.Drawing.Size(213, 15);
@@ -121,7 +122,7 @@ namespace Client.View
             // comboBoxLeghe
             // 
             this.comboBoxLeghe.DisplayMember = "NomeLega";
-            this.comboBoxLeghe.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxLeghe.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxLeghe.FormattingEnabled = true;
             this.comboBoxLeghe.Location = new System.Drawing.Point(0, 46);
             this.comboBoxLeghe.Name = "comboBoxLeghe";

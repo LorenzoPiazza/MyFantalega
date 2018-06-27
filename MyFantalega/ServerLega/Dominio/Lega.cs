@@ -26,7 +26,7 @@ namespace ServerLega.Dominio
         {
             if (nomeLega == null || nomeLega.Length == 0)
             {
-                throw new ArgumentNullException("nomeLega nullo");
+                throw new ArgumentNullException("Nome Lega nullo");
             }
 
             if (numeroSquadreTotali < 4 || numeroSquadreTotali > 12)

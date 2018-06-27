@@ -48,6 +48,8 @@ namespace Client.View
             //richiesta di registrazione al ServerLogin mediante il proxy Client
             Client.ServerLogin1.RegistrazioneControllerSoapClient myRegistrazioneController = new Client.ServerLogin1.RegistrazioneControllerSoapClient();
             String emailEsito = myRegistrazioneController.RegistraUtente(textBoxUsername.Text, textBoxPassword.Text, textBoxEmail.Text.ToLower().Trim(), textBoxDomanda.Text, textBoxRisposta.Text);
+           
+
             if (emailEsito == null)
             {
                 MessageBox.Show("Username già occupato. Prova con un altro");
@@ -55,9 +57,11 @@ namespace Client.View
             else
             {
                 MessageBox.Show("Registrazione avvenuta con successo. Utente con email: " + emailEsito);
+                ServerLegaSoapClient myServerLega = new ServerLegaSoapClient();
+                myServerLega.InsertUtente(textBoxUsername.Text, emailEsito);
                 Utente utenteNav = new Utente();
                 utenteNav.Email = emailEsito;
-                this.Close();
+                this.Hide();
                 WelcomeHome welcomeHome = new WelcomeHome(utenteNav);
                 welcomeHome.BringToFront();
                 welcomeHome.Show();

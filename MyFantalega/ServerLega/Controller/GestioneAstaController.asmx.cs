@@ -187,7 +187,7 @@ namespace ServerLega.Controller
                 creditiSq =squadra.CreditiResidui - offertaFinale;
                 squadra.CreditiResidui = creditiSq;
                 //modifico nel Db la squadra di appartenenza al giocatore e il prezzo d'acquisto
-                SqlCommand updateGiocatore = new SqlCommand("UPDATE Giocatore SET nomeSquadra = '" + squadra.Nome + "' , legaSquadra ='"+squadra.Lega.NomeLega+"', prezzoAcquisto = " + giocatore.PrezzoAcquisto + " WHERE nome = '" + giocatore.Nome + "'", conn);
+                SqlCommand updateGiocatore = new SqlCommand("UPDATE Giocatore SET nomeSquadra = '" + squadra.Nome + "' , legaSquadra = '"+squadra.Lega.NomeLega+"' , prezzoAcquisto = " + giocatore.PrezzoAcquisto + " , lista = NULL WHERE nome = '" + giocatore.Nome + "'", conn);
                 updateGiocatore.ExecuteNonQuery();
                 SqlCommand updateSquadra = new SqlCommand("UPDATE Squadra SET creditiResidui = " + creditiSq + " WHERE nome = '" + squadra.Nome + "'", conn);
                 updateSquadra.ExecuteNonQuery();
