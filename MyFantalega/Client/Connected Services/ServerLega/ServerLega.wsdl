@@ -435,6 +435,21 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="InsertUtente">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertUtenteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InsertUtenteResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="AbbandonaGiocatoreSoapIn">
@@ -569,6 +584,12 @@
   <wsdl:message name="AbbandonaSoapOut">
     <wsdl:part name="parameters" element="tns:AbbandonaResponse" />
   </wsdl:message>
+  <wsdl:message name="InsertUtenteSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertUtente" />
+  </wsdl:message>
+  <wsdl:message name="InsertUtenteSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertUtenteResponse" />
+  </wsdl:message>
   <wsdl:portType name="ServerLegaSoap">
     <wsdl:operation name="AbbandonaGiocatore">
       <wsdl:input message="tns:AbbandonaGiocatoreSoapIn" />
@@ -657,6 +678,10 @@
     <wsdl:operation name="Abbandona">
       <wsdl:input message="tns:AbbandonaSoapIn" />
       <wsdl:output message="tns:AbbandonaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertUtente">
+      <wsdl:input message="tns:InsertUtenteSoapIn" />
+      <wsdl:output message="tns:InsertUtenteSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="ServerLegaSoap" type="tns:ServerLegaSoap">
@@ -859,6 +884,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="InsertUtente">
+      <soap:operation soapAction="http://tempuri.org/InsertUtente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="ServerLegaSoap12" type="tns:ServerLegaSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -1053,6 +1087,15 @@
     </wsdl:operation>
     <wsdl:operation name="Abbandona">
       <soap12:operation soapAction="http://tempuri.org/Abbandona" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertUtente">
+      <soap12:operation soapAction="http://tempuri.org/InsertUtente" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

@@ -35,6 +35,7 @@ namespace Client.View
 
             if (mieLeghe == null)
             {
+                comboBoxLeghe.Text = "Nessuna lega disponibile";
                 groupBoxLeghe.Text = "Non partecipi ancora a nessuna lega, creane una nuova!";
             }
 
@@ -44,7 +45,7 @@ namespace Client.View
                 foreach (Lega l in mieLeghe)
                 {
                     comboBoxLeghe.Items.Add(l.NomeLega);
-                    textBoxBenvenuto.Text = "Benvenuto" + l.NomeLega;
+                    comboBoxLeghe.SelectedText = l.NomeLega;
                 }
             }
         }

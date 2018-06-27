@@ -24,7 +24,7 @@ namespace Client.View
             admin = adminPass;
             utente = null;
             giocatore = null;
-            listBox1.Items.Add(squadra.Giocatori);
+            listBoxGiocatori.Items.Add(squadra.Giocatori);
             squadra = squadraPass;
             textBox1.Enabled = false;
             button1.Enabled = false;
@@ -36,7 +36,7 @@ namespace Client.View
             admin = null;
             utente = utentePass;
             giocatore = null;
-            listBox1.Items.Add(squadra.Giocatori);
+            listBoxGiocatori.Items.Add(squadra.Giocatori);
             squadra = squadraPass;
             button1.Enabled = false;
             button2.Enabled = true;
@@ -44,7 +44,7 @@ namespace Client.View
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Giocatore g = (Giocatore)listBox1.SelectedItem;
+            Giocatore g = (Giocatore)listBoxGiocatori.SelectedItem;
             giocatore = g;
             textBox1.Text = (g.PrezzoAcquisto / 2).ToString();
             button1.Enabled = true;

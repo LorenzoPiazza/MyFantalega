@@ -253,6 +253,9 @@
     <None Include="Connected Services\ServerLega\Client.ServerLega.GetLegheResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\ServerLega\Client.ServerLega.InsertUtenteResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\ServerLega\Client.ServerLega.Lega.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
