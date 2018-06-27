@@ -20,8 +20,6 @@ namespace ServerLega.Controller
     // [System.Web.Script.Services.ScriptService]
     public class GestioneAstaController : System.Web.Services.WebService, IGestioneAstaController
     {
-        //variabile per mantenere la asta attiva da passare agli altri controller
-        private Lega _lega;
 
         //li creo gia qui perche tanto ai controller non cambia se sono usate su aste diverse
         private IPartecipaAstaController _partecipaAstaController = new PartecipaAstaController();
@@ -38,28 +36,26 @@ namespace ServerLega.Controller
             Boolean att=true;
             String ruolo;
             Turno turno = new Turno();
-
-            _lega = lega;
-            Mercato mercatoAttivo = _lega.MercatoAttivo;
-            List<Squadra> squadre = _lega.Squadre;
+            Mercato mercatoAttivo = lega.MercatoAttivo;
+            List<Squadra> squadre = lega.Squadre;
             if (mercatoAttivo.AstaAttiva == null)
             {
                 //foreach (Squadra s in _lega.Squadre)
                 //per la presentazione sarà sempre la squadra admin a chiamare il giocatore
                 {
-                    if (!squadra.VerificaReparto("POR",_lega))
+                    if (!squadra.VerificaReparto("POR",lega))
                     {
                         por = false;
                     }
-                    if (!squadra.VerificaReparto("DIF",_lega))
+                    if (!squadra.VerificaReparto("DIF",lega))
                     {
                         dif = false;
                     }
-                    if (!squadra.VerificaReparto("CEN",_lega))
+                    if (!squadra.VerificaReparto("CEN",lega))
                     {
                         cen = false;
                     }
-                    if (!squadra.VerificaReparto("ATT",_lega))
+                    if (!squadra.VerificaReparto("ATT",lega))
                     {
                         att = false;
                     }
@@ -87,15 +83,15 @@ namespace ServerLega.Controller
             }
             else
             {
-                ruolo=mercatoAttivo.AstaAttiva.Giocatore.Ruolo;
-                if (squadra.VerificaReparto(ruolo,_lega))
+                ruolo = lega.MercatoAttivo.AstaAttiva.Giocatore.Ruolo;
+                if (squadra.VerificaReparto(ruolo, lega))
                 {
                     ruolo = "ALTRI";
-                    foreach (Squadra s in mercatoAttivo.AstaAttiva.Squadre)
+                    foreach (Squadra s in lega.MercatoAttivo.AstaAttiva.Squadre)
                     {
                         if (!s.Equals(squadra))
                         {
-                            while (_lega.MercatoAttivo.AstaAttiva==null)
+                            while (lega.MercatoAttivo.AstaAttiva == null)
                             {
                                 int result;
                                 Random r = new Random();
@@ -103,7 +99,7 @@ namespace ServerLega.Controller
                                 if (result == 0)
                                 {
                                     Lega l;
-                                    l = Abbandona(s);
+                                    l = Abbandona(s, lega);
                                     if (l.Equals(null))
                                     {
                                         return null;
@@ -112,7 +108,7 @@ namespace ServerLega.Controller
                                 else
                                 {
                                     Lega l;
-                                    l = Rialza(s);
+                                    l = Rialza(s, lega);
                                     if (l.Equals(null))
                                     {
                                         return null;
@@ -122,38 +118,9 @@ namespace ServerLega.Controller
                         }
                     }
                 }
-                else
-                {
-                    foreach (Squadra s in mercatoAttivo.AstaAttiva.Squadre)
-                    {
-                        if (!s.Equals(squadra))
-                        {
-                            int result;
-                            Random r = new Random();
-                            result = r.Next(0, 1);
-                            if (result == 0)
-                            {
-                                Lega l;
-                                l = Abbandona(s);
-                                if (l.Equals(null))
-                                {
-                                    return null;
-                                }
-                            }
-                            else
-                            {
-                                Lega l;
-                                l = Rialza(s);
-                                if (l.Equals(null))
-                                {
-                                    return null;
-                                }
-                            }
-                        }
-                    }
-                }
                 return AssegnaTurnoAsta(turno, ruolo);
             }
+                
         }
 
         [WebMethod]
@@ -162,13 +129,43 @@ namespace ServerLega.Controller
             Asta asta = new Asta(1, lega.Squadre, giocatore);
             lega.MercatoAttivo.AstaAttiva = asta;
             ICreazioneAstaController myCreaAsta = new CreazioneAstaController();
+
             myCreaAsta.ChiamaGiocatore(giocatore, asta);
             myCreaAsta.OffriCrediti(offerta, asta, squadra);
+            foreach (Squadra s in lega.MercatoAttivo.AstaAttiva.Squadre)
+            {
+                if (!s.Equals(squadra))
+                {
+                    int num;
+                    Random r = new Random();
+                    num = r.Next(0, 1);
+                    if (num == 0)
+                    {
+                        Lega l;
+                        l = Abbandona(s, lega);
+                        if (l.Equals(null))
+                        {
+                            lega.MercatoAttivo.AstaAttiva = null;
+                            return lega;
+                        }
+                    }
+                    else
+                    {
+                        Lega l;
+                        l = Rialza(s, lega);
+                        if (l.Equals(null))
+                        {
+                            lega.MercatoAttivo.AstaAttiva = null;
+                            return lega;
+                        }
+                    }
+                }
+            }
             return lega;
         }
 
         [WebMethod]
-        private Boolean AssegnaGiocatore(Giocatore giocatore, Squadra squadra,int offertaFinale)
+        private Lega AssegnaGiocatore(Giocatore giocatore, Squadra squadra,int offertaFinale,Lega lega)
         {
             int creditiSq;
             SqlConnection conn = null;
@@ -182,13 +179,13 @@ namespace ServerLega.Controller
                 //ALAN
                 //conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Alan\Documents\universita\terzo anno\secondo semestre\progetto\MyFantalega\ServerLega\App_Data\DBMyFantalega.mdf;Integrated Security=True");
                 conn.Open();
-                _lega.ListaSvincolati.RimuoviGiocatore(giocatore);
+                lega.ListaSvincolati.RimuoviGiocatore(giocatore);
                 giocatore.NomeSquadra = squadra.Nome;
                 giocatore.PrezzoAcquisto = offertaFinale;
                 creditiSq =squadra.CreditiResidui - offertaFinale;
                 squadra.CreditiResidui = creditiSq;
                 //modifico nel Db la squadra di appartenenza al giocatore e il prezzo d'acquisto
-                SqlCommand updateGiocatore = new SqlCommand("UPDATE Giocatore SET nomeSquadra = '" + squadra.Nome + "' , legaSquadra = '"+_lega.NomeLega+"' , prezzoAcquisto = " + giocatore.PrezzoAcquisto + " , lista = NULL WHERE nome = '" + giocatore.Nome + "'", conn);
+                SqlCommand updateGiocatore = new SqlCommand("UPDATE Giocatore SET nomeSquadra = '" + squadra.Nome + "' , legaSquadra = '"+lega.NomeLega+"' , prezzoAcquisto = " + giocatore.PrezzoAcquisto + " , lista = NULL WHERE nome = '" + giocatore.Nome + "'", conn);
                 updateGiocatore.ExecuteNonQuery();
                 SqlCommand updateSquadra = new SqlCommand("UPDATE Squadra SET creditiResidui = " + creditiSq + " WHERE nome = '" + squadra.Nome + "'", conn);
                 updateSquadra.ExecuteNonQuery();
@@ -198,13 +195,14 @@ namespace ServerLega.Controller
             {
                 Console.WriteLine(e.Message);
                 Console.WriteLine(e.ToString());
-                return false;
+                lega.MercatoAttivo.AstaAttiva = null;
+                return lega;
             }
             finally
             {
                 conn.Close();
             }
-            return true;
+            return lega;
         }
 
         [WebMethod]
@@ -224,52 +222,132 @@ namespace ServerLega.Controller
         }
 
         [WebMethod]
-        public Lega Offri(int offerta,Squadra squadra)
+        public Lega Offri(int offerta,Squadra squadra,Lega lega)
         {
-            Boolean result;
+            Lega result;
             IPartecipaAstaController myPartecipaAsta = new PartecipaAstaController();
-            result=myPartecipaAsta.OffriCrediti(offerta, _lega.MercatoAttivo.AstaAttiva, squadra);
-            if (result)
+            myPartecipaAsta.OffriCrediti(offerta, lega.MercatoAttivo.AstaAttiva, squadra);
+            result = AzioniMock(lega, squadra);
+            if (result != null)
             {
-                return _lega;
+                return result;
             }
             else
             {
-                return null;
+                result.MercatoAttivo.AstaAttiva = null;
+                return result;
             }
         }
 
         [WebMethod]
-        public Lega Rialza(Squadra squadra)
+        public Lega Rialza(Squadra squadra,Lega lega)
         {
-            Boolean result;
+            Lega result;
             IPartecipaAstaController myPartecipaAsta = new PartecipaAstaController();
-            result = myPartecipaAsta.RialzaOfferta(_lega.MercatoAttivo.AstaAttiva, squadra);
-            if (result)
+            myPartecipaAsta.RialzaOfferta(lega.MercatoAttivo.AstaAttiva, squadra);
+            result = AzioniMock(lega, squadra);
+            if (result != null)
             {
-                return _lega;
+                return result;
             }
             else
             {
-                return null;
+                result.MercatoAttivo.AstaAttiva = null;
+                return result;
             }
         }
 
         [WebMethod]
-        public Lega Abbandona(Squadra squadra)
+        public Lega Abbandona(Squadra squadra,Lega lega)
         {
-            Boolean result = false;
+            Lega result;
             IPartecipaAstaController myPartecipaAsta = new PartecipaAstaController();
-            result = myPartecipaAsta.AbbandonaGiocatore(_lega.MercatoAttivo.AstaAttiva, squadra);
-            if (_lega.MercatoAttivo.AstaAttiva.isFinita())
+            myPartecipaAsta.AbbandonaGiocatore(lega.MercatoAttivo.AstaAttiva, squadra);
+            result = AzioniMock(lega, squadra);
+            if (result.MercatoAttivo.AstaAttiva.isFinita())
             {
-                result = AssegnaGiocatore(_lega.MercatoAttivo.AstaAttiva.Giocatore, _lega.MercatoAttivo.AstaAttiva.UltimoOfferente, _lega.MercatoAttivo.AstaAttiva.UltimaOfferta);
-                if(result)
-                    _lega.MercatoAttivo.AstaAttiva = null;
+                result = AssegnaGiocatore(result.MercatoAttivo.AstaAttiva.Giocatore, result.MercatoAttivo.AstaAttiva.UltimoOfferente, result.MercatoAttivo.AstaAttiva.UltimaOfferta, result);
+                if(result != null )
+                    result.MercatoAttivo.AstaAttiva = null;
             }
-            return _lega;
+            return result;
            
         }
 
+        [WebMethod]
+        private Lega AzioniMock(Lega lega,Squadra squadra)
+        {
+            String ruolo;
+            ruolo = lega.MercatoAttivo.AstaAttiva.Giocatore.Ruolo;
+            if (squadra.VerificaReparto(ruolo, lega))
+            {
+                ruolo = "ALTRI";
+                foreach (Squadra s in lega.MercatoAttivo.AstaAttiva.Squadre)
+                {
+                    if (!s.Equals(squadra))
+                    {
+                        while (lega.MercatoAttivo.AstaAttiva == null)
+                        {
+                            int result;
+                            Random r = new Random();
+                            result = r.Next(0, 1);
+                            if (result == 0)
+                            {
+                                Lega l;
+                                l = Abbandona(s, lega);
+                                if (l.Equals(null))
+                                {
+                                    lega.MercatoAttivo.AstaAttiva = null;
+                                    return lega;
+                                }
+                            }
+                            else
+                            {
+                                Lega l;
+                                l = Rialza(s, lega);
+                                if (l.Equals(null))
+                                {
+                                    lega.MercatoAttivo.AstaAttiva = null;
+                                    return lega;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            else
+            {
+                foreach (Squadra s in lega.MercatoAttivo.AstaAttiva.Squadre)
+                {
+                    if (!s.Equals(squadra))
+                    {
+                        int result;
+                        Random r = new Random();
+                        result = r.Next(0, 1);
+                        if (result == 0)
+                        {
+                            Lega l;
+                            l = Abbandona(s, lega);
+                            if (l.Equals(null))
+                            {
+                                lega.MercatoAttivo.AstaAttiva = null;
+                                return lega;
+                            }
+                        }
+                        else
+                        {
+                            Lega l;
+                            l = Rialza(s, lega);
+                            if (l.Equals(null))
+                            {
+                                lega.MercatoAttivo.AstaAttiva = null;
+                                return lega;
+                            }
+                        }
+                    }
+                }
+            }
+            return lega;
+        }
     }
 }

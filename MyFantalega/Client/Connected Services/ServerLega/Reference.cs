@@ -1856,12 +1856,16 @@ namespace Client.ServerLega {
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
         public Client.ServerLega.Squadra squadra;
         
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
+        public Client.ServerLega.Lega lega;
+        
         public OffriRequestBody() {
         }
         
-        public OffriRequestBody(int offerta, Client.ServerLega.Squadra squadra) {
+        public OffriRequestBody(int offerta, Client.ServerLega.Squadra squadra, Client.ServerLega.Lega lega) {
             this.offerta = offerta;
             this.squadra = squadra;
+            this.lega = lega;
         }
     }
     
@@ -1925,11 +1929,15 @@ namespace Client.ServerLega {
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
         public Client.ServerLega.Squadra squadra;
         
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
+        public Client.ServerLega.Lega lega;
+        
         public RialzaRequestBody() {
         }
         
-        public RialzaRequestBody(Client.ServerLega.Squadra squadra) {
+        public RialzaRequestBody(Client.ServerLega.Squadra squadra, Client.ServerLega.Lega lega) {
             this.squadra = squadra;
+            this.lega = lega;
         }
     }
     
@@ -1993,11 +2001,15 @@ namespace Client.ServerLega {
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
         public Client.ServerLega.Squadra squadra;
         
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
+        public Client.ServerLega.Lega lega;
+        
         public AbbandonaRequestBody() {
         }
         
-        public AbbandonaRequestBody(Client.ServerLega.Squadra squadra) {
+        public AbbandonaRequestBody(Client.ServerLega.Squadra squadra, Client.ServerLega.Lega lega) {
             this.squadra = squadra;
+            this.lega = lega;
         }
     }
     
@@ -2458,11 +2470,12 @@ namespace Client.ServerLega {
             return base.Channel.Offri(request);
         }
         
-        public Client.ServerLega.Lega Offri(int offerta, Client.ServerLega.Squadra squadra) {
+        public Client.ServerLega.Lega Offri(int offerta, Client.ServerLega.Squadra squadra, Client.ServerLega.Lega lega) {
             Client.ServerLega.OffriRequest inValue = new Client.ServerLega.OffriRequest();
             inValue.Body = new Client.ServerLega.OffriRequestBody();
             inValue.Body.offerta = offerta;
             inValue.Body.squadra = squadra;
+            inValue.Body.lega = lega;
             Client.ServerLega.OffriResponse retVal = ((Client.ServerLega.ServerLegaSoap)(this)).Offri(inValue);
             return retVal.Body.OffriResult;
         }
@@ -2472,11 +2485,12 @@ namespace Client.ServerLega {
             return base.Channel.OffriAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Client.ServerLega.OffriResponse> OffriAsync(int offerta, Client.ServerLega.Squadra squadra) {
+        public System.Threading.Tasks.Task<Client.ServerLega.OffriResponse> OffriAsync(int offerta, Client.ServerLega.Squadra squadra, Client.ServerLega.Lega lega) {
             Client.ServerLega.OffriRequest inValue = new Client.ServerLega.OffriRequest();
             inValue.Body = new Client.ServerLega.OffriRequestBody();
             inValue.Body.offerta = offerta;
             inValue.Body.squadra = squadra;
+            inValue.Body.lega = lega;
             return ((Client.ServerLega.ServerLegaSoap)(this)).OffriAsync(inValue);
         }
         
@@ -2485,10 +2499,11 @@ namespace Client.ServerLega {
             return base.Channel.Rialza(request);
         }
         
-        public Client.ServerLega.Lega Rialza(Client.ServerLega.Squadra squadra) {
+        public Client.ServerLega.Lega Rialza(Client.ServerLega.Squadra squadra, Client.ServerLega.Lega lega) {
             Client.ServerLega.RialzaRequest inValue = new Client.ServerLega.RialzaRequest();
             inValue.Body = new Client.ServerLega.RialzaRequestBody();
             inValue.Body.squadra = squadra;
+            inValue.Body.lega = lega;
             Client.ServerLega.RialzaResponse retVal = ((Client.ServerLega.ServerLegaSoap)(this)).Rialza(inValue);
             return retVal.Body.RialzaResult;
         }
@@ -2498,10 +2513,11 @@ namespace Client.ServerLega {
             return base.Channel.RialzaAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Client.ServerLega.RialzaResponse> RialzaAsync(Client.ServerLega.Squadra squadra) {
+        public System.Threading.Tasks.Task<Client.ServerLega.RialzaResponse> RialzaAsync(Client.ServerLega.Squadra squadra, Client.ServerLega.Lega lega) {
             Client.ServerLega.RialzaRequest inValue = new Client.ServerLega.RialzaRequest();
             inValue.Body = new Client.ServerLega.RialzaRequestBody();
             inValue.Body.squadra = squadra;
+            inValue.Body.lega = lega;
             return ((Client.ServerLega.ServerLegaSoap)(this)).RialzaAsync(inValue);
         }
         
@@ -2510,10 +2526,11 @@ namespace Client.ServerLega {
             return base.Channel.Abbandona(request);
         }
         
-        public Client.ServerLega.Lega Abbandona(Client.ServerLega.Squadra squadra) {
+        public Client.ServerLega.Lega Abbandona(Client.ServerLega.Squadra squadra, Client.ServerLega.Lega lega) {
             Client.ServerLega.AbbandonaRequest inValue = new Client.ServerLega.AbbandonaRequest();
             inValue.Body = new Client.ServerLega.AbbandonaRequestBody();
             inValue.Body.squadra = squadra;
+            inValue.Body.lega = lega;
             Client.ServerLega.AbbandonaResponse retVal = ((Client.ServerLega.ServerLegaSoap)(this)).Abbandona(inValue);
             return retVal.Body.AbbandonaResult;
         }
@@ -2523,10 +2540,11 @@ namespace Client.ServerLega {
             return base.Channel.AbbandonaAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Client.ServerLega.AbbandonaResponse> AbbandonaAsync(Client.ServerLega.Squadra squadra) {
+        public System.Threading.Tasks.Task<Client.ServerLega.AbbandonaResponse> AbbandonaAsync(Client.ServerLega.Squadra squadra, Client.ServerLega.Lega lega) {
             Client.ServerLega.AbbandonaRequest inValue = new Client.ServerLega.AbbandonaRequest();
             inValue.Body = new Client.ServerLega.AbbandonaRequestBody();
             inValue.Body.squadra = squadra;
+            inValue.Body.lega = lega;
             return ((Client.ServerLega.ServerLegaSoap)(this)).AbbandonaAsync(inValue);
         }
         

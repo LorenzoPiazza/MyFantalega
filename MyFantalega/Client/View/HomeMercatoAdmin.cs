@@ -47,7 +47,10 @@ namespace Client.View
             ServerLegaSoapClient myGestioneAdminController = new ServerLegaSoapClient();
             Turno result = new Turno();
             result = myGestioneAdminController.GestisciAsta(lega, squadra);
-
+            if(result==null)
+            {
+                MessageBox.Show("Errore durante la gestione dell'asta.");
+            }
             if (result.Ruolo == "FINITO")
             {
                 MessageBox.Show("Il mercato è stato completato.");

@@ -10,9 +10,9 @@ namespace ServerLega.InterfacceController
     interface IGestioneAstaController
     {
         Turno GestisciAsta(Lega lega,Squadra squadra);
-        Lega Offri(int offerta,Squadra squadra);
-        Lega Rialza(Squadra squadra);
-        Lega Abbandona(Squadra squadra);
+        Lega Offri(int offerta,Squadra squadra,Lega lega);
+        Lega Rialza(Squadra squadra,Lega lega);
+        Lega Abbandona(Squadra squadra,Lega lega);
         Lega CreaAsta(Giocatore giocatore, int offerta,Squadra squadra, Lega lega);
         
     }

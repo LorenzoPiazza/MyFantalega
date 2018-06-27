@@ -63,7 +63,7 @@ namespace Client.View
             if ((ValidaOfferta(offertaNum, selezionato)))
             {
                 ServerLega.ServerLegaSoapClient myGestioneAsta = new ServerLegaSoapClient();
-                Lega legaPass = myGestioneAsta.Offri(offertaNum, squadra);
+                Lega legaPass = myGestioneAsta.Offri(offertaNum, squadra,lega);
                 lega = legaPass;
                 this.Hide();
                 new HomeMercatoAdmin(lega, squadra).Show();
@@ -91,7 +91,7 @@ namespace Client.View
         private void button2_Click(object sender, EventArgs e)
         {
             ServerLega.ServerLegaSoapClient myGestioneAsta = new ServerLegaSoapClient();
-            Lega legaPass = myGestioneAsta.Rialza(squadra);
+            Lega legaPass = myGestioneAsta.Rialza(squadra,lega);
             lega = legaPass;
             this.Hide();
             new HomeMercatoAdmin(lega, squadra).Show();
@@ -100,7 +100,7 @@ namespace Client.View
         private void button3_Click(object sender, EventArgs e)
         {
             ServerLega.ServerLegaSoapClient myGestioneAsta = new ServerLegaSoapClient();
-            Lega legaPass = myGestioneAsta.Abbandona(squadra);
+            Lega legaPass = myGestioneAsta.Abbandona(squadra,lega);
             lega = legaPass;
             this.Hide();
             new HomeMercatoAdmin(lega, squadra).Show();

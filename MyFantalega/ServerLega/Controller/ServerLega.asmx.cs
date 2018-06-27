@@ -112,24 +112,24 @@ namespace ServerLega.Controller
         }
 
         [WebMethod]
-        public Lega Offri(int offerta, Squadra squadra)
+        public Lega Offri(int offerta, Squadra squadra,Lega lega)
         {
             IGestioneAstaController gestioneAstaController = new GestioneAstaController();
-            return gestioneAstaController.Offri(offerta,squadra);
+            return gestioneAstaController.Offri(offerta,squadra,lega);
         }
 
         [WebMethod]
-        public Lega Rialza(Squadra squadra)
+        public Lega Rialza(Squadra squadra,Lega lega)
         {
             IGestioneAstaController gestioneAstaController = new GestioneAstaController();
-            return gestioneAstaController.Rialza(squadra);
+            return gestioneAstaController.Rialza(squadra,lega);
         }
 
         [WebMethod]
-        public Lega Abbandona(Squadra squadra)
+        public Lega Abbandona(Squadra squadra,Lega lega)
         {
             IGestioneAstaController gestioneAstaController = new GestioneAstaController();
-            return gestioneAstaController.Abbandona(squadra);
+            return gestioneAstaController.Abbandona(squadra,lega);
         }
 
         [WebMethod]
