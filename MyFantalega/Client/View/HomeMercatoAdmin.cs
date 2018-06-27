@@ -20,17 +20,17 @@ namespace Client.View
         public HomeMercatoAdmin(Lega legaPass, Squadra squadra)
         {
             InitializeComponent();
-            lega = legaPass;
+            this.lega = legaPass;
             this.squadra = squadra;
-            mercato = lega.MercatoAttivo;
-            textBoxCrediti.Text = ""+squadra.CreditResidui;
+            this.mercato = lega.MercatoAttivo;
+            textBoxCrediti.Text = ""+squadra.CreditiResidui;
             buttonCrea.Enabled = false;
             buttonPartecipa.Enabled = false;
             if(squadra.Giocatori.Count != 0)
             {
                 foreach (Giocatore g in squadra.Giocatori)
                 {
-                    listBoxAcquisti.Items.Add(g.Nome + "\t\t\t\t\t\tACQUISTATO A:" + g.PrezzoAcquisto);
+                    listBoxAcquisti.Items.Add(g.Nome + "\t\tACQUISTATO A:" + g.PrezzoAcquisto);
                 }
             }
           
@@ -43,7 +43,12 @@ namespace Client.View
             ServerLegaSoapClient myGestioneAdminController = new ServerLegaSoapClient();
             Turno result = new Turno();
             result = myGestioneAdminController.GestisciAsta(lega, squadra);
-            
+
+            if (result.Ruolo == "FINITO")
+            {
+                MessageBox.Show("Il mercato è stato completato.");
+                new HomeLegaAdmin(squadra.Lega).Show();
+            }
 
             if(result.Tipo == true)
             {

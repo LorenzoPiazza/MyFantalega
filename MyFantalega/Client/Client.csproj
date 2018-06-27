@@ -214,15 +214,6 @@
     <None Include="Connected Services\ServerLega\Client.ServerLega.AbbandonaResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\ServerLega\Client.ServerLega.AssegnaGiocatoreResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\ServerLega\Client.ServerLega.AssegnaTurnoAstaResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\ServerLega\Client.ServerLega.AssegnaTurnoChiamataResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="Connected Services\ServerLega\Client.ServerLega.Asta.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

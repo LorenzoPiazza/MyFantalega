@@ -9,9 +9,6 @@ namespace ServerLega.InterfacceController
 {
     interface IGestioneAstaController
     {
-        Boolean AssegnaGiocatore(Giocatore giocatore,Squadra squadra,int offerta);
-        Turno AssegnaTurnoAsta(Turno turno, String ruolo);
-        Turno AssegnaTurnoChiamata(Turno turno,String ruolo);
         Turno GestisciAsta(Lega lega,Squadra squadra);
         Asta Offri(int offerta,Squadra squadra);
         Asta Rialza(Squadra squadra);

@@ -10,7 +10,7 @@ namespace ServerLega.Dominio
     public class Squadra
     {
         private String _nome;
-        private int _creditResidui;
+        private int _creditiResidui;
         private int _numeroPor;
         private int _numeroDif;
         private int _numeroCen;
@@ -22,7 +22,7 @@ namespace ServerLega.Dominio
         public Squadra(string nome, Lega lega, Utente utente)
         {
             //valori di default
-            _creditResidui = lega.CreditiInizialiSquadra;
+            _creditiResidui = lega.CreditiInizialiSquadra;
             _numeroPor = 0;
             _numeroDif = 0;
             _numeroCen = 0;
@@ -37,7 +37,7 @@ namespace ServerLega.Dominio
         public Squadra()
         {
             //valori di default
-            _creditResidui = 500;
+            _creditiResidui = 500;
             _numeroPor = 0;
             _numeroDif = 0;
             _numeroCen = 0;
@@ -51,7 +51,7 @@ namespace ServerLega.Dominio
             _giocatori = new List<Giocatore>();
         }
         public string Nome { get => _nome; set => _nome = value; }
-        public int CreditResidui { get => _creditResidui; set => _creditResidui = value; }
+        public int CreditiResidui { get => _creditiResidui; set => _creditiResidui = value; }
         public int NumeroPor { get => _numeroPor; set => _numeroPor = value; }
         public int NumeroDif { get => _numeroDif; set => _numeroDif = value; }
         public int NumeroCen { get => _numeroCen; set => _numeroCen = value; }

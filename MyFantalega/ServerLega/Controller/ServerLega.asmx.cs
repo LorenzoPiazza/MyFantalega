@@ -150,28 +150,6 @@ namespace ServerLega.Controller
             return gestioneAstaController.GestisciAsta(lega, squadra);
         }
 
-        //Questo non credo sia chiamabile dal client come forse anche altri
-       [WebMethod]
-        public Boolean AssegnaGiocatore(Giocatore giocatore, Squadra squadra,int offerta)
-        {
-            IGestioneAstaController gestioneAstaController = new GestioneAstaController();
-            return gestioneAstaController.AssegnaGiocatore(giocatore, squadra,offerta);
-        }
-
-        [WebMethod]
-        public Turno AssegnaTurnoAsta(Turno turno, String ruolo)
-        {
-            IGestioneAstaController gestioneAstaController = new GestioneAstaController();
-            return gestioneAstaController.AssegnaTurnoAsta(turno,ruolo);
-        }
-
-        [WebMethod]
-        public Turno AssegnaTurnoChiamata(Turno turno, String ruolo)
-        {
-            IGestioneAstaController gestioneAstaController = new GestioneAstaController();
-            return gestioneAstaController.AssegnaTurnoChiamata(turno, ruolo);
-        }
-
         [WebMethod]
         public Asta Offri(int offerta, Squadra squadra)
         {

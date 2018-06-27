@@ -132,7 +132,7 @@ namespace Client.ServerLega {
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NomeField;
         
-        private int CreditResiduiField;
+        private int CreditiResiduiField;
         
         private int NumeroPorField;
         
@@ -175,14 +175,14 @@ namespace Client.ServerLega {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=1)]
-        public int CreditResidui {
+        public int CreditiResidui {
             get {
-                return this.CreditResiduiField;
+                return this.CreditiResiduiField;
             }
             set {
-                if ((this.CreditResiduiField.Equals(value) != true)) {
-                    this.CreditResiduiField = value;
-                    this.RaisePropertyChanged("CreditResidui");
+                if ((this.CreditiResiduiField.Equals(value) != true)) {
+                    this.CreditiResiduiField = value;
+                    this.RaisePropertyChanged("CreditiResidui");
                 }
             }
         }
@@ -1013,27 +1013,6 @@ namespace Client.ServerLega {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GestisciAsta", ReplyAction="*")]
         System.Threading.Tasks.Task<Client.ServerLega.GestisciAstaResponse> GestisciAstaAsync(Client.ServerLega.GestisciAstaRequest request);
-        
-        // CODEGEN: Generazione di un contratto di messaggio perché il nome di elemento giocatore dallo spazio dei nomi http://tempuri.org/ non è contrassegnato come nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AssegnaGiocatore", ReplyAction="*")]
-        Client.ServerLega.AssegnaGiocatoreResponse AssegnaGiocatore(Client.ServerLega.AssegnaGiocatoreRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AssegnaGiocatore", ReplyAction="*")]
-        System.Threading.Tasks.Task<Client.ServerLega.AssegnaGiocatoreResponse> AssegnaGiocatoreAsync(Client.ServerLega.AssegnaGiocatoreRequest request);
-        
-        // CODEGEN: Generazione di un contratto di messaggio perché il nome di elemento turno dallo spazio dei nomi http://tempuri.org/ non è contrassegnato come nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AssegnaTurnoAsta", ReplyAction="*")]
-        Client.ServerLega.AssegnaTurnoAstaResponse AssegnaTurnoAsta(Client.ServerLega.AssegnaTurnoAstaRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AssegnaTurnoAsta", ReplyAction="*")]
-        System.Threading.Tasks.Task<Client.ServerLega.AssegnaTurnoAstaResponse> AssegnaTurnoAstaAsync(Client.ServerLega.AssegnaTurnoAstaRequest request);
-        
-        // CODEGEN: Generazione di un contratto di messaggio perché il nome di elemento turno dallo spazio dei nomi http://tempuri.org/ non è contrassegnato come nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AssegnaTurnoChiamata", ReplyAction="*")]
-        Client.ServerLega.AssegnaTurnoChiamataResponse AssegnaTurnoChiamata(Client.ServerLega.AssegnaTurnoChiamataRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AssegnaTurnoChiamata", ReplyAction="*")]
-        System.Threading.Tasks.Task<Client.ServerLega.AssegnaTurnoChiamataResponse> AssegnaTurnoChiamataAsync(Client.ServerLega.AssegnaTurnoChiamataRequest request);
         
         // CODEGEN: Generazione di un contratto di messaggio perché il nome di elemento squadra dallo spazio dei nomi http://tempuri.org/ non è contrassegnato come nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Offri", ReplyAction="*")]
@@ -2253,226 +2232,6 @@ namespace Client.ServerLega {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class AssegnaGiocatoreRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="AssegnaGiocatore", Namespace="http://tempuri.org/", Order=0)]
-        public Client.ServerLega.AssegnaGiocatoreRequestBody Body;
-        
-        public AssegnaGiocatoreRequest() {
-        }
-        
-        public AssegnaGiocatoreRequest(Client.ServerLega.AssegnaGiocatoreRequestBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class AssegnaGiocatoreRequestBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public Client.ServerLega.Giocatore giocatore;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
-        public Client.ServerLega.Squadra squadra;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
-        public int offerta;
-        
-        public AssegnaGiocatoreRequestBody() {
-        }
-        
-        public AssegnaGiocatoreRequestBody(Client.ServerLega.Giocatore giocatore, Client.ServerLega.Squadra squadra, int offerta) {
-            this.giocatore = giocatore;
-            this.squadra = squadra;
-            this.offerta = offerta;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class AssegnaGiocatoreResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="AssegnaGiocatoreResponse", Namespace="http://tempuri.org/", Order=0)]
-        public Client.ServerLega.AssegnaGiocatoreResponseBody Body;
-        
-        public AssegnaGiocatoreResponse() {
-        }
-        
-        public AssegnaGiocatoreResponse(Client.ServerLega.AssegnaGiocatoreResponseBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class AssegnaGiocatoreResponseBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
-        public bool AssegnaGiocatoreResult;
-        
-        public AssegnaGiocatoreResponseBody() {
-        }
-        
-        public AssegnaGiocatoreResponseBody(bool AssegnaGiocatoreResult) {
-            this.AssegnaGiocatoreResult = AssegnaGiocatoreResult;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class AssegnaTurnoAstaRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="AssegnaTurnoAsta", Namespace="http://tempuri.org/", Order=0)]
-        public Client.ServerLega.AssegnaTurnoAstaRequestBody Body;
-        
-        public AssegnaTurnoAstaRequest() {
-        }
-        
-        public AssegnaTurnoAstaRequest(Client.ServerLega.AssegnaTurnoAstaRequestBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class AssegnaTurnoAstaRequestBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public Client.ServerLega.Turno turno;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
-        public string ruolo;
-        
-        public AssegnaTurnoAstaRequestBody() {
-        }
-        
-        public AssegnaTurnoAstaRequestBody(Client.ServerLega.Turno turno, string ruolo) {
-            this.turno = turno;
-            this.ruolo = ruolo;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class AssegnaTurnoAstaResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="AssegnaTurnoAstaResponse", Namespace="http://tempuri.org/", Order=0)]
-        public Client.ServerLega.AssegnaTurnoAstaResponseBody Body;
-        
-        public AssegnaTurnoAstaResponse() {
-        }
-        
-        public AssegnaTurnoAstaResponse(Client.ServerLega.AssegnaTurnoAstaResponseBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class AssegnaTurnoAstaResponseBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public Client.ServerLega.Turno AssegnaTurnoAstaResult;
-        
-        public AssegnaTurnoAstaResponseBody() {
-        }
-        
-        public AssegnaTurnoAstaResponseBody(Client.ServerLega.Turno AssegnaTurnoAstaResult) {
-            this.AssegnaTurnoAstaResult = AssegnaTurnoAstaResult;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class AssegnaTurnoChiamataRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="AssegnaTurnoChiamata", Namespace="http://tempuri.org/", Order=0)]
-        public Client.ServerLega.AssegnaTurnoChiamataRequestBody Body;
-        
-        public AssegnaTurnoChiamataRequest() {
-        }
-        
-        public AssegnaTurnoChiamataRequest(Client.ServerLega.AssegnaTurnoChiamataRequestBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class AssegnaTurnoChiamataRequestBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public Client.ServerLega.Turno turno;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
-        public string ruolo;
-        
-        public AssegnaTurnoChiamataRequestBody() {
-        }
-        
-        public AssegnaTurnoChiamataRequestBody(Client.ServerLega.Turno turno, string ruolo) {
-            this.turno = turno;
-            this.ruolo = ruolo;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class AssegnaTurnoChiamataResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="AssegnaTurnoChiamataResponse", Namespace="http://tempuri.org/", Order=0)]
-        public Client.ServerLega.AssegnaTurnoChiamataResponseBody Body;
-        
-        public AssegnaTurnoChiamataResponse() {
-        }
-        
-        public AssegnaTurnoChiamataResponse(Client.ServerLega.AssegnaTurnoChiamataResponseBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class AssegnaTurnoChiamataResponseBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public Client.ServerLega.Turno AssegnaTurnoChiamataResult;
-        
-        public AssegnaTurnoChiamataResponseBody() {
-        }
-        
-        public AssegnaTurnoChiamataResponseBody(Client.ServerLega.Turno AssegnaTurnoChiamataResult) {
-            this.AssegnaTurnoChiamataResult = AssegnaTurnoChiamataResult;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class OffriRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="Offri", Namespace="http://tempuri.org/", Order=0)]
@@ -3154,89 +2913,6 @@ namespace Client.ServerLega {
             inValue.Body.lega = lega;
             inValue.Body.squadra = squadra;
             return ((Client.ServerLega.ServerLegaSoap)(this)).GestisciAstaAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Client.ServerLega.AssegnaGiocatoreResponse Client.ServerLega.ServerLegaSoap.AssegnaGiocatore(Client.ServerLega.AssegnaGiocatoreRequest request) {
-            return base.Channel.AssegnaGiocatore(request);
-        }
-        
-        public bool AssegnaGiocatore(Client.ServerLega.Giocatore giocatore, Client.ServerLega.Squadra squadra, int offerta) {
-            Client.ServerLega.AssegnaGiocatoreRequest inValue = new Client.ServerLega.AssegnaGiocatoreRequest();
-            inValue.Body = new Client.ServerLega.AssegnaGiocatoreRequestBody();
-            inValue.Body.giocatore = giocatore;
-            inValue.Body.squadra = squadra;
-            inValue.Body.offerta = offerta;
-            Client.ServerLega.AssegnaGiocatoreResponse retVal = ((Client.ServerLega.ServerLegaSoap)(this)).AssegnaGiocatore(inValue);
-            return retVal.Body.AssegnaGiocatoreResult;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Client.ServerLega.AssegnaGiocatoreResponse> Client.ServerLega.ServerLegaSoap.AssegnaGiocatoreAsync(Client.ServerLega.AssegnaGiocatoreRequest request) {
-            return base.Channel.AssegnaGiocatoreAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<Client.ServerLega.AssegnaGiocatoreResponse> AssegnaGiocatoreAsync(Client.ServerLega.Giocatore giocatore, Client.ServerLega.Squadra squadra, int offerta) {
-            Client.ServerLega.AssegnaGiocatoreRequest inValue = new Client.ServerLega.AssegnaGiocatoreRequest();
-            inValue.Body = new Client.ServerLega.AssegnaGiocatoreRequestBody();
-            inValue.Body.giocatore = giocatore;
-            inValue.Body.squadra = squadra;
-            inValue.Body.offerta = offerta;
-            return ((Client.ServerLega.ServerLegaSoap)(this)).AssegnaGiocatoreAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Client.ServerLega.AssegnaTurnoAstaResponse Client.ServerLega.ServerLegaSoap.AssegnaTurnoAsta(Client.ServerLega.AssegnaTurnoAstaRequest request) {
-            return base.Channel.AssegnaTurnoAsta(request);
-        }
-        
-        public Client.ServerLega.Turno AssegnaTurnoAsta(Client.ServerLega.Turno turno, string ruolo) {
-            Client.ServerLega.AssegnaTurnoAstaRequest inValue = new Client.ServerLega.AssegnaTurnoAstaRequest();
-            inValue.Body = new Client.ServerLega.AssegnaTurnoAstaRequestBody();
-            inValue.Body.turno = turno;
-            inValue.Body.ruolo = ruolo;
-            Client.ServerLega.AssegnaTurnoAstaResponse retVal = ((Client.ServerLega.ServerLegaSoap)(this)).AssegnaTurnoAsta(inValue);
-            return retVal.Body.AssegnaTurnoAstaResult;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Client.ServerLega.AssegnaTurnoAstaResponse> Client.ServerLega.ServerLegaSoap.AssegnaTurnoAstaAsync(Client.ServerLega.AssegnaTurnoAstaRequest request) {
-            return base.Channel.AssegnaTurnoAstaAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<Client.ServerLega.AssegnaTurnoAstaResponse> AssegnaTurnoAstaAsync(Client.ServerLega.Turno turno, string ruolo) {
-            Client.ServerLega.AssegnaTurnoAstaRequest inValue = new Client.ServerLega.AssegnaTurnoAstaRequest();
-            inValue.Body = new Client.ServerLega.AssegnaTurnoAstaRequestBody();
-            inValue.Body.turno = turno;
-            inValue.Body.ruolo = ruolo;
-            return ((Client.ServerLega.ServerLegaSoap)(this)).AssegnaTurnoAstaAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Client.ServerLega.AssegnaTurnoChiamataResponse Client.ServerLega.ServerLegaSoap.AssegnaTurnoChiamata(Client.ServerLega.AssegnaTurnoChiamataRequest request) {
-            return base.Channel.AssegnaTurnoChiamata(request);
-        }
-        
-        public Client.ServerLega.Turno AssegnaTurnoChiamata(Client.ServerLega.Turno turno, string ruolo) {
-            Client.ServerLega.AssegnaTurnoChiamataRequest inValue = new Client.ServerLega.AssegnaTurnoChiamataRequest();
-            inValue.Body = new Client.ServerLega.AssegnaTurnoChiamataRequestBody();
-            inValue.Body.turno = turno;
-            inValue.Body.ruolo = ruolo;
-            Client.ServerLega.AssegnaTurnoChiamataResponse retVal = ((Client.ServerLega.ServerLegaSoap)(this)).AssegnaTurnoChiamata(inValue);
-            return retVal.Body.AssegnaTurnoChiamataResult;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Client.ServerLega.AssegnaTurnoChiamataResponse> Client.ServerLega.ServerLegaSoap.AssegnaTurnoChiamataAsync(Client.ServerLega.AssegnaTurnoChiamataRequest request) {
-            return base.Channel.AssegnaTurnoChiamataAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<Client.ServerLega.AssegnaTurnoChiamataResponse> AssegnaTurnoChiamataAsync(Client.ServerLega.Turno turno, string ruolo) {
-            Client.ServerLega.AssegnaTurnoChiamataRequest inValue = new Client.ServerLega.AssegnaTurnoChiamataRequest();
-            inValue.Body = new Client.ServerLega.AssegnaTurnoChiamataRequestBody();
-            inValue.Body.turno = turno;
-            inValue.Body.ruolo = ruolo;
-            return ((Client.ServerLega.ServerLegaSoap)(this)).AssegnaTurnoChiamataAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]

@@ -29,7 +29,7 @@ namespace ServerLega.Controller
             s.RimuoviGiocatore(g);
             g.PrezzoAcquisto = 0;
             g.NomeSquadra = "Lista Svincolati";
-            s.CreditResidui = s.CreditResidui + (g.PrezzoAcquisto / 2);
+            s.CreditiResidui = s.CreditiResidui + (g.PrezzoAcquisto / 2);
             SqlConnection conn = null;
             try
             {
