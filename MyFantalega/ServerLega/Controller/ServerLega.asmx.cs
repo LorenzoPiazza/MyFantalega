@@ -98,10 +98,10 @@ namespace ServerLega.Controller
 
 
         [WebMethod]
-        public Lega CreaAsta(Giocatore giocatore, int offerta, Squadra squadra)
+        public Lega CreaAsta(Giocatore giocatore, int offerta, Squadra squadra, Lega lega)
         {
             IGestioneAstaController gestioneAstaController = new GestioneAstaController();
-            return gestioneAstaController.CreaAsta(giocatore, offerta, squadra);
+            return gestioneAstaController.CreaAsta(giocatore, offerta, squadra, lega);
         }
          
         [WebMethod]

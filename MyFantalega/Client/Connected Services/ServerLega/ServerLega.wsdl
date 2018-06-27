@@ -239,6 +239,7 @@
             <s:element minOccurs="0" maxOccurs="1" name="giocatore" type="tns:Giocatore" />
             <s:element minOccurs="1" maxOccurs="1" name="offerta" type="s:int" />
             <s:element minOccurs="0" maxOccurs="1" name="squadra" type="tns:Squadra" />
+            <s:element minOccurs="0" maxOccurs="1" name="lega" type="tns:Lega" />
           </s:sequence>
         </s:complexType>
       </s:element>

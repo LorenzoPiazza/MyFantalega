@@ -1707,13 +1707,17 @@ namespace Client.ServerLega {
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
         public Client.ServerLega.Squadra squadra;
         
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
+        public Client.ServerLega.Lega lega;
+        
         public CreaAstaRequestBody() {
         }
         
-        public CreaAstaRequestBody(Client.ServerLega.Giocatore giocatore, int offerta, Client.ServerLega.Squadra squadra) {
+        public CreaAstaRequestBody(Client.ServerLega.Giocatore giocatore, int offerta, Client.ServerLega.Squadra squadra, Client.ServerLega.Lega lega) {
             this.giocatore = giocatore;
             this.offerta = offerta;
             this.squadra = squadra;
+            this.lega = lega;
         }
     }
     
@@ -2396,12 +2400,13 @@ namespace Client.ServerLega {
             return base.Channel.CreaAsta(request);
         }
         
-        public Client.ServerLega.Lega CreaAsta(Client.ServerLega.Giocatore giocatore, int offerta, Client.ServerLega.Squadra squadra) {
+        public Client.ServerLega.Lega CreaAsta(Client.ServerLega.Giocatore giocatore, int offerta, Client.ServerLega.Squadra squadra, Client.ServerLega.Lega lega) {
             Client.ServerLega.CreaAstaRequest inValue = new Client.ServerLega.CreaAstaRequest();
             inValue.Body = new Client.ServerLega.CreaAstaRequestBody();
             inValue.Body.giocatore = giocatore;
             inValue.Body.offerta = offerta;
             inValue.Body.squadra = squadra;
+            inValue.Body.lega = lega;
             Client.ServerLega.CreaAstaResponse retVal = ((Client.ServerLega.ServerLegaSoap)(this)).CreaAsta(inValue);
             return retVal.Body.CreaAstaResult;
         }
@@ -2411,12 +2416,13 @@ namespace Client.ServerLega {
             return base.Channel.CreaAstaAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Client.ServerLega.CreaAstaResponse> CreaAstaAsync(Client.ServerLega.Giocatore giocatore, int offerta, Client.ServerLega.Squadra squadra) {
+        public System.Threading.Tasks.Task<Client.ServerLega.CreaAstaResponse> CreaAstaAsync(Client.ServerLega.Giocatore giocatore, int offerta, Client.ServerLega.Squadra squadra, Client.ServerLega.Lega lega) {
             Client.ServerLega.CreaAstaRequest inValue = new Client.ServerLega.CreaAstaRequest();
             inValue.Body = new Client.ServerLega.CreaAstaRequestBody();
             inValue.Body.giocatore = giocatore;
             inValue.Body.offerta = offerta;
             inValue.Body.squadra = squadra;
+            inValue.Body.lega = lega;
             return ((Client.ServerLega.ServerLegaSoap)(this)).CreaAstaAsync(inValue);
         }
         

@@ -157,14 +157,14 @@ namespace ServerLega.Controller
         }
 
         [WebMethod]
-        public Lega CreaAsta(Giocatore giocatore, int offerta, Squadra squadra)
+        public Lega CreaAsta(Giocatore giocatore, int offerta, Squadra squadra, Lega lega)
         {
-            Asta asta = new Asta(1, _lega.Squadre, giocatore);
-            _lega.MercatoAttivo.AstaAttiva = asta;
+            Asta asta = new Asta(1, lega.Squadre, giocatore);
+            lega.MercatoAttivo.AstaAttiva = asta;
             ICreazioneAstaController myCreaAsta = new CreazioneAstaController();
             myCreaAsta.ChiamaGiocatore(giocatore, asta);
             myCreaAsta.OffriCrediti(offerta, asta, squadra);
-            return _lega;
+            return lega;
         }
 
         [WebMethod]

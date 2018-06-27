@@ -13,7 +13,7 @@ namespace ServerLega.InterfacceController
         Lega Offri(int offerta,Squadra squadra);
         Lega Rialza(Squadra squadra);
         Lega Abbandona(Squadra squadra);
-        Lega CreaAsta(Giocatore giocatore, int offerta,Squadra squadra);
+        Lega CreaAsta(Giocatore giocatore, int offerta,Squadra squadra, Lega lega);
         
     }
 }
