@@ -21,6 +21,10 @@ namespace Client.View
             InitializeComponent();
             this.lega = lega;
             this.squadra = squadra;
+            foreach (Giocatore g in lega.ListaSvincolati.Giocatori)
+            {
+                comboBoxSvincolati.Items.Add(g.Ruolo + "--" + g.Nome + "--" + g.QuotazioneIniziale);
+            }
         }
 
         private void textBox3_TextChanged(object sender, EventArgs e)
@@ -36,7 +40,7 @@ namespace Client.View
         private void buttonIndietro_Click(object sender, EventArgs e)
         {
             this.Hide();
-            new HomeMercatoAdmin(lega, squadra);
+            new HomeMercatoAdmin(lega, squadra).Show();
         }
 
         private void buttonOffri_Click(object sender, EventArgs e)
@@ -45,16 +49,17 @@ namespace Client.View
             Giocatore selezionato = null;
             foreach (Giocatore g in lega.ListaSvincolati.Giocatori)
             {
-                if (comboBoxGiocatore.SelectedItem.Equals(g.Nome))
+                if (comboBoxSvincolati.SelectedItem.Equals(g.Nome))
                 {
                     selezionato = g;
                     break;
                 }
             }
-            if ( (ValidaOfferta(textBoxOfferta.Text)) && (comboBoxGiocatore.SelectedItem !=null ) && selezionato!= null)
+            if ( (ValidaOfferta(textBoxOfferta.Text,(Giocatore) comboBoxSvincolati.SelectedItem)) && (comboBoxSvincolati.SelectedItem !=null ) && selezionato!= null)
             {
                 ServerLega.ServerLegaSoapClient myGestioneAsta = new ServerLegaSoapClient();
-                myGestioneAsta.CreaAsta(selezionato, Int32.Parse(textBoxOfferta.Text), squadra);
+                Asta asta=myGestioneAsta.CreaAsta(selezionato, Int32.Parse(textBoxOfferta.Text), squadra);
+                lega.MercatoAttivo.AstaAttiva = asta;
             }
             else
             {
@@ -64,18 +69,28 @@ namespace Client.View
         }
 
 
-        private Boolean ValidaOfferta(String offerta)
+        private Boolean ValidaOfferta(String offerta,Giocatore giocatore)
         {
+            int offertaNum = giocatore.QuotazioneIniziale;
             try
             {
-                int offertaNum = Int32.Parse(offerta);
+                offertaNum = Int32.Parse(offerta);
 
             } catch (Exception e)
             {
+                Console.Write(e.Message);
                 return false;
             }
-
+            if(offertaNum < giocatore.QuotazioneIniziale || offertaNum> squadra.CreditResidui)
+            {
+                return false;
+            }
             return true;
+        }
+
+        private void comboBoxGiocatore_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

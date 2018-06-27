@@ -56,7 +56,7 @@ namespace Client.View
             // 
             this.creazioneLegaButton.Location = new System.Drawing.Point(403, 300);
             this.creazioneLegaButton.Name = "creazioneLegaButton";
-            this.creazioneLegaButton.Size = new System.Drawing.Size(155, 36);
+            this.creazioneLegaButton.Size = new System.Drawing.Size(155, 50);
             this.creazioneLegaButton.TabIndex = 14;
             this.creazioneLegaButton.Text = "Crea una nuova Lega";
             this.creazioneLegaButton.UseVisualStyleBackColor = true;
@@ -74,11 +74,15 @@ namespace Client.View
             // 
             // textBoxBenvenuto
             // 
-            this.textBoxBenvenuto.Location = new System.Drawing.Point(553, 29);
+            this.textBoxBenvenuto.BackColor = System.Drawing.SystemColors.Window;
+            this.textBoxBenvenuto.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxBenvenuto.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.textBoxBenvenuto.Location = new System.Drawing.Point(552, 40);
             this.textBoxBenvenuto.Name = "textBoxBenvenuto";
             this.textBoxBenvenuto.ReadOnly = true;
-            this.textBoxBenvenuto.Size = new System.Drawing.Size(213, 22);
+            this.textBoxBenvenuto.Size = new System.Drawing.Size(213, 15);
             this.textBoxBenvenuto.TabIndex = 35;
+            this.textBoxBenvenuto.TextChanged += new System.EventHandler(this.textBoxBenvenuto_TextChanged);
             // 
             // label2
             // 
@@ -86,7 +90,7 @@ namespace Client.View
             this.label2.BackColor = System.Drawing.SystemColors.Window;
             this.label2.Font = new System.Drawing.Font("Lucida Bright", 19.8F);
             this.label2.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label2.Location = new System.Drawing.Point(250, 22);
+            this.label2.Location = new System.Drawing.Point(259, 22);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(268, 37);
             this.label2.TabIndex = 36;
@@ -97,7 +101,7 @@ namespace Client.View
             // 
             this.buttonAccedi.Location = new System.Drawing.Point(227, 300);
             this.buttonAccedi.Name = "buttonAccedi";
-            this.buttonAccedi.Size = new System.Drawing.Size(155, 36);
+            this.buttonAccedi.Size = new System.Drawing.Size(155, 50);
             this.buttonAccedi.TabIndex = 38;
             this.buttonAccedi.Text = "Accedi alla Lega";
             this.buttonAccedi.UseVisualStyleBackColor = true;

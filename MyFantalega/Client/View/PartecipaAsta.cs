@@ -32,5 +32,7 @@ namespace Client.View
             this.Hide();
             new HomeMercatoAdmin(lega, squadra);
         }
+
+
     }
 }

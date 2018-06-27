@@ -106,5 +106,10 @@ namespace Client.View
         {
             buttonAccedi.Enabled = true;
         }
+
+        private void textBoxBenvenuto_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

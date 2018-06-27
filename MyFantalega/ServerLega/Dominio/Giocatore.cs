@@ -11,7 +11,7 @@ namespace ServerLega.Dominio
         private int _quotazioneIniziale;
         private String _ruolo;
         private String _club;
-        private Stato _stato;
+        private Stato _stato = null;
         //field che seguono sono indispensabili per determinare lo stato
         private String _nomeSquadra;    //squadra che ha acquistato il giocatore
         private int _prezzoAcquisto;
@@ -20,9 +20,9 @@ namespace ServerLega.Dominio
         {
             //valori di default assegnati a giocatore con stato Libero
             //Si assume che un giocatore alla creazione sia libero
-            _nomeSquadra = "ListaSvincolati";
-            _prezzoAcquisto = 0;
-            StateChanged();
+            //_nomeSquadra = "ListaSvincolati";
+            //_prezzoAcquisto = 0;
+            //StateChanged();
         }
 
 
@@ -46,6 +46,7 @@ namespace ServerLega.Dominio
             _ruolo = ruolo;
             _club = club;
 
+
             //valori di default assegnati a giocatore con stato Libero
             //Si assume che un giocatore alla creazione sia libero
             _nomeSquadra = "ListaSvincolati";
@@ -56,7 +57,7 @@ namespace ServerLega.Dominio
         {
             get
             {
-                if (_stato.Nome.Equals("Acquistato")){
+                if (_stato != null && _stato.Nome.Equals("Acquistato")){
                     return NomeSquadra;
                 }
                 else return "ListaSvincolati";  
@@ -76,7 +77,7 @@ namespace ServerLega.Dominio
         {
             get
             {
-                if (_stato.Nome.Equals("Acquistato"))
+                if (_stato != null && _stato.Nome.Equals("Acquistato"))
                 {
                     return PrezzoAcquisto;
                 }
@@ -84,8 +85,8 @@ namespace ServerLega.Dominio
             }
             set
             {
-                if (value <= 0)
-                    throw new ArgumentException("prezzo di Acquisto <= 0");
+                if (value < 0)
+                    throw new ArgumentException("prezzo di Acquisto < 0");
                 if (value != _prezzoAcquisto)
                 {
                     _prezzoAcquisto = value;

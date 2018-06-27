@@ -26,21 +26,24 @@ namespace Client.View
             textBoxCrediti.Text = ""+squadra.CreditResidui;
             buttonCrea.Enabled = false;
             buttonPartecipa.Enabled = false;
-            foreach (Giocatore g in squadra.Giocatori)
+            if(squadra.Giocatori.Count != 0)
             {
-                listBoxAcquisti.Items.Add(g.Nome + "\t\t\t\t\t\tACQUISTATO A:" + g.PrezzoAcquisto);
+                foreach (Giocatore g in squadra.Giocatori)
+                {
+                    listBoxAcquisti.Items.Add(g.Nome + "\t\t\t\t\t\tACQUISTATO A:" + g.PrezzoAcquisto);
+                }
             }
+          
             if(lega.MercatoAttivo.AstaAttiva != null)
             {
                 textBoxGiocatore.Text = lega.MercatoAttivo.AstaAttiva.Giocatore.Nome;
                 textBoxOfferta.Text = ""+lega.MercatoAttivo.AstaAttiva.UltimaOfferta;
             }
 
-
-
             ServerLegaSoapClient myGestioneAdminController = new ServerLegaSoapClient();
             Turno result = new Turno();
             result = myGestioneAdminController.GestisciAsta(lega, squadra);
+            
 
             if(result.Tipo == true)
             {
@@ -52,9 +55,6 @@ namespace Client.View
                 labelAttesa.Visible = false;
                 buttonPartecipa.Enabled = true;
             }
-
-
-
 
         }
         
@@ -80,6 +80,12 @@ namespace Client.View
         {
             this.Hide();
             new CreaAsta(lega, squadra).Show();
+        }
+
+        private void buttonPartecipa_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new PartecipaAsta(lega, squadra).Show();
         }
     }
 }

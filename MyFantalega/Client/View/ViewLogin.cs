@@ -45,7 +45,7 @@ namespace Client.View
             if (emailUtenteNav != null){
                 utenteNav = new Client.ServerLega.Utente();
                 utenteNav.Email = emailUtenteNav;
-                new WelcomeHome(utenteNav).ShowDialog();
+                new WelcomeHome(utenteNav).Show();
                 this.Hide();
 
             }

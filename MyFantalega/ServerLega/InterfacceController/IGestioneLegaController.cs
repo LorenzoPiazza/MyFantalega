@@ -10,6 +10,6 @@ namespace ServerLega.InterfacceController
     interface IGestioneLegaController
     {
         Lega CaricaLista(String source, Lega lega);
-        Boolean SetImpostazioni(int sqTot, int creIni, int numPor, int numDif, int numCen, int numAtt, Lega lega);
+        Lega SetImpostazioni(int sqTot, int creIni, int numPor, int numDif, int numCen, int numAtt, Lega lega);
     }
 }

@@ -16,6 +16,7 @@ namespace Client.View
        Mercato mercato;
         public GestioneMercato(Mercato mercatoPass)
         {
+            InitializeComponent();
             mercato = mercatoPass;
             button4.Enabled = false;
             button1.Enabled = false;
@@ -27,12 +28,11 @@ namespace Client.View
             textBox6.Enabled = false;
             textBox7.Enabled = false;
             comboBox1.Items.Add(mercato.Squadre);
-            InitializeComponent();
         }
 
        private void buttonIndietro_Click(object sender, EventArgs e)
         {
-           this.Close();
+           this.Hide();
             new HomeLegaAdmin(mercato.Lega).Show();
             
         }

@@ -68,7 +68,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="TestDominio\TestSetImpostazioni.cs" />
+    <Compile Include="TestController\TestCreaLega.cs" />
+    <Compile Include="TestController\TestSetImpostazioni.cs" />
     <Compile Include="View\CambioPassword.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -211,6 +212,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ServerLega\Client.ServerLega.AbbandonaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServerLega\Client.ServerLega.AssegnaGiocatoreResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ServerLega\Client.ServerLega.AssegnaTurnoAstaResponse.datasource">

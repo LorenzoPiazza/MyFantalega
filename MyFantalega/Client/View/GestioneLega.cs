@@ -22,7 +22,14 @@ namespace Client.View
             buttonGestionePartecipanti.Enabled = false;
             buttonVisualizzaLog.Enabled = false;
             buttonEliminaLega.Enabled = false;
-            buttonConferma.Enabled = false;
+
+            //Setto l'output alle impostazioni attuali
+            textBoxPor.Text = lega.NumeroPor.ToString();
+            textBoxDif.Text = lega.NumeroDif.ToString();
+            textBoxCen.Text = lega.NumeroCen.ToString();
+            textBoxAtt.Text = lega.NumeroAtt.ToString();
+            textBoxCreditiIniz.Text = lega.CreditiInizialiSquadra.ToString();
+            trackBarNumPartecipanti.Value = lega.NumeroSquadreTotali;
         }
 
 
@@ -33,27 +40,27 @@ namespace Client.View
 
        private void buttonConferma_Click(object sender, EventArgs e)
         {
-            //richiesta al ServerLega mediante il proxy Client
-            ServerLega.ServerLegaSoapClient myLegaController = new ServerLega.ServerLegaSoapClient();
-            Boolean result;
-            result = myLegaController.SetImpostazioni(trackBarNumPartecipanti.Value, int.Parse(textBoxCreditiIniz.Text), int.Parse(textBoxPor.Text), int.Parse(textBoxCen.Text), int.Parse(textBoxDif.Text), int.Parse(textBoxAtt.Text), lega);
-            if (result == true)
+
+            if (ValidaRichiesta())
             {
-                lega.CreditiInizialiSquadra = int.Parse(textBoxCreditiIniz.Text);
-                lega.NumeroAtt = int.Parse(textBoxAtt.Text);
-                lega.NumeroCen = int.Parse(textBoxCen.Text);
-                lega.NumeroDif = int.Parse(textBoxCen.Text);
-                lega.NumeroPor = int.Parse(textBoxPor.Text);
-                lega.NumeroSquadreTotali = trackBarNumPartecipanti.Value;
-                MessageBox.Show("Impostazioni Modificate");
-            }
-            else
-            {
-                MessageBox.Show("Impostazioni errate");
+                //richiesta al ServerLega mediante il proxy Client
+                ServerLega.ServerLegaSoapClient myLegaController = new ServerLega.ServerLegaSoapClient();
+                Lega aggiornata;
+                aggiornata = myLegaController.SetImpostazioni(trackBarNumPartecipanti.Value, int.Parse(textBoxCreditiIniz.Text), int.Parse(textBoxPor.Text), int.Parse(textBoxDif.Text), int.Parse(textBoxCen.Text), int.Parse(textBoxAtt.Text), lega);
+
+                if (aggiornata == null)
+                {
+                    MessageBox.Show("Errore della modifica lato server!");
+                }
+                else
+                {
+                    lega = aggiornata;
+                    MessageBox.Show("Impostazioni modificate correttamente!");
+                }
             }
         }
 
-        private void textBoxPor_TextChanged(object sender, EventArgs e)
+        /*private void textBoxPor_TextChanged(object sender, EventArgs e)
         {
             //Se il numero di portieri è valido passo controllare tutti gli altri campi
             if (ValidaPor())
@@ -87,28 +94,28 @@ namespace Client.View
             //Se il numero di crediti iniziali è valido passo controllare tutti gli altri campi
             if (ValidaCrediti())
                 AbilitaButtonConferma();
-        }
+        }*/
 
 
 
-        private void buttonCaricaLista_Click(object sender, EventArgs e)
-        {
+    private void buttonCaricaLista_Click(object sender, EventArgs e)
+    {
+
             ServerLega.ServerLegaSoapClient myLegaController = new ServerLega.ServerLegaSoapClient();
             lega.ListaSvincolati = null;
             lega = myLegaController.CaricaLista("file", lega);
             if (lega.ListaSvincolati != null)
             {
-                MessageBox.Show("Lista caricata!");
-                foreach (Giocatore g in lega.ListaSvincolati.Giocatori)
-                {
-                    comboBoxSvincolati.Items.Add(g.Nome + "---" + g.QuotazioneIniziale);
-                }
+                MessageBox.Show("Lista caricata correttamente!");
+               
             }
             else
             {
                 MessageBox.Show("Errore nel caricamento lista!");
             }
-        }
+           
+           
+    }
         
 
         private void buttonIndietro_Click(object sender, EventArgs e)
@@ -120,17 +127,24 @@ namespace Client.View
 
 
         //Validazione degli Input
-        private void AbilitaButtonConferma()
+        private Boolean ValidaRichiesta()
         {
             if (ValidaPor() && ValidaDif() && ValidaCen() && ValidaAtt() && ValidaCrediti())
-                buttonConferma.Enabled = true;
+                return true;
             else
-                buttonConferma.Enabled = false;
+                return false;
         }
 
         private Boolean ValidaPor()
         {
-            if (textBoxPor.Text == null || int.Parse(textBoxPor.Text) < 1 || int.Parse(textBoxPor.Text) > 3)
+            try
+            {
+                if (textBoxPor.Text == null || textBoxPor.Text.Equals("") || int.Parse(textBoxPor.Text) < 1 || int.Parse(textBoxPor.Text) > 3)
+                {
+                    MessageBox.Show("numero portieri non consentito (range 1-3)");
+                    return false;
+                }
+            } catch(Exception e)
             {
                 MessageBox.Show("numero portieri non consentito (range 1-3)");
                 return false;
@@ -141,18 +155,35 @@ namespace Client.View
 
         private Boolean ValidaDif()
         {
-            if (textBoxDif.Text == null || int.Parse(textBoxDif.Text) < 5 || int.Parse(textBoxDif.Text) > 10)
+            try
+            {
+                if (textBoxDif.Text == null || textBoxDif.Text.Equals("") || int.Parse(textBoxDif.Text) < 5 || int.Parse(textBoxDif.Text) > 10)
+                {
+                    MessageBox.Show("numero difensori non consentito (range 5-10)");
+                    return false;
+                }
+            }
+            catch (Exception e)
             {
                 MessageBox.Show("numero difensori non consentito (range 5-10)");
                 return false;
             }
             return true;
+
         }
 
 
         private Boolean ValidaCen()
         {
-            if (textBoxCen.Text == null || int.Parse(textBoxCen.Text) < 5 || int.Parse(textBoxCen.Text) > 10)
+            try
+            {
+                if (textBoxCen.Text == null || textBoxCen.Text.Equals("") || int.Parse(textBoxCen.Text) < 5 || int.Parse(textBoxCen.Text) > 10)
+                {
+                    MessageBox.Show("numero centrocampisti non consentito (range 5-10)");
+                    return false;
+                }
+            }
+            catch (Exception e)
             {
                 MessageBox.Show("numero centrocampisti non consentito (range 5-10)");
                 return false;
@@ -163,7 +194,15 @@ namespace Client.View
 
         private Boolean ValidaAtt()
         {
-            if (textBoxAtt.Text == null || int.Parse(textBoxAtt.Text) < 5 || int.Parse(textBoxAtt.Text) > 10)
+            try
+            {
+                if (textBoxAtt.Text == null || textBoxAtt.Text.Equals("") || int.Parse(textBoxAtt.Text) < 5 || int.Parse(textBoxAtt.Text) > 10)
+                {
+                    MessageBox.Show("numero attaccanti non consentito (range 5-10)");
+                    return false;
+                }
+            }
+            catch (Exception e)
             {
                 MessageBox.Show("numero attaccanti non consentito (range 5-10)");
                 return false;
@@ -173,7 +212,14 @@ namespace Client.View
 
         private Boolean ValidaCrediti()
         {
-            if (textBoxCreditiIniz.Text==null || int.Parse(textBoxCreditiIniz.Text) < 0 || int.Parse(textBoxCreditiIniz.Text) > 1000000)
+            try
+            {
+                if (textBoxCreditiIniz.Text == null || textBoxCreditiIniz.Text.Equals("") || int.Parse(textBoxCreditiIniz.Text) < 0 || int.Parse(textBoxCreditiIniz.Text) > 1000000)
+                {
+                    MessageBox.Show("numero crediti iniziali non consentito (range 0-1000000)");
+                    return false;
+                }
+            }catch (Exception e)
             {
                 MessageBox.Show("numero crediti iniziali non consentito (range 0-1000000)");
                 return false;
@@ -181,9 +227,5 @@ namespace Client.View
            return true;
         }
 
-        private void comboBoxSvincolati_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

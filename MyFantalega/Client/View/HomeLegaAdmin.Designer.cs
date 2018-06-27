@@ -128,10 +128,13 @@
             // 
             // squadraTextBox
             // 
-            this.squadraTextBox.Location = new System.Drawing.Point(306, 61);
+            this.squadraTextBox.BackColor = System.Drawing.SystemColors.Window;
+            this.squadraTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.squadraTextBox.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.squadraTextBox.Location = new System.Drawing.Point(306, 64);
             this.squadraTextBox.Name = "squadraTextBox";
             this.squadraTextBox.ReadOnly = true;
-            this.squadraTextBox.Size = new System.Drawing.Size(203, 22);
+            this.squadraTextBox.Size = new System.Drawing.Size(203, 15);
             this.squadraTextBox.TabIndex = 37;
             this.squadraTextBox.TextChanged += new System.EventHandler(this.squadraTextBox_TextChanged);
             // 

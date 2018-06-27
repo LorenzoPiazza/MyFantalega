@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Client.ServerLega;
 using System.Data.SqlClient;
 
-namespace TestDominio
+namespace TestController
 {
     [TestFixture]
     public class TestImpostazioni
@@ -15,27 +15,27 @@ namespace TestDominio
         private Lega _lega;
 
         [SetUp]
-        public void LegaSetUp()
+        public void SetUp()
         {
             Utente _utente = new Utente();
             _utente.Email = "mailtestLega.com";
             _utente.IsAdmin = true;
             _lega = new Lega();
             _lega.NumeroSquadreTotali = 10;
-            _lega.NomeLega = "FantacalcioClub";
+            _lega.NomeLega = "LigaCspt";
+            _lega.Squadre = new List<Squadra>();
             Squadra _squadraAdmin = new Squadra();
-            _squadraAdmin.Lega = _lega;
             _squadraAdmin.Utente = _utente;
             _squadraAdmin.Nome = "SquareFC";
             _lega.Squadre.Add(_squadraAdmin);
             _lega.SquadraAdmin = _squadraAdmin;    
             ServerLegaSoapClient myGestioneAdminController = new ServerLegaSoapClient();
-            myGestioneAdminController.SetImpostazioni(8, 100, 2, 6, 6, 4, _lega);
+            _lega = myGestioneAdminController.SetImpostazioni(8, 100, 2, 6, 6, 4, _lega);
             myGestioneAdminController.Close();
         }
 
         [TestCase]
-        public void TestConstructor()
+        public void TestMethod()
         {
             //variabili per test da database
             int sqTot = 0;
@@ -57,9 +57,10 @@ namespace TestDominio
             SqlConnection conn = null;
             try
             {
-                conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Lorenzo\source\repos\progettoIngegneriaDelSoftware\MyFantalega\ServerLega\App_Data\DBMyFantalegaLori.mdf;Integrated Security=True");
+                conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Lorenzo\source\repos\progettoIngegneriaDelSoftware 
+                                                                        \MyFantalega\ServerLega\App_Data\DBMyFantalegaLori.mdf;Integrated Security=True");
                 conn.Open();
-                SqlCommand selectLega = new SqlCommand("SELECT * FROM Lega WHERE nome = "+_lega.NomeLega, conn);
+                SqlCommand selectLega = new SqlCommand("SELECT * FROM Lega WHERE nome = '"+_lega.NomeLega+"'", conn);
                 SqlDataReader reader = selectLega.ExecuteReader();
                 
                 while (reader.Read())
@@ -71,6 +72,14 @@ namespace TestDominio
                     cen = int.Parse(reader["numCen"].ToString());
                     att = int.Parse(reader["numAtt"].ToString());
                 }
+
+                Assert.AreEqual(8, sqTot);
+                Assert.AreEqual(100, cre);
+                Assert.AreEqual(2, por);
+                Assert.AreEqual(6, dif);
+                Assert.AreEqual(6, cen);
+                Assert.AreEqual(4, att);
+
             }
             catch (Exception e)
             {
@@ -81,12 +90,7 @@ namespace TestDominio
             {
                 conn.Close();
             }
-            Assert.AreEqual(8, sqTot);
-            Assert.AreEqual(100, cre);
-            Assert.AreEqual(2, por);
-            Assert.AreEqual(6, dif);
-            Assert.AreEqual(6, cen);
-            Assert.AreEqual(4, att);
+     
         }
     }
 }

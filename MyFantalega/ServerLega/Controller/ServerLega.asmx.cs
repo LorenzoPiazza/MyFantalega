@@ -117,7 +117,7 @@ namespace ServerLega.Controller
 
         //GESTIONE LEGA CONTROLLER
         [WebMethod]
-        public Boolean SetImpostazioni(int sqTot, int creIni, int numPor, int numDif, int numCen, int numAtt, Lega lega)
+        public Lega SetImpostazioni(int sqTot, int creIni, int numPor, int numDif, int numCen, int numAtt, Lega lega)
         {
             IGestioneLegaController gestioneLegaController = new GestioneLegaController();
             return gestioneLegaController.SetImpostazioni(sqTot, creIni, numPor, numDif, numCen, numAtt, lega);
@@ -144,18 +144,18 @@ namespace ServerLega.Controller
         }
          
         [WebMethod]
-      
         public Turno GestisciAsta(Lega lega, Squadra squadra)
         {
             IGestioneAstaController gestioneAstaController = new GestioneAstaController();
             return gestioneAstaController.GestisciAsta(lega, squadra);
         }
 
+        //Questo non credo sia chiamabile dal client come forse anche altri
        [WebMethod]
-        public Boolean AssegnaGiocatore(Giocatore giocatore, Squadra squadra)
+        public Boolean AssegnaGiocatore(Giocatore giocatore, Squadra squadra,int offerta)
         {
             IGestioneAstaController gestioneAstaController = new GestioneAstaController();
-            return gestioneAstaController.AssegnaGiocatore(giocatore, squadra);
+            return gestioneAstaController.AssegnaGiocatore(giocatore, squadra,offerta);
         }
 
         [WebMethod]
