@@ -60,7 +60,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.buttonGestionePartecipanti = new System.Windows.Forms.Button();
             this.buttonGestioneGiocatori = new System.Windows.Forms.Button();
-            this.comboBoxSvincolati = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarNumPartecipanti)).BeginInit();
             this.SuspendLayout();
@@ -411,26 +410,12 @@
             this.buttonGestioneGiocatori.Text = "Gestione Giocatori";
             this.buttonGestioneGiocatori.UseVisualStyleBackColor = true;
             // 
-            // comboBoxSvincolati
-            // 
-            this.comboBoxSvincolati.DisplayMember = "NomeLega";
-            this.comboBoxSvincolati.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxSvincolati.FormattingEnabled = true;
-            this.comboBoxSvincolati.Location = new System.Drawing.Point(475, 411);
-            this.comboBoxSvincolati.Name = "comboBoxSvincolati";
-            this.comboBoxSvincolati.Size = new System.Drawing.Size(331, 26);
-            this.comboBoxSvincolati.TabIndex = 41;
-            this.comboBoxSvincolati.Tag = "";
-            this.comboBoxSvincolati.Text = "Lista Svincolati";
-            this.comboBoxSvincolati.ValueMember = "NomeLega";
-            // 
             // GestioneLega
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.comboBoxSvincolati);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.buttonIndietro);
             this.Controls.Add(this.buttonEliminaLega);
@@ -474,7 +459,6 @@
         private System.Windows.Forms.Button buttonConferma;
         private System.Windows.Forms.Button buttonGestionePartecipanti;
         private System.Windows.Forms.Button buttonGestioneGiocatori;
-        private System.Windows.Forms.ComboBox comboBoxSvincolati;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;

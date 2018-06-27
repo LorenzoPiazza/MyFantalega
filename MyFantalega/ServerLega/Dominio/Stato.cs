@@ -15,7 +15,7 @@ namespace ServerLega.Dominio
 
         public static Stato DeterminaStato(Giocatore giocatore)
         {
-            if (giocatore.PrezzoAcquisto > 0 && (giocatore.NomeSquadra != null || giocatore.NomeSquadra.Equals("ListaSvincolati")) )
+            if (giocatore.PrezzoAcquisto > 0 && (giocatore.NomeSquadra != null || !giocatore.NomeSquadra.Equals("ListaSvincolati")) )
                 return new Acquistato();
             else
                 return new Libero();

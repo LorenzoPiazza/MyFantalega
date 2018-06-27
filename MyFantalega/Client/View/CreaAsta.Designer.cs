@@ -34,7 +34,7 @@
             this.buttonOffri = new System.Windows.Forms.Button();
             this.buttonIndietro = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.comboBoxGiocatore = new System.Windows.Forms.ComboBox();
+            this.comboBoxSvincolati = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -49,7 +49,7 @@
             // 
             // textBoxOfferta
             // 
-            this.textBoxOfferta.Location = new System.Drawing.Point(457, 154);
+            this.textBoxOfferta.Location = new System.Drawing.Point(529, 154);
             this.textBoxOfferta.MaxLength = 6;
             this.textBoxOfferta.Name = "textBoxOfferta";
             this.textBoxOfferta.Size = new System.Drawing.Size(64, 22);
@@ -59,7 +59,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(453, 117);
+            this.label4.Location = new System.Drawing.Point(525, 117);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(118, 20);
             this.label4.TabIndex = 30;
@@ -68,7 +68,7 @@
             // buttonOffri
             // 
             this.buttonOffri.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonOffri.Location = new System.Drawing.Point(457, 211);
+            this.buttonOffri.Location = new System.Drawing.Point(529, 211);
             this.buttonOffri.Name = "buttonOffri";
             this.buttonOffri.Size = new System.Drawing.Size(114, 35);
             this.buttonOffri.TabIndex = 3;
@@ -99,19 +99,18 @@
             this.label3.Text = "Crea Asta";
             this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // comboBoxGiocatore
+            // comboBoxSvincolati
             // 
-            this.comboBoxGiocatore.DisplayMember = "NomeLega";
-            this.comboBoxGiocatore.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxGiocatore.FormattingEnabled = true;
-            this.comboBoxGiocatore.Location = new System.Drawing.Point(61, 117);
-            this.comboBoxGiocatore.MaxDropDownItems = 15;
-            this.comboBoxGiocatore.Name = "comboBoxGiocatore";
-            this.comboBoxGiocatore.Size = new System.Drawing.Size(331, 26);
-            this.comboBoxGiocatore.TabIndex = 1;
-            this.comboBoxGiocatore.Tag = "";
-            this.comboBoxGiocatore.Text = "Seleziona il giocatore che vuoi acquistare";
-            this.comboBoxGiocatore.ValueMember = "NomeLega";
+            this.comboBoxSvincolati.DisplayMember = "NomeLega";
+            this.comboBoxSvincolati.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxSvincolati.FormattingEnabled = true;
+            this.comboBoxSvincolati.Location = new System.Drawing.Point(55, 111);
+            this.comboBoxSvincolati.Name = "comboBoxSvincolati";
+            this.comboBoxSvincolati.Size = new System.Drawing.Size(364, 26);
+            this.comboBoxSvincolati.TabIndex = 42;
+            this.comboBoxSvincolati.Tag = "";
+            this.comboBoxSvincolati.Text = "Lista Svincolati";
+            this.comboBoxSvincolati.ValueMember = "NomeLega";
             // 
             // CreaAsta
             // 
@@ -119,7 +118,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.comboBoxGiocatore);
+            this.Controls.Add(this.comboBoxSvincolati);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.buttonIndietro);
             this.Controls.Add(this.buttonOffri);
@@ -140,6 +139,6 @@
         private System.Windows.Forms.Button buttonOffri;
         private System.Windows.Forms.Button buttonIndietro;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBoxGiocatore;
+        private System.Windows.Forms.ComboBox comboBoxSvincolati;
     }
 }

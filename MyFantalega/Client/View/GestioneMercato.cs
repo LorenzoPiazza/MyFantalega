@@ -32,7 +32,7 @@ namespace Client.View
 
        private void buttonIndietro_Click(object sender, EventArgs e)
         {
-           this.Close();
+           this.Hide();
             new HomeLegaAdmin(mercato.Lega).Show();
             
         }

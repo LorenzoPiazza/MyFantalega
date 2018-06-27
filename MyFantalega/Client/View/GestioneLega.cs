@@ -106,11 +106,8 @@ namespace Client.View
             lega = myLegaController.CaricaLista("file", lega);
             if (lega.ListaSvincolati != null)
             {
-                MessageBox.Show("Lista caricata!");
-                foreach (Giocatore g in lega.ListaSvincolati.Giocatori)
-                {
-                    comboBoxSvincolati.Items.Add(g.Nome + "---" + g.QuotazioneIniziale);
-                }
+                MessageBox.Show("Lista caricata correttamente!");
+               
             }
             else
             {

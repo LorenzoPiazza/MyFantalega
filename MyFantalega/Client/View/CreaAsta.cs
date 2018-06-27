@@ -21,7 +21,10 @@ namespace Client.View
             InitializeComponent();
             this.lega = lega;
             this.squadra = squadra;
-            comboBoxGiocatore.Items.Add(lega.ListaSvincolati.Giocatori);
+            foreach (Giocatore g in lega.ListaSvincolati.Giocatori)
+            {
+                comboBoxSvincolati.Items.Add(g.Ruolo + "--" + g.Nome + "--" + g.QuotazioneIniziale);
+            }
         }
 
         private void textBox3_TextChanged(object sender, EventArgs e)
@@ -46,13 +49,13 @@ namespace Client.View
             Giocatore selezionato = null;
             foreach (Giocatore g in lega.ListaSvincolati.Giocatori)
             {
-                if (comboBoxGiocatore.SelectedItem.Equals(g.Nome))
+                if (comboBoxSvincolati.SelectedItem.Equals(g.Nome))
                 {
                     selezionato = g;
                     break;
                 }
             }
-            if ( (ValidaOfferta(textBoxOfferta.Text,(Giocatore) comboBoxGiocatore.SelectedItem)) && (comboBoxGiocatore.SelectedItem !=null ) && selezionato!= null)
+            if ( (ValidaOfferta(textBoxOfferta.Text,(Giocatore) comboBoxSvincolati.SelectedItem)) && (comboBoxSvincolati.SelectedItem !=null ) && selezionato!= null)
             {
                 ServerLega.ServerLegaSoapClient myGestioneAsta = new ServerLegaSoapClient();
                 Asta asta=myGestioneAsta.CreaAsta(selezionato, Int32.Parse(textBoxOfferta.Text), squadra);
@@ -83,6 +86,11 @@ namespace Client.View
                 return false;
             }
             return true;
+        }
+
+        private void comboBoxGiocatore_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
