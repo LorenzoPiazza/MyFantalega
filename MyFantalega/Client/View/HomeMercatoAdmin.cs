@@ -51,7 +51,7 @@ namespace Client.View
             if (result.Ruolo == "FINITO")
             {
                 MessageBox.Show("Il mercato è stato completato.");
-                new HomeLegaAdmin(squadra.Lega).Show();
+                new HomeLegaAdmin(lega).Show();
             }
             if (result.Ruolo == "ALTRI")
             {

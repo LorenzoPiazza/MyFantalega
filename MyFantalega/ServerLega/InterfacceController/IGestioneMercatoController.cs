@@ -9,6 +9,6 @@ namespace ServerLega.InterfacceController
 {
     interface IGestioneMercatoController
     {
-        Boolean ChiudiMercato(Mercato mercato);
+        Lega ChiudiMercato(Mercato mercato,Lega lega);
     }
 }

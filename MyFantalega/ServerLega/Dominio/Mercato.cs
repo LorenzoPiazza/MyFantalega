@@ -9,7 +9,7 @@ namespace ServerLega.Dominio
     public class Mercato
     {
         private int _idMercato;
-        private Lega _lega;
+        //private Lega _lega;
         private List<Asta> _aste;
         private List<Squadra> _squadre;
         private Asta _astaAttiva;
@@ -38,7 +38,7 @@ namespace ServerLega.Dominio
             }
         }
 
-        public Lega Lega
+        /*public Lega Lega
         {
             get
             {
@@ -48,7 +48,7 @@ namespace ServerLega.Dominio
             {
                 _lega = value;
             }
-        }
+        }*/
 
         public List<Asta> Aste
         {
@@ -74,15 +74,15 @@ namespace ServerLega.Dominio
             }
         }
 
-        public void AttivaMercato()
+        public void AttivaMercato(Lega lega)
         {
-            _lega.MercatoAttivo = this;
+            lega.MercatoAttivo = this;
         }
 
-        public void ChiudiMercato()
+        public void ChiudiMercato(Lega lega)
         {
             _aste = new List<Asta>();
-            _lega.MercatoAttivo = null;
+            lega.MercatoAttivo = null;
         }
     }
 }

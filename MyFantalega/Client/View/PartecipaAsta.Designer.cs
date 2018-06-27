@@ -38,7 +38,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.buttonIndietro = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -140,17 +139,6 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // buttonIndietro
-            // 
-            this.buttonIndietro.Location = new System.Drawing.Point(41, 17);
-            this.buttonIndietro.Margin = new System.Windows.Forms.Padding(2);
-            this.buttonIndietro.Name = "buttonIndietro";
-            this.buttonIndietro.Size = new System.Drawing.Size(56, 19);
-            this.buttonIndietro.TabIndex = 34;
-            this.buttonIndietro.Text = "Indietro";
-            this.buttonIndietro.UseVisualStyleBackColor = true;
-            this.buttonIndietro.Click += new System.EventHandler(this.buttonIndietro_Click);
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -192,7 +180,6 @@
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.buttonIndietro);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -222,7 +209,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button buttonIndietro;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox2;

@@ -137,7 +137,6 @@
             this.squadraTextBox.ReadOnly = true;
             this.squadraTextBox.Size = new System.Drawing.Size(203, 15);
             this.squadraTextBox.TabIndex = 37;
-            this.squadraTextBox.TextChanged += new System.EventHandler(this.squadraTextBox_TextChanged);
             // 
             // HomeLegaAdmin
             // 

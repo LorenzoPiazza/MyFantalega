@@ -80,19 +80,9 @@ namespace Client.View
         }
 
 
-        private Boolean ValidaOfferta(String offerta,Giocatore giocatore)
+        private Boolean ValidaOfferta(int offerta,Giocatore giocatore)
         {
-            int offertaNum = giocatore.QuotazioneIniziale;
-            try
-            {
-                offertaNum = Int32.Parse(offerta);
-
-            } catch (Exception e)
-            {
-                Console.Write(e.Message);
-                return false;
-            }
-            if(offertaNum < giocatore.QuotazioneIniziale || offertaNum> squadra.CreditResidui)
+            if(offerta < giocatore.QuotazioneIniziale || offerta> squadra.CreditiResidui)
             {
                 return false;
             }

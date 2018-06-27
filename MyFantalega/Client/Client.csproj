@@ -208,22 +208,13 @@
     <EmbeddedResource Include="View\WelcomeHome.resx">
       <DependentUpon>WelcomeHome.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="Connected Services\ServerLega\Client.ServerLega.AbbandonaGiocatoreResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="Connected Services\ServerLega\Client.ServerLega.AbbandonaResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\ServerLega\Client.ServerLega.Asta.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ServerLega\Client.ServerLega.cambiaPasswordResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ServerLega\Client.ServerLega.CaricaListaResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\ServerLega\Client.ServerLega.ChiamaGiocatoreResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ServerLega\Client.ServerLega.ChiudiMercatoResponse.datasource">
@@ -250,19 +241,7 @@
     <None Include="Connected Services\ServerLega\Client.ServerLega.Lega.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\ServerLega\Client.ServerLega.Mercato.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\ServerLega\Client.ServerLega.OffriCreditiCreazioneAstaResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\ServerLega\Client.ServerLega.OffriCreditiPartecipaAstaResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="Connected Services\ServerLega\Client.ServerLega.OffriResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\ServerLega\Client.ServerLega.RialzaOffertaResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ServerLega\Client.ServerLega.RialzaResponse.datasource">

@@ -40,7 +40,7 @@ namespace Client.View
        private void buttonIndietro_Click(object sender, EventArgs e)
         {
             this.Hide();
-            new HomeMercatoAdmin(mercato.Lega, squadra).Show();
+            new HomeMercatoAdmin(lega, squadra).Show();
             
         }
 
@@ -91,12 +91,13 @@ namespace Client.View
             else
             {*/
                 ServerLegaSoapClient myGestioneAdminController = new ServerLegaSoapClient();
-                Boolean result;
-                result = myGestioneAdminController.ChiudiMercato(mercato);
-                if (result == true)
+                Lega result;
+                result = myGestioneAdminController.ChiudiMercato(mercato,lega);
+                if (result != null)
                 {
                     MessageBox.Show("Mercato chiuso correttamente");
-                    new HomeLegaAdmin(mercato.Lega).Show();
+                    lega = result;
+                    new HomeLegaAdmin(lega).Show();
                 }
                 else
                 {
