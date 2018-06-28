@@ -32,23 +32,14 @@ namespace Client.View
             List<Giocatore> giocatori = squadra.Giocatori;
             if (giocatori == null)
             {
-                comboBoxGiocatori.Text = "Nessuna giocatore disponibile";
+                comboBoxGiocatori.Text = "Nessun giocatore disponibile";
             }
             foreach (Giocatore giocatore in giocatori)
             {
-                comboBoxGiocatori.Items.Add(giocatore.Nome);
+                comboBoxGiocatori.Items.Add(giocatore.Nome.ToString());
             }
         }
-        public SvincolaGiocatore(Squadra squadraPass, HomeLegaUtente utentePass)
-        {
-            InitializeComponent();
-            admin = null;
-            utente = utentePass;
-            giocatore = null;
-            squadra = squadraPass;
-            svincolaButton.Enabled = false;
-            button2.Enabled = true;
-        }
+
 
         private void svincolaButton_Click(object sender, EventArgs e)
         {

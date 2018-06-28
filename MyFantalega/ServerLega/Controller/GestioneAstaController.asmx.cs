@@ -158,15 +158,18 @@ namespace ServerLega.Controller
                 //JACOPO
                 //conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Jacopo\Source\Repos\progettoIngegneriaDelSoftware\MyFantalega\ServerLega\App_Data\DBMyFantalegaJacopo.mdf;Integrated Security=True");
                 //LORENZO
-                //conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Lorenzo\source\repos\progettoIngegneriaDelSoftware\MyFantalega\ServerLega\App_Data\DBMyFantalegaLori.mdf;Integrated Security=True");
+                conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Lorenzo\source\repos\progettoIngegneriaDelSoftware\MyFantalega\ServerLega\App_Data\DBMyFantalegaLori.mdf;Integrated Security=True");
                 //ALAN
-                conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Alan\Documents\universita\terzo anno\secondo semestre\progetto\MyFantalega\ServerLega\App_Data\DBMyFantalega.mdf;Integrated Security=True");
+                //conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Alan\Documents\universita\terzo anno\secondo semestre\progetto\MyFantalega\ServerLega\App_Data\DBMyFantalega.mdf;Integrated Security=True");
                 conn.Open();
                 lega.ListaSvincolati.RimuoviGiocatore(giocatore);
                 giocatore.NomeSquadra = squadra.Nome;
                 giocatore.PrezzoAcquisto = offertaFinale;
                 creditiSq =squadra.CreditiResidui - offertaFinale;
                 squadra.CreditiResidui = creditiSq;
+                squadra.AggiungiGiocatore(giocatore);
+                lega.SquadraAdmin.AggiungiGiocatore(giocatore);
+                lega.SquadraAdmin.CreditiResidui = creditiSq;
                 //modifico nel Db la squadra di appartenenza al giocatore e il prezzo d'acquisto
                 SqlCommand updateGiocatore = new SqlCommand("UPDATE Giocatore SET nomeSquadra = '" + squadra.Nome + "' , legaSquadra = '"+lega.NomeLega+"' , prezzoAcquisto = " + giocatore.PrezzoAcquisto + " , lista = NULL WHERE nome = '" + giocatore.Nome + "'", conn);
                 updateGiocatore.ExecuteNonQuery();
@@ -257,33 +260,32 @@ namespace ServerLega.Controller
         private Lega AzioniMock(Lega lega,Squadra squadra)
         {
             int count;
-            Boolean abbandona = false;
             String ruolo;
             ruolo = lega.MercatoAttivo.AstaAttiva.Giocatore.Ruolo;
             if (squadra.VerificaReparto(ruolo, lega))
             {
                 ruolo = "ALTRI";
-                foreach (Squadra s in lega.MercatoAttivo.AstaAttiva.Squadre)
+                count = lega.MercatoAttivo.AstaAttiva.Squadre.Count;
+                for (int i = 0; i < count && lega.MercatoAttivo.AstaAttiva != null; i++)
                 {
-                    abbandona = false;
-                    if (!s.Equals(squadra))
+                    if (!lega.MercatoAttivo.AstaAttiva.Squadre[i].Nome.Equals(squadra.Nome))
                     {
-                        while (abbandona==false)
+                        int result;
+                        Random r = new Random();
+                        result = r.Next(2);
+                        if (result == 0)
                         {
-                            int result;
-                            Random r = new Random();
-                            result = r.Next(2);
-                            if (result == 0)
-                            {
 
-                                lega = AbbandonaMock(s, lega);
-                                abbandona = true;
-                            }
-                            else
-                            {
+                            lega = AbbandonaMock(lega.MercatoAttivo.AstaAttiva.Squadre[i], lega);
+                        }
+                        else
+                        {
 
-                                lega = RialzaMock(s, lega);
-                            }
+                            lega = RialzaMock(lega.MercatoAttivo.AstaAttiva.Squadre[i], lega);
+                        }
+                        if (lega.MercatoAttivo.AstaAttiva != null)
+                        {
+                            count = lega.MercatoAttivo.AstaAttiva.Squadre.Count;
                         }
                     }
                 }
@@ -291,7 +293,7 @@ namespace ServerLega.Controller
             else
             {
                 count = lega.MercatoAttivo.AstaAttiva.Squadre.Count;
-                for (int i=0;i< count && lega.MercatoAttivo.AstaAttiva != null; i++)
+                for (int i = 0; i < count && lega.MercatoAttivo.AstaAttiva != null; i++)
                 {
                     if (!lega.MercatoAttivo.AstaAttiva.Squadre[i].Nome.Equals(squadra.Nome))
                     {
@@ -306,7 +308,7 @@ namespace ServerLega.Controller
                         {
                             lega = RialzaMock(lega.MercatoAttivo.AstaAttiva.Squadre[i], lega);
                         }
-                        if(lega.MercatoAttivo.AstaAttiva != null)
+                        if (lega.MercatoAttivo.AstaAttiva != null)
                         {
                             count = lega.MercatoAttivo.AstaAttiva.Squadre.Count;
                         }

@@ -24,24 +24,24 @@ namespace Client.View
             this.lega = legaPass;
             this.squadra = squadra;
             this.mercato = lega.MercatoAttivo;
-            textBoxCrediti.Text = ""+squadra.CreditiResidui;
+            textBoxCrediti.Text = ""+lega.SquadraAdmin.CreditiResidui;
             buttonCrea.Enabled = false;
             buttonPartecipa.Enabled = false;
             textBoxGiocatore.Enabled = false;
             textBoxCrediti.Enabled = false;
             textBoxOfferta.Enabled = false;
-            if(squadra.Giocatori.Count != 0)
+            if(lega.SquadraAdmin.Giocatori.Count != 0)
             {
-                foreach (Giocatore g in squadra.Giocatori)
+                foreach (Giocatore g in lega.SquadraAdmin.Giocatori)
                 {
-                    listBoxAcquisti.Items.Add(g.Nome + "\t\tACQUISTATO A:" + g.PrezzoAcquisto);
+                    listBoxAcquisti.Items.Add(g.Nome.ToString());
                 }
             }
           
             if(lega.MercatoAttivo.AstaAttiva != null)
             {
                 textBoxGiocatore.Text = lega.MercatoAttivo.AstaAttiva.Giocatore.Nome;
-                textBoxOfferta.Text = ""+lega.MercatoAttivo.AstaAttiva.UltimaOfferta;
+                textBoxOfferta.Text = "" +lega.MercatoAttivo.AstaAttiva.UltimaOfferta;
             }
 
             ServerLegaSoapClient myGestioneAdminController = new ServerLegaSoapClient();

@@ -16,9 +16,10 @@ namespace Client.View
         Mercato mercato;
         Squadra squadra;
         Lega lega;
-        public GestioneMercato(Lega lega, Squadra squadra)
+        public GestioneMercato(Lega legaPass, Squadra squadra)
         {
             InitializeComponent();
+            this.lega = legaPass;
             mercato = lega.MercatoAttivo;
             this.squadra = squadra;
             buttonVisualizzaReport.Enabled = false;
@@ -30,11 +31,13 @@ namespace Client.View
             textBox5.Enabled = false;
             textBox6.Enabled = false;
             textBox7.Enabled = false;
+            
             foreach ( Squadra s in mercato.Squadre)
             {
                 comboBox1.Items.Add(s.Nome);
             }
             
+
         }
 
        private void buttonIndietro_Click(object sender, EventArgs e)
@@ -97,6 +100,7 @@ namespace Client.View
                 {
                     MessageBox.Show("Mercato chiuso correttamente");
                     lega = result;
+                    this.Hide();
                     new HomeLegaAdmin(lega).Show();
                 }
                 else

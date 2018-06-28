@@ -23,13 +23,9 @@ namespace ServerLega.Controller
         public Lega ChiudiMercato(Mercato mercato,Lega lega)
         {
             lega.MercatoAttivo = null;
-            if (lega.MercatoAttivo.Equals(null)) {
-                return lega;
-            }
-            else
-            {
-                return null;
-            }         
+            return lega;
+            
+              
         }
     }
 }

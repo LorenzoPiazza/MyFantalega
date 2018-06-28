@@ -34,7 +34,6 @@ namespace Client.View
             this.cambioPassButton = new System.Windows.Forms.Button();
             this.creazioneLegaButton = new System.Windows.Forms.Button();
             this.indietroButton = new System.Windows.Forms.Button();
-            this.textBoxBenvenuto = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.buttonAccedi = new System.Windows.Forms.Button();
             this.groupBoxLeghe = new System.Windows.Forms.GroupBox();
@@ -71,19 +70,6 @@ namespace Client.View
             this.indietroButton.Text = "Logout";
             this.indietroButton.UseVisualStyleBackColor = true;
             this.indietroButton.Click += new System.EventHandler(this.indietroButton_Click);
-            // 
-            // textBoxBenvenuto
-            // 
-            this.textBoxBenvenuto.BackColor = System.Drawing.SystemColors.Window;
-            this.textBoxBenvenuto.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxBenvenuto.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxBenvenuto.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.textBoxBenvenuto.Location = new System.Drawing.Point(552, 34);
-            this.textBoxBenvenuto.Name = "textBoxBenvenuto";
-            this.textBoxBenvenuto.ReadOnly = true;
-            this.textBoxBenvenuto.Size = new System.Drawing.Size(213, 15);
-            this.textBoxBenvenuto.TabIndex = 35;
-            this.textBoxBenvenuto.TextChanged += new System.EventHandler(this.textBoxBenvenuto_TextChanged);
             // 
             // label2
             // 
@@ -142,7 +128,6 @@ namespace Client.View
             this.Controls.Add(this.buttonAccedi);
             this.Controls.Add(this.groupBoxLeghe);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBoxBenvenuto);
             this.Controls.Add(this.indietroButton);
             this.Controls.Add(this.cambioPassButton);
             this.Controls.Add(this.creazioneLegaButton);
@@ -161,7 +146,6 @@ namespace Client.View
         private System.Windows.Forms.Button cambioPassButton;
         private System.Windows.Forms.Button creazioneLegaButton;
         private System.Windows.Forms.Button indietroButton;
-        private System.Windows.Forms.TextBox textBoxBenvenuto;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button buttonAccedi;
         private System.Windows.Forms.GroupBox groupBoxLeghe;

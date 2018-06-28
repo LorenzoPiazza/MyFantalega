@@ -1,4 +1,4 @@
-﻿lollo:12345678:lollo96.piazza@gmail.com:Il nome del tuo migliore amico d'infanzia?:Luca
-zio:aaaaaaaa:zio@gmail.com:Il nome del tuo migliore amico d'infanzia?:Matteo
-joio:12345678:jacopo@hotmail.it:Il nome del tuo migliore amico d'infanzia?:lollo
-aland96:12345678:alan@gmail.com:Il nome del tuo migliore amico d'infanzia?:Paolo
+﻿pippo:12345678:prova@gmail.com:Il nome del tuo migliore amico d'infanzia?:Paolo
+matteo:12345678:pippo@gmail.com:Il nome del tuo migliore amico d'infanzia?:Matteo
+mamma:00000000:mamma@gmail.com:Il nome del tuo migliore amico d'infanzia?:Matteo
+lollo:12345678:lollo96@gmail.com:Il nome del tuo migliore amico d'infanzia?:Matteo

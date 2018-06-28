@@ -23,12 +23,12 @@ namespace Client.View
             InitializeComponent();
             _utenteNav = utente;
             buttonAccedi.Enabled = false;
+            cambioPassButton.Enabled = false;
         }
 
 
         private void WelcomeHome_Load(object sender, EventArgs e)
         {
-           textBoxBenvenuto.Text = "Benvenuto " + _utenteNav.Email;
            Client.ServerLega.ServerLegaSoapClient myGestioneUtenteController = new Client.ServerLega.ServerLegaSoapClient();
 
             mieLeghe = myGestioneUtenteController.GetLeghe(_utenteNav);
@@ -45,7 +45,6 @@ namespace Client.View
                 foreach (Lega l in mieLeghe)
                 {
                     comboBoxLeghe.Items.Add(l.NomeLega);
-                    comboBoxLeghe.SelectedText = l.NomeLega;
                 }
             }
         }
